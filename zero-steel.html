@@ -1524,11 +1524,190 @@
             openModal('reportsModal');
         }
         
+        // Process stage details data
+        const processDetails = {
+            'Iron Ore Mining': {
+                icon: '⛏️',
+                emission: '0.12 tCO₂/t',
+                description: 'Iron ore extraction and transportation',
+                details: [
+                    { label: 'Mining Method', value: 'Open-pit mining' },
+                    { label: 'Ore Grade', value: '65% Fe content' },
+                    { label: 'Transport Distance', value: '450 km by rail' },
+                    { label: 'Annual Volume', value: '3.8M tons ore' }
+                ],
+                breakdown: [
+                    { source: 'Diesel equipment', co2: '0.05 tCO₂/t', percent: 42 },
+                    { source: 'Transportation', co2: '0.04 tCO₂/t', percent: 33 },
+                    { source: 'Processing', co2: '0.03 tCO₂/t', percent: 25 }
+                ],
+                improvements: [
+                    { action: 'Electric mining vehicles', saving: '-0.03 tCO₂/t', status: 'planned' },
+                    { action: 'Local ore sourcing', saving: '-0.02 tCO₂/t', status: 'evaluating' }
+                ]
+            },
+            'Blast Furnace': {
+                icon: '🔥',
+                emission: '1.80 tCO₂/t',
+                description: 'Primary iron production using coke and limestone',
+                details: [
+                    { label: 'Temperature', value: '1,200-1,600°C' },
+                    { label: 'Coke Consumption', value: '450 kg/t' },
+                    { label: 'Capacity', value: '2,400 tons/day' },
+                    { label: 'Iron Output', value: '95% purity' }
+                ],
+                breakdown: [
+                    { source: 'Coke combustion', co2: '1.45 tCO₂/t', percent: 81 },
+                    { source: 'Limestone calcination', co2: '0.25 tCO₂/t', percent: 14 },
+                    { source: 'Energy consumption', co2: '0.10 tCO₂/t', percent: 5 }
+                ],
+                improvements: [
+                    { action: 'Hydrogen injection (10%)', saving: '-0.18 tCO₂/t', status: 'pilot' },
+                    { action: 'Top gas recycling', saving: '-0.12 tCO₂/t', status: 'implemented' },
+                    { action: 'Bio-coke blend (15%)', saving: '-0.08 tCO₂/t', status: 'testing' }
+                ]
+            },
+            'Basic Oxygen': {
+                icon: '⚗️',
+                emission: '0.08 tCO₂/t',
+                description: 'Steel refining process removing impurities',
+                details: [
+                    { label: 'Temperature', value: '1,650°C' },
+                    { label: 'Oxygen Flow', value: '50,000 Nm³/h' },
+                    { label: 'Cycle Time', value: '40 minutes' },
+                    { label: 'Scrap Addition', value: '15-25%' }
+                ],
+                breakdown: [
+                    { source: 'Carbon oxidation', co2: '0.05 tCO₂/t', percent: 62 },
+                    { source: 'Flux materials', co2: '0.02 tCO₂/t', percent: 25 },
+                    { source: 'Energy', co2: '0.01 tCO₂/t', percent: 13 }
+                ],
+                improvements: [
+                    { action: 'Increased scrap usage', saving: '-0.02 tCO₂/t', status: 'ongoing' },
+                    { action: 'Off-gas capture (CCUS)', saving: '-0.03 tCO₂/t', status: 'planned' }
+                ]
+            },
+            'Continuous Cast': {
+                icon: '🔨',
+                emission: '0.05 tCO₂/t',
+                description: 'Molten steel solidification into slabs',
+                details: [
+                    { label: 'Casting Speed', value: '1.2 m/min' },
+                    { label: 'Slab Thickness', value: '220 mm' },
+                    { label: 'Water Cooling', value: '25,000 L/min' },
+                    { label: 'Yield Rate', value: '98.5%' }
+                ],
+                breakdown: [
+                    { source: 'Heating/reheating', co2: '0.03 tCO₂/t', percent: 60 },
+                    { source: 'Equipment power', co2: '0.02 tCO₂/t', percent: 40 }
+                ],
+                improvements: [
+                    { action: 'Waste heat recovery', saving: '-0.01 tCO₂/t', status: 'implemented' },
+                    { action: 'Direct rolling', saving: '-0.02 tCO₂/t', status: 'planned' }
+                ]
+            },
+            'Rolling Mill': {
+                icon: '🏗️',
+                emission: '0.15 tCO₂/t',
+                description: 'Shaping steel into final products',
+                details: [
+                    { label: 'Mill Type', value: 'Hot rolling' },
+                    { label: 'Temperature', value: '1,100-1,250°C' },
+                    { label: 'Reduction Ratio', value: '90%' },
+                    { label: 'Line Speed', value: '15 m/s' }
+                ],
+                breakdown: [
+                    { source: 'Reheating furnace', co2: '0.09 tCO₂/t', percent: 60 },
+                    { source: 'Mill motors', co2: '0.04 tCO₂/t', percent: 27 },
+                    { source: 'Auxiliary systems', co2: '0.02 tCO₂/t', percent: 13 }
+                ],
+                improvements: [
+                    { action: 'Furnace efficiency upgrade', saving: '-0.03 tCO₂/t', status: 'planned' },
+                    { action: 'Variable speed drives', saving: '-0.01 tCO₂/t', status: 'implemented' }
+                ]
+            }
+        };
+        
+        function openProcessDetail(stageName) {
+            const details = processDetails[stageName];
+            if (!details) return;
+            
+            const modalHTML = `
+                <div id="processDetailModal" class="modal active" onclick="if(event.target===this) closeModal('processDetailModal')">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2 class="modal-title">${details.icon} ${stageName}</h2>
+                            <button class="modal-close" onclick="closeModal('processDetailModal')">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p style="margin-bottom: var(--zero-space-md); color: var(--zero-gray-dark);">${details.description}</p>
+                            
+                            <div class="stat-card" style="margin-bottom: var(--zero-space-md); border-left: 4px solid var(--zero-orange);">
+                                <div class="stat-label">Total CO₂ Emissions</div>
+                                <div class="stat-value orange">${details.emission}</div>
+                            </div>
+                            
+                            <h3 style="margin-bottom: var(--zero-space-sm); color: var(--zero-navy);">Process Parameters</h3>
+                            <div class="furnace-details" style="margin-bottom: var(--zero-space-md);">
+                                ${details.details.map(d => `
+                                    <div class="detail-item">
+                                        <div class="detail-label">${d.label}</div>
+                                        <div class="detail-value">${d.value}</div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <h3 style="margin-bottom: var(--zero-space-sm); color: var(--zero-navy);">Emission Breakdown</h3>
+                            <div style="margin-bottom: var(--zero-space-md);">
+                                ${details.breakdown.map(b => `
+                                    <div style="margin-bottom: var(--zero-space-xs);">
+                                        <div style="display: flex; justify-content: space-between; font-size: 0.875rem; margin-bottom: 0.25rem;">
+                                            <span>${b.source}</span>
+                                            <span><strong>${b.co2}</strong> (${b.percent}%)</span>
+                                        </div>
+                                        <div style="width: 100%; height: 6px; background: var(--zero-gray-light); border-radius: 3px; overflow: hidden;">
+                                            <div style="width: ${b.percent}%; height: 100%; background: var(--zero-orange);"></div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            
+                            <h3 style="margin-bottom: var(--zero-space-sm); color: var(--zero-navy);">Improvement Opportunities</h3>
+                            <div>
+                                ${details.improvements.map(imp => `
+                                    <div class="detail-item" style="background: ${imp.status === 'implemented' ? 'rgba(0, 85, 48, 0.1)' : 'rgba(249, 186, 0, 0.1)'}; border-left: 3px solid ${imp.status === 'implemented' ? 'var(--zero-green)' : 'var(--zero-orange)'};">
+                                        <div style="display: flex; justify-content: space-between; align-items: start;">
+                                            <div>
+                                                <div class="detail-label">${imp.status === 'implemented' ? '✓' : '⏳'} ${imp.action}</div>
+                                                <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 0.25rem; text-transform: capitalize;">
+                                                    Status: ${imp.status}
+                                                </div>
+                                            </div>
+                                            <div class="detail-value" style="color: var(--zero-green); white-space: nowrap; margin-left: var(--zero-space-sm);">
+                                                ${imp.saving}
+                                            </div>
+                                        </div>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            
+            // Remove any existing process detail modal
+            const existing = document.getElementById('processDetailModal');
+            if (existing) existing.remove();
+            
+            // Add new modal
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+        
         document.querySelectorAll('.process-stage').forEach(stage => {
+            stage.style.cursor = 'pointer';
             stage.addEventListener('click', function() {
                 const stageName = this.querySelector('.stage-name').textContent;
-                const emission = this.querySelector('.stage-emission').textContent;
-                alert(`📍 ${stageName}\n\nEmissions: ${emission}\n\nClick for detailed process analysis...`);
+                openProcessDetail(stageName);
             });
         });
         
