@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero@Ecosystem — Digital Product Passport System</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 
 ```
@@ -1149,6 +1150,26 @@
 </div>
 
 <script>
+    // Supabase Configuration
+    const SUPABASE_URL = localStorage.getItem('SUPABASE_URL') || 'DEMO_MODE';
+    const SUPABASE_KEY = localStorage.getItem('SUPABASE_KEY') || 'DEMO_MODE';
+    
+    let supabase = null;
+    let useDemoData = true;
+    
+    // Initialize Supabase if configured
+    if (SUPABASE_URL !== 'DEMO_MODE' && SUPABASE_KEY !== 'DEMO_MODE') {
+        try {
+            supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+            useDemoData = false;
+            console.log('✅ Zero@Production connected to Supabase');
+        } catch(e) {
+            console.warn('Supabase initialization failed, using demo data');
+        }
+    } else {
+        console.log('📊 Zero@Production using demo data mode');
+    }
+    
     // CSV Data - 50 Demo Orders from Zero@Ecosystem Production System
     const ordersData = [
         {id: 50, country: "Turkey", facility: "Zero@Ecosystem Factory A", po: "PO-22488", style: "ROYAL-BLZ", product: "Denim bucket hat", fabricType: "Denim", fabricName: "RD5476", construction: "Denim", gsm: 450, quantity: 10795, date: "2023-11-29"},
@@ -1612,9 +1633,64 @@
         }
     }
 
-    // Initialize
-    document.addEventListener('DOMContentLoaded', function() {
+    // Load production data from Supabase
+    async function loadProductionData() {
+        if (useDemoData) {
+            return ordersData; // Use demo data
+        }
+        
         try {
+            const { data, error } = await supabase
+                .from('production_orders')
+                .select('*')
+                .order('order_date', { ascending: false })
+                .limit(150);
+            
+            if (error) throw error;
+            
+            if (data && data.length > 0) {
+                console.log(`✅ Loaded ${data.length} production orders from Supabase`);
+                // Transform Supabase data to match ordersData format
+                return data.map(order => ({
+                    id: order.order_id,
+                    country: order.customer_name || 'Unknown',
+                    facility: 'Zero@Ecosystem Factory A',
+                    po: order.order_id,
+                    style: order.garment_type,
+                    product: order.garment_type,
+                    fabricType: order.fabric_type,
+                    fabricName: order.fabric_type,
+                    construction: order.fabric_type,
+                    gsm: 200,
+                    quantity: order.quantity,
+                    date: order.order_date,
+                    status: order.status,
+                    currentStage: order.current_stage_name,
+                    progress: order.progress_percentage,
+                    co2: order.total_co2_kg
+                }));
+            }
+            
+            return ordersData; // Fallback to demo data
+        } catch(e) {
+            console.warn('Failed to load production data:', e);
+            return ordersData; // Fallback to demo data
+        }
+    }
+    
+    // Initialize
+    document.addEventListener('DOMContentLoaded', async function() {
+        try {
+            // Load data (from Supabase or demo)
+            const loadedOrders = await loadProductionData();
+            
+            // If we loaded new data, update ordersData
+            if (!useDemoData && loadedOrders.length > 0) {
+                // Update the orders array
+                ordersData.length = 0;
+                ordersData.push(...loadedOrders);
+            }
+            
             const yarnStats = getStageStats('Yarn');
             const fabricStats = getStageStats('Fabric');
             const finishingStats = getStageStats('Finishing');
@@ -1632,6 +1708,19 @@
             setTimeout(() => {
                 initCharts();
             }, 100);
+            
+            // Auto-refresh if using real data
+            if (!useDemoData) {
+                setInterval(async () => {
+                    const refreshedOrders = await loadProductionData();
+                    if (refreshedOrders.length > 0) {
+                        ordersData.length = 0;
+                        ordersData.push(...refreshedOrders);
+                        // Refresh stats
+                        location.reload(); // Simple refresh for now
+                    }
+                }, 60000); // Refresh every minute
+            }
             
         } catch(e) {
             console.error('Initialization error:', e);
