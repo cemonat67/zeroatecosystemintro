@@ -505,6 +505,76 @@
                 transform: rotate(90deg);
             }
         }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(4px);
+        }
+        
+        .modal.active {
+            display: flex;
+        }
+        
+        .modal-content {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            max-width: 900px;
+            max-height: 85vh;
+            width: 90%;
+            overflow-y: auto;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        .modal-header {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+            padding: var(--zero-space-md);
+            border-radius: var(--zero-radius-lg) var(--zero-radius-lg) 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+        
+        .modal-close {
+            background: transparent;
+            border: none;
+            color: var(--zero-white);
+            font-size: 2rem;
+            cursor: pointer;
+            padding: 0;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: rotate(90deg);
+        }
+        
+        .modal-body {
+            padding: var(--zero-space-md);
+        }
     </style>
 </head>
 <body>
@@ -1142,6 +1212,197 @@
         </div>
     </main>
     
+    <!-- Furnace Monitoring Modal -->
+    <div id="furnaceModal" class="modal" onclick="if(event.target===this) closeModal('furnaceModal')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">🔥 Live Furnace Monitoring</h2>
+                <button class="modal-close" onclick="closeModal('furnaceModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="furnace-grid">
+                    <div class="furnace-card running">
+                        <div class="furnace-header">
+                            <div>
+                                <div class="furnace-name">Blast Furnace Alpha</div>
+                                <div class="furnace-type">BF-BOF Route</div>
+                            </div>
+                            <span class="status-badge running">Running</span>
+                        </div>
+                        <div class="furnace-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Temperature</div>
+                                <div class="detail-value">1,645°C</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Load</div>
+                                <div class="detail-value">2,125 tons</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">CO₂ Rate</div>
+                                <div class="detail-value">4,687 kg/h</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Power</div>
+                                <div class="detail-value">12.5 MW</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="furnace-card running">
+                        <div class="furnace-header">
+                            <div>
+                                <div class="furnace-name">Blast Furnace Beta</div>
+                                <div class="furnace-type">BF-BOF Route</div>
+                            </div>
+                            <span class="status-badge running">Running</span>
+                        </div>
+                        <div class="furnace-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Temperature</div>
+                                <div class="detail-value">1,638°C</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Load</div>
+                                <div class="detail-value">2,087 tons</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">CO₂ Rate</div>
+                                <div class="detail-value">4,602 kg/h</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Power</div>
+                                <div class="detail-value">12.1 MW</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="furnace-card running">
+                        <div class="furnace-header">
+                            <div>
+                                <div class="furnace-name">Electric Arc Gamma</div>
+                                <div class="furnace-type">EAF Route</div>
+                            </div>
+                            <span class="status-badge running">Running</span>
+                        </div>
+                        <div class="furnace-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Temperature</div>
+                                <div class="detail-value">1,798°C</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Load</div>
+                                <div class="detail-value">128 tons</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">CO₂ Rate</div>
+                                <div class="detail-value">70 kg/h</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Power</div>
+                                <div class="detail-value">5.8 MW</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="furnace-card maintenance">
+                        <div class="furnace-header">
+                            <div>
+                                <div class="furnace-name">Electric Arc Delta</div>
+                                <div class="furnace-type">EAF Route</div>
+                            </div>
+                            <span class="status-badge maintenance">Maintenance</span>
+                        </div>
+                        <div class="furnace-details">
+                            <div class="detail-item">
+                                <div class="detail-label">Status</div>
+                                <div class="detail-value">Scheduled Maintenance</div>
+                            </div>
+                            <div class="detail-item">
+                                <div class="detail-label">Completion</div>
+                                <div class="detail-value">18:00 Today</div>
+                            </div>
+                            <div class="detail-item" style="grid-column: 1 / -1;">
+                                <div class="detail-label">Notes</div>
+                                <div class="detail-value" style="font-size: 0.875rem;">Refractory lining repair</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Quick Modals for other buttons -->
+    <div id="optimizeModal" class="modal" onclick="if(event.target===this) closeModal('optimizeModal')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">⚙️ AI Process Optimization</h2>
+                <button class="modal-close" onclick="closeModal('optimizeModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom: var(--zero-space-md);">AI-powered recommendations for process efficiency and emissions reduction.</p>
+                <div class="stat-card" style="background: rgba(0, 85, 48, 0.1); border-left: 4px solid var(--zero-green);">
+                    <div class="stat-label">✓ Active Recommendations</div>
+                    <div class="stat-value green">4</div>
+                    <div class="stat-subtitle">Potential savings: 165 kg CO₂/hour</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="scrapModal" class="modal" onclick="if(event.target===this) closeModal('scrapModal')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">♻️ Scrap Steel Inventory</h2>
+                <button class="modal-close" onclick="closeModal('scrapModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--zero-space-sm); margin-bottom: var(--zero-space-md);">
+                    <div class="stat-card">
+                        <div class="stat-label">Inventory</div>
+                        <div class="stat-value">24,500 t</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Grade A</div>
+                        <div class="stat-value green">18,200 t</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Grade B</div>
+                        <div class="stat-value orange">6,300 t</div>
+                    </div>
+                </div>
+                <p>Current scrap utilization: <strong>22%</strong> (Target: 30%)</p>
+            </div>
+        </div>
+    </div>
+    
+    <div id="reportsModal" class="modal" onclick="if(event.target===this) closeModal('reportsModal')">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">📊 Production Reports</h2>
+                <button class="modal-close" onclick="closeModal('reportsModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <h3 style="margin-bottom: var(--zero-space-sm); color: var(--zero-navy);">November 2025 Summary</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--zero-space-sm);">
+                    <div class="stat-card">
+                        <div class="stat-label">Production</div>
+                        <div class="stat-value">198,500 t</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">CO₂ Emissions</div>
+                        <div class="stat-value orange">326,200 t</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-label">Energy</div>
+                        <div class="stat-value">112,400 MWh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script>
         // Supabase Configuration
         const SUPABASE_URL = localStorage.getItem('SUPABASE_URL') || 'DEMO_MODE';
@@ -1237,20 +1498,30 @@
             event.target.classList.add('active');
         }
         
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+        
         function monitorFurnaces() {
-            alert('Real-time furnace monitoring dashboard opening...');
+            openModal('furnaceModal');
         }
         
         function optimizeProcess() {
-            alert('Process optimization AI assistant opening...');
+            openModal('optimizeModal');
         }
         
         function scrapManagement() {
-            alert('Scrap steel inventory and quality management opening...');
+            openModal('scrapModal');
         }
         
         function showReports() {
-            alert('Steel production and emissions reports opening...');
+            openModal('reportsModal');
         }
         
         document.querySelectorAll('.process-stage').forEach(stage => {
