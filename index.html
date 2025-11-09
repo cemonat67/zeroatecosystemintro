@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Ecosystem - Carbon Intelligence for Every Industry</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+```
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: #ffffff;
+        color: #1a1a1a;
+        overflow-x: hidden;
+        line-height: 1.6;
+    }
+
+    /* Animated background subtle gradient */
+    .hero::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(135deg, 
+            rgba(0, 85, 48, 0.03) 0%, 
+            rgba(255, 255, 255, 1) 50%,
+            rgba(2, 21, 78, 0.03) 100%);
+        z-index: 0;
+    }
+
+    /* Hero Section */
+    .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 2rem;
+    }
+
+    .hero-content {
+        position: relative;
+        z-index: 1;
+    }
+
+    .hero-logo {
+        font-size: 5rem;
+        font-weight: 200;
+        letter-spacing: -3px;
+        margin-bottom: 1rem;
+        color: #02154e;
+    }
+
+    .hero-logo span {
+        color: #f9ba00;
+        font-weight: 300;
+    }
+
+    .hero-tagline {
+        font-size: 2.5rem;
+        font-weight: 300;
+        letter-spacing: -1px;
+        margin-bottom: 1.5rem;
+        max-width: 900px;
+        color: #1a1a1a;
+    }
+
+    .hero-subtitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: #666666;
+        max-width: 700px;
+        margin: 0 auto 3rem;
+        line-height: 1.8;
+    }
+
+    /* Minimalist button */
+    .cta-button {
+        display: inline-block;
+        padding: 1rem 3rem;
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #ffffff;
+        background: #02154e;
+        border: 2px solid #02154e;
+        border-radius: 4px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        margin: 0 0.5rem;
+    }
+
+    .cta-button:hover {
+        background: #f9ba00;
+        border-color: #f9ba00;
+        color: #02154e;
+        transform: translateY(-2px);
+    }
+
+    .cta-button-outline {
+        background: transparent;
+        color: #02154e;
+        border: 2px solid #02154e;
+    }
+
+    .cta-button-outline:hover {
+        background: #02154e;
+        color: #ffffff;
+    }
+
+    /* Stats Section */
+    .stats {
+        display: flex;
+        gap: 4rem;
+        margin-top: 5rem;
+        flex-wrap: wrap;
+        justify-content: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    .stat {
+        text-align: center;
+    }
+
+    .stat-number {
+        font-size: 3.5rem;
+        font-weight: 200;
+        color: #02154e;
+        display: block;
+        letter-spacing: -2px;
+    }
+
+    .stat-label {
+        font-size: 0.9rem;
+        font-weight: 400;
+        color: #666666;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        margin-top: 0.5rem;
+    }
+
+    /* Products Section */
+    .products-section {
+        padding: 8rem 2rem;
+        background: #fafafa;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        font-weight: 200;
+        text-align: center;
+        margin-bottom: 1rem;
+        letter-spacing: -2px;
+        color: #02154e;
+    }
+
+    .section-subtitle {
+        font-size: 1.25rem;
+        font-weight: 300;
+        text-align: center;
+        color: #666666;
+        margin-bottom: 5rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        max-width: 1400px;
+        margin: 0 auto;
+    }
+
+    .product-card {
+        background: #ffffff;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 2.5rem 2rem;
+        transition: all 0.3s ease;
+        position: relative;
+        cursor: pointer;
+        display: block;
+    }
+
+    .product-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: #f9ba00;
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+        border-color: #f9ba00;
+    }
+
+    .product-card:hover::after {
+        transform: scaleX(1);
+    }
+
+    .product-logo {
+        width: 100%;
+        height: 180px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        background: #02154e;
+        border-radius: 6px;
+        padding: 2rem;
+    }
+
+    .product-logo-text {
+        font-size: 2rem;
+        font-weight: 300;
+        color: #ffffff;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .product-logo-text .at-symbol {
+        color: #f9ba00;
+    }
+
+    .product-logo-subtitle {
+        font-size: 0.9rem;
+        font-weight: 300;
+        color: #ffffff;
+        margin-top: 0.5rem;
+        opacity: 0.9;
+    }
+
+    .product-logo-divider {
+        width: 80%;
+        height: 3px;
+        background: #f9ba00;
+        margin: 0.75rem auto;
+    }
+
+    .product-name {
+        font-size: 1.75rem;
+        font-weight: 400;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.5px;
+        color: #02154e;
+    }
+
+    .product-at {
+        color: #f9ba00;
+    }
+
+    .product-description {
+        font-size: 0.95rem;
+        color: #666666;
+        line-height: 1.6;
+    }
+
+    .product-status {
+        display: inline-block;
+        margin-top: 1rem;
+        padding: 0.25rem 0.75rem;
+        font-size: 0.75rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        border-radius: 4px;
+        background: rgba(0, 85, 48, 0.1);
+        color: #005530;
+        border: 1px solid #005530;
+    }
+
+    .product-status-coming {
+        background: rgba(158, 158, 158, 0.1);
+        color: #666666;
+        border: 1px solid #9E9E9E;
+        font-size: 0.9rem;
+        font-weight: 300;
+        letter-spacing: 2px;
+    }
+
+    /* Vision Section */
+    .vision-section {
+        padding: 8rem 2rem;
+        text-align: center;
+        background: #ffffff;
+    }
+
+    .vision-quote {
+        font-size: 2.5rem;
+        font-weight: 200;
+        line-height: 1.5;
+        max-width: 1000px;
+        margin: 0 auto 2rem;
+        font-style: italic;
+        color: #1a1a1a;
+        letter-spacing: -1px;
+    }
+
+    .vision-author {
+        font-size: 1.25rem;
+        font-weight: 300;
+        color: #666666;
+    }
+
+    /* Features Section */
+    .features-section {
+        padding: 8rem 2rem;
+        background: #fafafa;
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 4rem;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .feature {
+        text-align: center;
+    }
+
+    .feature-number {
+        font-size: 5rem;
+        font-weight: 200;
+        color: #f9ba00;
+        opacity: 0.3;
+        display: block;
+        margin-bottom: 1rem;
+        letter-spacing: -3px;
+    }
+
+    .feature-title {
+        font-size: 1.5rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        color: #02154e;
+    }
+
+    .feature-description {
+        font-size: 1rem;
+        color: #666666;
+        line-height: 1.6;
+    }
+
+    /* CTA Section */
+    .cta-section {
+        padding: 8rem 2rem;
+        text-align: center;
+        background: #ffffff;
+    }
+
+    .cta-title {
+        font-size: 3rem;
+        font-weight: 200;
+        margin-bottom: 2rem;
+        color: #02154e;
+        letter-spacing: -2px;
+    }
+
+    .cta-buttons {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    /* Footer */
+    footer {
+        padding: 3rem 2rem;
+        text-align: center;
+        border-top: 1px solid #e0e0e0;
+        background: #fafafa;
+    }
+
+    .footer-text {
+        font-size: 0.9rem;
+        color: #666666;
+    }
+
+    .footer-accent {
+        color: #02154e;
+        font-weight: 500;
+    }
+
+    /* Color indicators */
+    .color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            #005530 0%, 
+            #005530 25%, 
+            #D51635 25%, 
+            #D51635 50%, 
+            #02154e 50%, 
+            #02154e 75%, 
+            #f9ba00 75%, 
+            #f9ba00 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1000;
+    }
+
+    /* About Section */
+    .about-section {
+        padding: 8rem 2rem;
+        background: #ffffff;
+    }
+
+    .about-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .about-icon {
+        font-size: 3rem;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    .about-text {
+        font-size: 1.2rem;
+        line-height: 1.8;
+        color: #1a1a1a;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+    }
+
+    /* Mission Section */
+    .mission-section {
+        padding: 8rem 2rem;
+        background: #fafafa;
+    }
+
+    .mission-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .mission-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 4rem;
+        margin-top: 3rem;
+    }
+
+    .mission-item h3 {
+        font-size: 1.5rem;
+        color: #02154e;
+        margin-bottom: 1rem;
+        font-weight: 400;
+    }
+
+    .mission-item p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: #666666;
+        font-weight: 300;
+    }
+
+    /* Technology Section */
+    .technology-section {
+        padding: 8rem 2rem;
+        background: linear-gradient(135deg, rgba(2,21,78,0.05) 0%, rgba(255,255,255,1) 100%);
+    }
+
+    .technology-content {
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .tech-card {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 8px;
+        border: 1px solid #e0e0e0;
+        transition: all 0.3s ease;
+    }
+
+    .tech-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        border-color: #f9ba00;
+    }
+
+    .tech-card h3 {
+        font-size: 1.3rem;
+        color: #02154e;
+        margin-bottom: 1rem;
+        font-weight: 500;
+    }
+
+    .tech-card p {
+        font-size: 1rem;
+        line-height: 1.7;
+        color: #666666;
+        font-weight: 300;
+    }
+
+    /* Why Section */
+    .why-section {
+        padding: 8rem 2rem;
+        background: #02154e;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .why-content {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+
+    .why-section .section-title {
+        color: #ffffff;
+    }
+
+    .why-text {
+        font-size: 1.3rem;
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+        font-weight: 300;
+    }
+
+    .why-highlight {
+        color: #f9ba00;
+        font-weight: 400;
+    }
+
+    /* Contact Section */
+    .contact-section {
+        padding: 8rem 2rem;
+        background: #fafafa;
+    }
+
+    .contact-content {
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+    }
+
+    .contact-item {
+        padding: 1.5rem;
+    }
+
+    .contact-item h3 {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: #666666;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .contact-item p,
+    .contact-item a {
+        font-size: 1.1rem;
+        color: #02154e;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+    .contact-item a:hover {
+        color: #f9ba00;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .hero-logo {
+            font-size: 3rem;
+        }
+
+        .hero-tagline {
+            font-size: 1.75rem;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+        }
+
+        .mission-grid,
+        .tech-grid,
+        .contact-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .about-text,
+        .why-text {
+            font-size: 1rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+        }
+
+        .vision-quote {
+            font-size: 1.5rem;
+        }
+
+        .stats {
+            gap: 2rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .cta-button {
+            width: 100%;
+            max-width: 300px;
+            margin: 0.5rem 0;
+        }
+
+        .feature-number {
+            font-size: 3.5rem;
+        }
+    }
+
+    /* Smooth scroll */
+    html {
+        scroll-behavior: smooth;
+    }
+
+    /* Subtle animations */
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-content > * {
+        animation: fadeInUp 0.8s ease-out backwards;
+    }
+
+    .hero-logo {
+        animation-delay: 0.1s;
+    }
+
+    .hero-tagline {
+        animation-delay: 0.2s;
+    }
+
+    .hero-subtitle {
+        animation-delay: 0.3s;
+    }
+
+    .cta-button {
+        animation-delay: 0.4s;
+    }
+
+    .stats {
+        animation-delay: 0.5s;
+    }
+</style>
+```
+
+</head>
+<body>
+    <!-- Color Bar -->
+    <div class="color-bar"></div>
+
+```
+<!-- Hero Section -->
+<section class="hero">
+    <div class="hero-content">
+        <h1 class="hero-logo">Zero<span>@</span>Ecosystem</h1>
+        <h2 class="hero-tagline">Carbon Intelligence for Every Industry</h2>
+        <p class="hero-subtitle">
+            One vision. Thirteen specialized solutions. Complete carbon neutrality by 2030.
+        </p>
+        <div>
+            <a href="#products" class="cta-button">Explore the Ecosystem</a>
+            <a href="#about" class="cta-button cta-button-outline">Learn More</a>
+            <a href="contact.html" class="cta-button cta-button-outline">Get in Touch</a>
+        </div>
+
+        <div class="stats">
+            <div class="stat">
+                <span class="stat-number">13</span>
+                <span class="stat-label">Industries</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">90%</span>
+                <span class="stat-label">Ready</span>
+            </div>
+            <div class="stat">
+                <span class="stat-number">2030</span>
+                <span class="stat-label">Target</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Vision Section -->
+<section class="vision-section">
+    <blockquote class="vision-quote">
+        "Innovation distinguishes between a leader and a follower. 
+        We're not just measuring carbon — we're eliminating it."
+    </blockquote>
+    <p class="vision-author">Zero@Ecosystem Philosophy</p>
+</section>
+
+<!-- Features Section -->
+<section class="features-section">
+    <h2 class="section-title">Why Different Matters</h2>
+    <p class="section-subtitle">
+        While others offer generic solutions, we provide laser-focused intelligence for your specific industry.
+    </p>
+
+    <div class="features-grid">
+        <div class="feature">
+            <span class="feature-number">01</span>
+            <h3 class="feature-title">Industry-Specific Depth</h3>
+            <p class="feature-description">
+                Not one-size-fits-all. Each Zero@ product is engineered for your industry's unique challenges.
+            </p>
+        </div>
+
+        <div class="feature">
+            <span class="feature-number">02</span>
+            <h3 class="feature-title">Real-Time Intelligence</h3>
+            <p class="feature-description">
+                30-second refresh cycles. Live alerts. Instant visibility into every molecule of CO₂.
+            </p>
+        </div>
+
+        <div class="feature">
+            <span class="feature-number">03</span>
+            <h3 class="feature-title">Automated Compliance</h3>
+            <p class="feature-description">
+                EU Green Deal 2030, ISO 14064-1, GHG Protocol. Full regulatory compliance on autopilot.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Products Section -->
+<section class="products-section" id="products">
+    <h2 class="section-title">The Ecosystem</h2>
+    <p class="section-subtitle">
+        Thirteen specialized products. One unified vision. Complete carbon transparency across your entire operation.
+    </p>
+
+    <div class="products-grid">
+        <a href="zeroatdesıgn.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Design</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Sustainable decision support<br>system for design stage</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Design</h3>
+            <p class="product-description">
+                Carbon intelligence from the first sketch. Design with sustainability built in.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="aez.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Production</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Sustainable decision support<br>system for production stage</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Production</h3>
+            <p class="product-description">
+                Complete lifecycle tracking for textile manufacturing. Digital Product Passport included.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="zeroatındustry.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Industry</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">HVAC, machinery,<br>industrial processes</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Industry</h3>
+            <p class="product-description">
+                HVAC, machinery, industrial processes. Precision carbon management for manufacturing.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Care</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Sustainability and efficiency<br>dashboard for hospitals, homecare<br>and patient flow management.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Care</h3>
+            <p class="product-description">
+                Healthcare facilities optimized for sustainability. Hospitals that heal the planet.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <a href="zero-steel.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Steel</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">AI-driven sustainability platform<br>for green steel transformation.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Steel</h3>
+            <p class="product-description">
+                Heavy industry. Heavy emissions. Precision solutions for metal and steel manufacturing.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="zero-carbon.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Carbon</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Navigating the path<br>to net zero.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Carbon</h3>
+            <p class="product-description">
+                Complete carbon management platform. Strategic roadmap to achieve net zero emissions.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="zeroagrıdpp.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Agri</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Sustainability decision support<br>system at design phase.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Agriculture</h3>
+            <p class="product-description">
+                From farm to table, every emission tracked. Sustainable agriculture for tomorrow.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="zero-agr-dryfruıt.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>DryFood</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Minimizing food waste<br>with technology</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>DryFood</h3>
+            <p class="product-description">
+                Food waste reduction through sustainable drying technology. Carbon-neutral preservation.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="zeroatsupply.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Supply</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Decarbonizing<br>the value chain</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Supply</h3>
+            <p class="product-description">
+                Complete supply chain carbon intelligence. Track, measure, and optimize across your entire value chain.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <a href="zeroatStock.html" class="product-card" style="text-decoration: none; color: inherit;">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Stock</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Tracking warehouse<br>carbon footprint</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Stock</h3>
+            <p class="product-description">
+                Warehouse and inventory carbon tracking. Real-time sustainability monitoring.
+            </p>
+            <span class="product-status">Ready</span>
+        </a>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Retail</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Track sustainability across stores,<br>supply chains, and deliveries.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Retail</h3>
+            <p class="product-description">
+                End-to-end retail sustainability. From supply chain to customer delivery.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Construction</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Measure and reduce embodied<br>carbon across building lifecycles.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Construction</h3>
+            <p class="product-description">
+                Build the future sustainably. Carbon tracking for every project, every material.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Campus</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Educating the next generation<br>through measurable sustainability.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Campus</h3>
+            <p class="product-description">
+                Universities and educational institutions. Teach sustainability by living it.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Corporate</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Net Zero insights for corporate<br>facilities and operations.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Corporate</h3>
+            <p class="product-description">
+                Office operations optimized. Corporate carbon footprint eliminated.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Hospitality</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Deliver exceptional experiences,<br>not emissions</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Hospitality</h3>
+            <p class="product-description">
+                Hotels and hospitality. Deliver exceptional experiences, not emissions.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <div class="product-card">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Travel</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">Business travel reimagined,<br>track & optimize every journey</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>Travel</h3>
+            <p class="product-description">
+                Business travel reimagined. Track, offset, and optimize every journey.
+            </p>
+            <span class="product-status product-status-coming">Coming Soon</span>
+        </div>
+
+        <div class="product-card" style="border: 2px solid #f9ba00; background: linear-gradient(135deg, rgba(249,186,0,0.05) 0%, rgba(2,21,78,0.05) 100%);">
+            <div class="product-logo">
+                <div>
+                    <div class="product-logo-text">Zero<span class="at-symbol">@</span><br>Your<br>Company</div>
+                    <div class="product-logo-divider"></div>
+                    <div class="product-logo-subtitle">A customizable sustainability solution<br>for every company.</div>
+                </div>
+            </div>
+            <h3 class="product-name">Zero<span class="product-at">@</span>YourCompany</h3>
+            <p class="product-description">
+                Custom-built carbon intelligence for your unique business needs. Tailored solutions for any industry.
+            </p>
+            <span class="product-status" style="background: #f9ba00; color: #02154e; font-size: 1rem; padding: 0.5rem 1.5rem; font-weight: 700; letter-spacing: 2px;">ON DEMAND</span>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="about-section" id="about">
+    <div class="about-content">
+        <div class="about-icon">🧭</div>
+        <h2 class="section-title">About Us</h2>
+        <p class="about-text">
+            Zero@Ecosystem was born from a simple belief — every process, every design, every decision should leave less behind.
+        </p>
+        <p class="about-text">
+            We unite AI, systems intelligence, and real-time orchestration into one platform that helps industries measure, manage, and minimize their carbon impact — from the first sketch to the final shipment.
+        </p>
+        <p class="about-text">
+            Our team comes from decades of experience in textile engineering, digital transformation, and sustainability strategy. We build tools that don't just track data — they empower smarter, cleaner, and faster decisions across the entire value chain.
+        </p>
+    </div>
+</section>
+
+<!-- Mission & Vision Section -->
+<section class="mission-section" id="mission">
+    <div class="mission-content">
+        <div class="about-icon">🌍</div>
+        <h2 class="section-title">Our Mission and Vision</h2>
+        <div class="mission-grid">
+            <div class="mission-item">
+                <h3>Mission:</h3>
+                <p>To make carbon-aware decision-making effortless and actionable — across every factory, warehouse, clinic, and office.</p>
+            </div>
+            <div class="mission-item">
+                <h3>Vision:</h3>
+                <p>A world where sustainability isn't a department — it's a system.</p>
+                <p style="margin-top: 1rem;">Zero@Pilot is our first step toward an ecosystem where AI-driven orchestration aligns business performance with planetary limits.</p>
+            </div>
+        </div>
+        <p class="about-text" style="text-align: center; margin-top: 3rem; font-size: 1.375rem; font-style: italic;">
+            "We believe the future belongs to those who measure precisely, act intelligently, and move as one network — from fibre to consumer."
+        </p>
+    </div>
+</section>
+
+<!-- Technology Section -->
+<section class="technology-section" id="technology">
+    <div class="technology-content">
+        <div class="about-icon">⚙️</div>
+        <h2 class="section-title">Our Products and Technology</h2>
+        <p class="about-text" style="text-align: center;">
+            Our technology isn't just "AI." It's <strong>AI + SI + OI</strong> — Artificial Intelligence, Systems Intelligence, and Orchestration Intelligence.
+        </p>
+        <p class="about-text" style="text-align: center; margin-bottom: 3rem;">
+            Together, they create a self-learning, self-optimizing ecosystem we call <strong>The Zero@Generator</strong>.
+        </p>
+        
+        <div class="tech-grid">
+            <div class="tech-card">
+                <h3>🤖 AI Layer</h3>
+                <p>Predicts emissions, generates impact reports, and recommends smarter alternatives before a single kilogram is produced.</p>
+            </div>
+            <div class="tech-card">
+                <h3>🔗 SI Layer</h3>
+                <p>Connects your operations, suppliers, and logistics into a single adaptive system — turning complex data into coordinated action.</p>
+            </div>
+            <div class="tech-card">
+                <h3>🎯 Orchestration Layer</h3>
+                <p>Runs the show — automating workflows, syncing agents, and aligning every unit toward the same sustainability target.</p>
+            </div>
+        </div>
+        
+        <p class="about-text" style="text-align: center; margin-top: 3rem;">
+            From digital product passports to real-time dashboards and autonomous agents, Zero@Pilot turns sustainability into an operating system.
+        </p>
+    </div>
+</section>
+
+<!-- Why Zero Carbon Section -->
+<section class="why-section" id="why">
+    <div class="why-content">
+        <div class="about-icon">♻️</div>
+        <h2 class="section-title">Why Zero Carbon</h2>
+        <p class="why-text">
+            Because neutrality is no longer enough.
+        </p>
+        <p class="why-text">
+            We're designing for <span class="why-highlight">net-positive impact</span> — systems that not only emit less but actively regenerate.
+        </p>
+        <p class="why-text">
+            Zero Carbon is not a marketing slogan; it's a <span class="why-highlight">control architecture</span>.
+        </p>
+        <p class="why-text">
+            Every watt, every litre, every gram of CO₂ is tracked, analyzed, and reduced through intelligent orchestration.
+        </p>
+        <p class="why-text">
+            Our approach transforms compliance into advantage — helping you lead, not just follow, the green transition.
+        </p>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <div class="contact-content">
+        <div class="about-icon">✉️</div>
+        <h2 class="section-title">Contact Us</h2>
+        <p class="section-subtitle">Let's build the future — responsibly, intelligently, together.</p>
+        
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>Email</h3>
+                <p><a href="mailto:info@zeroatecosystem.com">info@zeroatecosystem.com</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Web</h3>
+                <p><a href="https://www.zeroatecosystem.com" target="_blank">www.zeroatecosystem.com</a></p>
+            </div>
+            <div class="contact-item">
+                <h3>Headquarters</h3>
+                <p>İzmir / Türkiye</p>
+            </div>
+            <div class="contact-item">
+                <h3>Partnerships</h3>
+                <p>Pilots, press, collaborations</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+    <h2 class="cta-title">Ready to Lead Your Industry?</h2>
+    <div class="cta-buttons">
+        <a href="mailto:info@zeroatecosystem.com" class="cta-button">Schedule a Demo</a>
+        <a href="#" class="cta-button cta-button-outline">Download White Paper</a>
+        <a href="aez.html" class="cta-button">Zero at Production DPP</a>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p class="footer-text">
+        <span class="footer-accent">© 2025 Zero@Ecosystem</span> · 
+        Carbon Intelligence. Simplified.
+    </p>
+</footer>
+
+<script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Subtle parallax effect on hero
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector('.hero-content');
+        if (hero && scrolled < window.innerHeight) {
+            hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+            hero.style.opacity = 1 - (scrolled / (window.innerHeight * 1.2));
+        }
+    });
+</script>
+```
+
+</body>
+</html>
