@@ -83,6 +83,28 @@ color: var(–zero-navy);
 
 .title-at { color: var(–zero-orange); }
 
+.home-btn {
+padding: 0.75rem 1.5rem;
+background: var(–zero-orange);
+color: var(–zero-navy);
+border: none;
+border-radius: 4px;
+cursor: pointer;
+font-family: inherit;
+font-size: 0.875rem;
+font-weight: 600;
+transition: all 0.3s ease;
+text-decoration: none;
+display: inline-block;
+}
+
+.home-btn:hover {
+background: var(–zero-navy);
+color: var(–zero-white);
+transform: translateY(-2px);
+box-shadow: 0 4px 12px rgba(249, 186, 0, 0.3);
+}
+
 .container {
 max-width: 1600px;
 margin: 0 auto;
@@ -205,6 +227,7 @@ border: 1px solid var(–zero-green);
             <div class="brand-logo">🧵</div>
             <div class="title">Zero<span class="title-at">@</span>Production — Fibre DPP</div>
         </div>
+        <a href="index.html" class="home-btn">🏠 Return to HomePage</a>
     </div>
 </header>
 
