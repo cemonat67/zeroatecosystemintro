@@ -481,6 +481,103 @@
     .scroll-to-top:active {
         transform: translateY(-2px);
     }
+    
+    /* Order Detail Modal */
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(4px);
+    }
+    
+    .modal.active {
+        display: flex;
+    }
+    
+    .modal-content {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        max-width: 1000px;
+        max-height: 85vh;
+        width: 90%;
+        overflow-y: auto;
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    }
+    
+    .modal-header {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        padding: var(--zero-space-md);
+        border-radius: var(--zero-radius-lg) var(--zero-radius-lg) 0 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .modal-title {
+        font-size: 1.5rem;
+        font-weight: 500;
+    }
+    
+    .modal-close {
+        background: transparent;
+        border: none;
+        color: var(--zero-white);
+        font-size: 2rem;
+        cursor: pointer;
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        transition: all 0.3s;
+    }
+    
+    .modal-close:hover {
+        background: rgba(255, 255, 255, 0.1);
+        transform: rotate(90deg);
+    }
+    
+    .modal-body {
+        padding: var(--zero-space-md);
+    }
+    
+    .order-detail-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .detail-card {
+        background: var(--zero-gray-bg);
+        padding: var(--zero-space-sm);
+        border-radius: var(--zero-radius-sm);
+        border-left: 3px solid var(--zero-orange);
+    }
+    
+    .detail-card-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-dark);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        margin-bottom: 0.25rem;
+    }
+    
+    .detail-card-value {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--zero-navy);
+    }
 </style>
 ```
 
@@ -692,7 +789,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -759,7 +856,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -825,7 +922,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -892,7 +989,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -959,7 +1056,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -1022,7 +1119,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -1077,7 +1174,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -1133,7 +1230,7 @@
             <div style="max-height: 400px; overflow-y: auto;">
                 <table>
                     <thead>
-                        <tr>
+                        <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                             <th>Order ID</th>
                             <th>PO Number</th>
                             <th>Product</th>
@@ -1253,6 +1350,129 @@
             case 'transport': loadTransportOrders(); break;
         }
     }
+    
+    function openOrderDetail(orderId) {
+        const order = orders.find(o => o.id === orderId);
+        if (!order) return;
+        
+        const modalHTML = `
+            <div id="orderDetailModal" class="modal active" onclick="if(event.target===this) closeOrderModal()">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">📋 Order Details: ${order.po}</h2>
+                        <button class="modal-close" onclick="closeOrderModal()">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="order-detail-grid">
+                            <div class="detail-card">
+                                <div class="detail-card-label">Order ID</div>
+                                <div class="detail-card-value">ORD-${String(order.id).padStart(3, '0')}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">PO Number</div>
+                                <div class="detail-card-value">${order.po}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Style</div>
+                                <div class="detail-card-value">${order.style}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Current Stage</div>
+                                <div class="detail-card-value" style="color: var(--zero-orange);">${order.stage}</div>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin-bottom: var(--zero-space-sm); color: var(--zero-navy); border-bottom: 2px solid var(--zero-orange); padding-bottom: 0.5rem;">Product Information</h3>
+                        <div class="order-detail-grid">
+                            <div class="detail-card">
+                                <div class="detail-card-label">Product</div>
+                                <div class="detail-card-value">${order.product}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Fabric Type</div>
+                                <div class="detail-card-value">${order.fabricType}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Fabric Name</div>
+                                <div class="detail-card-value">${order.fabricName}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Construction</div>
+                                <div class="detail-card-value">${order.construction}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">GSM</div>
+                                <div class="detail-card-value">${order.gsm}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Quantity</div>
+                                <div class="detail-card-value">${formatNumber(order.quantity)} pcs</div>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin: var(--zero-space-md) 0 var(--zero-space-sm); color: var(--zero-navy); border-bottom: 2px solid var(--zero-orange); padding-bottom: 0.5rem;">Production Details</h3>
+                        <div class="order-detail-grid">
+                            <div class="detail-card">
+                                <div class="detail-card-label">Country</div>
+                                <div class="detail-card-value">${order.country}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Facility</div>
+                                <div class="detail-card-value">${order.facility}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Order Date</div>
+                                <div class="detail-card-value">${order.date}</div>
+                            </div>
+                            <div class="detail-card">
+                                <div class="detail-card-label">Progress</div>
+                                <div class="detail-card-value">${order.progress}%</div>
+                            </div>
+                        </div>
+                        
+                        <h3 style="margin: var(--zero-space-md) 0 var(--zero-space-sm); color: var(--zero-navy); border-bottom: 2px solid var(--zero-green); padding-bottom: 0.5rem;">🌱 Sustainability Metrics</h3>
+                        <div class="order-detail-grid">
+                            <div class="detail-card" style="border-left-color: var(--zero-green);">
+                                <div class="detail-card-label">CO₂ Emissions</div>
+                                <div class="detail-card-value" style="color: var(--zero-green);">${order.co2}</div>
+                            </div>
+                            <div class="detail-card" style="border-left-color: var(--zero-green);">
+                                <div class="detail-card-label">Water Usage</div>
+                                <div class="detail-card-value" style="color: var(--zero-green);">${(order.quantity * 12).toLocaleString()} L</div>
+                            </div>
+                            <div class="detail-card" style="border-left-color: var(--zero-green);">
+                                <div class="detail-card-label">Energy Consumption</div>
+                                <div class="detail-card-value" style="color: var(--zero-green);">${(order.quantity * 0.8).toFixed(0)} kWh</div>
+                            </div>
+                            <div class="detail-card" style="border-left-color: var(--zero-green);">
+                                <div class="detail-card-label">Waste Generated</div>
+                                <div class="detail-card-value" style="color: var(--zero-green);">${(order.quantity * 0.05).toFixed(1)} kg</div>
+                            </div>
+                        </div>
+                        
+                        <div style="margin-top: var(--zero-space-md); padding: var(--zero-space-md); background: linear-gradient(135deg, rgba(0, 85, 48, 0.1), rgba(249, 186, 0, 0.1)); border-radius: var(--zero-radius-md); border-left: 4px solid var(--zero-green);">
+                            <strong style="color: var(--zero-navy);">📱 Digital Product Passport:</strong>
+                            <div style="margin-top: 0.5rem; font-size: 0.875rem; color: var(--zero-gray-dark);">
+                                QR Code: <strong>${order.po}-DPP</strong><br>
+                                Blockchain Hash: <strong>0x${Math.random().toString(16).substr(2, 8)}...</strong><br>
+                                Traceability: Full supply chain visibility enabled
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        const existing = document.getElementById('orderDetailModal');
+        if (existing) existing.remove();
+        
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+    }
+    
+    function closeOrderModal() {
+        const modal = document.getElementById('orderDetailModal');
+        if (modal) modal.remove();
+    }
 
     function getOrdersByStage(stage, limit = null) {
         const filtered = orders.filter(o => o.stage === stage);
@@ -1300,7 +1520,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${stats.totalCO2} tCO₂`;
         
         document.getElementById('chemicals-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1325,7 +1545,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces`;
         
         document.getElementById('fibre-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1349,7 +1569,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${stats.totalCO2} tCO₂`;
         
         document.getElementById('fabric-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1374,7 +1594,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${stats.totalCO2} tCO₂`;
         
         document.getElementById('finishing-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1400,7 +1620,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${uniqueStyles} styles`;
         
         document.getElementById('garment-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1424,7 +1644,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces ready for packaging`;
         
         document.getElementById('packaging-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1445,7 +1665,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces delivered successfully`;
         
         document.getElementById('delivery-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
@@ -1467,7 +1687,7 @@
             `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces in transportation`;
         
         document.getElementById('transport-orders-tbody').innerHTML = stageOrders.map(o => `
-            <tr>
+            <tr onclick="openOrderDetail(${o.id})" style="cursor: pointer;" onmouseover="this.style.background='var(--zero-gray-bg)'" onmouseout="this.style.background='transparent'">
                 <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
                 <td>${o.po}</td>
                 <td>${o.product}</td>
