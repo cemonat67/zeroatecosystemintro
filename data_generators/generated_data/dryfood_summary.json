@@ -1,0 +1,15 @@
+{
+  "total_batches": 100,
+  "completed_batches": 81,
+  "total_fresh_weight_kg": 4058.75,
+  "total_dried_weight_kg": 1052.29,
+  "avg_weight_loss_percent": 74.1,
+  "total_waste_prevented_kg": 1217.61,
+  "total_value_added_usd": 12052.4,
+  "dehydration_co2_emissions_kg": 1579.94,
+  "landfill_co2_prevented_kg": 3044.0,
+  "net_co2_impact_kg": -1464.06,
+  "carbon_positive": true,
+  "avg_shelf_life_extension_days": 437.0,
+  "food_categories_processed": 4
+}

@@ -1,0 +1,18 @@
+{
+  "total_projects": 50,
+  "by_industry": {
+    "Textile": 20,
+    "Industrial": 12,
+    "Product": 9,
+    "Packaging": 9
+  },
+  "completed_projects": 10,
+  "in_progress_projects": 40,
+  "total_co2_emissions_kg": 347761.13,
+  "avg_sustainability_score": 53.0,
+  "sustainability_targets_met": 0,
+  "target_achievement_rate": 0.0,
+  "avg_recyclability": 77.8,
+  "material_alternatives_analyzed": 51,
+  "lca_reports_completed": 23
+}

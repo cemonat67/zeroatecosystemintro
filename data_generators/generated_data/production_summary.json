@@ -1,0 +1,12 @@
+{
+  "total_orders": 150,
+  "completed_orders": 122,
+  "in_progress_orders": 22,
+  "total_garments_produced": 327927,
+  "total_co2_emissions_kg": 1295111.09,
+  "total_water_usage_liters": 989949187.67,
+  "avg_co2_per_garment": 3.949,
+  "avg_water_per_garment": 3018.81,
+  "dpp_records_issued": 610,
+  "quality_pass_rate": 93.4
+}

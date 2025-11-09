@@ -1,0 +1,5348 @@
+[
+  {
+    "log_id": "DH-20251018-0077-LOG-000",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 45.3,
+    "power_kw": 3.3
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-001",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T20:35:22.040837",
+    "temperature_c": 9.7,
+    "humidity_percent": 58.5,
+    "fan_speed_percent": 49.6,
+    "power_kw": 2.94
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-002",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T21:05:22.040837",
+    "temperature_c": 19.5,
+    "humidity_percent": 57.2,
+    "fan_speed_percent": 56.1,
+    "power_kw": 2.85
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-003",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T21:35:22.040837",
+    "temperature_c": 29.2,
+    "humidity_percent": 55.2,
+    "fan_speed_percent": 54.9,
+    "power_kw": 3.79
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-004",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T22:05:22.040837",
+    "temperature_c": 39.0,
+    "humidity_percent": 53.5,
+    "fan_speed_percent": 55.9,
+    "power_kw": 2.2
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-005",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T22:35:22.040837",
+    "temperature_c": 48.7,
+    "humidity_percent": 53.0,
+    "fan_speed_percent": 54.4,
+    "power_kw": 4.9
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-006",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T23:05:22.040837",
+    "temperature_c": 58.5,
+    "humidity_percent": 51.3,
+    "fan_speed_percent": 54.5,
+    "power_kw": 2.14
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-007",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-18T23:35:22.040837",
+    "temperature_c": 64.5,
+    "humidity_percent": 48.4,
+    "fan_speed_percent": 52.4,
+    "power_kw": 2.2
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-008",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T00:05:22.040837",
+    "temperature_c": 64.0,
+    "humidity_percent": 47.9,
+    "fan_speed_percent": 59.5,
+    "power_kw": 2.74
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-009",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T00:35:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 45.5,
+    "fan_speed_percent": 60.1,
+    "power_kw": 3.45
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-010",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T01:05:22.040837",
+    "temperature_c": 65.1,
+    "humidity_percent": 45.9,
+    "fan_speed_percent": 59.1,
+    "power_kw": 3.75
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-011",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T01:35:22.040837",
+    "temperature_c": 63.9,
+    "humidity_percent": 41.9,
+    "fan_speed_percent": 55.3,
+    "power_kw": 3.14
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-012",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T02:05:22.040837",
+    "temperature_c": 62.6,
+    "humidity_percent": 42.5,
+    "fan_speed_percent": 56.5,
+    "power_kw": 2.93
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-013",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T02:35:22.040837",
+    "temperature_c": 66.0,
+    "humidity_percent": 40.2,
+    "fan_speed_percent": 65.7,
+    "power_kw": 2.93
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-014",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T03:05:22.040837",
+    "temperature_c": 65.0,
+    "humidity_percent": 39.5,
+    "fan_speed_percent": 66.9,
+    "power_kw": 2.14
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-015",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T03:35:22.040837",
+    "temperature_c": 63.9,
+    "humidity_percent": 35.6,
+    "fan_speed_percent": 65.3,
+    "power_kw": 3.45
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-016",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T04:05:22.040837",
+    "temperature_c": 65.9,
+    "humidity_percent": 37.4,
+    "fan_speed_percent": 61.6,
+    "power_kw": 2.26
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-017",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T04:35:22.040837",
+    "temperature_c": 63.1,
+    "humidity_percent": 33.5,
+    "fan_speed_percent": 69.1,
+    "power_kw": 3.27
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-018",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T05:05:22.040837",
+    "temperature_c": 65.3,
+    "humidity_percent": 34.8,
+    "fan_speed_percent": 61.7,
+    "power_kw": 4.65
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-019",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T05:35:22.040837",
+    "temperature_c": 65.2,
+    "humidity_percent": 30.3,
+    "fan_speed_percent": 66.0,
+    "power_kw": 3.75
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-020",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T06:05:22.040837",
+    "temperature_c": 63.6,
+    "humidity_percent": 32.2,
+    "fan_speed_percent": 69.6,
+    "power_kw": 3.21
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-021",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T06:35:22.040837",
+    "temperature_c": 64.2,
+    "humidity_percent": 28.1,
+    "fan_speed_percent": 70.0,
+    "power_kw": 3.13
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-022",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T07:05:22.040837",
+    "temperature_c": 65.2,
+    "humidity_percent": 23.6,
+    "fan_speed_percent": 71.8,
+    "power_kw": 3.64
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-023",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T07:35:22.040837",
+    "temperature_c": 66.0,
+    "humidity_percent": 25.3,
+    "fan_speed_percent": 72.0,
+    "power_kw": 4.7
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-024",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T08:05:22.040837",
+    "temperature_c": 65.6,
+    "humidity_percent": 22.8,
+    "fan_speed_percent": 68.6,
+    "power_kw": 4.98
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-025",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T08:35:22.040837",
+    "temperature_c": 66.0,
+    "humidity_percent": 18.6,
+    "fan_speed_percent": 71.7,
+    "power_kw": 2.39
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-026",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T09:05:22.040837",
+    "temperature_c": 62.5,
+    "humidity_percent": 22.3,
+    "fan_speed_percent": 73.2,
+    "power_kw": 4.43
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-027",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T09:35:22.040837",
+    "temperature_c": 64.3,
+    "humidity_percent": 22.4,
+    "fan_speed_percent": 77.1,
+    "power_kw": 2.31
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-028",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T10:05:22.040837",
+    "temperature_c": 63.5,
+    "humidity_percent": 17.9,
+    "fan_speed_percent": 75.8,
+    "power_kw": 3.68
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-029",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T10:35:22.040837",
+    "temperature_c": 65.6,
+    "humidity_percent": 13.9,
+    "fan_speed_percent": 76.7,
+    "power_kw": 2.98
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-030",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T11:05:22.040837",
+    "temperature_c": 65.3,
+    "humidity_percent": 14.8,
+    "fan_speed_percent": 76.0,
+    "power_kw": 3.03
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-031",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T11:35:22.040837",
+    "temperature_c": 64.3,
+    "humidity_percent": 8.5,
+    "fan_speed_percent": 79.1,
+    "power_kw": 2.68
+  },
+  {
+    "log_id": "DH-20251018-0077-LOG-032",
+    "batch_id": "DH-20251018-0077",
+    "timestamp": "2025-10-19T12:05:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 12.8,
+    "fan_speed_percent": 79.0,
+    "power_kw": 3.98
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-000",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 47.3,
+    "power_kw": 2.14
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-001",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T20:35:22.040837",
+    "temperature_c": 11.1,
+    "humidity_percent": 58.2,
+    "fan_speed_percent": 49.3,
+    "power_kw": 3.02
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-002",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T21:05:22.040837",
+    "temperature_c": 22.2,
+    "humidity_percent": 56.1,
+    "fan_speed_percent": 53.0,
+    "power_kw": 2.5
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-003",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T21:35:22.040837",
+    "temperature_c": 33.3,
+    "humidity_percent": 54.9,
+    "fan_speed_percent": 48.3,
+    "power_kw": 2.99
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-004",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T22:05:22.040837",
+    "temperature_c": 44.4,
+    "humidity_percent": 53.0,
+    "fan_speed_percent": 50.7,
+    "power_kw": 2.22
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-005",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T22:35:22.040837",
+    "temperature_c": 55.5,
+    "humidity_percent": 50.6,
+    "fan_speed_percent": 57.5,
+    "power_kw": 4.9
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-006",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T23:05:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 50.1,
+    "fan_speed_percent": 59.9,
+    "power_kw": 2.41
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-007",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-23T23:35:22.040837",
+    "temperature_c": 63.1,
+    "humidity_percent": 47.1,
+    "fan_speed_percent": 61.8,
+    "power_kw": 3.71
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-008",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T00:05:22.040837",
+    "temperature_c": 60.7,
+    "humidity_percent": 46.1,
+    "fan_speed_percent": 58.7,
+    "power_kw": 3.74
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-009",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T00:35:22.040837",
+    "temperature_c": 61.7,
+    "humidity_percent": 44.4,
+    "fan_speed_percent": 57.6,
+    "power_kw": 2.46
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-010",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T01:05:22.040837",
+    "temperature_c": 63.6,
+    "humidity_percent": 40.9,
+    "fan_speed_percent": 64.3,
+    "power_kw": 3.51
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-011",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T01:35:22.040837",
+    "temperature_c": 63.9,
+    "humidity_percent": 39.1,
+    "fan_speed_percent": 66.1,
+    "power_kw": 2.85
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-012",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T02:05:22.040837",
+    "temperature_c": 60.9,
+    "humidity_percent": 37.9,
+    "fan_speed_percent": 58.4,
+    "power_kw": 4.74
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-013",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T02:35:22.040837",
+    "temperature_c": 61.2,
+    "humidity_percent": 35.4,
+    "fan_speed_percent": 60.7,
+    "power_kw": 4.26
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-014",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T03:05:22.040837",
+    "temperature_c": 61.0,
+    "humidity_percent": 36.6,
+    "fan_speed_percent": 69.3,
+    "power_kw": 3.19
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-015",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T03:35:22.040837",
+    "temperature_c": 61.0,
+    "humidity_percent": 34.2,
+    "fan_speed_percent": 66.2,
+    "power_kw": 3.78
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-016",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T04:05:22.040837",
+    "temperature_c": 63.7,
+    "humidity_percent": 31.3,
+    "fan_speed_percent": 70.6,
+    "power_kw": 4.12
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-017",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T04:35:22.040837",
+    "temperature_c": 62.5,
+    "humidity_percent": 30.1,
+    "fan_speed_percent": 66.7,
+    "power_kw": 3.75
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-018",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T05:05:22.040837",
+    "temperature_c": 61.7,
+    "humidity_percent": 30.7,
+    "fan_speed_percent": 72.0,
+    "power_kw": 3.79
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-019",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T05:35:22.040837",
+    "temperature_c": 61.9,
+    "humidity_percent": 25.1,
+    "fan_speed_percent": 66.6,
+    "power_kw": 2.71
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-020",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T06:05:22.040837",
+    "temperature_c": 60.6,
+    "humidity_percent": 25.9,
+    "fan_speed_percent": 68.5,
+    "power_kw": 4.15
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-021",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T06:35:22.040837",
+    "temperature_c": 62.6,
+    "humidity_percent": 20.7,
+    "fan_speed_percent": 69.3,
+    "power_kw": 2.46
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-022",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T07:05:22.040837",
+    "temperature_c": 60.3,
+    "humidity_percent": 16.8,
+    "fan_speed_percent": 75.1,
+    "power_kw": 4.27
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-023",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T07:35:22.040837",
+    "temperature_c": 60.8,
+    "humidity_percent": 16.5,
+    "fan_speed_percent": 75.3,
+    "power_kw": 3.29
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-024",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T08:05:22.040837",
+    "temperature_c": 61.4,
+    "humidity_percent": 13.9,
+    "fan_speed_percent": 78.4,
+    "power_kw": 3.01
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-025",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T08:35:22.040837",
+    "temperature_c": 61.1,
+    "humidity_percent": 11.6,
+    "fan_speed_percent": 80.9,
+    "power_kw": 2.75
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-026",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T09:05:22.040837",
+    "temperature_c": 60.8,
+    "humidity_percent": 15.6,
+    "fan_speed_percent": 74.3,
+    "power_kw": 4.13
+  },
+  {
+    "log_id": "DH-20251023-0079-LOG-027",
+    "batch_id": "DH-20251023-0079",
+    "timestamp": "2025-10-24T09:35:22.040837",
+    "temperature_c": 62.5,
+    "humidity_percent": 8.9,
+    "fan_speed_percent": 76.6,
+    "power_kw": 3.98
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-000",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 49.9,
+    "power_kw": 4.25
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-001",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T20:35:22.040837",
+    "temperature_c": 16.5,
+    "humidity_percent": 56.9,
+    "fan_speed_percent": 56.7,
+    "power_kw": 4.73
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-002",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T21:05:22.040837",
+    "temperature_c": 33.0,
+    "humidity_percent": 54.5,
+    "fan_speed_percent": 55.4,
+    "power_kw": 2.52
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-003",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T21:35:22.040837",
+    "temperature_c": 49.5,
+    "humidity_percent": 51.8,
+    "fan_speed_percent": 55.6,
+    "power_kw": 2.11
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-004",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T22:05:22.040837",
+    "temperature_c": 55.7,
+    "humidity_percent": 49.2,
+    "fan_speed_percent": 52.7,
+    "power_kw": 2.01
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-005",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T22:35:22.040837",
+    "temperature_c": 54.3,
+    "humidity_percent": 45.9,
+    "fan_speed_percent": 59.6,
+    "power_kw": 2.97
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-006",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T23:05:22.040837",
+    "temperature_c": 54.5,
+    "humidity_percent": 41.0,
+    "fan_speed_percent": 60.4,
+    "power_kw": 3.11
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-007",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-18T23:35:22.040837",
+    "temperature_c": 57.4,
+    "humidity_percent": 39.6,
+    "fan_speed_percent": 59.2,
+    "power_kw": 4.36
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-008",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T00:05:22.040837",
+    "temperature_c": 54.9,
+    "humidity_percent": 36.7,
+    "fan_speed_percent": 67.4,
+    "power_kw": 4.47
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-009",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T00:35:22.040837",
+    "temperature_c": 57.4,
+    "humidity_percent": 34.1,
+    "fan_speed_percent": 60.9,
+    "power_kw": 2.86
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-010",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T01:05:22.040837",
+    "temperature_c": 57.7,
+    "humidity_percent": 29.0,
+    "fan_speed_percent": 69.4,
+    "power_kw": 3.8
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-011",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T01:35:22.040837",
+    "temperature_c": 57.8,
+    "humidity_percent": 30.2,
+    "fan_speed_percent": 70.2,
+    "power_kw": 4.12
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-012",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T02:05:22.040837",
+    "temperature_c": 57.5,
+    "humidity_percent": 26.5,
+    "fan_speed_percent": 73.8,
+    "power_kw": 2.51
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-013",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T02:35:22.040837",
+    "temperature_c": 56.0,
+    "humidity_percent": 22.6,
+    "fan_speed_percent": 69.3,
+    "power_kw": 4.75
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-014",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T03:05:22.040837",
+    "temperature_c": 55.4,
+    "humidity_percent": 16.5,
+    "fan_speed_percent": 77.6,
+    "power_kw": 3.34
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-015",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T03:35:22.040837",
+    "temperature_c": 58.0,
+    "humidity_percent": 19.0,
+    "fan_speed_percent": 72.5,
+    "power_kw": 4.9
+  },
+  {
+    "log_id": "DH-20251018-0066-LOG-016",
+    "batch_id": "DH-20251018-0066",
+    "timestamp": "2025-10-19T04:05:22.040837",
+    "temperature_c": 55.1,
+    "humidity_percent": 8.8,
+    "fan_speed_percent": 81.3,
+    "power_kw": 4.27
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-000",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 52.9,
+    "power_kw": 3.79
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-001",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T20:35:22.040837",
+    "temperature_c": 9.0,
+    "humidity_percent": 58.5,
+    "fan_speed_percent": 50.0,
+    "power_kw": 4.34
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-002",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T21:05:22.040837",
+    "temperature_c": 18.1,
+    "humidity_percent": 57.1,
+    "fan_speed_percent": 52.0,
+    "power_kw": 2.68
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-003",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T21:35:22.040837",
+    "temperature_c": 27.1,
+    "humidity_percent": 56.1,
+    "fan_speed_percent": 56.1,
+    "power_kw": 3.01
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-004",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T22:05:22.040837",
+    "temperature_c": 36.2,
+    "humidity_percent": 54.5,
+    "fan_speed_percent": 53.0,
+    "power_kw": 3.09
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-005",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T22:35:22.040837",
+    "temperature_c": 45.2,
+    "humidity_percent": 53.8,
+    "fan_speed_percent": 57.8,
+    "power_kw": 2.26
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-006",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T23:05:22.040837",
+    "temperature_c": 54.2,
+    "humidity_percent": 51.7,
+    "fan_speed_percent": 57.9,
+    "power_kw": 3.89
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-007",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-05T23:35:22.040837",
+    "temperature_c": 63.3,
+    "humidity_percent": 51.0,
+    "fan_speed_percent": 54.9,
+    "power_kw": 4.65
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-008",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T00:05:22.040837",
+    "temperature_c": 67.9,
+    "humidity_percent": 50.0,
+    "fan_speed_percent": 57.7,
+    "power_kw": 4.33
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-009",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T00:35:22.040837",
+    "temperature_c": 65.7,
+    "humidity_percent": 48.1,
+    "fan_speed_percent": 54.7,
+    "power_kw": 2.55
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-010",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T01:05:22.040837",
+    "temperature_c": 66.4,
+    "humidity_percent": 45.7,
+    "fan_speed_percent": 53.6,
+    "power_kw": 3.62
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-011",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T01:35:22.040837",
+    "temperature_c": 68.9,
+    "humidity_percent": 45.5,
+    "fan_speed_percent": 57.4,
+    "power_kw": 2.3
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-012",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T02:05:22.040837",
+    "temperature_c": 68.5,
+    "humidity_percent": 42.4,
+    "fan_speed_percent": 58.5,
+    "power_kw": 3.19
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-013",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T02:35:22.040837",
+    "temperature_c": 66.8,
+    "humidity_percent": 41.0,
+    "fan_speed_percent": 62.0,
+    "power_kw": 3.67
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-014",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T03:05:22.040837",
+    "temperature_c": 68.9,
+    "humidity_percent": 40.0,
+    "fan_speed_percent": 59.1,
+    "power_kw": 2.02
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-015",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T03:35:22.040837",
+    "temperature_c": 68.4,
+    "humidity_percent": 40.3,
+    "fan_speed_percent": 57.5,
+    "power_kw": 3.19
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-016",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T04:05:22.040837",
+    "temperature_c": 66.6,
+    "humidity_percent": 40.3,
+    "fan_speed_percent": 63.1,
+    "power_kw": 3.07
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-017",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T04:35:22.040837",
+    "temperature_c": 66.9,
+    "humidity_percent": 37.8,
+    "fan_speed_percent": 66.4,
+    "power_kw": 3.04
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-018",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T05:05:22.040837",
+    "temperature_c": 67.3,
+    "humidity_percent": 37.1,
+    "fan_speed_percent": 67.8,
+    "power_kw": 4.15
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-019",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T05:35:22.040837",
+    "temperature_c": 65.2,
+    "humidity_percent": 34.1,
+    "fan_speed_percent": 62.5,
+    "power_kw": 4.34
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-020",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T06:05:22.040837",
+    "temperature_c": 65.1,
+    "humidity_percent": 34.3,
+    "fan_speed_percent": 70.7,
+    "power_kw": 2.03
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-021",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T06:35:22.040837",
+    "temperature_c": 67.7,
+    "humidity_percent": 29.4,
+    "fan_speed_percent": 63.2,
+    "power_kw": 2.2
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-022",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T07:05:22.040837",
+    "temperature_c": 66.0,
+    "humidity_percent": 31.5,
+    "fan_speed_percent": 63.3,
+    "power_kw": 2.89
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-023",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T07:35:22.040837",
+    "temperature_c": 65.0,
+    "humidity_percent": 30.7,
+    "fan_speed_percent": 63.7,
+    "power_kw": 2.17
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-024",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T08:05:22.040837",
+    "temperature_c": 68.3,
+    "humidity_percent": 24.6,
+    "fan_speed_percent": 68.1,
+    "power_kw": 3.63
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-025",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T08:35:22.040837",
+    "temperature_c": 67.8,
+    "humidity_percent": 26.6,
+    "fan_speed_percent": 73.5,
+    "power_kw": 3.66
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-026",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T09:05:22.040837",
+    "temperature_c": 67.2,
+    "humidity_percent": 26.0,
+    "fan_speed_percent": 69.9,
+    "power_kw": 2.04
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-027",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T09:35:22.040837",
+    "temperature_c": 66.3,
+    "humidity_percent": 24.8,
+    "fan_speed_percent": 74.4,
+    "power_kw": 4.83
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-028",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T10:05:22.040837",
+    "temperature_c": 68.6,
+    "humidity_percent": 22.7,
+    "fan_speed_percent": 69.1,
+    "power_kw": 2.11
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-029",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T10:35:22.040837",
+    "temperature_c": 68.2,
+    "humidity_percent": 22.6,
+    "fan_speed_percent": 74.3,
+    "power_kw": 4.35
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-030",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T11:05:22.040837",
+    "temperature_c": 67.9,
+    "humidity_percent": 18.7,
+    "fan_speed_percent": 78.1,
+    "power_kw": 4.78
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-031",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T11:35:22.040837",
+    "temperature_c": 66.4,
+    "humidity_percent": 17.6,
+    "fan_speed_percent": 70.5,
+    "power_kw": 4.74
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-032",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T12:05:22.040837",
+    "temperature_c": 67.4,
+    "humidity_percent": 18.6,
+    "fan_speed_percent": 77.2,
+    "power_kw": 3.56
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-033",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T12:35:22.040837",
+    "temperature_c": 66.3,
+    "humidity_percent": 18.4,
+    "fan_speed_percent": 78.2,
+    "power_kw": 4.35
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-034",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T13:05:22.040837",
+    "temperature_c": 66.0,
+    "humidity_percent": 17.3,
+    "fan_speed_percent": 82.4,
+    "power_kw": 4.16
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-035",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T13:35:22.040837",
+    "temperature_c": 68.5,
+    "humidity_percent": 15.2,
+    "fan_speed_percent": 76.0,
+    "power_kw": 3.58
+  },
+  {
+    "log_id": "DH-20251105-0078-LOG-036",
+    "batch_id": "DH-20251105-0078",
+    "timestamp": "2025-11-06T14:05:22.040837",
+    "temperature_c": 66.8,
+    "humidity_percent": 8.4,
+    "fan_speed_percent": 78.5,
+    "power_kw": 3.8
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-000",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 46.0,
+    "power_kw": 3.76
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-001",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T20:35:22.040837",
+    "temperature_c": 10.4,
+    "humidity_percent": 58.4,
+    "fan_speed_percent": 49.3,
+    "power_kw": 3.87
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-002",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T21:05:22.040837",
+    "temperature_c": 20.8,
+    "humidity_percent": 56.8,
+    "fan_speed_percent": 48.5,
+    "power_kw": 4.12
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-003",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T21:35:22.040837",
+    "temperature_c": 31.1,
+    "humidity_percent": 55.0,
+    "fan_speed_percent": 54.7,
+    "power_kw": 4.56
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-004",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T22:05:22.040837",
+    "temperature_c": 41.5,
+    "humidity_percent": 53.7,
+    "fan_speed_percent": 52.3,
+    "power_kw": 4.65
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-005",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T22:35:22.040837",
+    "temperature_c": 51.9,
+    "humidity_percent": 53.0,
+    "fan_speed_percent": 58.5,
+    "power_kw": 4.51
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-006",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T23:05:22.040837",
+    "temperature_c": 62.3,
+    "humidity_percent": 50.6,
+    "fan_speed_percent": 50.7,
+    "power_kw": 4.71
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-007",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-25T23:35:22.040837",
+    "temperature_c": 68.0,
+    "humidity_percent": 50.0,
+    "fan_speed_percent": 57.2,
+    "power_kw": 3.22
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-008",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T00:05:22.040837",
+    "temperature_c": 68.9,
+    "humidity_percent": 47.2,
+    "fan_speed_percent": 53.1,
+    "power_kw": 2.42
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-009",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T00:35:22.040837",
+    "temperature_c": 68.9,
+    "humidity_percent": 47.2,
+    "fan_speed_percent": 55.9,
+    "power_kw": 2.15
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-010",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T01:05:22.040837",
+    "temperature_c": 66.9,
+    "humidity_percent": 45.5,
+    "fan_speed_percent": 56.2,
+    "power_kw": 2.14
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-011",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T01:35:22.040837",
+    "temperature_c": 69.1,
+    "humidity_percent": 42.5,
+    "fan_speed_percent": 58.1,
+    "power_kw": 2.15
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-012",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T02:05:22.040837",
+    "temperature_c": 69.2,
+    "humidity_percent": 40.0,
+    "fan_speed_percent": 56.2,
+    "power_kw": 4.4
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-013",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T02:35:22.040837",
+    "temperature_c": 68.2,
+    "humidity_percent": 40.2,
+    "fan_speed_percent": 60.7,
+    "power_kw": 3.99
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-014",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T03:05:22.040837",
+    "temperature_c": 68.7,
+    "humidity_percent": 40.8,
+    "fan_speed_percent": 65.6,
+    "power_kw": 3.13
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-015",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T03:35:22.040837",
+    "temperature_c": 68.1,
+    "humidity_percent": 36.8,
+    "fan_speed_percent": 59.3,
+    "power_kw": 2.74
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-016",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T04:05:22.040837",
+    "temperature_c": 69.2,
+    "humidity_percent": 37.1,
+    "fan_speed_percent": 66.3,
+    "power_kw": 3.08
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-017",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T04:35:22.040837",
+    "temperature_c": 70.0,
+    "humidity_percent": 35.0,
+    "fan_speed_percent": 62.7,
+    "power_kw": 3.03
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-018",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T05:05:22.040837",
+    "temperature_c": 68.1,
+    "humidity_percent": 35.3,
+    "fan_speed_percent": 66.0,
+    "power_kw": 3.46
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-019",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T05:35:22.040837",
+    "temperature_c": 69.0,
+    "humidity_percent": 32.7,
+    "fan_speed_percent": 69.4,
+    "power_kw": 2.67
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-020",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T06:05:22.040837",
+    "temperature_c": 69.3,
+    "humidity_percent": 28.0,
+    "fan_speed_percent": 64.8,
+    "power_kw": 4.06
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-021",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T06:35:22.040837",
+    "temperature_c": 68.6,
+    "humidity_percent": 25.7,
+    "fan_speed_percent": 68.8,
+    "power_kw": 4.96
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-022",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T07:05:22.040837",
+    "temperature_c": 68.5,
+    "humidity_percent": 27.5,
+    "fan_speed_percent": 69.8,
+    "power_kw": 2.52
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-023",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T07:35:22.040837",
+    "temperature_c": 66.5,
+    "humidity_percent": 21.9,
+    "fan_speed_percent": 67.0,
+    "power_kw": 3.7
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-024",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T08:05:22.040837",
+    "temperature_c": 69.2,
+    "humidity_percent": 25.9,
+    "fan_speed_percent": 76.7,
+    "power_kw": 2.5
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-025",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T08:35:22.040837",
+    "temperature_c": 67.6,
+    "humidity_percent": 19.3,
+    "fan_speed_percent": 69.9,
+    "power_kw": 2.76
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-026",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T09:05:22.040837",
+    "temperature_c": 69.5,
+    "humidity_percent": 22.0,
+    "fan_speed_percent": 74.7,
+    "power_kw": 3.03
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-027",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T09:35:22.040837",
+    "temperature_c": 70.0,
+    "humidity_percent": 23.1,
+    "fan_speed_percent": 78.4,
+    "power_kw": 4.6
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-028",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T10:05:22.040837",
+    "temperature_c": 66.8,
+    "humidity_percent": 20.5,
+    "fan_speed_percent": 78.7,
+    "power_kw": 2.74
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-029",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T10:35:22.040837",
+    "temperature_c": 69.4,
+    "humidity_percent": 14.2,
+    "fan_speed_percent": 74.8,
+    "power_kw": 4.89
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-030",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T11:05:22.040837",
+    "temperature_c": 68.5,
+    "humidity_percent": 18.3,
+    "fan_speed_percent": 74.1,
+    "power_kw": 2.87
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-031",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T11:35:22.040837",
+    "temperature_c": 70.4,
+    "humidity_percent": 13.3,
+    "fan_speed_percent": 81.3,
+    "power_kw": 3.32
+  },
+  {
+    "log_id": "DH-20250925-0034-LOG-032",
+    "batch_id": "DH-20250925-0034",
+    "timestamp": "2025-09-26T12:05:22.040837",
+    "temperature_c": 66.6,
+    "humidity_percent": 7.3,
+    "fan_speed_percent": 80.0,
+    "power_kw": 3.94
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-000",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 46.8,
+    "power_kw": 3.7
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-001",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T20:35:22.040837",
+    "temperature_c": 15.2,
+    "humidity_percent": 57.4,
+    "fan_speed_percent": 50.8,
+    "power_kw": 4.27
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-002",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T21:05:22.040837",
+    "temperature_c": 30.3,
+    "humidity_percent": 55.0,
+    "fan_speed_percent": 56.7,
+    "power_kw": 3.03
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-003",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T21:35:22.040837",
+    "temperature_c": 45.5,
+    "humidity_percent": 52.9,
+    "fan_speed_percent": 53.1,
+    "power_kw": 4.23
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-004",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T22:05:22.040837",
+    "temperature_c": 60.7,
+    "humidity_percent": 49.5,
+    "fan_speed_percent": 55.7,
+    "power_kw": 3.97
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-005",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T22:35:22.040837",
+    "temperature_c": 63.4,
+    "humidity_percent": 47.5,
+    "fan_speed_percent": 56.7,
+    "power_kw": 3.56
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-006",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T23:05:22.040837",
+    "temperature_c": 65.6,
+    "humidity_percent": 46.5,
+    "fan_speed_percent": 54.1,
+    "power_kw": 2.44
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-007",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-22T23:35:22.040837",
+    "temperature_c": 65.1,
+    "humidity_percent": 43.7,
+    "fan_speed_percent": 60.8,
+    "power_kw": 3.02
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-008",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T00:05:22.040837",
+    "temperature_c": 63.9,
+    "humidity_percent": 42.2,
+    "fan_speed_percent": 63.5,
+    "power_kw": 3.59
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-009",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T00:35:22.040837",
+    "temperature_c": 63.2,
+    "humidity_percent": 36.7,
+    "fan_speed_percent": 65.6,
+    "power_kw": 2.91
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-010",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T01:05:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 37.3,
+    "fan_speed_percent": 67.3,
+    "power_kw": 2.85
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-011",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T01:35:22.040837",
+    "temperature_c": 64.6,
+    "humidity_percent": 33.4,
+    "fan_speed_percent": 61.9,
+    "power_kw": 4.37
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-012",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T02:05:22.040837",
+    "temperature_c": 62.0,
+    "humidity_percent": 30.5,
+    "fan_speed_percent": 69.2,
+    "power_kw": 4.55
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-013",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T02:35:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 31.3,
+    "fan_speed_percent": 64.9,
+    "power_kw": 2.7
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-014",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T03:05:22.040837",
+    "temperature_c": 62.3,
+    "humidity_percent": 23.6,
+    "fan_speed_percent": 69.4,
+    "power_kw": 2.44
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-015",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T03:35:22.040837",
+    "temperature_c": 64.3,
+    "humidity_percent": 22.1,
+    "fan_speed_percent": 71.0,
+    "power_kw": 3.72
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-016",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T04:05:22.040837",
+    "temperature_c": 64.3,
+    "humidity_percent": 22.5,
+    "fan_speed_percent": 76.1,
+    "power_kw": 2.0
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-017",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T04:35:22.040837",
+    "temperature_c": 62.2,
+    "humidity_percent": 22.0,
+    "fan_speed_percent": 70.1,
+    "power_kw": 4.43
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-018",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T05:05:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 19.2,
+    "fan_speed_percent": 79.4,
+    "power_kw": 2.36
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-019",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T05:35:22.040837",
+    "temperature_c": 64.9,
+    "humidity_percent": 19.3,
+    "fan_speed_percent": 77.2,
+    "power_kw": 2.54
+  },
+  {
+    "log_id": "DH-20250922-0090-LOG-020",
+    "batch_id": "DH-20250922-0090",
+    "timestamp": "2025-09-23T06:05:22.040837",
+    "temperature_c": 65.1,
+    "humidity_percent": 8.2,
+    "fan_speed_percent": 80.2,
+    "power_kw": 4.56
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-000",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 51.6,
+    "power_kw": 2.51
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-001",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T20:35:22.040837",
+    "temperature_c": 8.0,
+    "humidity_percent": 58.5,
+    "fan_speed_percent": 49.8,
+    "power_kw": 3.3
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-002",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T21:05:22.040837",
+    "temperature_c": 16.1,
+    "humidity_percent": 57.2,
+    "fan_speed_percent": 48.3,
+    "power_kw": 2.12
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-003",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T21:35:22.040837",
+    "temperature_c": 24.1,
+    "humidity_percent": 55.3,
+    "fan_speed_percent": 53.0,
+    "power_kw": 4.94
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-004",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T22:05:22.040837",
+    "temperature_c": 32.1,
+    "humidity_percent": 53.9,
+    "fan_speed_percent": 48.8,
+    "power_kw": 2.63
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-005",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T22:35:22.040837",
+    "temperature_c": 40.2,
+    "humidity_percent": 52.1,
+    "fan_speed_percent": 54.9,
+    "power_kw": 4.97
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-006",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T23:05:22.040837",
+    "temperature_c": 48.2,
+    "humidity_percent": 50.4,
+    "fan_speed_percent": 59.5,
+    "power_kw": 2.46
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-007",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-19T23:35:22.040837",
+    "temperature_c": 50.2,
+    "humidity_percent": 49.0,
+    "fan_speed_percent": 59.3,
+    "power_kw": 4.36
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-008",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T00:05:22.040837",
+    "temperature_c": 51.4,
+    "humidity_percent": 47.8,
+    "fan_speed_percent": 58.3,
+    "power_kw": 4.09
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-009",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T00:35:22.040837",
+    "temperature_c": 53.2,
+    "humidity_percent": 45.3,
+    "fan_speed_percent": 54.0,
+    "power_kw": 3.53
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-010",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T01:05:22.040837",
+    "temperature_c": 52.3,
+    "humidity_percent": 43.8,
+    "fan_speed_percent": 57.0,
+    "power_kw": 4.0
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-011",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T01:35:22.040837",
+    "temperature_c": 52.3,
+    "humidity_percent": 43.4,
+    "fan_speed_percent": 61.7,
+    "power_kw": 3.93
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-012",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T02:05:22.040837",
+    "temperature_c": 50.5,
+    "humidity_percent": 41.7,
+    "fan_speed_percent": 56.4,
+    "power_kw": 2.61
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-013",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T02:35:22.040837",
+    "temperature_c": 51.1,
+    "humidity_percent": 41.2,
+    "fan_speed_percent": 65.4,
+    "power_kw": 4.03
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-014",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T03:05:22.040837",
+    "temperature_c": 52.1,
+    "humidity_percent": 36.9,
+    "fan_speed_percent": 66.1,
+    "power_kw": 4.53
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-015",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T03:35:22.040837",
+    "temperature_c": 51.3,
+    "humidity_percent": 36.7,
+    "fan_speed_percent": 60.2,
+    "power_kw": 2.24
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-016",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T04:05:22.040837",
+    "temperature_c": 52.2,
+    "humidity_percent": 33.6,
+    "fan_speed_percent": 67.8,
+    "power_kw": 2.38
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-017",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T04:35:22.040837",
+    "temperature_c": 49.5,
+    "humidity_percent": 34.4,
+    "fan_speed_percent": 63.5,
+    "power_kw": 3.35
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-018",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T05:05:22.040837",
+    "temperature_c": 51.1,
+    "humidity_percent": 31.0,
+    "fan_speed_percent": 65.8,
+    "power_kw": 2.93
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-019",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T05:35:22.040837",
+    "temperature_c": 50.1,
+    "humidity_percent": 31.8,
+    "fan_speed_percent": 67.2,
+    "power_kw": 2.24
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-020",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T06:05:22.040837",
+    "temperature_c": 52.4,
+    "humidity_percent": 30.4,
+    "fan_speed_percent": 72.7,
+    "power_kw": 4.9
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-021",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T06:35:22.040837",
+    "temperature_c": 49.7,
+    "humidity_percent": 25.9,
+    "fan_speed_percent": 72.8,
+    "power_kw": 3.59
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-022",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T07:05:22.040837",
+    "temperature_c": 49.6,
+    "humidity_percent": 28.1,
+    "fan_speed_percent": 72.9,
+    "power_kw": 4.8
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-023",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T07:35:22.040837",
+    "temperature_c": 50.6,
+    "humidity_percent": 23.2,
+    "fan_speed_percent": 73.1,
+    "power_kw": 3.55
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-024",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T08:05:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 21.8,
+    "fan_speed_percent": 69.7,
+    "power_kw": 3.94
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-025",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T08:35:22.040837",
+    "temperature_c": 49.8,
+    "humidity_percent": 18.5,
+    "fan_speed_percent": 77.9,
+    "power_kw": 3.53
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-026",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T09:05:22.040837",
+    "temperature_c": 51.0,
+    "humidity_percent": 18.4,
+    "fan_speed_percent": 78.8,
+    "power_kw": 3.94
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-027",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T09:35:22.040837",
+    "temperature_c": 49.9,
+    "humidity_percent": 20.4,
+    "fan_speed_percent": 77.2,
+    "power_kw": 3.7
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-028",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T10:05:22.040837",
+    "temperature_c": 51.0,
+    "humidity_percent": 16.9,
+    "fan_speed_percent": 73.3,
+    "power_kw": 4.83
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-029",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T10:35:22.040837",
+    "temperature_c": 51.4,
+    "humidity_percent": 11.8,
+    "fan_speed_percent": 73.0,
+    "power_kw": 3.42
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-030",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T11:05:22.040837",
+    "temperature_c": 50.2,
+    "humidity_percent": 13.3,
+    "fan_speed_percent": 77.8,
+    "power_kw": 2.2
+  },
+  {
+    "log_id": "DH-20250919-0011-LOG-031",
+    "batch_id": "DH-20250919-0011",
+    "timestamp": "2025-09-20T11:35:22.040837",
+    "temperature_c": 49.7,
+    "humidity_percent": 9.7,
+    "fan_speed_percent": 76.9,
+    "power_kw": 2.75
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-000",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 52.1,
+    "power_kw": 2.27
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-001",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T20:35:22.040837",
+    "temperature_c": 21.1,
+    "humidity_percent": 56.6,
+    "fan_speed_percent": 51.4,
+    "power_kw": 3.33
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-002",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T21:05:22.040837",
+    "temperature_c": 42.2,
+    "humidity_percent": 53.4,
+    "fan_speed_percent": 49.3,
+    "power_kw": 2.16
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-003",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T21:35:22.040837",
+    "temperature_c": 63.3,
+    "humidity_percent": 50.8,
+    "fan_speed_percent": 50.9,
+    "power_kw": 4.26
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-004",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T22:05:22.040837",
+    "temperature_c": 67.8,
+    "humidity_percent": 47.6,
+    "fan_speed_percent": 56.7,
+    "power_kw": 2.78
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-005",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T22:35:22.040837",
+    "temperature_c": 68.7,
+    "humidity_percent": 45.9,
+    "fan_speed_percent": 54.7,
+    "power_kw": 4.62
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-006",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T23:05:22.040837",
+    "temperature_c": 68.6,
+    "humidity_percent": 40.8,
+    "fan_speed_percent": 65.2,
+    "power_kw": 4.4
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-007",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-13T23:35:22.040837",
+    "temperature_c": 68.6,
+    "humidity_percent": 39.3,
+    "fan_speed_percent": 63.3,
+    "power_kw": 3.21
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-008",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T00:05:22.040837",
+    "temperature_c": 65.5,
+    "humidity_percent": 34.4,
+    "fan_speed_percent": 66.6,
+    "power_kw": 4.3
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-009",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T00:35:22.040837",
+    "temperature_c": 66.8,
+    "humidity_percent": 33.9,
+    "fan_speed_percent": 67.0,
+    "power_kw": 4.76
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-010",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T01:05:22.040837",
+    "temperature_c": 68.7,
+    "humidity_percent": 28.3,
+    "fan_speed_percent": 70.2,
+    "power_kw": 3.43
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-011",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T01:35:22.040837",
+    "temperature_c": 69.0,
+    "humidity_percent": 24.3,
+    "fan_speed_percent": 69.7,
+    "power_kw": 4.02
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-012",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T02:05:22.040837",
+    "temperature_c": 66.7,
+    "humidity_percent": 20.8,
+    "fan_speed_percent": 68.6,
+    "power_kw": 2.83
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-013",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T02:35:22.040837",
+    "temperature_c": 66.5,
+    "humidity_percent": 21.7,
+    "fan_speed_percent": 74.3,
+    "power_kw": 2.69
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-014",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T03:05:22.040837",
+    "temperature_c": 69.0,
+    "humidity_percent": 12.4,
+    "fan_speed_percent": 72.2,
+    "power_kw": 2.47
+  },
+  {
+    "log_id": "DH-20251013-0030-LOG-015",
+    "batch_id": "DH-20251013-0030",
+    "timestamp": "2025-10-14T03:35:22.040837",
+    "temperature_c": 67.2,
+    "humidity_percent": 15.6,
+    "fan_speed_percent": 75.8,
+    "power_kw": 2.71
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-000",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 46.6,
+    "power_kw": 4.23
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-001",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T20:35:22.040837",
+    "temperature_c": 17.6,
+    "humidity_percent": 57.2,
+    "fan_speed_percent": 50.8,
+    "power_kw": 2.26
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-002",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T21:05:22.040837",
+    "temperature_c": 35.2,
+    "humidity_percent": 54.5,
+    "fan_speed_percent": 48.9,
+    "power_kw": 4.92
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-003",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T21:35:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 52.5,
+    "fan_speed_percent": 56.7,
+    "power_kw": 2.33
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-004",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T22:05:22.040837",
+    "temperature_c": 65.2,
+    "humidity_percent": 49.0,
+    "fan_speed_percent": 57.0,
+    "power_kw": 2.14
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-005",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T22:35:22.040837",
+    "temperature_c": 63.3,
+    "humidity_percent": 45.9,
+    "fan_speed_percent": 58.9,
+    "power_kw": 4.91
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-006",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T23:05:22.040837",
+    "temperature_c": 63.7,
+    "humidity_percent": 44.8,
+    "fan_speed_percent": 60.5,
+    "power_kw": 3.85
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-007",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-15T23:35:22.040837",
+    "temperature_c": 62.8,
+    "humidity_percent": 41.7,
+    "fan_speed_percent": 58.8,
+    "power_kw": 3.75
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-008",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T00:05:22.040837",
+    "temperature_c": 65.0,
+    "humidity_percent": 39.7,
+    "fan_speed_percent": 63.6,
+    "power_kw": 3.49
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-009",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T00:35:22.040837",
+    "temperature_c": 61.5,
+    "humidity_percent": 35.1,
+    "fan_speed_percent": 64.1,
+    "power_kw": 3.65
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-010",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T01:05:22.040837",
+    "temperature_c": 63.4,
+    "humidity_percent": 32.9,
+    "fan_speed_percent": 66.7,
+    "power_kw": 3.33
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-011",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T01:35:22.040837",
+    "temperature_c": 64.9,
+    "humidity_percent": 31.6,
+    "fan_speed_percent": 72.8,
+    "power_kw": 3.7
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-012",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T02:05:22.040837",
+    "temperature_c": 61.8,
+    "humidity_percent": 28.5,
+    "fan_speed_percent": 67.2,
+    "power_kw": 2.55
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-013",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T02:35:22.040837",
+    "temperature_c": 63.7,
+    "humidity_percent": 23.6,
+    "fan_speed_percent": 68.1,
+    "power_kw": 4.43
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-014",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T03:05:22.040837",
+    "temperature_c": 63.8,
+    "humidity_percent": 21.3,
+    "fan_speed_percent": 77.3,
+    "power_kw": 2.49
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-015",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T03:35:22.040837",
+    "temperature_c": 63.3,
+    "humidity_percent": 14.6,
+    "fan_speed_percent": 77.0,
+    "power_kw": 4.53
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-016",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T04:05:22.040837",
+    "temperature_c": 62.6,
+    "humidity_percent": 14.1,
+    "fan_speed_percent": 72.3,
+    "power_kw": 3.57
+  },
+  {
+    "log_id": "DH-20251015-0026-LOG-017",
+    "batch_id": "DH-20251015-0026",
+    "timestamp": "2025-10-16T04:35:22.040837",
+    "temperature_c": 64.3,
+    "humidity_percent": 12.9,
+    "fan_speed_percent": 77.4,
+    "power_kw": 4.3
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-000",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 52.6,
+    "power_kw": 2.95
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-001",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T20:35:22.040837",
+    "temperature_c": 7.4,
+    "humidity_percent": 58.9,
+    "fan_speed_percent": 45.8,
+    "power_kw": 4.58
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-002",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T21:05:22.040837",
+    "temperature_c": 14.8,
+    "humidity_percent": 57.4,
+    "fan_speed_percent": 46.6,
+    "power_kw": 3.14
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-003",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T21:35:22.040837",
+    "temperature_c": 22.2,
+    "humidity_percent": 56.3,
+    "fan_speed_percent": 56.3,
+    "power_kw": 4.93
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-004",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T22:05:22.040837",
+    "temperature_c": 29.6,
+    "humidity_percent": 55.2,
+    "fan_speed_percent": 48.8,
+    "power_kw": 4.89
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-005",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T22:35:22.040837",
+    "temperature_c": 37.0,
+    "humidity_percent": 53.6,
+    "fan_speed_percent": 54.8,
+    "power_kw": 2.04
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-006",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T23:05:22.040837",
+    "temperature_c": 44.4,
+    "humidity_percent": 52.1,
+    "fan_speed_percent": 56.4,
+    "power_kw": 4.13
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-007",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-22T23:35:22.040837",
+    "temperature_c": 51.8,
+    "humidity_percent": 51.5,
+    "fan_speed_percent": 52.7,
+    "power_kw": 3.39
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-008",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T00:05:22.040837",
+    "temperature_c": 59.2,
+    "humidity_percent": 50.3,
+    "fan_speed_percent": 56.1,
+    "power_kw": 4.12
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-009",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T00:35:22.040837",
+    "temperature_c": 61.3,
+    "humidity_percent": 48.2,
+    "fan_speed_percent": 53.0,
+    "power_kw": 2.4
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-010",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T01:05:22.040837",
+    "temperature_c": 62.6,
+    "humidity_percent": 49.0,
+    "fan_speed_percent": 55.9,
+    "power_kw": 3.45
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-011",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T01:35:22.040837",
+    "temperature_c": 62.2,
+    "humidity_percent": 45.3,
+    "fan_speed_percent": 61.6,
+    "power_kw": 3.17
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-012",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T02:05:22.040837",
+    "temperature_c": 60.4,
+    "humidity_percent": 44.9,
+    "fan_speed_percent": 53.8,
+    "power_kw": 2.69
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-013",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T02:35:22.040837",
+    "temperature_c": 61.4,
+    "humidity_percent": 45.2,
+    "fan_speed_percent": 58.3,
+    "power_kw": 4.77
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-014",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T03:05:22.040837",
+    "temperature_c": 60.8,
+    "humidity_percent": 43.6,
+    "fan_speed_percent": 59.6,
+    "power_kw": 4.17
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-015",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T03:35:22.040837",
+    "temperature_c": 59.7,
+    "humidity_percent": 40.2,
+    "fan_speed_percent": 56.2,
+    "power_kw": 3.77
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-016",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T04:05:22.040837",
+    "temperature_c": 58.9,
+    "humidity_percent": 40.0,
+    "fan_speed_percent": 66.7,
+    "power_kw": 4.99
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-017",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T04:35:22.040837",
+    "temperature_c": 61.1,
+    "humidity_percent": 39.1,
+    "fan_speed_percent": 61.1,
+    "power_kw": 3.9
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-018",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T05:05:22.040837",
+    "temperature_c": 58.8,
+    "humidity_percent": 37.4,
+    "fan_speed_percent": 66.5,
+    "power_kw": 2.32
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-019",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T05:35:22.040837",
+    "temperature_c": 61.6,
+    "humidity_percent": 37.5,
+    "fan_speed_percent": 68.5,
+    "power_kw": 3.44
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-020",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T06:05:22.040837",
+    "temperature_c": 61.6,
+    "humidity_percent": 35.5,
+    "fan_speed_percent": 60.7,
+    "power_kw": 4.12
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-021",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T06:35:22.040837",
+    "temperature_c": 60.0,
+    "humidity_percent": 35.0,
+    "fan_speed_percent": 62.6,
+    "power_kw": 3.89
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-022",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T07:05:22.040837",
+    "temperature_c": 61.5,
+    "humidity_percent": 34.5,
+    "fan_speed_percent": 68.9,
+    "power_kw": 4.93
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-023",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T07:35:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 34.4,
+    "fan_speed_percent": 63.2,
+    "power_kw": 3.11
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-024",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T08:05:22.040837",
+    "temperature_c": 59.9,
+    "humidity_percent": 32.7,
+    "fan_speed_percent": 64.5,
+    "power_kw": 4.43
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-025",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T08:35:22.040837",
+    "temperature_c": 60.6,
+    "humidity_percent": 31.0,
+    "fan_speed_percent": 64.6,
+    "power_kw": 3.59
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-026",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T09:05:22.040837",
+    "temperature_c": 62.6,
+    "humidity_percent": 25.3,
+    "fan_speed_percent": 69.9,
+    "power_kw": 3.21
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-027",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T09:35:22.040837",
+    "temperature_c": 59.9,
+    "humidity_percent": 27.7,
+    "fan_speed_percent": 70.3,
+    "power_kw": 4.57
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-028",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T10:05:22.040837",
+    "temperature_c": 60.4,
+    "humidity_percent": 26.2,
+    "fan_speed_percent": 71.6,
+    "power_kw": 2.67
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-029",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T10:35:22.040837",
+    "temperature_c": 62.1,
+    "humidity_percent": 21.8,
+    "fan_speed_percent": 75.1,
+    "power_kw": 2.13
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-030",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T11:05:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 22.1,
+    "fan_speed_percent": 72.9,
+    "power_kw": 4.01
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-031",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T11:35:22.040837",
+    "temperature_c": 61.4,
+    "humidity_percent": 21.2,
+    "fan_speed_percent": 69.8,
+    "power_kw": 2.36
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-032",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T12:05:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 21.0,
+    "fan_speed_percent": 68.7,
+    "power_kw": 2.66
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-033",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T12:35:22.040837",
+    "temperature_c": 62.5,
+    "humidity_percent": 23.4,
+    "fan_speed_percent": 79.1,
+    "power_kw": 3.34
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-034",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T13:05:22.040837",
+    "temperature_c": 61.6,
+    "humidity_percent": 21.1,
+    "fan_speed_percent": 77.7,
+    "power_kw": 2.62
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-035",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T13:35:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 16.3,
+    "fan_speed_percent": 77.3,
+    "power_kw": 4.57
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-036",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T14:05:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 15.4,
+    "fan_speed_percent": 73.5,
+    "power_kw": 4.28
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-037",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T14:35:22.040837",
+    "temperature_c": 61.1,
+    "humidity_percent": 13.6,
+    "fan_speed_percent": 80.7,
+    "power_kw": 2.54
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-038",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T15:05:22.040837",
+    "temperature_c": 60.1,
+    "humidity_percent": 12.6,
+    "fan_speed_percent": 82.7,
+    "power_kw": 2.73
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-039",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T15:35:22.040837",
+    "temperature_c": 59.9,
+    "humidity_percent": 7.8,
+    "fan_speed_percent": 81.5,
+    "power_kw": 2.54
+  },
+  {
+    "log_id": "DH-20250922-0059-LOG-040",
+    "batch_id": "DH-20250922-0059",
+    "timestamp": "2025-09-23T16:05:22.040837",
+    "temperature_c": 61.2,
+    "humidity_percent": 8.2,
+    "fan_speed_percent": 76.2,
+    "power_kw": 2.27
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-000",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 51.2,
+    "power_kw": 2.55
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-001",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T20:35:22.040837",
+    "temperature_c": 7.9,
+    "humidity_percent": 58.6,
+    "fan_speed_percent": 55.1,
+    "power_kw": 2.06
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-002",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T21:05:22.040837",
+    "temperature_c": 15.9,
+    "humidity_percent": 57.1,
+    "fan_speed_percent": 48.4,
+    "power_kw": 2.98
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-003",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T21:35:22.040837",
+    "temperature_c": 23.8,
+    "humidity_percent": 56.3,
+    "fan_speed_percent": 47.6,
+    "power_kw": 2.38
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-004",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T22:05:22.040837",
+    "temperature_c": 31.8,
+    "humidity_percent": 54.4,
+    "fan_speed_percent": 49.6,
+    "power_kw": 2.54
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-005",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T22:35:22.040837",
+    "temperature_c": 39.7,
+    "humidity_percent": 53.8,
+    "fan_speed_percent": 53.5,
+    "power_kw": 3.6
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-006",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T23:05:22.040837",
+    "temperature_c": 47.7,
+    "humidity_percent": 52.2,
+    "fan_speed_percent": 52.1,
+    "power_kw": 3.17
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-007",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-23T23:35:22.040837",
+    "temperature_c": 55.6,
+    "humidity_percent": 50.1,
+    "fan_speed_percent": 53.1,
+    "power_kw": 3.44
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-008",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T00:05:22.040837",
+    "temperature_c": 60.2,
+    "humidity_percent": 49.4,
+    "fan_speed_percent": 58.4,
+    "power_kw": 3.51
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-009",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T00:35:22.040837",
+    "temperature_c": 59.7,
+    "humidity_percent": 47.3,
+    "fan_speed_percent": 56.4,
+    "power_kw": 2.98
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-010",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T01:05:22.040837",
+    "temperature_c": 60.2,
+    "humidity_percent": 47.2,
+    "fan_speed_percent": 57.5,
+    "power_kw": 3.08
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-011",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T01:35:22.040837",
+    "temperature_c": 59.8,
+    "humidity_percent": 45.7,
+    "fan_speed_percent": 59.7,
+    "power_kw": 3.96
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-012",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T02:05:22.040837",
+    "temperature_c": 61.3,
+    "humidity_percent": 44.9,
+    "fan_speed_percent": 60.3,
+    "power_kw": 3.06
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-013",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T02:35:22.040837",
+    "temperature_c": 60.4,
+    "humidity_percent": 44.1,
+    "fan_speed_percent": 62.2,
+    "power_kw": 3.43
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-014",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T03:05:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 42.0,
+    "fan_speed_percent": 59.4,
+    "power_kw": 4.39
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-015",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T03:35:22.040837",
+    "temperature_c": 60.4,
+    "humidity_percent": 38.8,
+    "fan_speed_percent": 61.2,
+    "power_kw": 2.23
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-016",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T04:05:22.040837",
+    "temperature_c": 58.6,
+    "humidity_percent": 40.8,
+    "fan_speed_percent": 65.1,
+    "power_kw": 2.86
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-017",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T04:35:22.040837",
+    "temperature_c": 59.1,
+    "humidity_percent": 38.2,
+    "fan_speed_percent": 61.8,
+    "power_kw": 3.71
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-018",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T05:05:22.040837",
+    "temperature_c": 59.8,
+    "humidity_percent": 38.2,
+    "fan_speed_percent": 65.6,
+    "power_kw": 4.37
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-019",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T05:35:22.040837",
+    "temperature_c": 60.1,
+    "humidity_percent": 35.0,
+    "fan_speed_percent": 67.4,
+    "power_kw": 3.01
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-020",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T06:05:22.040837",
+    "temperature_c": 59.3,
+    "humidity_percent": 33.3,
+    "fan_speed_percent": 68.4,
+    "power_kw": 3.5
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-021",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T06:35:22.040837",
+    "temperature_c": 62.2,
+    "humidity_percent": 30.2,
+    "fan_speed_percent": 63.8,
+    "power_kw": 4.04
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-022",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T07:05:22.040837",
+    "temperature_c": 60.0,
+    "humidity_percent": 32.1,
+    "fan_speed_percent": 68.1,
+    "power_kw": 4.35
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-023",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T07:35:22.040837",
+    "temperature_c": 62.3,
+    "humidity_percent": 30.0,
+    "fan_speed_percent": 69.2,
+    "power_kw": 3.38
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-024",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T08:05:22.040837",
+    "temperature_c": 61.9,
+    "humidity_percent": 30.6,
+    "fan_speed_percent": 64.0,
+    "power_kw": 2.35
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-025",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T08:35:22.040837",
+    "temperature_c": 62.1,
+    "humidity_percent": 24.7,
+    "fan_speed_percent": 69.4,
+    "power_kw": 3.59
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-026",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T09:05:22.040837",
+    "temperature_c": 61.4,
+    "humidity_percent": 27.4,
+    "fan_speed_percent": 70.3,
+    "power_kw": 4.66
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-027",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T09:35:22.040837",
+    "temperature_c": 61.5,
+    "humidity_percent": 26.3,
+    "fan_speed_percent": 74.8,
+    "power_kw": 3.01
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-028",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T10:05:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 20.2,
+    "fan_speed_percent": 76.0,
+    "power_kw": 2.7
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-029",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T10:35:22.040837",
+    "temperature_c": 58.6,
+    "humidity_percent": 21.1,
+    "fan_speed_percent": 74.1,
+    "power_kw": 2.07
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-030",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T11:05:22.040837",
+    "temperature_c": 61.0,
+    "humidity_percent": 23.0,
+    "fan_speed_percent": 76.2,
+    "power_kw": 3.32
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-031",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T11:35:22.040837",
+    "temperature_c": 59.1,
+    "humidity_percent": 20.5,
+    "fan_speed_percent": 76.2,
+    "power_kw": 3.48
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-032",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T12:05:22.040837",
+    "temperature_c": 61.8,
+    "humidity_percent": 20.0,
+    "fan_speed_percent": 76.3,
+    "power_kw": 2.12
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-033",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T12:35:22.040837",
+    "temperature_c": 61.9,
+    "humidity_percent": 20.5,
+    "fan_speed_percent": 74.9,
+    "power_kw": 3.21
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-034",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T13:05:22.040837",
+    "temperature_c": 60.9,
+    "humidity_percent": 15.6,
+    "fan_speed_percent": 80.3,
+    "power_kw": 2.38
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-035",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T13:35:22.040837",
+    "temperature_c": 58.7,
+    "humidity_percent": 16.3,
+    "fan_speed_percent": 78.5,
+    "power_kw": 2.22
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-036",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T14:05:22.040837",
+    "temperature_c": 60.3,
+    "humidity_percent": 16.1,
+    "fan_speed_percent": 81.7,
+    "power_kw": 4.52
+  },
+  {
+    "log_id": "DH-20250923-0016-LOG-037",
+    "batch_id": "DH-20250923-0016",
+    "timestamp": "2025-09-24T14:35:22.040837",
+    "temperature_c": 59.6,
+    "humidity_percent": 12.5,
+    "fan_speed_percent": 81.8,
+    "power_kw": 3.94
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-000",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 55.0,
+    "power_kw": 3.92
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-001",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T20:35:22.040837",
+    "temperature_c": 18.2,
+    "humidity_percent": 57.6,
+    "fan_speed_percent": 53.4,
+    "power_kw": 2.43
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-002",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T21:05:22.040837",
+    "temperature_c": 36.5,
+    "humidity_percent": 54.9,
+    "fan_speed_percent": 54.7,
+    "power_kw": 4.82
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-003",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T21:35:22.040837",
+    "temperature_c": 54.7,
+    "humidity_percent": 51.4,
+    "fan_speed_percent": 58.5,
+    "power_kw": 2.08
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-004",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T22:05:22.040837",
+    "temperature_c": 71.0,
+    "humidity_percent": 49.8,
+    "fan_speed_percent": 60.7,
+    "power_kw": 4.95
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-005",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T22:35:22.040837",
+    "temperature_c": 70.3,
+    "humidity_percent": 45.8,
+    "fan_speed_percent": 53.1,
+    "power_kw": 4.23
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-006",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T23:05:22.040837",
+    "temperature_c": 69.6,
+    "humidity_percent": 42.7,
+    "fan_speed_percent": 64.2,
+    "power_kw": 2.26
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-007",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-13T23:35:22.040837",
+    "temperature_c": 69.4,
+    "humidity_percent": 41.3,
+    "fan_speed_percent": 62.8,
+    "power_kw": 3.21
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-008",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T00:05:22.040837",
+    "temperature_c": 69.2,
+    "humidity_percent": 39.5,
+    "fan_speed_percent": 60.9,
+    "power_kw": 3.86
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-009",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T00:35:22.040837",
+    "temperature_c": 67.4,
+    "humidity_percent": 35.9,
+    "fan_speed_percent": 65.6,
+    "power_kw": 2.23
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-010",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T01:05:22.040837",
+    "temperature_c": 68.2,
+    "humidity_percent": 31.9,
+    "fan_speed_percent": 67.8,
+    "power_kw": 4.54
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-011",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T01:35:22.040837",
+    "temperature_c": 68.1,
+    "humidity_percent": 30.2,
+    "fan_speed_percent": 67.8,
+    "power_kw": 3.78
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-012",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T02:05:22.040837",
+    "temperature_c": 69.7,
+    "humidity_percent": 30.6,
+    "fan_speed_percent": 64.3,
+    "power_kw": 3.51
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-013",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T02:35:22.040837",
+    "temperature_c": 68.1,
+    "humidity_percent": 25.4,
+    "fan_speed_percent": 74.7,
+    "power_kw": 3.98
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-014",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T03:05:22.040837",
+    "temperature_c": 69.8,
+    "humidity_percent": 25.3,
+    "fan_speed_percent": 75.8,
+    "power_kw": 2.17
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-015",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T03:35:22.040837",
+    "temperature_c": 71.2,
+    "humidity_percent": 21.2,
+    "fan_speed_percent": 73.5,
+    "power_kw": 3.57
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-016",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T04:05:22.040837",
+    "temperature_c": 69.8,
+    "humidity_percent": 17.0,
+    "fan_speed_percent": 77.7,
+    "power_kw": 3.23
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-017",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T04:35:22.040837",
+    "temperature_c": 69.5,
+    "humidity_percent": 16.4,
+    "fan_speed_percent": 74.4,
+    "power_kw": 2.31
+  },
+  {
+    "log_id": "DH-20251013-0046-LOG-018",
+    "batch_id": "DH-20251013-0046",
+    "timestamp": "2025-10-14T05:05:22.040837",
+    "temperature_c": 69.8,
+    "humidity_percent": 11.1,
+    "fan_speed_percent": 77.4,
+    "power_kw": 2.16
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-000",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 49.9,
+    "power_kw": 4.94
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-001",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T20:35:22.040837",
+    "temperature_c": 16.1,
+    "humidity_percent": 57.3,
+    "fan_speed_percent": 51.2,
+    "power_kw": 2.98
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-002",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T21:05:22.040837",
+    "temperature_c": 32.3,
+    "humidity_percent": 54.5,
+    "fan_speed_percent": 52.9,
+    "power_kw": 4.42
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-003",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T21:35:22.040837",
+    "temperature_c": 48.4,
+    "humidity_percent": 52.4,
+    "fan_speed_percent": 52.2,
+    "power_kw": 4.88
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-004",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T22:05:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 49.0,
+    "fan_speed_percent": 52.7,
+    "power_kw": 4.42
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-005",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T22:35:22.040837",
+    "temperature_c": 62.8,
+    "humidity_percent": 47.2,
+    "fan_speed_percent": 57.2,
+    "power_kw": 4.96
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-006",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T23:05:22.040837",
+    "temperature_c": 62.8,
+    "humidity_percent": 45.7,
+    "fan_speed_percent": 59.4,
+    "power_kw": 4.17
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-007",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-14T23:35:22.040837",
+    "temperature_c": 60.0,
+    "humidity_percent": 40.6,
+    "fan_speed_percent": 64.7,
+    "power_kw": 4.41
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-008",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T00:05:22.040837",
+    "temperature_c": 61.9,
+    "humidity_percent": 38.1,
+    "fan_speed_percent": 64.7,
+    "power_kw": 4.49
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-009",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T00:35:22.040837",
+    "temperature_c": 61.1,
+    "humidity_percent": 35.0,
+    "fan_speed_percent": 62.2,
+    "power_kw": 2.32
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-010",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T01:05:22.040837",
+    "temperature_c": 61.5,
+    "humidity_percent": 35.5,
+    "fan_speed_percent": 68.9,
+    "power_kw": 4.34
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-011",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T01:35:22.040837",
+    "temperature_c": 61.1,
+    "humidity_percent": 28.4,
+    "fan_speed_percent": 68.9,
+    "power_kw": 4.02
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-012",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T02:05:22.040837",
+    "temperature_c": 62.0,
+    "humidity_percent": 27.0,
+    "fan_speed_percent": 65.0,
+    "power_kw": 4.24
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-013",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T02:35:22.040837",
+    "temperature_c": 61.0,
+    "humidity_percent": 28.5,
+    "fan_speed_percent": 66.1,
+    "power_kw": 3.05
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-014",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T03:05:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 19.9,
+    "fan_speed_percent": 71.1,
+    "power_kw": 2.01
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-015",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T03:35:22.040837",
+    "temperature_c": 62.3,
+    "humidity_percent": 24.3,
+    "fan_speed_percent": 70.3,
+    "power_kw": 4.82
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-016",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T04:05:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 16.6,
+    "fan_speed_percent": 77.8,
+    "power_kw": 2.29
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-017",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T04:35:22.040837",
+    "temperature_c": 61.3,
+    "humidity_percent": 13.9,
+    "fan_speed_percent": 80.4,
+    "power_kw": 3.26
+  },
+  {
+    "log_id": "DH-20251014-0084-LOG-018",
+    "batch_id": "DH-20251014-0084",
+    "timestamp": "2025-10-15T05:05:22.040837",
+    "temperature_c": 60.7,
+    "humidity_percent": 17.1,
+    "fan_speed_percent": 77.1,
+    "power_kw": 4.73
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-000",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 49.7,
+    "power_kw": 2.14
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-001",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T20:35:22.040837",
+    "temperature_c": 17.0,
+    "humidity_percent": 56.6,
+    "fan_speed_percent": 47.5,
+    "power_kw": 3.8
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-002",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T21:05:22.040837",
+    "temperature_c": 33.9,
+    "humidity_percent": 53.7,
+    "fan_speed_percent": 50.1,
+    "power_kw": 3.86
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-003",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T21:35:22.040837",
+    "temperature_c": 49.5,
+    "humidity_percent": 50.2,
+    "fan_speed_percent": 54.0,
+    "power_kw": 2.4
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-004",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T22:05:22.040837",
+    "temperature_c": 50.6,
+    "humidity_percent": 47.7,
+    "fan_speed_percent": 55.5,
+    "power_kw": 2.97
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-005",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T22:35:22.040837",
+    "temperature_c": 49.8,
+    "humidity_percent": 42.3,
+    "fan_speed_percent": 61.4,
+    "power_kw": 4.92
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-006",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T23:05:22.040837",
+    "temperature_c": 49.5,
+    "humidity_percent": 38.1,
+    "fan_speed_percent": 66.3,
+    "power_kw": 3.74
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-007",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-07T23:35:22.040837",
+    "temperature_c": 51.3,
+    "humidity_percent": 37.1,
+    "fan_speed_percent": 66.1,
+    "power_kw": 4.07
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-008",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T00:05:22.040837",
+    "temperature_c": 50.4,
+    "humidity_percent": 35.2,
+    "fan_speed_percent": 65.3,
+    "power_kw": 3.14
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-009",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T00:35:22.040837",
+    "temperature_c": 51.1,
+    "humidity_percent": 29.8,
+    "fan_speed_percent": 72.7,
+    "power_kw": 4.79
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-010",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T01:05:22.040837",
+    "temperature_c": 49.9,
+    "humidity_percent": 29.9,
+    "fan_speed_percent": 71.4,
+    "power_kw": 2.81
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-011",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T01:35:22.040837",
+    "temperature_c": 49.3,
+    "humidity_percent": 25.7,
+    "fan_speed_percent": 73.2,
+    "power_kw": 3.24
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-012",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T02:05:22.040837",
+    "temperature_c": 52.1,
+    "humidity_percent": 18.5,
+    "fan_speed_percent": 75.1,
+    "power_kw": 4.14
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-013",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T02:35:22.040837",
+    "temperature_c": 52.2,
+    "humidity_percent": 18.5,
+    "fan_speed_percent": 75.8,
+    "power_kw": 4.78
+  },
+  {
+    "log_id": "DH-20251007-0017-LOG-014",
+    "batch_id": "DH-20251007-0017",
+    "timestamp": "2025-10-08T03:05:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 15.6,
+    "fan_speed_percent": 77.0,
+    "power_kw": 4.68
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-000",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 47.5,
+    "power_kw": 3.61
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-001",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T20:35:22.040837",
+    "temperature_c": 6.0,
+    "humidity_percent": 59.0,
+    "fan_speed_percent": 53.7,
+    "power_kw": 2.04
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-002",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T21:05:22.040837",
+    "temperature_c": 12.1,
+    "humidity_percent": 57.9,
+    "fan_speed_percent": 55.2,
+    "power_kw": 4.26
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-003",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T21:35:22.040837",
+    "temperature_c": 18.1,
+    "humidity_percent": 57.0,
+    "fan_speed_percent": 55.6,
+    "power_kw": 4.67
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-004",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T22:05:22.040837",
+    "temperature_c": 24.1,
+    "humidity_percent": 56.1,
+    "fan_speed_percent": 52.6,
+    "power_kw": 3.91
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-005",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T22:35:22.040837",
+    "temperature_c": 30.2,
+    "humidity_percent": 54.9,
+    "fan_speed_percent": 53.1,
+    "power_kw": 3.3
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-006",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T23:05:22.040837",
+    "temperature_c": 36.2,
+    "humidity_percent": 53.4,
+    "fan_speed_percent": 50.5,
+    "power_kw": 4.02
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-007",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-06T23:35:22.040837",
+    "temperature_c": 42.2,
+    "humidity_percent": 52.8,
+    "fan_speed_percent": 56.9,
+    "power_kw": 4.37
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-008",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T00:05:22.040837",
+    "temperature_c": 48.2,
+    "humidity_percent": 52.3,
+    "fan_speed_percent": 55.5,
+    "power_kw": 3.69
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-009",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T00:35:22.040837",
+    "temperature_c": 54.3,
+    "humidity_percent": 50.5,
+    "fan_speed_percent": 55.2,
+    "power_kw": 2.9
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-010",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T01:05:22.040837",
+    "temperature_c": 59.8,
+    "humidity_percent": 49.2,
+    "fan_speed_percent": 54.3,
+    "power_kw": 4.09
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-011",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T01:35:22.040837",
+    "temperature_c": 57.6,
+    "humidity_percent": 48.7,
+    "fan_speed_percent": 55.9,
+    "power_kw": 3.2
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-012",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T02:05:22.040837",
+    "temperature_c": 60.2,
+    "humidity_percent": 48.5,
+    "fan_speed_percent": 56.8,
+    "power_kw": 3.02
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-013",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T02:35:22.040837",
+    "temperature_c": 57.3,
+    "humidity_percent": 47.4,
+    "fan_speed_percent": 58.2,
+    "power_kw": 3.25
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-014",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T03:05:22.040837",
+    "temperature_c": 59.9,
+    "humidity_percent": 46.9,
+    "fan_speed_percent": 58.6,
+    "power_kw": 3.25
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-015",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T03:35:22.040837",
+    "temperature_c": 58.3,
+    "humidity_percent": 45.7,
+    "fan_speed_percent": 62.1,
+    "power_kw": 3.36
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-016",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T04:05:22.040837",
+    "temperature_c": 59.5,
+    "humidity_percent": 43.2,
+    "fan_speed_percent": 56.4,
+    "power_kw": 4.55
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-017",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T04:35:22.040837",
+    "temperature_c": 57.9,
+    "humidity_percent": 43.3,
+    "fan_speed_percent": 57.1,
+    "power_kw": 4.35
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-018",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T05:05:22.040837",
+    "temperature_c": 58.2,
+    "humidity_percent": 41.5,
+    "fan_speed_percent": 62.8,
+    "power_kw": 2.7
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-019",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T05:35:22.040837",
+    "temperature_c": 59.8,
+    "humidity_percent": 40.8,
+    "fan_speed_percent": 65.6,
+    "power_kw": 2.3
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-020",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T06:05:22.040837",
+    "temperature_c": 58.1,
+    "humidity_percent": 38.0,
+    "fan_speed_percent": 63.5,
+    "power_kw": 2.87
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-021",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T06:35:22.040837",
+    "temperature_c": 60.6,
+    "humidity_percent": 38.3,
+    "fan_speed_percent": 59.4,
+    "power_kw": 4.21
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-022",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T07:05:22.040837",
+    "temperature_c": 60.5,
+    "humidity_percent": 38.6,
+    "fan_speed_percent": 60.8,
+    "power_kw": 3.57
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-023",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T07:35:22.040837",
+    "temperature_c": 59.1,
+    "humidity_percent": 37.9,
+    "fan_speed_percent": 64.6,
+    "power_kw": 3.93
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-024",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T08:05:22.040837",
+    "temperature_c": 58.9,
+    "humidity_percent": 37.1,
+    "fan_speed_percent": 69.2,
+    "power_kw": 2.74
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-025",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T08:35:22.040837",
+    "temperature_c": 60.1,
+    "humidity_percent": 35.0,
+    "fan_speed_percent": 64.6,
+    "power_kw": 2.28
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-026",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T09:05:22.040837",
+    "temperature_c": 57.7,
+    "humidity_percent": 34.2,
+    "fan_speed_percent": 69.4,
+    "power_kw": 4.38
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-027",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T09:35:22.040837",
+    "temperature_c": 57.3,
+    "humidity_percent": 34.9,
+    "fan_speed_percent": 70.7,
+    "power_kw": 3.41
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-028",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T10:05:22.040837",
+    "temperature_c": 57.4,
+    "humidity_percent": 28.8,
+    "fan_speed_percent": 71.7,
+    "power_kw": 4.61
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-029",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T10:35:22.040837",
+    "temperature_c": 57.7,
+    "humidity_percent": 33.0,
+    "fan_speed_percent": 65.2,
+    "power_kw": 2.97
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-030",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T11:05:22.040837",
+    "temperature_c": 60.3,
+    "humidity_percent": 32.3,
+    "fan_speed_percent": 73.0,
+    "power_kw": 3.03
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-031",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T11:35:22.040837",
+    "temperature_c": 57.6,
+    "humidity_percent": 25.5,
+    "fan_speed_percent": 64.4,
+    "power_kw": 3.19
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-032",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T12:05:22.040837",
+    "temperature_c": 59.6,
+    "humidity_percent": 24.9,
+    "fan_speed_percent": 65.0,
+    "power_kw": 4.15
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-033",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T12:35:22.040837",
+    "temperature_c": 60.9,
+    "humidity_percent": 29.6,
+    "fan_speed_percent": 66.4,
+    "power_kw": 3.12
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-034",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T13:05:22.040837",
+    "temperature_c": 60.7,
+    "humidity_percent": 27.4,
+    "fan_speed_percent": 75.0,
+    "power_kw": 2.58
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-035",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T13:35:22.040837",
+    "temperature_c": 59.8,
+    "humidity_percent": 25.2,
+    "fan_speed_percent": 73.9,
+    "power_kw": 4.55
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-036",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T14:05:22.040837",
+    "temperature_c": 58.1,
+    "humidity_percent": 26.3,
+    "fan_speed_percent": 69.2,
+    "power_kw": 2.28
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-037",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T14:35:22.040837",
+    "temperature_c": 60.6,
+    "humidity_percent": 24.8,
+    "fan_speed_percent": 74.8,
+    "power_kw": 2.67
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-038",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T15:05:22.040837",
+    "temperature_c": 58.8,
+    "humidity_percent": 20.1,
+    "fan_speed_percent": 73.6,
+    "power_kw": 2.94
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-039",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T15:35:22.040837",
+    "temperature_c": 58.3,
+    "humidity_percent": 17.1,
+    "fan_speed_percent": 71.5,
+    "power_kw": 3.01
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-040",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T16:05:22.040837",
+    "temperature_c": 58.0,
+    "humidity_percent": 18.1,
+    "fan_speed_percent": 70.1,
+    "power_kw": 4.9
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-041",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T16:35:22.040837",
+    "temperature_c": 57.6,
+    "humidity_percent": 20.7,
+    "fan_speed_percent": 79.6,
+    "power_kw": 3.28
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-042",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T17:05:22.040837",
+    "temperature_c": 57.4,
+    "humidity_percent": 20.5,
+    "fan_speed_percent": 74.7,
+    "power_kw": 4.34
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-043",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T17:35:22.040837",
+    "temperature_c": 61.1,
+    "humidity_percent": 15.5,
+    "fan_speed_percent": 79.1,
+    "power_kw": 3.45
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-044",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T18:05:22.040837",
+    "temperature_c": 59.9,
+    "humidity_percent": 12.8,
+    "fan_speed_percent": 76.4,
+    "power_kw": 4.93
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-045",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T18:35:22.040837",
+    "temperature_c": 60.9,
+    "humidity_percent": 15.6,
+    "fan_speed_percent": 73.4,
+    "power_kw": 2.3
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-046",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T19:05:22.040837",
+    "temperature_c": 57.9,
+    "humidity_percent": 11.7,
+    "fan_speed_percent": 74.8,
+    "power_kw": 4.11
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-047",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T19:35:22.040837",
+    "temperature_c": 57.4,
+    "humidity_percent": 9.4,
+    "fan_speed_percent": 76.2,
+    "power_kw": 4.33
+  },
+  {
+    "log_id": "DH-20251106-0002-LOG-048",
+    "batch_id": "DH-20251106-0002",
+    "timestamp": "2025-11-07T20:05:22.040837",
+    "temperature_c": 57.2,
+    "humidity_percent": 12.5,
+    "fan_speed_percent": 81.1,
+    "power_kw": 3.3
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-000",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 49.7,
+    "power_kw": 3.08
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-001",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T20:35:22.040837",
+    "temperature_c": 5.3,
+    "humidity_percent": 59.1,
+    "fan_speed_percent": 46.7,
+    "power_kw": 2.71
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-002",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T21:05:22.040837",
+    "temperature_c": 10.6,
+    "humidity_percent": 57.8,
+    "fan_speed_percent": 46.7,
+    "power_kw": 4.22
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-003",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T21:35:22.040837",
+    "temperature_c": 15.9,
+    "humidity_percent": 57.2,
+    "fan_speed_percent": 49.2,
+    "power_kw": 3.71
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-004",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T22:05:22.040837",
+    "temperature_c": 21.2,
+    "humidity_percent": 56.1,
+    "fan_speed_percent": 53.7,
+    "power_kw": 2.7
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-005",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T22:35:22.040837",
+    "temperature_c": 26.4,
+    "humidity_percent": 54.5,
+    "fan_speed_percent": 53.2,
+    "power_kw": 4.0
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-006",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T23:05:22.040837",
+    "temperature_c": 31.7,
+    "humidity_percent": 54.0,
+    "fan_speed_percent": 50.8,
+    "power_kw": 2.62
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-007",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-10-31T23:35:22.040837",
+    "temperature_c": 37.0,
+    "humidity_percent": 53.3,
+    "fan_speed_percent": 54.4,
+    "power_kw": 3.94
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-008",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T00:05:22.040837",
+    "temperature_c": 42.3,
+    "humidity_percent": 51.5,
+    "fan_speed_percent": 59.6,
+    "power_kw": 3.69
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-009",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T00:35:22.040837",
+    "temperature_c": 47.6,
+    "humidity_percent": 50.5,
+    "fan_speed_percent": 51.1,
+    "power_kw": 2.45
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-010",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T01:05:22.040837",
+    "temperature_c": 53.7,
+    "humidity_percent": 49.5,
+    "fan_speed_percent": 51.5,
+    "power_kw": 4.72
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-011",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T01:35:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 49.0,
+    "fan_speed_percent": 59.3,
+    "power_kw": 4.53
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-012",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T02:05:22.040837",
+    "temperature_c": 52.1,
+    "humidity_percent": 48.0,
+    "fan_speed_percent": 57.6,
+    "power_kw": 2.17
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-013",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T02:35:22.040837",
+    "temperature_c": 52.3,
+    "humidity_percent": 46.7,
+    "fan_speed_percent": 57.7,
+    "power_kw": 4.61
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-014",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T03:05:22.040837",
+    "temperature_c": 54.0,
+    "humidity_percent": 46.9,
+    "fan_speed_percent": 58.1,
+    "power_kw": 3.13
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-015",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T03:35:22.040837",
+    "temperature_c": 54.7,
+    "humidity_percent": 44.1,
+    "fan_speed_percent": 63.6,
+    "power_kw": 2.4
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-016",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T04:05:22.040837",
+    "temperature_c": 52.5,
+    "humidity_percent": 44.2,
+    "fan_speed_percent": 59.2,
+    "power_kw": 3.45
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-017",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T04:35:22.040837",
+    "temperature_c": 51.1,
+    "humidity_percent": 43.5,
+    "fan_speed_percent": 59.1,
+    "power_kw": 2.46
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-018",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T05:05:22.040837",
+    "temperature_c": 54.5,
+    "humidity_percent": 43.7,
+    "fan_speed_percent": 59.8,
+    "power_kw": 2.89
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-019",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T05:35:22.040837",
+    "temperature_c": 52.9,
+    "humidity_percent": 40.1,
+    "fan_speed_percent": 64.3,
+    "power_kw": 3.94
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-020",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T06:05:22.040837",
+    "temperature_c": 53.3,
+    "humidity_percent": 39.0,
+    "fan_speed_percent": 58.2,
+    "power_kw": 2.1
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-021",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T06:35:22.040837",
+    "temperature_c": 54.2,
+    "humidity_percent": 37.2,
+    "fan_speed_percent": 64.5,
+    "power_kw": 2.93
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-022",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T07:05:22.040837",
+    "temperature_c": 54.3,
+    "humidity_percent": 37.3,
+    "fan_speed_percent": 58.7,
+    "power_kw": 2.51
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-023",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T07:35:22.040837",
+    "temperature_c": 53.0,
+    "humidity_percent": 37.7,
+    "fan_speed_percent": 60.6,
+    "power_kw": 3.5
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-024",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T08:05:22.040837",
+    "temperature_c": 53.9,
+    "humidity_percent": 35.5,
+    "fan_speed_percent": 61.8,
+    "power_kw": 2.16
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-025",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T08:35:22.040837",
+    "temperature_c": 51.7,
+    "humidity_percent": 33.7,
+    "fan_speed_percent": 69.2,
+    "power_kw": 4.97
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-026",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T09:05:22.040837",
+    "temperature_c": 51.8,
+    "humidity_percent": 31.8,
+    "fan_speed_percent": 61.7,
+    "power_kw": 3.47
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-027",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T09:35:22.040837",
+    "temperature_c": 52.9,
+    "humidity_percent": 35.0,
+    "fan_speed_percent": 66.6,
+    "power_kw": 2.77
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-028",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T10:05:22.040837",
+    "temperature_c": 53.0,
+    "humidity_percent": 30.4,
+    "fan_speed_percent": 68.4,
+    "power_kw": 2.64
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-029",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T10:35:22.040837",
+    "temperature_c": 53.4,
+    "humidity_percent": 28.4,
+    "fan_speed_percent": 66.2,
+    "power_kw": 4.99
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-030",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T11:05:22.040837",
+    "temperature_c": 52.3,
+    "humidity_percent": 31.9,
+    "fan_speed_percent": 63.8,
+    "power_kw": 2.18
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-031",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T11:35:22.040837",
+    "temperature_c": 53.1,
+    "humidity_percent": 30.8,
+    "fan_speed_percent": 64.7,
+    "power_kw": 3.89
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-032",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T12:05:22.040837",
+    "temperature_c": 53.0,
+    "humidity_percent": 27.8,
+    "fan_speed_percent": 73.1,
+    "power_kw": 4.86
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-033",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T12:35:22.040837",
+    "temperature_c": 53.6,
+    "humidity_percent": 27.4,
+    "fan_speed_percent": 70.3,
+    "power_kw": 3.73
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-034",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T13:05:22.040837",
+    "temperature_c": 53.9,
+    "humidity_percent": 27.4,
+    "fan_speed_percent": 75.3,
+    "power_kw": 2.89
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-035",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T13:35:22.040837",
+    "temperature_c": 51.2,
+    "humidity_percent": 22.1,
+    "fan_speed_percent": 67.3,
+    "power_kw": 2.03
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-036",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T14:05:22.040837",
+    "temperature_c": 54.9,
+    "humidity_percent": 23.9,
+    "fan_speed_percent": 73.5,
+    "power_kw": 3.18
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-037",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T14:35:22.040837",
+    "temperature_c": 52.5,
+    "humidity_percent": 24.9,
+    "fan_speed_percent": 67.5,
+    "power_kw": 4.0
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-038",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T15:05:22.040837",
+    "temperature_c": 51.8,
+    "humidity_percent": 25.3,
+    "fan_speed_percent": 70.3,
+    "power_kw": 2.58
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-039",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T15:35:22.040837",
+    "temperature_c": 52.9,
+    "humidity_percent": 23.3,
+    "fan_speed_percent": 75.6,
+    "power_kw": 2.2
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-040",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T16:05:22.040837",
+    "temperature_c": 52.4,
+    "humidity_percent": 22.8,
+    "fan_speed_percent": 77.4,
+    "power_kw": 4.76
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-041",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T16:35:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 16.0,
+    "fan_speed_percent": 73.7,
+    "power_kw": 2.5
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-042",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T17:05:22.040837",
+    "temperature_c": 52.9,
+    "humidity_percent": 17.1,
+    "fan_speed_percent": 75.5,
+    "power_kw": 2.26
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-043",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T17:35:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 18.1,
+    "fan_speed_percent": 73.3,
+    "power_kw": 3.67
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-044",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T18:05:22.040837",
+    "temperature_c": 53.6,
+    "humidity_percent": 15.4,
+    "fan_speed_percent": 74.1,
+    "power_kw": 2.05
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-045",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T18:35:22.040837",
+    "temperature_c": 54.5,
+    "humidity_percent": 17.3,
+    "fan_speed_percent": 79.0,
+    "power_kw": 3.47
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-046",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T19:05:22.040837",
+    "temperature_c": 53.8,
+    "humidity_percent": 13.9,
+    "fan_speed_percent": 81.7,
+    "power_kw": 4.72
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-047",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T19:35:22.040837",
+    "temperature_c": 51.4,
+    "humidity_percent": 13.1,
+    "fan_speed_percent": 83.1,
+    "power_kw": 4.14
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-048",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T20:05:22.040837",
+    "temperature_c": 51.9,
+    "humidity_percent": 12.0,
+    "fan_speed_percent": 82.5,
+    "power_kw": 3.96
+  },
+  {
+    "log_id": "DH-20251031-0082-LOG-049",
+    "batch_id": "DH-20251031-0082",
+    "timestamp": "2025-11-01T20:35:22.040837",
+    "temperature_c": 53.7,
+    "humidity_percent": 13.9,
+    "fan_speed_percent": 83.9,
+    "power_kw": 2.0
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-000",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 51.6,
+    "power_kw": 3.61
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-001",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T20:35:22.040837",
+    "temperature_c": 7.1,
+    "humidity_percent": 58.9,
+    "fan_speed_percent": 49.0,
+    "power_kw": 4.1
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-002",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T21:05:22.040837",
+    "temperature_c": 14.2,
+    "humidity_percent": 58.0,
+    "fan_speed_percent": 54.8,
+    "power_kw": 2.28
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-003",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T21:35:22.040837",
+    "temperature_c": 21.3,
+    "humidity_percent": 56.6,
+    "fan_speed_percent": 55.4,
+    "power_kw": 4.06
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-004",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T22:05:22.040837",
+    "temperature_c": 28.4,
+    "humidity_percent": 55.9,
+    "fan_speed_percent": 53.3,
+    "power_kw": 4.9
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-005",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T22:35:22.040837",
+    "temperature_c": 35.5,
+    "humidity_percent": 54.6,
+    "fan_speed_percent": 56.0,
+    "power_kw": 3.83
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-006",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T23:05:22.040837",
+    "temperature_c": 42.6,
+    "humidity_percent": 53.1,
+    "fan_speed_percent": 58.7,
+    "power_kw": 2.28
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-007",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-12T23:35:22.040837",
+    "temperature_c": 49.7,
+    "humidity_percent": 52.0,
+    "fan_speed_percent": 59.3,
+    "power_kw": 3.18
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-008",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T00:05:22.040837",
+    "temperature_c": 56.8,
+    "humidity_percent": 51.8,
+    "fan_speed_percent": 52.3,
+    "power_kw": 4.09
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-009",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T00:35:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 50.0,
+    "fan_speed_percent": 58.8,
+    "power_kw": 3.66
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-010",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T01:05:22.040837",
+    "temperature_c": 61.9,
+    "humidity_percent": 49.6,
+    "fan_speed_percent": 57.9,
+    "power_kw": 4.92
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-011",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T01:35:22.040837",
+    "temperature_c": 65.0,
+    "humidity_percent": 47.0,
+    "fan_speed_percent": 53.1,
+    "power_kw": 4.66
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-012",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T02:05:22.040837",
+    "temperature_c": 62.6,
+    "humidity_percent": 45.4,
+    "fan_speed_percent": 58.6,
+    "power_kw": 4.2
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-013",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T02:35:22.040837",
+    "temperature_c": 62.0,
+    "humidity_percent": 45.1,
+    "fan_speed_percent": 57.3,
+    "power_kw": 4.0
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-014",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T03:05:22.040837",
+    "temperature_c": 62.5,
+    "humidity_percent": 43.0,
+    "fan_speed_percent": 54.8,
+    "power_kw": 2.99
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-015",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T03:35:22.040837",
+    "temperature_c": 65.9,
+    "humidity_percent": 42.7,
+    "fan_speed_percent": 57.3,
+    "power_kw": 3.55
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-016",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T04:05:22.040837",
+    "temperature_c": 63.6,
+    "humidity_percent": 41.4,
+    "fan_speed_percent": 60.7,
+    "power_kw": 2.64
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-017",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T04:35:22.040837",
+    "temperature_c": 63.8,
+    "humidity_percent": 39.3,
+    "fan_speed_percent": 61.0,
+    "power_kw": 4.18
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-018",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T05:05:22.040837",
+    "temperature_c": 63.0,
+    "humidity_percent": 38.4,
+    "fan_speed_percent": 64.9,
+    "power_kw": 4.91
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-019",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T05:35:22.040837",
+    "temperature_c": 62.8,
+    "humidity_percent": 39.9,
+    "fan_speed_percent": 60.7,
+    "power_kw": 4.79
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-020",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T06:05:22.040837",
+    "temperature_c": 62.1,
+    "humidity_percent": 38.9,
+    "fan_speed_percent": 63.6,
+    "power_kw": 4.92
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-021",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T06:35:22.040837",
+    "temperature_c": 62.5,
+    "humidity_percent": 36.3,
+    "fan_speed_percent": 61.8,
+    "power_kw": 2.27
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-022",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T07:05:22.040837",
+    "temperature_c": 62.0,
+    "humidity_percent": 36.8,
+    "fan_speed_percent": 66.5,
+    "power_kw": 4.79
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-023",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T07:35:22.040837",
+    "temperature_c": 64.7,
+    "humidity_percent": 31.9,
+    "fan_speed_percent": 61.2,
+    "power_kw": 4.74
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-024",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T08:05:22.040837",
+    "temperature_c": 65.5,
+    "humidity_percent": 33.2,
+    "fan_speed_percent": 64.4,
+    "power_kw": 4.29
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-025",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T08:35:22.040837",
+    "temperature_c": 62.0,
+    "humidity_percent": 30.9,
+    "fan_speed_percent": 66.1,
+    "power_kw": 2.91
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-026",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T09:05:22.040837",
+    "temperature_c": 64.4,
+    "humidity_percent": 31.8,
+    "fan_speed_percent": 72.2,
+    "power_kw": 4.85
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-027",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T09:35:22.040837",
+    "temperature_c": 63.9,
+    "humidity_percent": 28.3,
+    "fan_speed_percent": 66.9,
+    "power_kw": 4.05
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-028",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T10:05:22.040837",
+    "temperature_c": 64.7,
+    "humidity_percent": 27.5,
+    "fan_speed_percent": 70.6,
+    "power_kw": 4.18
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-029",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T10:35:22.040837",
+    "temperature_c": 65.3,
+    "humidity_percent": 26.9,
+    "fan_speed_percent": 73.8,
+    "power_kw": 2.48
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-030",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T11:05:22.040837",
+    "temperature_c": 62.9,
+    "humidity_percent": 29.8,
+    "fan_speed_percent": 69.9,
+    "power_kw": 2.84
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-031",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T11:35:22.040837",
+    "temperature_c": 64.8,
+    "humidity_percent": 25.4,
+    "fan_speed_percent": 69.6,
+    "power_kw": 2.83
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-032",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T12:05:22.040837",
+    "temperature_c": 64.4,
+    "humidity_percent": 22.0,
+    "fan_speed_percent": 68.0,
+    "power_kw": 4.73
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-033",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T12:35:22.040837",
+    "temperature_c": 63.2,
+    "humidity_percent": 20.9,
+    "fan_speed_percent": 71.0,
+    "power_kw": 2.73
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-034",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T13:05:22.040837",
+    "temperature_c": 64.9,
+    "humidity_percent": 24.7,
+    "fan_speed_percent": 74.3,
+    "power_kw": 2.9
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-035",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T13:35:22.040837",
+    "temperature_c": 64.9,
+    "humidity_percent": 23.3,
+    "fan_speed_percent": 76.4,
+    "power_kw": 3.85
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-036",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T14:05:22.040837",
+    "temperature_c": 65.3,
+    "humidity_percent": 23.5,
+    "fan_speed_percent": 76.4,
+    "power_kw": 3.11
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-037",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T14:35:22.040837",
+    "temperature_c": 62.9,
+    "humidity_percent": 20.9,
+    "fan_speed_percent": 72.0,
+    "power_kw": 2.76
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-038",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T15:05:22.040837",
+    "temperature_c": 63.5,
+    "humidity_percent": 18.5,
+    "fan_speed_percent": 76.8,
+    "power_kw": 3.33
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-039",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T15:35:22.040837",
+    "temperature_c": 64.4,
+    "humidity_percent": 14.3,
+    "fan_speed_percent": 78.8,
+    "power_kw": 4.56
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-040",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T16:05:22.040837",
+    "temperature_c": 65.0,
+    "humidity_percent": 13.6,
+    "fan_speed_percent": 80.6,
+    "power_kw": 4.82
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-041",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T16:35:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 18.4,
+    "fan_speed_percent": 77.1,
+    "power_kw": 3.11
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-042",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T17:05:22.040837",
+    "temperature_c": 62.4,
+    "humidity_percent": 14.2,
+    "fan_speed_percent": 74.5,
+    "power_kw": 4.06
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-043",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T17:35:22.040837",
+    "temperature_c": 64.7,
+    "humidity_percent": 13.2,
+    "fan_speed_percent": 81.0,
+    "power_kw": 3.4
+  },
+  {
+    "log_id": "DH-20250912-0091-LOG-044",
+    "batch_id": "DH-20250912-0091",
+    "timestamp": "2025-09-13T18:05:22.040837",
+    "temperature_c": 62.7,
+    "humidity_percent": 11.0,
+    "fan_speed_percent": 82.8,
+    "power_kw": 2.93
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-000",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 50.1,
+    "power_kw": 4.94
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-001",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T20:35:22.040837",
+    "temperature_c": 7.1,
+    "humidity_percent": 58.7,
+    "fan_speed_percent": 55.5,
+    "power_kw": 3.58
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-002",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T21:05:22.040837",
+    "temperature_c": 14.1,
+    "humidity_percent": 57.3,
+    "fan_speed_percent": 51.9,
+    "power_kw": 2.94
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-003",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T21:35:22.040837",
+    "temperature_c": 21.2,
+    "humidity_percent": 55.6,
+    "fan_speed_percent": 49.4,
+    "power_kw": 3.79
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-004",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T22:05:22.040837",
+    "temperature_c": 28.3,
+    "humidity_percent": 54.9,
+    "fan_speed_percent": 56.1,
+    "power_kw": 4.42
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-005",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T22:35:22.040837",
+    "temperature_c": 35.3,
+    "humidity_percent": 52.4,
+    "fan_speed_percent": 54.5,
+    "power_kw": 3.34
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-006",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T23:05:22.040837",
+    "temperature_c": 42.4,
+    "humidity_percent": 52.3,
+    "fan_speed_percent": 56.1,
+    "power_kw": 3.16
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-007",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-13T23:35:22.040837",
+    "temperature_c": 49.5,
+    "humidity_percent": 50.9,
+    "fan_speed_percent": 58.2,
+    "power_kw": 4.33
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-008",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T00:05:22.040837",
+    "temperature_c": 51.6,
+    "humidity_percent": 48.7,
+    "fan_speed_percent": 53.5,
+    "power_kw": 2.96
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-009",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T00:35:22.040837",
+    "temperature_c": 51.1,
+    "humidity_percent": 48.2,
+    "fan_speed_percent": 55.3,
+    "power_kw": 2.57
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-010",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T01:05:22.040837",
+    "temperature_c": 51.3,
+    "humidity_percent": 46.5,
+    "fan_speed_percent": 53.5,
+    "power_kw": 2.11
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-011",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T01:35:22.040837",
+    "temperature_c": 52.8,
+    "humidity_percent": 45.5,
+    "fan_speed_percent": 58.3,
+    "power_kw": 4.65
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-012",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T02:05:22.040837",
+    "temperature_c": 51.5,
+    "humidity_percent": 43.0,
+    "fan_speed_percent": 63.4,
+    "power_kw": 4.48
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-013",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T02:35:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 40.5,
+    "fan_speed_percent": 63.4,
+    "power_kw": 3.55
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-014",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T03:05:22.040837",
+    "temperature_c": 52.7,
+    "humidity_percent": 39.4,
+    "fan_speed_percent": 61.0,
+    "power_kw": 2.46
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-015",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T03:35:22.040837",
+    "temperature_c": 52.3,
+    "humidity_percent": 38.3,
+    "fan_speed_percent": 63.9,
+    "power_kw": 4.8
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-016",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T04:05:22.040837",
+    "temperature_c": 51.4,
+    "humidity_percent": 37.5,
+    "fan_speed_percent": 64.8,
+    "power_kw": 4.98
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-017",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T04:35:22.040837",
+    "temperature_c": 50.2,
+    "humidity_percent": 34.6,
+    "fan_speed_percent": 65.3,
+    "power_kw": 3.16
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-018",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T05:05:22.040837",
+    "temperature_c": 49.9,
+    "humidity_percent": 33.0,
+    "fan_speed_percent": 64.3,
+    "power_kw": 4.97
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-019",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T05:35:22.040837",
+    "temperature_c": 52.3,
+    "humidity_percent": 34.6,
+    "fan_speed_percent": 65.2,
+    "power_kw": 4.79
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-020",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T06:05:22.040837",
+    "temperature_c": 51.4,
+    "humidity_percent": 31.6,
+    "fan_speed_percent": 69.0,
+    "power_kw": 4.99
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-021",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T06:35:22.040837",
+    "temperature_c": 50.4,
+    "humidity_percent": 28.9,
+    "fan_speed_percent": 66.8,
+    "power_kw": 3.39
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-022",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T07:05:22.040837",
+    "temperature_c": 50.6,
+    "humidity_percent": 31.3,
+    "fan_speed_percent": 64.3,
+    "power_kw": 4.23
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-023",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T07:35:22.040837",
+    "temperature_c": 50.2,
+    "humidity_percent": 26.6,
+    "fan_speed_percent": 66.5,
+    "power_kw": 3.65
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-024",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T08:05:22.040837",
+    "temperature_c": 50.8,
+    "humidity_percent": 28.0,
+    "fan_speed_percent": 67.5,
+    "power_kw": 2.78
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-025",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T08:35:22.040837",
+    "temperature_c": 51.5,
+    "humidity_percent": 25.8,
+    "fan_speed_percent": 73.1,
+    "power_kw": 4.67
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-026",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T09:05:22.040837",
+    "temperature_c": 50.6,
+    "humidity_percent": 22.9,
+    "fan_speed_percent": 70.5,
+    "power_kw": 4.31
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-027",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T09:35:22.040837",
+    "temperature_c": 48.9,
+    "humidity_percent": 20.3,
+    "fan_speed_percent": 74.0,
+    "power_kw": 2.58
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-028",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T10:05:22.040837",
+    "temperature_c": 49.5,
+    "humidity_percent": 18.5,
+    "fan_speed_percent": 77.0,
+    "power_kw": 4.68
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-029",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T10:35:22.040837",
+    "temperature_c": 50.6,
+    "humidity_percent": 22.5,
+    "fan_speed_percent": 78.1,
+    "power_kw": 4.44
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-030",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T11:05:22.040837",
+    "temperature_c": 52.9,
+    "humidity_percent": 21.1,
+    "fan_speed_percent": 74.4,
+    "power_kw": 2.08
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-031",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T11:35:22.040837",
+    "temperature_c": 50.4,
+    "humidity_percent": 15.8,
+    "fan_speed_percent": 80.3,
+    "power_kw": 2.47
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-032",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T12:05:22.040837",
+    "temperature_c": 51.8,
+    "humidity_percent": 16.7,
+    "fan_speed_percent": 74.1,
+    "power_kw": 2.35
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-033",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T12:35:22.040837",
+    "temperature_c": 52.6,
+    "humidity_percent": 14.2,
+    "fan_speed_percent": 73.8,
+    "power_kw": 2.7
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-034",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T13:05:22.040837",
+    "temperature_c": 50.3,
+    "humidity_percent": 16.9,
+    "fan_speed_percent": 77.6,
+    "power_kw": 2.39
+  },
+  {
+    "log_id": "DH-20251013-0081-LOG-035",
+    "batch_id": "DH-20251013-0081",
+    "timestamp": "2025-10-14T13:35:22.040837",
+    "temperature_c": 51.4,
+    "humidity_percent": 9.8,
+    "fan_speed_percent": 80.8,
+    "power_kw": 2.67
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-000",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 46.9,
+    "power_kw": 3.79
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-001",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T20:35:22.040837",
+    "temperature_c": 11.4,
+    "humidity_percent": 58.0,
+    "fan_speed_percent": 49.4,
+    "power_kw": 3.17
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-002",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T21:05:22.040837",
+    "temperature_c": 22.8,
+    "humidity_percent": 55.8,
+    "fan_speed_percent": 49.3,
+    "power_kw": 2.29
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-003",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T21:35:22.040837",
+    "temperature_c": 34.2,
+    "humidity_percent": 53.3,
+    "fan_speed_percent": 54.7,
+    "power_kw": 3.5
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-004",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T22:05:22.040837",
+    "temperature_c": 45.6,
+    "humidity_percent": 51.2,
+    "fan_speed_percent": 54.0,
+    "power_kw": 4.25
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-005",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T22:35:22.040837",
+    "temperature_c": 55.3,
+    "humidity_percent": 49.5,
+    "fan_speed_percent": 60.7,
+    "power_kw": 3.05
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-006",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T23:05:22.040837",
+    "temperature_c": 53.1,
+    "humidity_percent": 46.8,
+    "fan_speed_percent": 55.0,
+    "power_kw": 4.93
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-007",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-28T23:35:22.040837",
+    "temperature_c": 56.5,
+    "humidity_percent": 44.0,
+    "fan_speed_percent": 55.3,
+    "power_kw": 3.89
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-008",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T00:05:22.040837",
+    "temperature_c": 54.3,
+    "humidity_percent": 42.7,
+    "fan_speed_percent": 59.3,
+    "power_kw": 4.87
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-009",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T00:35:22.040837",
+    "temperature_c": 55.2,
+    "humidity_percent": 39.9,
+    "fan_speed_percent": 60.8,
+    "power_kw": 2.43
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-010",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T01:05:22.040837",
+    "temperature_c": 53.5,
+    "humidity_percent": 37.5,
+    "fan_speed_percent": 59.0,
+    "power_kw": 4.28
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-011",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T01:35:22.040837",
+    "temperature_c": 54.7,
+    "humidity_percent": 35.3,
+    "fan_speed_percent": 60.0,
+    "power_kw": 3.07
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-012",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T02:05:22.040837",
+    "temperature_c": 54.5,
+    "humidity_percent": 32.6,
+    "fan_speed_percent": 67.9,
+    "power_kw": 4.86
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-013",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T02:35:22.040837",
+    "temperature_c": 55.9,
+    "humidity_percent": 32.5,
+    "fan_speed_percent": 66.7,
+    "power_kw": 4.1
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-014",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T03:05:22.040837",
+    "temperature_c": 56.1,
+    "humidity_percent": 28.6,
+    "fan_speed_percent": 66.2,
+    "power_kw": 2.81
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-015",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T03:35:22.040837",
+    "temperature_c": 55.7,
+    "humidity_percent": 25.9,
+    "fan_speed_percent": 63.8,
+    "power_kw": 3.15
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-016",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T04:05:22.040837",
+    "temperature_c": 53.9,
+    "humidity_percent": 26.6,
+    "fan_speed_percent": 65.7,
+    "power_kw": 2.01
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-017",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T04:35:22.040837",
+    "temperature_c": 54.3,
+    "humidity_percent": 26.8,
+    "fan_speed_percent": 74.7,
+    "power_kw": 3.35
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-018",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T05:05:22.040837",
+    "temperature_c": 53.1,
+    "humidity_percent": 23.4,
+    "fan_speed_percent": 68.7,
+    "power_kw": 2.02
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-019",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T05:35:22.040837",
+    "temperature_c": 56.4,
+    "humidity_percent": 17.9,
+    "fan_speed_percent": 69.4,
+    "power_kw": 3.55
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-020",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T06:05:22.040837",
+    "temperature_c": 56.0,
+    "humidity_percent": 15.4,
+    "fan_speed_percent": 73.0,
+    "power_kw": 4.28
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-021",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T06:35:22.040837",
+    "temperature_c": 56.4,
+    "humidity_percent": 19.0,
+    "fan_speed_percent": 75.4,
+    "power_kw": 3.19
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-022",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T07:05:22.040837",
+    "temperature_c": 53.4,
+    "humidity_percent": 11.2,
+    "fan_speed_percent": 79.6,
+    "power_kw": 4.68
+  },
+  {
+    "log_id": "DH-20250928-0041-LOG-023",
+    "batch_id": "DH-20250928-0041",
+    "timestamp": "2025-09-29T07:35:22.040837",
+    "temperature_c": 54.8,
+    "humidity_percent": 10.9,
+    "fan_speed_percent": 81.6,
+    "power_kw": 4.14
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-000",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T20:05:22.040837",
+    "temperature_c": 0.0,
+    "humidity_percent": 60.0,
+    "fan_speed_percent": 48.8,
+    "power_kw": 2.15
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-001",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T20:35:22.040837",
+    "temperature_c": 11.2,
+    "humidity_percent": 58.0,
+    "fan_speed_percent": 55.2,
+    "power_kw": 3.06
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-002",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T21:05:22.040837",
+    "temperature_c": 22.5,
+    "humidity_percent": 55.9,
+    "fan_speed_percent": 52.7,
+    "power_kw": 4.65
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-003",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T21:35:22.040837",
+    "temperature_c": 33.7,
+    "humidity_percent": 53.8,
+    "fan_speed_percent": 57.4,
+    "power_kw": 4.06
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-004",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T22:05:22.040837",
+    "temperature_c": 45.0,
+    "humidity_percent": 51.4,
+    "fan_speed_percent": 51.8,
+    "power_kw": 3.6
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-005",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T22:35:22.040837",
+    "temperature_c": 51.5,
+    "humidity_percent": 48.8,
+    "fan_speed_percent": 52.1,
+    "power_kw": 3.37
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-006",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T23:05:22.040837",
+    "temperature_c": 50.3,
+    "humidity_percent": 47.1,
+    "fan_speed_percent": 60.7,
+    "power_kw": 4.08
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-007",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-24T23:35:22.040837",
+    "temperature_c": 52.1,
+    "humidity_percent": 44.7,
+    "fan_speed_percent": 60.7,
+    "power_kw": 4.6
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-008",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T00:05:22.040837",
+    "temperature_c": 49.9,
+    "humidity_percent": 43.8,
+    "fan_speed_percent": 56.4,
+    "power_kw": 4.98
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-009",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T00:35:22.040837",
+    "temperature_c": 50.7,
+    "humidity_percent": 39.1,
+    "fan_speed_percent": 63.1,
+    "power_kw": 2.56
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-010",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T01:05:22.040837",
+    "temperature_c": 49.9,
+    "humidity_percent": 36.1,
+    "fan_speed_percent": 63.9,
+    "power_kw": 3.83
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-011",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T01:35:22.040837",
+    "temperature_c": 51.8,
+    "humidity_percent": 36.3,
+    "fan_speed_percent": 60.3,
+    "power_kw": 4.79
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-012",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T02:05:22.040837",
+    "temperature_c": 50.0,
+    "humidity_percent": 33.0,
+    "fan_speed_percent": 67.1,
+    "power_kw": 4.27
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-013",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T02:35:22.040837",
+    "temperature_c": 52.0,
+    "humidity_percent": 29.9,
+    "fan_speed_percent": 70.1,
+    "power_kw": 2.16
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-014",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T03:05:22.040837",
+    "temperature_c": 50.7,
+    "humidity_percent": 28.1,
+    "fan_speed_percent": 67.8,
+    "power_kw": 2.78
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-015",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T03:35:22.040837",
+    "temperature_c": 50.9,
+    "humidity_percent": 28.7,
+    "fan_speed_percent": 68.6,
+    "power_kw": 3.67
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-016",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T04:05:22.040837",
+    "temperature_c": 51.8,
+    "humidity_percent": 23.9,
+    "fan_speed_percent": 71.3,
+    "power_kw": 4.87
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-017",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T04:35:22.040837",
+    "temperature_c": 50.0,
+    "humidity_percent": 20.2,
+    "fan_speed_percent": 69.9,
+    "power_kw": 2.28
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-018",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T05:05:22.040837",
+    "temperature_c": 51.7,
+    "humidity_percent": 22.6,
+    "fan_speed_percent": 71.9,
+    "power_kw": 4.83
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-019",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T05:35:22.040837",
+    "temperature_c": 51.6,
+    "humidity_percent": 14.8,
+    "fan_speed_percent": 69.8,
+    "power_kw": 3.57
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-020",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T06:05:22.040837",
+    "temperature_c": 52.9,
+    "humidity_percent": 20.1,
+    "fan_speed_percent": 76.3,
+    "power_kw": 3.96
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-021",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T06:35:22.040837",
+    "temperature_c": 51.3,
+    "humidity_percent": 11.7,
+    "fan_speed_percent": 77.9,
+    "power_kw": 3.58
+  },
+  {
+    "log_id": "DH-20250924-0045-LOG-022",
+    "batch_id": "DH-20250924-0045",
+    "timestamp": "2025-09-25T07:05:22.040837",
+    "temperature_c": 52.2,
+    "humidity_percent": 14.6,
+    "fan_speed_percent": 78.4,
+    "power_kw": 4.04
+  }
+]

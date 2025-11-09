@@ -1,0 +1,10 @@
+{
+  "total_batches": 100,
+  "total_production_tons": 24444.11,
+  "total_co2_emissions_kg": 32402664.07,
+  "total_energy_consumption_mwh": 13821.15,
+  "avg_co2_per_ton": 1325.58,
+  "avg_energy_per_ton": 0.565,
+  "active_furnaces": 4,
+  "date_range": "2025-10-10 to 2025-11-09"
+}
