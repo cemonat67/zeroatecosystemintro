@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Supply - Supply Chain & Logistics</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+```
+        --zero-space-xs: 0.5rem;
+        --zero-space-sm: 1rem;
+        --zero-space-md: 2rem;
+        --zero-space-lg: 4rem;
+        
+        --zero-radius-sm: 4px;
+        --zero-radius-md: 6px;
+        --zero-radius-lg: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--zero-gray-bg);
+        color: var(--zero-black);
+        line-height: 1.6;
+        padding-top: 4px;
+    }
+    
+    .zero-color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            var(--zero-green) 0%, var(--zero-green) 25%, 
+            var(--zero-red) 25%, var(--zero-red) 50%, 
+            var(--zero-navy) 50%, var(--zero-navy) 75%, 
+            var(--zero-orange) 75%, var(--zero-orange) 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .app-header {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+        gap: var(--zero-space-md);
+    }
+    
+    .header-logo {
+        width: 80px;
+        height: 80px;
+        opacity: 0.95;
+        transition: opacity 0.3s ease;
+    }
+    
+    .header-logo:hover {
+        opacity: 1;
+    }
+    
+    .title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .title {
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    .title-at {
+        color: var(--zero-orange);
+    }
+    
+    .subtitle {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.7);
+    }
+    
+    .subtitle-at {
+        color: var(--zero-orange);
+    }
+    
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--zero-space-md);
+    }
+    
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .stat-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+    }
+    
+    .stat-value.green {
+        color: var(--zero-green);
+    }
+    
+    .stat-value.orange {
+        color: var(--zero-orange);
+    }
+    
+    .stat-value.red {
+        color: var(--zero-red);
+    }
+    
+    .stat-subtitle {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: var(--zero-space-xs);
+    }
+    
+    .tabs {
+        display: flex;
+        gap: var(--zero-space-xs);
+        margin-bottom: var(--zero-space-md);
+        background: var(--zero-white);
+        padding: var(--zero-space-xs);
+        border-radius: var(--zero-radius-lg);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-gray-dark);
+        transition: all 0.3s ease;
+        flex: 1;
+    }
+    
+    .tab-btn.active {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .tab-btn:hover:not(.active) {
+        background: var(--zero-gray-light);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .shipment-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .shipment-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .shipment-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .shipment-card.in-transit {
+        border-left: 4px solid var(--zero-orange);
+    }
+    
+    .shipment-card.delivered {
+        border-left: 4px solid var(--zero-green);
+    }
+    
+    .shipment-card.delayed {
+        border-left: 4px solid var(--zero-red);
+    }
+    
+    .shipment-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .shipment-id {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .shipment-status {
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .status-transit {
+        background: rgba(249,186,0,0.1);
+        color: #cc9500;
+    }
+    
+    .status-delivered {
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+    }
+    
+    .status-delayed {
+        background: rgba(213,22,53,0.1);
+        color: var(--zero-red);
+    }
+    
+    .shipment-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .detail-item {
+        padding: var(--zero-space-xs);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .detail-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .detail-value {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--zero-black);
+        margin-top: 0.25rem;
+    }
+    
+    .shipment-progress {
+        margin: var(--zero-space-sm) 0;
+    }
+    
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: 0.25rem;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--zero-gray-light);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-fill.transit {
+        background: var(--zero-orange);
+    }
+    
+    .progress-fill.delivered {
+        background: var(--zero-green);
+    }
+    
+    .shipment-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--zero-space-sm);
+        border-top: 1px solid var(--zero-gray-light);
+    }
+    
+    .carrier-info {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .co2-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .track-btn {
+        padding: 0.5rem 1rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-size: 0.875rem;
+        transition: all 0.3s ease;
+        margin-top: var(--zero-space-sm);
+        width: 100%;
+    }
+    
+    .track-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .supplier-list {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .supplier-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .supplier-item {
+        padding: var(--zero-space-md);
+        border: 1px solid var(--zero-gray-light);
+        border-radius: var(--zero-radius-md);
+        margin-bottom: var(--zero-space-sm);
+        transition: all 0.3s ease;
+    }
+    
+    .supplier-item:hover {
+        background: var(--zero-gray-bg);
+        border-color: var(--zero-orange);
+    }
+    
+    .supplier-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .supplier-name {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .supplier-rating {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .rating-stars {
+        color: var(--zero-orange);
+        font-size: 1rem;
+    }
+    
+    .rating-value {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+    }
+    
+    .supplier-metrics {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--zero-space-sm);
+    }
+    
+    .metric-item {
+        text-align: center;
+        padding: var(--zero-space-sm);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .metric-value {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .metric-value.good {
+        color: var(--zero-green);
+    }
+    
+    .metric-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: 0.25rem;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .action-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .action-btn.secondary {
+        background: var(--zero-white);
+        color: var(--zero-navy);
+        border: 1px solid var(--zero-navy);
+    }
+    
+    .action-btn.secondary:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            gap: var(--zero-space-sm);
+        }
+        
+        .header-logo {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+        }
+        
+        .tabs {
+            flex-direction: column;
+        }
+        
+        .shipment-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .action-buttons {
+            flex-direction: column;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<header class="app-header">
+    <div class="header-content">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iNzAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI2MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlN1cHBseTwvdGV4dD4KICA8cmVjdCB4PSI1MCIgeT0iMjc1IiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUiIGZpbGw9IiNmOWJhMDAiLz4KICA8dGV4dCB4PSI1MCIgeT0iMzIwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5TdXBwbHkgY2hhaW4gJmFtcDs8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjM1MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSI+bG9naXN0aWNzPC90ZXh0Pgo8L3N2Zz4=" alt="Zero@Supply Logo" class="header-logo">
+        <div class="title-group">
+            <div class="title">Zero<span class="title-at">@</span>Supply</div>
+            <div class="subtitle">by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <div class="stat-label">Active Shipments</div>
+            <div class="stat-value orange">24</div>
+            <div class="stat-subtitle">6 in transit today</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">On-Time Delivery Rate</div>
+            <div class="stat-value green">94.2%</div>
+            <div class="stat-subtitle">+3.2% vs last month</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Avg. Lead Time</div>
+            <div class="stat-value">8.5 days</div>
+            <div class="stat-subtitle">-1.2 days improvement</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Transport CO₂ Footprint</div>
+            <div class="stat-value green">1,245 kg</div>
+            <div class="stat-subtitle">This month</div>
+        </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="showNewShipment()">🚚 New Shipment</button>
+        <button class="action-btn" onclick="showTrackAll()">📍 Track All</button>
+        <button class="action-btn secondary" onclick="showRouteOptimization()">🗺️ Route Optimization</button>
+        <button class="action-btn secondary" onclick="showReports()">📊 Logistics Reports</button>
+    </div>
+    
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('shipments')">Active Shipments</button>
+        <button class="tab-btn" onclick="showTab('suppliers')">Suppliers</button>
+        <button class="tab-btn" onclick="showTab('orders')">Purchase Orders</button>
+    </div>
+    
+    <!-- Tab Content: Active Shipments -->
+    <div id="shipments" class="tab-content active">
+        <div class="shipment-grid">
+            <div class="shipment-card in-transit">
+                <div class="shipment-header">
+                    <div class="shipment-id">SHP-2024-1089</div>
+                    <div class="shipment-status status-transit">IN TRANSIT</div>
+                </div>
+                <div class="shipment-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Origin</div>
+                        <div class="detail-value">Istanbul, TR</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Destination</div>
+                        <div class="detail-value">Hamburg, DE</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Departure</div>
+                        <div class="detail-value">Nov 06, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">ETA</div>
+                        <div class="detail-value">Nov 10, 2025</div>
+                    </div>
+                </div>
+                <div class="shipment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>65%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill transit" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="shipment-footer">
+                    <div class="carrier-info">🚢 Carrier: DHL Freight</div>
+                    <div class="co2-badge">142 kg CO₂</div>
+                </div>
+                <button class="track-btn" onclick="trackShipment('SHP-2024-1089')">Track Shipment</button>
+            </div>
+            
+            <div class="shipment-card in-transit">
+                <div class="shipment-header">
+                    <div class="shipment-id">SHP-2024-1090</div>
+                    <div class="shipment-status status-transit">IN TRANSIT</div>
+                </div>
+                <div class="shipment-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Origin</div>
+                        <div class="detail-value">Mumbai, IN</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Destination</div>
+                        <div class="detail-value">Rotterdam, NL</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Departure</div>
+                        <div class="detail-value">Oct 28, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">ETA</div>
+                        <div class="detail-value">Nov 15, 2025</div>
+                    </div>
+                </div>
+                <div class="shipment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>45%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill transit" style="width: 45%"></div>
+                    </div>
+                </div>
+                <div class="shipment-footer">
+                    <div class="carrier-info">🚢 Carrier: Maersk Line</div>
+                    <div class="co2-badge">2,845 kg CO₂</div>
+                </div>
+                <button class="track-btn" onclick="trackShipment('SHP-2024-1090')">Track Shipment</button>
+            </div>
+            
+            <div class="shipment-card delivered">
+                <div class="shipment-header">
+                    <div class="shipment-id">SHP-2024-1087</div>
+                    <div class="shipment-status status-delivered">DELIVERED</div>
+                </div>
+                <div class="shipment-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Origin</div>
+                        <div class="detail-value">Barcelona, ES</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Destination</div>
+                        <div class="detail-value">Istanbul, TR</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Departed</div>
+                        <div class="detail-value">Nov 04, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Delivered</div>
+                        <div class="detail-value">Nov 08, 2025</div>
+                    </div>
+                </div>
+                <div class="shipment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>100%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill delivered" style="width: 100%"></div>
+                    </div>
+                </div>
+                <div class="shipment-footer">
+                    <div class="carrier-info">✅ Carrier: UPS Freight</div>
+                    <div class="co2-badge">85 kg CO₂</div>
+                </div>
+                <button class="track-btn" onclick="trackShipment('SHP-2024-1087')">View Details</button>
+            </div>
+            
+            <div class="shipment-card delayed">
+                <div class="shipment-header">
+                    <div class="shipment-id">SHP-2024-1088</div>
+                    <div class="shipment-status status-delayed">DELAYED</div>
+                </div>
+                <div class="shipment-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Origin</div>
+                        <div class="detail-value">Shanghai, CN</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Destination</div>
+                        <div class="detail-value">Antwerp, BE</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Departure</div>
+                        <div class="detail-value">Oct 15, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Revised ETA</div>
+                        <div class="detail-value">Nov 12, 2025</div>
+                    </div>
+                </div>
+                <div class="shipment-progress">
+                    <div class="progress-label">
+                        <span>Progress</span>
+                        <span>72%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill transit" style="width: 72%"></div>
+                    </div>
+                </div>
+                <div class="shipment-footer">
+                    <div class="carrier-info">⚠️ Carrier: CMA CGM</div>
+                    <div class="co2-badge">3,120 kg CO₂</div>
+                </div>
+                <button class="track-btn" onclick="trackShipment('SHP-2024-1088')">Track & Alert</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Suppliers -->
+    <div id="suppliers" class="tab-content">
+        <div class="supplier-list">
+            <h3 class="supplier-title">🏭 Active Suppliers</h3>
+            
+            <div class="supplier-item">
+                <div class="supplier-header">
+                    <div class="supplier-name">Textile Industries Ltd.</div>
+                    <div class="supplier-rating">
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="rating-value">4.8/5</div>
+                    </div>
+                </div>
+                <div class="supplier-metrics">
+                    <div class="metric-item">
+                        <div class="metric-value good">96%</div>
+                        <div class="metric-label">On-Time Rate</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">7.2 days</div>
+                        <div class="metric-label">Avg Lead Time</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value good">98%</div>
+                        <div class="metric-label">Quality Score</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="supplier-item">
+                <div class="supplier-header">
+                    <div class="supplier-name">Global Fabric Suppliers Inc.</div>
+                    <div class="supplier-rating">
+                        <div class="rating-stars">★★★★☆</div>
+                        <div class="rating-value">4.3/5</div>
+                    </div>
+                </div>
+                <div class="supplier-metrics">
+                    <div class="metric-item">
+                        <div class="metric-value">89%</div>
+                        <div class="metric-label">On-Time Rate</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">9.8 days</div>
+                        <div class="metric-label">Avg Lead Time</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value good">95%</div>
+                        <div class="metric-label">Quality Score</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="supplier-item">
+                <div class="supplier-header">
+                    <div class="supplier-name">Euro Accessories GmbH</div>
+                    <div class="supplier-rating">
+                        <div class="rating-stars">★★★★★</div>
+                        <div class="rating-value">4.9/5</div>
+                    </div>
+                </div>
+                <div class="supplier-metrics">
+                    <div class="metric-item">
+                        <div class="metric-value good">98%</div>
+                        <div class="metric-label">On-Time Rate</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value">5.5 days</div>
+                        <div class="metric-label">Avg Lead Time</div>
+                    </div>
+                    <div class="metric-item">
+                        <div class="metric-value good">99%</div>
+                        <div class="metric-label">Quality Score</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Purchase Orders -->
+    <div id="orders" class="tab-content">
+        <div class="shipment-grid">
+            <div class="shipment-card in-transit">
+                <div class="shipment-header">
+                    <div class="shipment-id">PO-2024-892</div>
+                    <div class="shipment-status status-transit">PROCESSING</div>
+                </div>
+                <div class="shipment-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Supplier</div>
+                        <div class="detail-value">Textile Industries</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Items</div>
+                        <div class="detail-value">2,400 kg Yarn</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Order Date</div>
+                        <div class="detail-value">Nov 01, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Expected</div>
+                        <div class="detail-value">Nov 12, 2025</div>
+                    </div>
+                </div>
+                <div class="shipment-footer">
+                    <div class="carrier-info">💰 Total: €9,240</div>
+                    <div class="co2-badge">Status: Approved</div>
+                </div>
+                <button class="track-btn" onclick="viewPO('PO-2024-892')">View Order</button>
+            </div>
+            
+            <div class="shipment-card delivered">
+                <div class="shipment-header">
+                    <div class="shipment-id">PO-2024-885</div>
+                    <div class="shipment-status status-delivered">COMPLETED</div>
+                </div>
+                <div class="shipment-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Supplier</div>
+                        <div class="detail-value">Euro Accessories</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Items</div>
+                        <div class="detail-value">15,000 Buttons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Order Date</div>
+                        <div class="detail-value">Oct 25, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Received</div>
+                        <div class="detail-value">Nov 05, 2025</div>
+                    </div>
+                </div>
+                <div class="shipment-footer">
+                    <div class="carrier-info">💰 Total: €1,800</div>
+                    <div class="co2-badge">Status: Received</div>
+                </div>
+                <button class="track-btn" onclick="viewPO('PO-2024-885')">View Details</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function showTab(tabName) {
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    
+    function showNewShipment() {
+        const exampleData = `🚚 NEW SHIPMENT FORM
+```
+
+Shipment Type: International Freight
+Origin: Istanbul, Turkey
+Destination: Hamburg, Germany
+Carrier: DHL Freight
+
+Items:
+• 2,400 kg Cotton Yarn 30/1
+• 850 m Polyester Fabric
+• Packaging: 24 pallets
+
+Shipping Method: Sea Freight
+Container Type: 20ft Standard
+Estimated Transit: 4-6 days
+
+Insurance: ✅ Included
+Customs Clearance: ✅ Pre-arranged
+
+Cost Estimate: €2,450
+CO₂ Footprint: ~142 kg
+
+📋 Ready to confirm shipment?`;
+alert(exampleData);
+}
+
+```
+    function showTrackAll() {
+        const exampleData = `📍 LIVE SHIPMENT TRACKING
+```
+
+Currently Active: 24 shipments
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+🚚 Road Transport: 8 shipments
+• Europe: 6 active
+• Domestic: 2 active
+
+🚢 Sea Freight: 12 shipments
+• Asia-Europe: 8 active
+• Intra-Europe: 4 active
+
+✈️ Air Freight: 4 shipments
+• Express: 3 active
+• Priority: 1 active
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Status Overview:
+✅ On Time: 18 shipments
+⚠️ Delayed: 2 shipments
+🔄 In Transit: 20 shipments
+📦 At Customs: 4 shipments
+
+🗺️ View on interactive map?`;
+alert(exampleData);
+}
+
+```
+    function showRouteOptimization() {
+        const exampleData = `🗺️ ROUTE OPTIMIZATION
+```
+
+Current Routes Analysis:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📍 Istanbul → Hamburg Route
+Current: Via Bulgaria, Romania
+Optimized: Via Greece, Italy
+Savings: -15% time, -8% cost
+CO₂ Reduction: -12 kg per shipment
+
+📍 Mumbai → Rotterdam Route
+Current: Suez Canal
+Alternative: Cape of Good Hope
+Trade-off: +5 days, -18% CO₂
+
+📍 Shanghai → Antwerp Route
+Current: Direct shipping
+Optimized: Hub via Singapore
+Savings: -€340 per container
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+AI Recommendations:
+• Consolidate 3 smaller shipments
+• Switch to rail for EU routes
+• Use night delivery for urban areas
+
+💰 Potential Monthly Savings: €8,400
+🌱 CO₂ Reduction: 1,245 kg
+
+Apply optimizations?`;
+alert(exampleData);
+}
+
+```
+    function showReports() {
+        const exampleData = `📊 LOGISTICS REPORTS
+```
+
+Available Reports:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 Performance Metrics
+• On-time delivery: 94.2%
+• Avg lead time: 8.5 days
+• Route efficiency: 87%
+
+💰 Cost Analysis
+• Total spend: €142,500/month
+• Cost per shipment: €5,937
+• Budget variance: -3.2%
+
+🌍 Route Analytics
+• Most used: Istanbul-Hamburg
+• Fastest: Intra-Europe
+• Most economical: Sea freight
+
+⚠️ Exception Management
+• Delays: 8 incidents
+• Damages: 2 claims
+• Customs holds: 3 cases
+
+🌱 Sustainability Report
+• Total CO₂: 28,450 kg
+• Per shipment avg: 1,185 kg
+• YoY reduction: -12%
+
+👥 Supplier Performance
+• Top rated: Euro Accessories
+• Most reliable: Textile Industries
+• Fastest: Local suppliers
+
+Generate detailed report?`;
+alert(exampleData);
+}
+
+```
+    function trackShipment(shipmentId) {
+        const trackingData = {
+            'SHP-2024-1089': `📦 TRACKING: ${shipmentId}
+```
+
+Status: IN TRANSIT
+Current Location: Sofia, Bulgaria
+Progress: 65% complete
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Timeline:
+✅ Nov 06, 08:00 - Departed Istanbul
+✅ Nov 07, 14:30 - Border crossing (TR/BG)
+📍 Nov 08, 16:45 - Sofia transit hub
+⏳ Nov 09, 10:00 - Expected Belgrade
+⏳ Nov 10, 18:00 - Estimated arrival Hamburg
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Carrier: DHL Freight
+Container: CONT-8847392
+Seal: SEAL-99234
+
+Temperature: 22°C ✅
+Humidity: 45% ✅
+Shock sensors: Normal ✅
+
+Next Update: 2 hours
+Contact carrier: +49-40-5555-0123`, 'SHP-2024-1090': `📦 TRACKING: ${shipmentId}
+
+Status: IN TRANSIT
+Current Location: Mediterranean Sea
+Progress: 45% complete
+
+✅ Oct 28 - Departed Mumbai
+✅ Nov 02 - Passed Suez Canal
+📍 Nov 08 - Mediterranean crossing
+⏳ Nov 15 - Expected Rotterdam
+
+Carrier: Maersk Line
+Vessel: MSC GÜLSÜN`, 'SHP-2024-1087': `📦 TRACKING: ${shipmentId}
+
+Status: DELIVERED ✅
+Delivered: Nov 08, 2025 - 14:35
+
+✅ Nov 04 - Departed Barcelona
+✅ Nov 08 - Delivered Istanbul
+
+Received by: A. Yılmaz
+Signature: On file
+Condition: Excellent`, 'SHP-2024-1088': `📦 TRACKING: ${shipmentId}
+
+Status: DELAYED ⚠️
+Current Location: Port of Singapore
+Progress: 72% complete
+
+Delay Reason: Port congestion
+Revised ETA: Nov 12 (was Nov 08)
+
+Actions taken:
+• Customer notified
+• Priority handling requested
+• Alternative routing evaluated`
+};
+
+```
+        alert(trackingData[shipmentId] || `Tracking info for ${shipmentId}`);
+    }
+    
+    function viewPO(poId) {
+        const poData = {
+            'PO-2024-892': `📋 PURCHASE ORDER: ${poId}
+```
+
+Supplier: Textile Industries Ltd.
+Status: PROCESSING
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Order Details:
+• Item: Cotton Yarn 30/1
+• Quantity: 2,400 kg
+• Unit Price: €3.85/kg
+• Total: €9,240
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+Dates:
+• Ordered: Nov 01, 2025
+• Expected: Nov 12, 2025
+• Lead Time: 11 days
+
+Status: Approved by Procurement
+Payment Terms: Net 30
+Shipping: FOB Istanbul
+
+Contact: procurement@textile-ind.com`, 'PO-2024-885': `📋 PURCHASE ORDER: ${poId}
+
+Supplier: Euro Accessories GmbH
+Status: COMPLETED ✅
+
+Order Details:
+• Item: Metal Buttons (12mm)
+• Quantity: 15,000 pcs
+• Unit Price: €0.12/pc
+• Total: €1,800
+
+Received: Nov 05, 2025
+Quality Check: Passed ✅
+Invoiced: Nov 06, 2025`
+};
+
+```
+        alert(poData[poId] || `PO details for ${poId}`);
+    }
+</script>
+```
+
+</body>
+</html>

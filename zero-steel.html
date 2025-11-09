@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Steel - Sustainable Steel Production</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+            --zero-space-xs: 0.5rem;
+            --zero-space-sm: 1rem;
+            --zero-space-md: 2rem;
+            --zero-space-lg: 4rem;
+            
+            --zero-radius-sm: 4px;
+            --zero-radius-md: 6px;
+            --zero-radius-lg: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--zero-gray-bg);
+            color: var(--zero-black);
+            line-height: 1.6;
+            padding-top: 4px;
+        }
+        
+        .zero-color-bar {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                var(--zero-green) 0%, var(--zero-green) 25%, 
+                var(--zero-red) 25%, var(--zero-red) 50%, 
+                var(--zero-navy) 50%, var(--zero-navy) 75%, 
+                var(--zero-orange) 75%, var(--zero-orange) 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .app-header {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            gap: var(--zero-space-md);
+        }
+        
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+        }
+        
+        .header-logo:hover {
+            opacity: 1;
+        }
+        
+        .title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .title {
+            font-size: 1.75rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+        
+        .title-at {
+            color: var(--zero-orange);
+        }
+        
+        .subtitle {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .subtitle-at {
+            color: var(--zero-orange);
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--zero-space-md);
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .stat-card {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--zero-gray-dark);
+            margin-bottom: var(--zero-space-xs);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--zero-navy);
+        }
+        
+        .stat-value.green {
+            color: var(--zero-green);
+        }
+        
+        .stat-value.orange {
+            color: var(--zero-orange);
+        }
+        
+        .stat-value.red {
+            color: var(--zero-red);
+        }
+        
+        .stat-subtitle {
+            font-size: 0.75rem;
+            color: var(--zero-gray-medium);
+            margin-top: var(--zero-space-xs);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: var(--zero-space-xs);
+            margin-bottom: var(--zero-space-md);
+            background: var(--zero-white);
+            padding: var(--zero-space-xs);
+            border-radius: var(--zero-radius-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: var(--zero-radius-sm);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--zero-gray-dark);
+            transition: all 0.3s ease;
+            flex: 1;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: var(--zero-gray-light);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .furnace-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .furnace-card {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .furnace-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .furnace-card.running {
+            border-left: 4px solid var(--zero-green);
+        }
+        
+        .furnace-card.maintenance {
+            border-left: 4px solid var(--zero-orange);
+        }
+        
+        .furnace-card.offline {
+            border-left: 4px solid var(--zero-red);
+        }
+        
+        .furnace-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--zero-space-sm);
+        }
+        
+        .furnace-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--zero-navy);
+        }
+        
+        .furnace-type {
+            font-size: 0.75rem;
+            color: var(--zero-gray-medium);
+            margin-top: 0.25rem;
+        }
+        
+        .status-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.65rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .status-badge.running {
+            background: rgba(0,85,48,0.1);
+            color: var(--zero-green);
+        }
+        
+        .status-badge.maintenance {
+            background: rgba(249,186,0,0.2);
+            color: #cc9500;
+        }
+        
+        .status-badge.offline {
+            background: rgba(213,22,53,0.15);
+            color: var(--zero-red);
+        }
+        
+        .furnace-details {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-sm);
+        }
+        
+        .detail-item {
+            padding: var(--zero-space-xs);
+            background: var(--zero-gray-bg);
+            border-radius: var(--zero-radius-sm);
+        }
+        
+        .detail-label {
+            font-size: 0.75rem;
+            color: var(--zero-gray-medium);
+        }
+        
+        .detail-value {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--zero-black);
+            margin-top: 0.25rem;
+        }
+        
+        .furnace-metrics {
+            margin: var(--zero-space-sm) 0;
+            padding: var(--zero-space-sm);
+            background: var(--zero-gray-bg);
+            border-radius: var(--zero-radius-sm);
+        }
+        
+        .metric-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--zero-gray-light);
+        }
+        
+        .metric-row:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-label {
+            font-size: 0.875rem;
+            color: var(--zero-gray-dark);
+        }
+        
+        .metric-value {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--zero-black);
+        }
+        
+        .metric-value.good {
+            color: var(--zero-green);
+        }
+        
+        .metric-value.warning {
+            color: var(--zero-orange);
+        }
+        
+        .metric-value.critical {
+            color: var(--zero-red);
+        }
+        
+        .furnace-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: var(--zero-space-sm);
+            border-top: 1px solid var(--zero-gray-light);
+        }
+        
+        .co2-badge {
+            padding: 0.25rem 0.75rem;
+            background: rgba(0,85,48,0.1);
+            color: var(--zero-green);
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-md);
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--zero-navy);
+            color: var(--zero-white);
+            border: none;
+            border-radius: var(--zero-radius-sm);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: var(--zero-orange);
+            color: var(--zero-navy);
+        }
+        
+        .action-btn.secondary {
+            background: var(--zero-white);
+            color: var(--zero-navy);
+            border: 1px solid var(--zero-navy);
+        }
+        
+        .action-btn.secondary:hover {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+        }
+        
+        .process-panel {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--zero-navy);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .process-flow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: var(--zero-space-sm);
+            flex-wrap: wrap;
+        }
+        
+        .process-stage {
+            flex: 1;
+            min-width: 140px;
+            text-align: center;
+            padding: var(--zero-space-md);
+            background: var(--zero-gray-bg);
+            border-radius: var(--zero-radius-lg);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .process-stage:hover {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+            transform: translateY(-3px);
+        }
+        
+        .process-stage.active {
+            background: var(--zero-green);
+            color: var(--zero-white);
+        }
+        
+        .stage-icon {
+            font-size: 2rem;
+            margin-bottom: var(--zero-space-xs);
+        }
+        
+        .stage-name {
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+        
+        .stage-emission {
+            font-size: 0.75rem;
+            opacity: 0.8;
+            margin-top: 0.25rem;
+        }
+        
+        .process-arrow {
+            font-size: 1.5rem;
+            color: var(--zero-orange);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                gap: var(--zero-space-sm);
+            }
+            
+            .header-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.75rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .furnace-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-flow {
+                flex-direction: column;
+            }
+            
+            .process-arrow {
+                transform: rotate(90deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+    
+    <header class="app-header">
+        <div class="header-content">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjgwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlN0ZWVsPC90ZXh0PgogIDxyZWN0IHg9IjUwIiB5PSIyOTUiIHdpZHRoPSIzMDAiIGhlaWdodD0iNSIgZmlsbD0iI2Y5YmEwMCIvPgogIDx0ZXh0IHg9IjUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPkdyZWVuPC90ZXh0PgogIDx0ZXh0IHg9IjUwIiB5PSIzNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlByb2R1Y3Rpb248L3RleHQ+Cjwvc3ZnPg==" alt="Zero@Steel Logo" class="header-logo">
+            <div class="title-group">
+                <div class="title">Zero<span class="title-at">@</span>Steel</div>
+                <div class="subtitle">Green Steel Production · by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Dashboard Stats -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-label">Annual Steel Production</div>
+                <div class="stat-value green">2.4M tons</div>
+                <div class="stat-subtitle">+8% vs 2024 (2.22M tons)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">CO₂ Intensity</div>
+                <div class="stat-value orange">1.45 tCO₂/t</div>
+                <div class="stat-subtitle">Industry avg: 1.85 tCO₂/t steel</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Scrap Utilization Rate</div>
+                <div class="stat-value green">42%</div>
+                <div class="stat-subtitle">Target: 50% by 2027</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Green Steel Capacity</div>
+                <div class="stat-value">18%</div>
+                <div class="stat-subtitle">H2-DRI + EAF production</div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn" onclick="monitorFurnaces()">🔥 Monitor Furnaces</button>
+            <button class="action-btn" onclick="optimizeProcess()">⚙️ Process Optimization</button>
+            <button class="action-btn secondary" onclick="scrapManagement()">♻️ Scrap Management</button>
+            <button class="action-btn secondary" onclick="showReports()">📊 Steel Reports</button>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="showTab('furnaces')">Furnaces</button>
+            <button class="tab-btn" onclick="showTab('processes')">Production Routes</button>
+            <button class="tab-btn" onclick="showTab('greentech')">Green Technologies</button>
+            <button class="tab-btn" onclick="showTab('emissions')">Emissions</button>
+        </div>
+        
+        <!-- Tab Content: Overview -->
+        <div id="overview" class="tab-content active">
+            <div class="process-panel">
+                <h3 class="panel-title">🏭 Steel Production Process Flow</h3>
+                <div class="process-flow">
+                    <div class="process-stage active">
+                        <div class="stage-icon">⛏️</div>
+                        <div class="stage-name">Iron Ore Mining</div>
+                        <div class="stage-emission">0.12 tCO₂/t</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-stage active">
+                        <div class="stage-icon">🔥</div>
+                        <div class="stage-name">Blast Furnace</div>
+                        <div class="stage-emission">1.80 tCO₂/t</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-stage">
+                        <div class="stage-icon">⚗️</div>
+                        <div class="stage-name">Basic Oxygen</div>
+                        <div class="stage-emission">0.08 tCO₂/t</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-stage">
+                        <div class="stage-icon">🔨</div>
+                        <div class="stage-name">Continuous Cast</div>
+                        <div class="stage-emission">0.05 tCO₂/t</div>
+                    </div>
+                    <div class="process-arrow">→</div>
+                    <div class="process-stage">
+                        <div class="stage-icon">🏗️</div>
+                        <div class="stage-name">Rolling Mill</div>
+                        <div class="stage-emission">0.15 tCO₂/t</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="furnace-grid">
+                <div class="stat-card" style="border-left: 4px solid var(--zero-red);">
+                    <div class="stat-label">🔥 Blast Furnace Route (BF-BOF)</div>
+                    <div class="stat-value red">1,968,000 t/year</div>
+                    <div class="stat-subtitle">82% of production | 1.85 tCO₂/t steel</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Primary route using iron ore, coke, and limestone
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-orange);">
+                    <div class="stat-label">⚡ Electric Arc Furnace (EAF)</div>
+                    <div class="stat-value orange">360,000 t/year</div>
+                    <div class="stat-subtitle">15% of production | 0.45 tCO₂/t steel</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Scrap-based route with renewable electricity
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-green);">
+                    <div class="stat-label">💚 Hydrogen DRI-EAF (Green Steel)</div>
+                    <div class="stat-value green">72,000 t/year</div>
+                    <div class="stat-subtitle">3% of production | 0.15 tCO₂/t steel</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Direct Reduced Iron with green hydrogen
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-panel">
+                <h3 class="panel-title">📊 Production Mix & Emissions Breakdown</h3>
+                <div class="furnace-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Primary Steel (BF-BOF)</div>
+                        <div class="detail-value">1,968,000 tons (82%)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">BF-BOF CO₂ Emissions</div>
+                        <div class="detail-value" style="color: var(--zero-red);">3,640,800 tCO₂</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Secondary Steel (EAF)</div>
+                        <div class="detail-value">360,000 tons (15%)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">EAF CO₂ Emissions</div>
+                        <div class="detail-value" style="color: var(--zero-orange);">162,000 tCO₂</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Green Steel (H2-DRI)</div>
+                        <div class="detail-value">72,000 tons (3%)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">H2-DRI CO₂ Emissions</div>
+                        <div class="detail-value" style="color: var(--zero-green);">10,800 tCO₂</div>
+                    </div>
+                </div>
+                <div style="margin-top: var(--zero-space-md); padding: var(--zero-space-md); background: rgba(213,22,53,0.05); border-radius: var(--zero-radius-sm); border-left: 4px solid var(--zero-red);">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <div class="stat-label">Total Annual CO₂ Emissions</div>
+                            <div class="stat-value red">3,813,600 tCO₂</div>
+                        </div>
+                        <div style="text-align: right;">
+                            <div class="stat-label">Average Intensity</div>
+                            <div style="font-size: 1.5rem; font-weight: 600; color: var(--zero-orange);">1.59 tCO₂/t</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Furnaces -->
+        <div id="furnaces" class="tab-content">
+            <div class="furnace-grid">
+                <div class="furnace-card running">
+                    <div class="furnace-header">
+                        <div>
+                            <div class="furnace-name">Blast Furnace #1</div>
+                            <div class="furnace-type">BF-BOF Route | 1,200 m³</div>
+                        </div>
+                        <div class="status-badge running">Running</div>
+                    </div>
+                    <div class="furnace-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Capacity</div>
+                            <div class="detail-value">5,500 t/day</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Today's Output</div>
+                            <div class="detail-value">5,180 tons</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Temperature</div>
+                            <div class="detail-value">1,480°C</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Utilization</div>
+                            <div class="detail-value" style="color: var(--zero-green);">94.2%</div>
+                        </div>
+                    </div>
+                    <div class="furnace-metrics">
+                        <div class="metric-row">
+                            <div class="metric-label">Iron Ore Feed</div>
+                            <div class="metric-value">8,600 t/day</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Coke Consumption</div>
+                            <div class="metric-value">1,760 t/day</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Blast Air Flow</div>
+                            <div class="metric-value good">2,850 Nm³/min</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Slag Generation</div>
+                            <div class="metric-value">1,240 t/day</div>
+                        </div>
+                    </div>
+                    <div class="furnace-footer">
+                        <div style="font-size: 0.75rem; color: var(--zero-gray-medium);">Campaign age: 4.2 years</div>
+                        <div class="co2-badge" style="background: rgba(213,22,53,0.15); color: var(--zero-red);">9,583 tCO₂/day</div>
+                    </div>
+                </div>
+                
+                <div class="furnace-card running">
+                    <div class="furnace-header">
+                        <div>
+                            <div class="furnace-name">Electric Arc Furnace #3</div>
+                            <div class="furnace-type">EAF Route | 120 MVA</div>
+                        </div>
+                        <div class="status-badge running">Running</div>
+                    </div>
+                    <div class="furnace-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Capacity</div>
+                            <div class="detail-value">1,200 t/day</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Today's Output</div>
+                            <div class="detail-value">1,150 tons</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Power Draw</div>
+                            <div class="detail-value">108 MW</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Utilization</div>
+                            <div class="detail-value" style="color: var(--zero-green);">95.8%</div>
+                        </div>
+                    </div>
+                    <div class="furnace-metrics">
+                        <div class="metric-row">
+                            <div class="metric-label">Scrap Steel Input</div>
+                            <div class="metric-value">1,280 t/day</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Energy per ton</div>
+                            <div class="metric-value good">380 kWh/t</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Tap-to-Tap Time</div>
+                            <div class="metric-value good">48 minutes</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Renewable Energy</div>
+                            <div class="metric-value good">65%</div>
+                        </div>
+                    </div>
+                    <div class="furnace-footer">
+                        <div style="font-size: 0.75rem; color: var(--zero-gray-medium);">Last reline: 8 months ago</div>
+                        <div class="co2-badge">517 tCO₂/day</div>
+                    </div>
+                </div>
+                
+                <div class="furnace-card running">
+                    <div class="furnace-header">
+                        <div>
+                            <div class="furnace-name">H2-DRI Plant</div>
+                            <div class="furnace-type">Hydrogen Direct Reduction | Green Steel</div>
+                        </div>
+                        <div class="status-badge running">Running</div>
+                    </div>
+                    <div class="furnace-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Capacity</div>
+                            <div class="detail-value">250 t/day</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Today's Output</div>
+                            <div class="detail-value">232 tons DRI</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">H2 Consumption</div>
+                            <div class="detail-value">52 kg H2/t</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Utilization</div>
+                            <div class="detail-value" style="color: var(--zero-green);">92.8%</div>
+                        </div>
+                    </div>
+                    <div class="furnace-metrics">
+                        <div class="metric-row">
+                            <div class="metric-label">Iron Ore Pellets</div>
+                            <div class="metric-value">380 t/day</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Green H2 Source</div>
+                            <div class="metric-value good">100% renewable</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Metallization Rate</div>
+                            <div class="metric-value good">94%</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Process Temperature</div>
+                            <div class="metric-value">850°C</div>
+                        </div>
+                    </div>
+                    <div class="furnace-footer">
+                        <div style="font-size: 0.75rem; color: var(--zero-green);">🏆 Carbon-negative with renewables</div>
+                        <div class="co2-badge">35 tCO₂/day</div>
+                    </div>
+                </div>
+                
+                <div class="furnace-card maintenance">
+                    <div class="furnace-header">
+                        <div>
+                            <div class="furnace-name">Blast Furnace #2</div>
+                            <div class="furnace-type">BF-BOF Route | 1,400 m³</div>
+                        </div>
+                        <div class="status-badge maintenance">Maintenance</div>
+                    </div>
+                    <div class="furnace-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Maintenance Type</div>
+                            <div class="detail-value">Hot Reline</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Start Date</div>
+                            <div class="detail-value">Nov 5, 2025</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Est. Completion</div>
+                            <div class="detail-value">Dec 20, 2025</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Progress</div>
+                            <div class="detail-value" style="color: var(--zero-orange);">32%</div>
+                        </div>
+                    </div>
+                    <div class="furnace-metrics">
+                        <div class="metric-row">
+                            <div class="metric-label">Campaign Completed</div>
+                            <div class="metric-value">6.8 years</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Total Production</div>
+                            <div class="metric-value">13.2M tons</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Downtime Cost</div>
+                            <div class="metric-value warning">€2.8M/week</div>
+                        </div>
+                        <div class="metric-row">
+                            <div class="metric-label">Restart Target</div>
+                            <div class="metric-value">Dec 22, 2025</div>
+                        </div>
+                    </div>
+                    <div class="furnace-footer">
+                        <div style="font-size: 0.75rem; color: var(--zero-orange);">⚠️ Reline in progress</div>
+                        <div class="co2-badge" style="background: rgba(249,186,0,0.2); color: #cc9500;">0 tCO₂/day</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Production Routes -->
+        <div id="processes" class="tab-content">
+            <div class="process-panel">
+                <h3 class="panel-title">🏭 Primary Steel Production: BF-BOF Route</h3>
+                <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                    Traditional integrated steelmaking: Blast Furnace (iron production) + Basic Oxygen Furnace (steel production)
+                </p>
+                <div class="furnace-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Raw Materials</div>
+                        <div class="detail-value">Iron ore, coke, limestone</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Process Temperature</div>
+                        <div class="detail-value">1,450-1,550°C</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">CO₂ Intensity</div>
+                        <div class="detail-value" style="color: var(--zero-red);">1.85 tCO₂/t</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality</div>
+                        <div class="detail-value">Consistent, high purity</div>
+                    </div>
+                </div>
+                <div style="margin-top: var(--zero-space-sm); padding: var(--zero-space-sm); background: rgba(213,22,53,0.05); border-radius: var(--zero-radius-sm);">
+                    <div style="font-size: 0.875rem; color: var(--zero-red); font-weight: 500; margin-bottom: 0.5rem;">
+                        Main CO₂ Sources:
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        • Coke combustion in blast furnace (75%)<br>
+                        • Chemical reduction of iron ore (20%)<br>
+                        • Limestone decomposition (5%)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-panel">
+                <h3 class="panel-title">⚡ Secondary Steel Production: EAF Route</h3>
+                <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                    Electric Arc Furnace: Melting scrap steel with electricity (ideal for circular economy)
+                </p>
+                <div class="furnace-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Raw Materials</div>
+                        <div class="detail-value">Scrap steel (80-100%)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Energy Source</div>
+                        <div class="detail-value">Electricity (65% renewable)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">CO₂ Intensity</div>
+                        <div class="detail-value" style="color: var(--zero-orange);">0.45 tCO₂/t</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Energy Consumption</div>
+                        <div class="detail-value">380 kWh/t steel</div>
+                    </div>
+                </div>
+                <div style="margin-top: var(--zero-space-sm); padding: var(--zero-space-sm); background: rgba(0,85,48,0.05); border-radius: var(--zero-radius-sm);">
+                    <div style="font-size: 0.875rem; color: var(--zero-green); font-weight: 500; margin-bottom: 0.5rem;">
+                        Advantages:
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        • 75% lower CO₂ emissions vs BF-BOF<br>
+                        • Uses recycled scrap (circular economy)<br>
+                        • Flexible production capacity<br>
+                        • Can use 100% renewable electricity
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-panel">
+                <h3 class="panel-title">💚 Green Steel: H2-DRI + EAF Route</h3>
+                <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                    Hydrogen Direct Reduced Iron: Using green hydrogen instead of coke for iron ore reduction
+                </p>
+                <div class="furnace-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Raw Materials</div>
+                        <div class="detail-value">Iron ore pellets, green H2</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Process Temperature</div>
+                        <div class="detail-value">800-900°C</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">CO₂ Intensity</div>
+                        <div class="detail-value" style="color: var(--zero-green);">0.15 tCO₂/t</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">H2 Consumption</div>
+                        <div class="detail-value">52 kg H2/t DRI</div>
+                    </div>
+                </div>
+                <div style="margin-top: var(--zero-space-sm); padding: var(--zero-space-sm); background: rgba(0,85,48,0.1); border-radius: var(--zero-radius-sm);">
+                    <div style="font-size: 0.875rem; color: var(--zero-green); font-weight: 500; margin-bottom: 0.5rem;">
+                        🌟 Game Changer:
+                    </div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        • 92% CO₂ reduction vs BF-BOF<br>
+                        • Only byproduct: Water (H2O)<br>
+                        • Scalable with renewable energy growth<br>
+                        • Premium "green steel" certification
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Green Technologies -->
+        <div id="greentech" class="tab-content">
+            <div class="furnace-grid">
+                <div class="stat-card" style="border-left: 4px solid var(--zero-green);">
+                    <div class="stat-label">💚 Green Hydrogen Production</div>
+                    <div class="stat-value green">45 MW</div>
+                    <div class="stat-subtitle">Electrolyzer capacity | 12 tons H2/day</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        On-site PEM electrolyzers powered by wind + solar
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-green);">
+                    <div class="stat-label">☀️ Renewable Energy Mix</div>
+                    <div class="stat-value green">48%</div>
+                    <div class="stat-subtitle">Wind 28% | Solar 15% | Hydro 5%</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Target: 100% renewable by 2030
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-orange);">
+                    <div class="stat-label">🔥 Carbon Capture (CCUS)</div>
+                    <div class="stat-value orange">125,000 t/year</div>
+                    <div class="stat-subtitle">Pilot plant capturing BF emissions</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        15% of BF emissions captured and stored
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-green);">
+                    <div class="stat-label">♻️ Circular Steel Economy</div>
+                    <div class="stat-value green">98%</div>
+                    <div class="stat-subtitle">Steel recyclability rate</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Closed-loop system: steel → product → scrap → steel
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-navy);">
+                    <div class="stat-label">🔋 Energy Storage</div>
+                    <div class="stat-value">85 MWh</div>
+                    <div class="stat-subtitle">Battery systems for load balancing</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Smooths intermittent renewable energy
+                    </div>
+                </div>
+                
+                <div class="stat-card" style="border-left: 4px solid var(--zero-orange);">
+                    <div class="stat-label">🌡️ Waste Heat Recovery</div>
+                    <div class="stat-value orange">240 GWh/year</div>
+                    <div class="stat-subtitle">Energy recovered from furnaces</div>
+                    <div style="margin-top: var(--zero-space-sm); font-size: 0.75rem; color: var(--zero-gray-dark);">
+                        Powers district heating + process steam
+                    </div>
+                </div>
+            </div>
+            
+            <div class="process-panel">
+                <h3 class="panel-title">🚀 Decarbonization Roadmap</h3>
+                <div class="furnace-metrics">
+                    <div class="metric-row">
+                        <div class="metric-label">2024 Baseline</div>
+                        <div class="metric-value">1.85 tCO₂/t steel</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2025 Current</div>
+                        <div class="metric-value" style="color: var(--zero-orange);">1.59 tCO₂/t (-14%)</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2028 Target: Increase EAF to 30%</div>
+                        <div class="metric-value" style="color: var(--zero-orange);">1.35 tCO₂/t (-27%)</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2030 Target: H2-DRI at 15%</div>
+                        <div class="metric-value" style="color: var(--zero-green);">1.05 tCO₂/t (-43%)</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2035 Target: 50% Green Steel</div>
+                        <div class="metric-value" style="color: var(--zero-green);">0.65 tCO₂/t (-65%)</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">2045 Goal: Net-Zero Steel</div>
+                        <div class="metric-value" style="color: var(--zero-green);">0.05 tCO₂/t (-97%)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Emissions -->
+        <div id="emissions" class="tab-content">
+            <div class="stat-card" style="background: rgba(213,22,53,0.03); border-left: 4px solid var(--zero-red); margin-bottom: var(--zero-space-md);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="stat-label">Total Annual Emissions</div>
+                        <div class="stat-value red">3.81M tCO₂</div>
+                        <div class="stat-subtitle">From 2.4M tons steel production</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="stat-label">Industry Comparison</div>
+                        <div style="font-size: 1.5rem; font-weight: 600; color: var(--zero-green);">-14%</div>
+                        <div class="stat-subtitle">Better than avg (1.85 tCO₂/t)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="furnace-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Scope 1: Direct Emissions</div>
+                    <div class="stat-value red">3,640,800 tCO₂</div>
+                    <div class="stat-subtitle">95.5% of total | BF coke combustion</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Scope 2: Purchased Energy</div>
+                    <div class="stat-value orange">145,200 tCO₂</div>
+                    <div class="stat-subtitle">3.8% of total | Grid electricity</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Scope 3: Value Chain</div>
+                    <div class="stat-value">27,600 tCO₂</div>
+                    <div class="stat-subtitle">0.7% of total | Transport + upstream</div>
+                </div>
+            </div>
+            
+            <div class="process-panel">
+                <h3 class="panel-title">📉 Emission Reduction Initiatives</h3>
+                <div class="furnace-metrics">
+                    <div class="metric-row">
+                        <div class="metric-label">✓ Increased EAF capacity to 15%</div>
+                        <div class="metric-value good">-285,000 tCO₂/year</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">✓ Renewable electricity 48%</div>
+                        <div class="metric-value good">-142,500 tCO₂/year</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">✓ H2-DRI pilot plant operational</div>
+                        <div class="metric-value good">-122,400 tCO₂/year</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">✓ Waste heat recovery improved</div>
+                        <div class="metric-value good">-38,000 tCO₂/year</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">⏳ CCUS pilot expanding</div>
+                        <div class="metric-value warning">-125,000 tCO₂/year (planned)</div>
+                    </div>
+                    <div class="metric-row">
+                        <div class="metric-label">⏳ BF optimization program</div>
+                        <div class="metric-value warning">-95,000 tCO₂/year (in progress)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function monitorFurnaces() {
+            alert('Real-time furnace monitoring dashboard opening...');
+        }
+        
+        function optimizeProcess() {
+            alert('Process optimization AI assistant opening...');
+        }
+        
+        function scrapManagement() {
+            alert('Scrap steel inventory and quality management opening...');
+        }
+        
+        function showReports() {
+            alert('Steel production and emissions reports opening...');
+        }
+        
+        document.querySelectorAll('.process-stage').forEach(stage => {
+            stage.addEventListener('click', function() {
+                const stageName = this.querySelector('.stage-name').textContent;
+                const emission = this.querySelector('.stage-emission').textContent;
+                alert(`📍 ${stageName}\n\nEmissions: ${emission}\n\nClick for detailed process analysis...`);
+            });
+        });
+    </script>
+</body>
+</html>

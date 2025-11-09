@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Design - Sustainable Product Design</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+```
+        --zero-space-xs: 0.5rem;
+        --zero-space-sm: 1rem;
+        --zero-space-md: 2rem;
+        --zero-space-lg: 4rem;
+        
+        --zero-radius-sm: 4px;
+        --zero-radius-md: 6px;
+        --zero-radius-lg: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--zero-gray-bg);
+        color: var(--zero-black);
+        line-height: 1.6;
+        padding-top: 4px;
+    }
+    
+    .zero-color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            var(--zero-green) 0%, var(--zero-green) 25%, 
+            var(--zero-red) 25%, var(--zero-red) 50%, 
+            var(--zero-navy) 50%, var(--zero-navy) 75%, 
+            var(--zero-orange) 75%, var(--zero-orange) 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .app-header {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+        gap: var(--zero-space-md);
+    }
+    
+    .header-logo {
+        width: 80px;
+        height: 80px;
+        opacity: 0.95;
+        transition: opacity 0.3s ease;
+    }
+    
+    .header-logo:hover {
+        opacity: 1;
+    }
+    
+    .title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .title {
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    .title-at {
+        color: var(--zero-orange);
+    }
+    
+    .subtitle {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.7);
+    }
+    
+    .subtitle-at {
+        color: var(--zero-orange);
+    }
+    
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--zero-space-md);
+    }
+    
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .stat-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+    }
+    
+    .stat-value.green {
+        color: var(--zero-green);
+    }
+    
+    .stat-value.orange {
+        color: var(--zero-orange);
+    }
+    
+    .stat-value.red {
+        color: var(--zero-red);
+    }
+    
+    .stat-subtitle {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: var(--zero-space-xs);
+    }
+    
+    .tabs {
+        display: flex;
+        gap: var(--zero-space-xs);
+        margin-bottom: var(--zero-space-md);
+        background: var(--zero-white);
+        padding: var(--zero-space-xs);
+        border-radius: var(--zero-radius-lg);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        overflow-x: auto;
+    }
+    
+    .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-gray-dark);
+        transition: all 0.3s ease;
+        flex: 1;
+        white-space: nowrap;
+    }
+    
+    .tab-btn.active {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .tab-btn:hover:not(.active) {
+        background: var(--zero-gray-light);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .design-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .design-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .design-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .design-card.excellent {
+        border-left: 4px solid var(--zero-green);
+    }
+    
+    .design-card.good {
+        border-left: 4px solid var(--zero-orange);
+    }
+    
+    .design-card.needs-improvement {
+        border-left: 4px solid var(--zero-red);
+    }
+    
+    .design-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .design-name {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .design-code {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: 0.25rem;
+    }
+    
+    .score-badge {
+        padding: 0.5rem 1rem;
+        border-radius: 12px;
+        font-size: 1.25rem;
+        font-weight: 600;
+        text-align: center;
+        min-width: 60px;
+    }
+    
+    .score-badge.a-grade {
+        background: rgba(0,85,48,0.15);
+        color: var(--zero-green);
+    }
+    
+    .score-badge.b-grade {
+        background: rgba(249,186,0,0.2);
+        color: #cc9500;
+    }
+    
+    .score-badge.c-grade {
+        background: rgba(213,22,53,0.15);
+        color: var(--zero-red);
+    }
+    
+    .design-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .detail-item {
+        padding: var(--zero-space-xs);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .detail-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .detail-value {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-black);
+        margin-top: 0.25rem;
+    }
+    
+    .sustainability-score {
+        margin: var(--zero-space-sm) 0;
+        padding: var(--zero-space-sm);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .score-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 0;
+    }
+    
+    .score-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+    
+    .score-value {
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+    
+    .score-value.excellent {
+        color: var(--zero-green);
+    }
+    
+    .score-value.good {
+        color: var(--zero-orange);
+    }
+    
+    .score-value.poor {
+        color: var(--zero-red);
+    }
+    
+    .design-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--zero-space-sm);
+        border-top: 1px solid var(--zero-gray-light);
+    }
+    
+    .co2-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+        flex-wrap: wrap;
+    }
+    
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .action-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .action-btn.secondary {
+        background: var(--zero-white);
+        color: var(--zero-navy);
+        border: 1px solid var(--zero-navy);
+    }
+    
+    .action-btn.secondary:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .calculator-panel {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .panel-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .material-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--zero-space-sm);
+    }
+    
+    .material-card {
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-md);
+        padding: var(--zero-space-sm);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+    }
+    
+    .material-card:hover {
+        background: var(--zero-white);
+        border-color: var(--zero-navy);
+    }
+    
+    .material-card.selected {
+        background: var(--zero-white);
+        border-color: var(--zero-green);
+    }
+    
+    .material-name {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: 0.5rem;
+    }
+    
+    .material-stats {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+    }
+    
+    .material-co2 {
+        color: var(--zero-green);
+        font-weight: 500;
+    }
+    
+    .material-recycled {
+        color: var(--zero-gray-medium);
+    }
+    
+    .recommendations {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .recommendation-item {
+        padding: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-sm);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+        border-left: 3px solid var(--zero-green);
+    }
+    
+    .recommendation-title {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: 0.25rem;
+    }
+    
+    .recommendation-description {
+        font-size: 0.75rem;
+        color: var(--zero-gray-dark);
+    }
+    
+    .recommendation-impact {
+        font-size: 0.75rem;
+        color: var(--zero-green);
+        font-weight: 500;
+        margin-top: 0.25rem;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            gap: var(--zero-space-sm);
+        }
+        
+        .header-logo {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+        }
+        
+        .tabs {
+            flex-direction: column;
+        }
+        
+        .design-grid, .material-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<header class="app-header">
+    <div class="header-content">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPkRlc2lnbjwvdGV4dD4KICA8cmVjdCB4PSI1MCIgeT0iMjk1IiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUiIGZpbGw9IiNmOWJhMDAiLz4KICA8dGV4dCB4PSI1MCIgeT0iMzQwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5TdXN0YWluYWJsZTwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5Qcm9kdWN0czwvdGV4dD4KPC9zdmc+" alt="Zero@Design Logo" class="header-logo">
+        <div class="title-group">
+            <div class="title">Zero<span class="title-at">@</span>Design</div>
+            <div class="subtitle">Sustainable Product Design · by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <div class="stat-label">Active Design Projects</div>
+            <div class="stat-value green">42</div>
+            <div class="stat-subtitle">18 in review, 24 approved</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Avg. Sustainability Score</div>
+            <div class="stat-value orange">B+</div>
+            <div class="stat-subtitle">Target: A grade (85+ points)</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">CO₂ Reduction Potential</div>
+            <div class="stat-value green">-28%</div>
+            <div class="stat-subtitle">vs conventional materials</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Digital Product Passports</div>
+            <div class="stat-value">156</div>
+            <div class="stat-subtitle">Generated this quarter</div>
+        </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="newDesign()">✏️ New Design</button>
+        <button class="action-btn" onclick="calculateCO2()">🧮 Calculate CO₂</button>
+        <button class="action-btn secondary" onclick="generateDPP()">📄 Generate DPP</button>
+        <button class="action-btn secondary" onclick="showReports()">📊 Design Reports</button>
+    </div>
+    
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('designs')">Active Designs</button>
+        <button class="tab-btn" onclick="showTab('calculator')">CO₂ Calculator</button>
+        <button class="tab-btn" onclick="showTab('materials')">Material Library</button>
+        <button class="tab-btn" onclick="showTab('recommendations')">Eco-Design Tips</button>
+    </div>
+    
+    <!-- Tab Content: Active Designs -->
+    <div id="designs" class="tab-content active">
+        <div class="design-grid">
+            <div class="design-card excellent">
+                <div class="design-header">
+                    <div>
+                        <div class="design-name">Eco-Friendly Motor Housing</div>
+                        <div class="design-code">Design ID: DSN-2025-0842</div>
+                    </div>
+                    <div class="score-badge a-grade">A</div>
+                </div>
+                <div class="design-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Primary Material</div>
+                        <div class="detail-value">Recycled Aluminum</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Weight</div>
+                        <div class="detail-value">2.4 kg</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Recyclability</div>
+                        <div class="detail-value" style="color: var(--zero-green)">98%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">Approved</div>
+                    </div>
+                </div>
+                <div class="sustainability-score">
+                    <div class="score-row">
+                        <div class="score-label">🌍 Carbon Footprint</div>
+                        <div class="score-value excellent">1.8 kg CO₂</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">♻️ Circular Design</div>
+                        <div class="score-value excellent">95/100</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">🔋 Energy Efficiency</div>
+                        <div class="score-value excellent">92/100</div>
+                    </div>
+                </div>
+                <div class="design-footer">
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-medium);">Designer: Engineering Team A</div>
+                    <div class="co2-badge">-35% vs baseline</div>
+                </div>
+            </div>
+            
+            <div class="design-card good">
+                <div class="design-header">
+                    <div>
+                        <div class="design-name">Smart Control Panel</div>
+                        <div class="design-code">Design ID: DSN-2025-0856</div>
+                    </div>
+                    <div class="score-badge b-grade">B+</div>
+                </div>
+                <div class="design-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Primary Material</div>
+                        <div class="detail-value">ABS Plastic (30% rec.)</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Weight</div>
+                        <div class="detail-value">0.8 kg</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Recyclability</div>
+                        <div class="detail-value" style="color: var(--zero-orange)">75%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">In Review</div>
+                    </div>
+                </div>
+                <div class="sustainability-score">
+                    <div class="score-row">
+                        <div class="score-label">🌍 Carbon Footprint</div>
+                        <div class="score-value good">2.4 kg CO₂</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">♻️ Circular Design</div>
+                        <div class="score-value good">78/100</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">🔋 Energy Efficiency</div>
+                        <div class="score-value excellent">88/100</div>
+                    </div>
+                </div>
+                <div class="design-footer">
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-medium);">Designer: Product Design Team</div>
+                    <div class="co2-badge">-18% vs baseline</div>
+                </div>
+            </div>
+            
+            <div class="design-card needs-improvement">
+                <div class="design-header">
+                    <div>
+                        <div class="design-name">Heavy-Duty Frame</div>
+                        <div class="design-code">Design ID: DSN-2025-0823</div>
+                    </div>
+                    <div class="score-badge c-grade">C</div>
+                </div>
+                <div class="design-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Primary Material</div>
+                        <div class="detail-value">Virgin Steel</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Weight</div>
+                        <div class="detail-value">8.5 kg</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Recyclability</div>
+                        <div class="detail-value" style="color: var(--zero-red)">60%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">Needs Improvement</div>
+                    </div>
+                </div>
+                <div class="sustainability-score">
+                    <div class="score-row">
+                        <div class="score-label">🌍 Carbon Footprint</div>
+                        <div class="score-value poor">15.2 kg CO₂</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">♻️ Circular Design</div>
+                        <div class="score-value poor">52/100</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">🔋 Energy Efficiency</div>
+                        <div class="score-value good">68/100</div>
+                    </div>
+                </div>
+                <div class="design-footer">
+                    <div style="font-size: 0.75rem; color: var(--zero-red);">⚠️ Recommendation: Use recycled steel</div>
+                    <div class="co2-badge" style="background: rgba(213,22,53,0.15); color: var(--zero-red);">+42% vs baseline</div>
+                </div>
+            </div>
+            
+            <div class="design-card excellent">
+                <div class="design-header">
+                    <div>
+                        <div class="design-name">Lightweight Component</div>
+                        <div class="design-code">Design ID: DSN-2025-0889</div>
+                    </div>
+                    <div class="score-badge a-grade">A+</div>
+                </div>
+                <div class="design-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Primary Material</div>
+                        <div class="detail-value">Bio-based Polymer</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Weight</div>
+                        <div class="detail-value">0.3 kg</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Recyclability</div>
+                        <div class="detail-value" style="color: var(--zero-green)">100%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Status</div>
+                        <div class="detail-value">Prototype Ready</div>
+                    </div>
+                </div>
+                <div class="sustainability-score">
+                    <div class="score-row">
+                        <div class="score-label">🌍 Carbon Footprint</div>
+                        <div class="score-value excellent">0.4 kg CO₂</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">♻️ Circular Design</div>
+                        <div class="score-value excellent">98/100</div>
+                    </div>
+                    <div class="score-row">
+                        <div class="score-label">🔋 Energy Efficiency</div>
+                        <div class="score-value excellent">96/100</div>
+                    </div>
+                </div>
+                <div class="design-footer">
+                    <div style="font-size: 0.75rem; color: var(--zero-green);">🏆 Best Sustainability Score</div>
+                    <div class="co2-badge">-58% vs baseline</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: CO₂ Calculator -->
+    <div id="calculator" class="tab-content">
+        <div class="calculator-panel">
+            <h3 class="panel-title">🧮 Product Carbon Footprint Calculator</h3>
+            <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                Calculate the total CO₂ footprint of your product design based on materials, manufacturing processes, and end-of-life scenarios.
+            </p>
+            
+            <div class="design-details" style="margin-bottom: var(--zero-space-md);">
+                <div class="detail-item">
+                    <div class="detail-label">Product Name</div>
+                    <div class="detail-value" style="color: var(--zero-navy);">Example: Motor Housing</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Category</div>
+                    <div class="detail-value">Mechanical Component</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Total Weight</div>
+                    <div class="detail-value">2.4 kg</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Expected Lifetime</div>
+                    <div class="detail-value">15 years</div>
+                </div>
+            </div>
+            
+            <h4 style="font-size: 1rem; color: var(--zero-navy); margin-bottom: var(--zero-space-sm);">Material Composition</h4>
+            <div class="sustainability-score" style="margin-bottom: var(--zero-space-md);">
+                <div class="score-row">
+                    <div class="score-label">Recycled Aluminum (90%)</div>
+                    <div class="score-value excellent">1.62 kg CO₂</div>
+                </div>
+                <div class="score-row">
+                    <div class="score-label">Stainless Steel Fasteners (8%)</div>
+                    <div class="score-value good">0.28 kg CO₂</div>
+                </div>
+                <div class="score-row">
+                    <div class="score-label">Rubber Gasket (2%)</div>
+                    <div class="score-value">0.08 kg CO₂</div>
+                </div>
+            </div>
+            
+            <h4 style="font-size: 1rem; color: var(--zero-navy); margin-bottom: var(--zero-space-sm);">Manufacturing Process</h4>
+            <div class="sustainability-score" style="margin-bottom: var(--zero-space-md);">
+                <div class="score-row">
+                    <div class="score-label">CNC Machining</div>
+                    <div class="score-value">0.42 kg CO₂</div>
+                </div>
+                <div class="score-row">
+                    <div class="score-label">Surface Treatment</div>
+                    <div class="score-value">0.18 kg CO₂</div>
+                </div>
+                <div class="score-row">
+                    <div class="score-label">Assembly</div>
+                    <div class="score-value">0.05 kg CO₂</div>
+                </div>
+            </div>
+            
+            <h4 style="font-size: 1rem; color: var(--zero-navy); margin-bottom: var(--zero-space-sm);">Total Carbon Footprint</h4>
+            <div class="stat-card" style="background: rgba(0,85,48,0.05); border-left: 4px solid var(--zero-green);">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <div class="stat-label">Cradle-to-Gate CO₂</div>
+                        <div class="stat-value green">2.63 kg</div>
+                    </div>
+                    <div style="text-align: right;">
+                        <div class="stat-label">vs Industry Average</div>
+                        <div style="font-size: 1.5rem; font-weight: 600; color: var(--zero-green);">-35%</div>
+                    </div>
+                </div>
+                <div class="stat-subtitle" style="margin-top: var(--zero-space-sm);">
+                    🎯 Estimated End-of-Life Recovery: 98% recyclable | Carbon Credit Potential: 0.95 kg CO₂
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Material Library -->
+    <div id="materials" class="tab-content">
+        <div class="calculator-panel">
+            <h3 class="panel-title">📚 Sustainable Material Library</h3>
+            <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                Browse our database of sustainable materials with CO₂ footprint data, recyclability ratings, and supplier information.
+            </p>
+            
+            <div class="material-grid">
+                <div class="material-card selected">
+                    <div class="material-name">♻️ Recycled Aluminum</div>
+                    <div class="material-stats">
+                        <div class="material-co2">0.75 kg CO₂/kg</div>
+                        <div class="material-recycled">95% recycled</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">🌱 Bio-based PLA</div>
+                    <div class="material-stats">
+                        <div class="material-co2">1.2 kg CO₂/kg</div>
+                        <div class="material-recycled">100% bio</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">♻️ Recycled Steel</div>
+                    <div class="material-stats">
+                        <div class="material-co2">0.9 kg CO₂/kg</div>
+                        <div class="material-recycled">80% recycled</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">🌿 Hemp Composite</div>
+                    <div class="material-stats">
+                        <div class="material-co2">0.3 kg CO₂/kg</div>
+                        <div class="material-recycled">Natural fiber</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">♻️ rPET Plastic</div>
+                    <div class="material-stats">
+                        <div class="material-co2">1.5 kg CO₂/kg</div>
+                        <div class="material-recycled">100% recycled</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">🪵 FSC Wood</div>
+                    <div class="material-stats">
+                        <div class="material-co2">-0.2 kg CO₂/kg</div>
+                        <div class="material-recycled">Carbon negative</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">♻️ Recycled Copper</div>
+                    <div class="material-stats">
+                        <div class="material-co2">1.1 kg CO₂/kg</div>
+                        <div class="material-recycled">85% recycled</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">🌱 Mycelium Material</div>
+                    <div class="material-stats">
+                        <div class="material-co2">0.1 kg CO₂/kg</div>
+                        <div class="material-recycled">Biodegradable</div>
+                    </div>
+                </div>
+                
+                <div class="material-card">
+                    <div class="material-name">♻️ Glass (Recycled)</div>
+                    <div class="material-stats">
+                        <div class="material-co2">0.6 kg CO₂/kg</div>
+                        <div class="material-recycled">70% recycled</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Eco-Design Recommendations -->
+    <div id="recommendations" class="tab-content">
+        <div class="recommendations">
+            <h3 class="panel-title">💡 Eco-Design Recommendations</h3>
+            <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                AI-powered suggestions to improve your product's environmental performance based on industry best practices and circular economy principles.
+            </p>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">🔄 Design for Disassembly</div>
+                <div class="recommendation-description">
+                    Use modular design with snap-fit connections instead of permanent adhesives. This allows easy separation of components for recycling and repair.
+                </div>
+                <div class="recommendation-impact">💚 Impact: +25% recyclability, -15% end-of-life CO₂</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">♻️ Material Substitution</div>
+                <div class="recommendation-description">
+                    Replace virgin aluminum with recycled aluminum (95% recycled content). Performance remains identical with 95% lower carbon footprint.
+                </div>
+                <div class="recommendation-impact">💚 Impact: -35% material CO₂ emissions</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">⚖️ Weight Optimization</div>
+                <div class="recommendation-description">
+                    Apply topology optimization to reduce material usage by 20-30% while maintaining structural integrity. Lower weight = lower emissions in transport.
+                </div>
+                <div class="recommendation-impact">💚 Impact: -20% material cost, -25% transport emissions</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">🔧 Standardized Components</div>
+                <div class="recommendation-description">
+                    Use industry-standard fasteners and connectors to enable easier repair, refurbishment, and spare parts availability.
+                </div>
+                <div class="recommendation-impact">💚 Impact: +40% product lifetime extension</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">🎨 Surface Treatment Alternatives</div>
+                <div class="recommendation-description">
+                    Consider powder coating instead of liquid paint. 95% transfer efficiency vs 60% for liquid paint, with lower VOC emissions.
+                </div>
+                <div class="recommendation-impact">💚 Impact: -40% coating waste, -60% VOC emissions</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">📦 Packaging Optimization</div>
+                <div class="recommendation-description">
+                    Design product dimensions to maximize shipping container utilization. Reduce air gaps and use recyclable packaging materials.
+                </div>
+                <div class="recommendation-impact">💚 Impact: -30% packaging material, +25% shipping efficiency</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">🔋 Energy-Efficient Manufacturing</div>
+                <div class="recommendation-description">
+                    Optimize machining parameters to reduce cycle time and energy consumption. Consider near-net-shape manufacturing to minimize material removal.
+                </div>
+                <div class="recommendation-impact">💚 Impact: -15% manufacturing energy, -20% cycle time</div>
+            </div>
+            
+            <div class="recommendation-item">
+                <div class="recommendation-title">🌍 Local Sourcing</div>
+                <div class="recommendation-description">
+                    Prioritize materials and components from local suppliers within 500km radius to reduce transportation emissions.
+                </div>
+                <div class="recommendation-impact">💚 Impact: -45% supply chain CO₂</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function showTab(tabName) {
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    
+    function newDesign() {
+        const data = `✏️ CREATE NEW DESIGN
+```
+
+Design Information:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Product Name: [Enter Name]
+Product Category: [Select Category]
+Target Market: [EU/US/Global]
+Production Volume: [Estimated Units/Year]
+
+Material Selection:
+• Primary Material: [Select from Library]
+• Secondary Materials: [Add Materials]
+• Recycled Content Target: [%]
+
+Design Parameters:
+• Weight Target: [kg]
+• Dimensions: [L x W x H mm]
+• Operating Conditions: [Temperature, Pressure, etc.]
+• Expected Lifetime: [Years]
+
+Sustainability Goals:
+🎯 Target CO₂ Footprint: [kg CO₂]
+🎯 Recyclability Target: [%]
+🎯 Circular Design Score: [Points]
+
+Manufacturing Process:
+[Select Processes]
+• Machining / Forming / Molding / Assembly
+
+Integration:
+✓ Auto-calculate CO₂ footprint
+✓ Generate Digital Product Passport
+✓ Material compliance check (REACH, RoHS)
+✓ LCA (Life Cycle Assessment)
+
+[Create Design] [Save as Draft] [Import CAD]`;
+alert(data);
+}
+
+```
+    function calculateCO2() {
+        const data = `🧮 CO₂ FOOTPRINT CALCULATOR
+```
+
+Calculation Method:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Select calculation approach:
+• 🔢 Material-Based Calculation
+• 🏭 Process-Based Calculation
+• 📊 Hybrid (Material + Process)
+• 📁 Import LCA Data
+
+Material Inputs:
+Material 1: [Type] [Weight] [Recycled %]
+Material 2: [Type] [Weight] [Recycled %]
+Material 3: [Type] [Weight] [Recycled %]
+
+[+ Add Material]
+
+Manufacturing Process:
+☐ Casting / Forging
+☐ CNC Machining
+☐ Injection Molding
+☐ 3D Printing / Additive
+☐ Assembly
+☐ Surface Treatment
+☐ Quality Testing
+
+Transport & Logistics:
+Origin: [Location]
+Destination: [Location]
+Transport Mode: [Road/Sea/Air]
+
+End-of-Life Scenario:
+☐ Recycling Rate: [%]
+☐ Landfill: [%]
+☐ Incineration: [%]
+
+[Calculate CO₂] [Generate Report]
+
+Results will include:
+• Cradle-to-Gate emissions
+• Cradle-to-Grave emissions
+• Breakdown by lifecycle stage
+• Comparison to industry benchmarks
+• Carbon offset recommendations`;
+alert(data);
+}
+
+```
+    function generateDPP() {
+        const data = `📄 DIGITAL PRODUCT PASSPORT GENERATOR
+```
+
+Select Design: [DSN-2025-0842]
+Product: Eco-Friendly Motor Housing
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+DPP Information Included:
+
+📋 Product Information
+• Product Name & ID
+• Manufacturer Details
+• Production Date & Location
+• Serial Number
+
+🔧 Technical Specifications
+• Dimensions & Weight
+• Material Composition
+• Performance Characteristics
+• Quality Certifications
+
+🌍 Environmental Data
+• Carbon Footprint: 1.8 kg CO₂
+• Recyclability: 98%
+• Recycled Content: 90%
+• Water Usage
+• Energy Consumption
+
+♻️ Circularity Information
+• Repair Instructions
+• Spare Parts Availability
+• Disassembly Guide
+• Recycling Instructions
+
+📜 Compliance & Certifications
+• REACH Compliance
+• RoHS Directive
+• ISO 14001
+• EPD (Environmental Product Declaration)
+
+🔗 Supply Chain Traceability
+• Raw Material Sources
+• Manufacturing Location
+• Transport Routes
+• Carbon Offset Information
+
+[Generate DPP] [Generate QR Code] [Export PDF]
+
+DPP will be blockchain-verified and accessible via QR code for full product lifecycle tracking.`;
+alert(data);
+}
+
+```
+    function showReports() {
+        const data = `📊 DESIGN SUSTAINABILITY REPORTS
+```
+
+Available Reports:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 Design Performance
+• Sustainability Score Distribution
+• Top Performing Designs (A-grade)
+• Designs Needing Improvement
+• Design Timeline & Iterations
+
+🌍 Environmental Impact
+• Total CO₂ Reduction Achieved
+• Material Sustainability Trends
+• Recycled Content Usage
+• Circular Design Metrics
+
+💰 Business Impact
+• Cost Savings from Material Optimization
+• Compliance Status (EU, REACH, RoHS)
+• Market Readiness Analysis
+• Competitive Benchmarking
+
+📦 Product Portfolio
+• Active Design Projects
+• Digital Product Passports Generated
+• LCA (Life Cycle Assessment) Reports
+• Material Library Usage Statistics
+
+🎯 Goal Tracking
+• CO₂ Reduction Targets: -28% ✓
+• Avg Sustainability Score: B+ → Target A
+• Recyclability: 85% avg
+• Circular Design Adoption: 68%
+
+📈 Trend Analysis
+• Month-over-Month Improvements
+• Designer Performance
+• Material Innovation Index
+• Certification Success Rate
+
+Generate detailed report…`;
+alert(data);
+}
+
+```
+    // Add interactivity to material cards
+    document.querySelectorAll('.material-card').forEach(card => {
+        card.addEventListener('click', function() {
+            document.querySelectorAll('.material-card').forEach(c => c.classList.remove('selected'));
+            this.classList.add('selected');
+        });
+    });
+</script>
+```
+
+</body>
+</html>

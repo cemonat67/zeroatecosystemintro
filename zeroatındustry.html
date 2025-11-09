@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Industry - Smart Manufacturing</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+```
+        --zero-space-xs: 0.5rem;
+        --zero-space-sm: 1rem;
+        --zero-space-md: 2rem;
+        --zero-space-lg: 4rem;
+        
+        --zero-radius-sm: 4px;
+        --zero-radius-md: 6px;
+        --zero-radius-lg: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--zero-gray-bg);
+        color: var(--zero-black);
+        line-height: 1.6;
+        padding-top: 4px;
+    }
+    
+    .zero-color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            var(--zero-green) 0%, var(--zero-green) 25%, 
+            var(--zero-red) 25%, var(--zero-red) 50%, 
+            var(--zero-navy) 50%, var(--zero-navy) 75%, 
+            var(--zero-orange) 75%, var(--zero-orange) 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .app-header {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+        gap: var(--zero-space-md);
+    }
+    
+    .header-logo {
+        width: 80px;
+        height: 80px;
+        opacity: 0.95;
+        transition: opacity 0.3s ease;
+    }
+    
+    .header-logo:hover {
+        opacity: 1;
+    }
+    
+    .title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .title {
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    .title-at {
+        color: var(--zero-orange);
+    }
+    
+    .subtitle {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.7);
+    }
+    
+    .subtitle-at {
+        color: var(--zero-orange);
+    }
+    
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--zero-space-md);
+    }
+    
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .stat-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+    }
+    
+    .stat-value.green {
+        color: var(--zero-green);
+    }
+    
+    .stat-value.orange {
+        color: var(--zero-orange);
+    }
+    
+    .stat-value.red {
+        color: var(--zero-red);
+    }
+    
+    .stat-subtitle {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: var(--zero-space-xs);
+    }
+    
+    .tabs {
+        display: flex;
+        gap: var(--zero-space-xs);
+        margin-bottom: var(--zero-space-md);
+        background: var(--zero-white);
+        padding: var(--zero-space-xs);
+        border-radius: var(--zero-radius-lg);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        overflow-x: auto;
+    }
+    
+    .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-gray-dark);
+        transition: all 0.3s ease;
+        flex: 1;
+        white-space: nowrap;
+    }
+    
+    .tab-btn.active {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .tab-btn:hover:not(.active) {
+        background: var(--zero-gray-light);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .order-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .order-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .order-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .order-card.on-track {
+        border-left: 4px solid var(--zero-green);
+    }
+    
+    .order-card.at-risk {
+        border-left: 4px solid var(--zero-orange);
+    }
+    
+    .order-card.delayed {
+        border-left: 4px solid var(--zero-red);
+    }
+    
+    .order-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .order-number {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .order-customer {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: 0.25rem;
+    }
+    
+    .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: 12px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .status-badge.in-progress {
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+    }
+    
+    .status-badge.pending {
+        background: rgba(249,186,0,0.2);
+        color: #cc9500;
+    }
+    
+    .status-badge.completed {
+        background: rgba(2,21,78,0.1);
+        color: var(--zero-navy);
+    }
+    
+    .order-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .detail-item {
+        padding: var(--zero-space-xs);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .detail-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .detail-value {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-black);
+        margin-top: 0.25rem;
+    }
+    
+    .order-progress {
+        margin: var(--zero-space-sm) 0;
+    }
+    
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: 0.25rem;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--zero-gray-light);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-fill.on-track {
+        background: var(--zero-green);
+    }
+    
+    .progress-fill.at-risk {
+        background: var(--zero-orange);
+    }
+    
+    .progress-fill.delayed {
+        background: var(--zero-red);
+    }
+    
+    .order-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--zero-space-sm);
+        border-top: 1px solid var(--zero-gray-light);
+    }
+    
+    .delivery-date {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .co2-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .machine-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .machine-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .machine-status {
+        display: flex;
+        align-items: center;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    
+    .status-indicator.running {
+        background: var(--zero-green);
+        box-shadow: 0 0 8px var(--zero-green);
+    }
+    
+    .status-indicator.idle {
+        background: var(--zero-orange);
+    }
+    
+    .status-indicator.maintenance {
+        background: var(--zero-red);
+    }
+    
+    .machine-name {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .metric-row {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--zero-space-xs) 0;
+        border-bottom: 1px solid var(--zero-gray-light);
+    }
+    
+    .metric-row:last-child {
+        border-bottom: none;
+    }
+    
+    .metric-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+    }
+    
+    .metric-value {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-black);
+    }
+    
+    .metric-value.good {
+        color: var(--zero-green);
+    }
+    
+    .metric-value.warning {
+        color: var(--zero-orange);
+    }
+    
+    .metric-value.critical {
+        color: var(--zero-red);
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+        flex-wrap: wrap;
+    }
+    
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .action-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .action-btn.secondary {
+        background: var(--zero-white);
+        color: var(--zero-navy);
+        border: 1px solid var(--zero-navy);
+    }
+    
+    .action-btn.secondary:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .timeline {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .timeline-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .timeline-item {
+        display: flex;
+        gap: var(--zero-space-md);
+        padding: var(--zero-space-sm) 0;
+        border-left: 2px solid var(--zero-gray-light);
+        margin-left: 8px;
+        padding-left: var(--zero-space-md);
+        position: relative;
+    }
+    
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: -9px;
+        top: 24px;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--zero-white);
+        border: 3px solid var(--zero-gray-light);
+    }
+    
+    .timeline-item.completed::before {
+        background: var(--zero-green);
+        border-color: var(--zero-green);
+    }
+    
+    .timeline-item.active::before {
+        background: var(--zero-orange);
+        border-color: var(--zero-orange);
+        box-shadow: 0 0 8px var(--zero-orange);
+    }
+    
+    .timeline-content {
+        flex: 1;
+    }
+    
+    .timeline-stage {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .timeline-details {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: 0.25rem;
+    }
+    
+    .timeline-time {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        white-space: nowrap;
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            gap: var(--zero-space-sm);
+        }
+        
+        .header-logo {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+        }
+        
+        .tabs {
+            flex-direction: column;
+        }
+        
+        .order-grid, .machine-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<header class="app-header">
+    <div class="header-content">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPkluZHVzdHJ5PC90ZXh0PgogIDxyZWN0IHg9IjUwIiB5PSIyOTUiIHdpZHRoPSIzMDAiIGhlaWdodD0iNSIgZmlsbD0iI2Y5YmEwMCIvPgogIDx0ZXh0IHg9IjUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlNtYXJ0PC90ZXh0PgogIDx0ZXh0IHg9IjUwIiB5PSIzNzAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPk1hbnVmYWN0dXJpbmc8L3RleHQ+Cjwvc3ZnPg==" alt="Zero@Industry Logo" class="header-logo">
+        <div class="title-group">
+            <div class="title">Zero<span class="title-at">@</span>Industry</div>
+            <div class="subtitle">Smart Manufacturing · by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <div class="stat-label">Overall Equipment Effectiveness (OEE)</div>
+            <div class="stat-value green">87.4%</div>
+            <div class="stat-subtitle">+3.2% vs last month</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Active Production Orders</div>
+            <div class="stat-value orange">28</div>
+            <div class="stat-subtitle">12 on track, 16 in progress</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Machine Utilization</div>
+            <div class="stat-value">82.5%</div>
+            <div class="stat-subtitle">45 machines running</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Production CO₂ Today</div>
+            <div class="stat-value green">2.4 tons</div>
+            <div class="stat-subtitle">-18% vs daily average</div>
+        </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="createWorkOrder()">📋 New Work Order</button>
+        <button class="action-btn" onclick="showQualityControl()">✓ Quality Control</button>
+        <button class="action-btn secondary" onclick="showMaintenance()">🔧 Maintenance Schedule</button>
+        <button class="action-btn secondary" onclick="showReports()">📊 Production Reports</button>
+    </div>
+    
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('orders')">Production Orders</button>
+        <button class="tab-btn" onclick="showTab('machines')">Machines & Lines</button>
+        <button class="tab-btn" onclick="showTab('quality')">Quality Control</button>
+        <button class="tab-btn" onclick="showTab('realtime')">Real-Time Monitoring</button>
+    </div>
+    
+    <!-- Tab Content: Production Orders -->
+    <div id="orders" class="tab-content active">
+        <div class="order-grid">
+            <div class="order-card on-track">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">PO-2025-1842</div>
+                        <div class="order-customer">Customer: Global Automotive GmbH</div>
+                    </div>
+                    <div class="status-badge in-progress">In Progress</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Product</div>
+                        <div class="detail-value">Engine Components</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quantity</div>
+                        <div class="detail-value">2,400 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Completed</div>
+                        <div class="detail-value">1,680 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Current Stage</div>
+                        <div class="detail-value">CNC Machining</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Production Progress</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill on-track" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">Delivery: Nov 18, 2025</div>
+                    <div class="co2-badge">1.8 kg CO₂/unit</div>
+                </div>
+            </div>
+            
+            <div class="order-card on-track">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">PO-2025-1856</div>
+                        <div class="order-customer">Customer: Schneider Electric</div>
+                    </div>
+                    <div class="status-badge in-progress">In Progress</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Product</div>
+                        <div class="detail-value">Control Panels</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quantity</div>
+                        <div class="detail-value">1,200 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Completed</div>
+                        <div class="detail-value">980 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Current Stage</div>
+                        <div class="detail-value">Assembly</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Production Progress</span>
+                        <span>82%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill on-track" style="width: 82%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">Delivery: Nov 15, 2025</div>
+                    <div class="co2-badge">0.9 kg CO₂/unit</div>
+                </div>
+            </div>
+            
+            <div class="order-card at-risk">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">PO-2025-1823</div>
+                        <div class="order-customer">Customer: Bosch Manufacturing</div>
+                    </div>
+                    <div class="status-badge in-progress">In Progress</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Product</div>
+                        <div class="detail-value">Precision Parts</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quantity</div>
+                        <div class="detail-value">3,600 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Completed</div>
+                        <div class="detail-value">1,980 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Current Stage</div>
+                        <div class="detail-value">Quality Control</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Production Progress</span>
+                        <span>55%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill at-risk" style="width: 55%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">⚠️ Risk: Nov 20, 2025</div>
+                    <div class="co2-badge">2.1 kg CO₂/unit</div>
+                </div>
+            </div>
+            
+            <div class="order-card on-track">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">PO-2025-1889</div>
+                        <div class="order-customer">Customer: Weissmann Industries</div>
+                    </div>
+                    <div class="status-badge pending">Pending</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Product</div>
+                        <div class="detail-value">Motor Housings</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quantity</div>
+                        <div class="detail-value">1,800 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Start Date</div>
+                        <div class="detail-value">Nov 12, 2025</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Materials</div>
+                        <div class="detail-value">Ready</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Production Progress</span>
+                        <span>0%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill on-track" style="width: 0%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">Delivery: Nov 28, 2025</div>
+                    <div class="co2-badge">1.5 kg CO₂/unit</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Production Timeline Example -->
+        <div class="timeline">
+            <h3 class="timeline-title">🔄 Production Order Timeline: PO-2025-1842</h3>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Material Preparation</div>
+                    <div class="timeline-details">All raw materials received and inspected</div>
+                </div>
+                <div class="timeline-time">Nov 5, 08:30</div>
+            </div>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Cutting & Forming</div>
+                    <div class="timeline-details">2,400 units cut and formed - 100% pass rate</div>
+                </div>
+                <div class="timeline-time">Nov 6, 16:45</div>
+            </div>
+            <div class="timeline-item active">
+                <div class="timeline-content">
+                    <div class="timeline-stage">CNC Machining</div>
+                    <div class="timeline-details">1,680/2,400 units completed - Line 3 running</div>
+                </div>
+                <div class="timeline-time">In Progress</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Surface Treatment</div>
+                    <div class="timeline-details">Scheduled to start Nov 12</div>
+                </div>
+                <div class="timeline-time">Pending</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Quality Control & Testing</div>
+                    <div class="timeline-details">100% inspection planned</div>
+                </div>
+                <div class="timeline-time">Pending</div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Packaging & Shipping</div>
+                    <div class="timeline-details">Export packaging ready</div>
+                </div>
+                <div class="timeline-time">Nov 17</div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Machines & Lines -->
+    <div id="machines" class="tab-content">
+        <div class="machine-grid">
+            <div class="machine-card">
+                <div class="machine-status">
+                    <div class="status-indicator running"></div>
+                    <div class="machine-name">CNC Machine Line 3</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Utilization Rate</div>
+                    <div class="metric-value good">94.2%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Efficiency</div>
+                    <div class="metric-value good">91.8%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Current Order</div>
+                    <div class="metric-value">PO-2025-1842</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Units Today</div>
+                    <div class="metric-value">420 units</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Downtime</div>
+                    <div class="metric-value good">12 min</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Next Maintenance</div>
+                    <div class="metric-value">Nov 25, 2025</div>
+                </div>
+            </div>
+            
+            <div class="machine-card">
+                <div class="machine-status">
+                    <div class="status-indicator running"></div>
+                    <div class="machine-name">Assembly Line A</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Utilization Rate</div>
+                    <div class="metric-value good">88.5%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Efficiency</div>
+                    <div class="metric-value good">87.3%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Current Order</div>
+                    <div class="metric-value">PO-2025-1856</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Units Today</div>
+                    <div class="metric-value">245 units</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Downtime</div>
+                    <div class="metric-value good">28 min</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Quality Pass Rate</div>
+                    <div class="metric-value good">98.8%</div>
+                </div>
+            </div>
+            
+            <div class="machine-card">
+                <div class="machine-status">
+                    <div class="status-indicator idle"></div>
+                    <div class="machine-name">Welding Station 5</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Utilization Rate</div>
+                    <div class="metric-value warning">62.3%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Efficiency</div>
+                    <div class="metric-value warning">78.4%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Status</div>
+                    <div class="metric-value warning">Idle - Changeover</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Units Today</div>
+                    <div class="metric-value">180 units</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Downtime</div>
+                    <div class="metric-value warning">2h 15min</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Next Job</div>
+                    <div class="metric-value">PO-2025-1889</div>
+                </div>
+            </div>
+            
+            <div class="machine-card">
+                <div class="machine-status">
+                    <div class="status-indicator maintenance"></div>
+                    <div class="machine-name">Paint Booth 2</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Status</div>
+                    <div class="metric-value critical">Planned Maintenance</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Maintenance Type</div>
+                    <div class="metric-value">Filter Replacement</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Start Time</div>
+                    <div class="metric-value">Nov 9, 14:00</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Est. Completion</div>
+                    <div class="metric-value">Nov 9, 18:00</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Last Maintenance</div>
+                    <div class="metric-value">Oct 15, 2025</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Technician</div>
+                    <div class="metric-value">Team B</div>
+                </div>
+            </div>
+            
+            <div class="machine-card">
+                <div class="machine-status">
+                    <div class="status-indicator running"></div>
+                    <div class="machine-name">Quality Testing Station</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Utilization Rate</div>
+                    <div class="metric-value good">92.1%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Tests Today</div>
+                    <div class="metric-value">685 units</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Pass Rate</div>
+                    <div class="metric-value good">97.8%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Rejections</div>
+                    <div class="metric-value">15 units</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Avg. Test Time</div>
+                    <div class="metric-value">4.2 min</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Current Batch</div>
+                    <div class="metric-value">PO-2025-1823</div>
+                </div>
+            </div>
+            
+            <div class="machine-card">
+                <div class="machine-status">
+                    <div class="status-indicator running"></div>
+                    <div class="machine-name">Packaging Line 1</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Utilization Rate</div>
+                    <div class="metric-value good">85.7%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Speed</div>
+                    <div class="metric-value">42 units/hour</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Packages Today</div>
+                    <div class="metric-value">336 units</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Current Order</div>
+                    <div class="metric-value">PO-2025-1856</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Material Level</div>
+                    <div class="metric-value good">78%</div>
+                </div>
+                <div class="metric-row">
+                    <div class="metric-label">Downtime</div>
+                    <div class="metric-value good">8 min</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Quality Control -->
+    <div id="quality" class="tab-content">
+        <div class="order-grid">
+            <div class="order-card on-track">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">QC Batch: PO-2025-1842</div>
+                        <div class="order-customer">Engine Components</div>
+                    </div>
+                    <div class="status-badge in-progress">Testing</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Tested Units</div>
+                        <div class="detail-value">420 / 1,680</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pass Rate</div>
+                        <div class="detail-value" style="color: var(--zero-green)">98.3%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rejections</div>
+                        <div class="detail-value">7 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rework</div>
+                        <div class="detail-value">3 units</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Testing Progress</span>
+                        <span>25%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill on-track" style="width: 25%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">Inspector: QC Team A</div>
+                    <div class="co2-badge">ISO 9001 ✓</div>
+                </div>
+            </div>
+            
+            <div class="order-card on-track">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">QC Batch: PO-2025-1856</div>
+                        <div class="order-customer">Control Panels</div>
+                    </div>
+                    <div class="status-badge in-progress">Testing</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Tested Units</div>
+                        <div class="detail-value">785 / 980</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pass Rate</div>
+                        <div class="detail-value" style="color: var(--zero-green)">99.1%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rejections</div>
+                        <div class="detail-value">7 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Defect Type</div>
+                        <div class="detail-value">Cosmetic</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Testing Progress</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill on-track" style="width: 80%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">Inspector: QC Team B</div>
+                    <div class="co2-badge">IEC 61439 ✓</div>
+                </div>
+            </div>
+            
+            <div class="order-card at-risk">
+                <div class="order-header">
+                    <div>
+                        <div class="order-number">QC Batch: PO-2025-1823</div>
+                        <div class="order-customer">Precision Parts</div>
+                    </div>
+                    <div class="status-badge in-progress">Review</div>
+                </div>
+                <div class="order-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Tested Units</div>
+                        <div class="detail-value">520 / 1,980</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pass Rate</div>
+                        <div class="detail-value" style="color: var(--zero-orange)">94.2%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Rejections</div>
+                        <div class="detail-value">30 units</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Root Cause</div>
+                        <div class="detail-value">Dimension</div>
+                    </div>
+                </div>
+                <div class="order-progress">
+                    <div class="progress-label">
+                        <span>Testing Progress</span>
+                        <span>26%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill at-risk" style="width: 26%"></div>
+                    </div>
+                </div>
+                <div class="order-footer">
+                    <div class="delivery-date">⚠️ Quality Review Required</div>
+                    <div class="co2-badge">DIN ISO 2768</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Real-Time Monitoring -->
+    <div id="realtime" class="tab-content">
+        <div class="timeline">
+            <h3 class="timeline-title">⚡ Live Production Feed - Last 2 Hours</h3>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">CNC Line 3 - Batch Completed</div>
+                    <div class="timeline-details">PO-2025-1842: 240 units completed, 100% pass rate</div>
+                </div>
+                <div class="timeline-time">16:45</div>
+            </div>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Quality Control - Inspection Passed</div>
+                    <div class="timeline-details">PO-2025-1856: 125 units inspected, 124 passed</div>
+                </div>
+                <div class="timeline-time">16:32</div>
+            </div>
+            <div class="timeline-item active">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Assembly Line A - Running</div>
+                    <div class="timeline-details">PO-2025-1856: Current speed 42 units/hour</div>
+                </div>
+                <div class="timeline-time">16:15</div>
+            </div>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Welding Station 5 - Changeover Complete</div>
+                    <div class="timeline-details">Setup time: 45 minutes, Ready for next order</div>
+                </div>
+                <div class="timeline-time">15:58</div>
+            </div>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Material Handler - Stock Replenished</div>
+                    <div class="timeline-details">Steel sheets delivered to CNC Line 3</div>
+                </div>
+                <div class="timeline-time">15:30</div>
+            </div>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Packaging Line 1 - Order Completed</div>
+                    <div class="timeline-details">PO-2025-1845: 850 units packaged and ready</div>
+                </div>
+                <div class="timeline-time">15:12</div>
+            </div>
+            <div class="timeline-item completed">
+                <div class="timeline-content">
+                    <div class="timeline-stage">Paint Booth 2 - Maintenance Started</div>
+                    <div class="timeline-details">Scheduled filter replacement, Est. 4 hours</div>
+                </div>
+                <div class="timeline-time">14:00</div>
+            </div>
+        </div>
+        
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-label">Current Production Rate</div>
+                <div class="stat-value green">248 units/hour</div>
+                <div class="stat-subtitle">Across all active lines</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Active Machines</div>
+                <div class="stat-value orange">45 / 52</div>
+                <div class="stat-subtitle">86.5% utilization</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Quality Pass Rate (Live)</div>
+                <div class="stat-value green">97.8%</div>
+                <div class="stat-subtitle">Last 100 units tested</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Energy Consumption</div>
+                <div class="stat-value">845 kWh</div>
+                <div class="stat-subtitle">Current hour average</div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function showTab(tabName) {
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    
+    function createWorkOrder() {
+        const data = `📋 CREATE NEW WORK ORDER
+```
+
+Work Order Information:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Order Number: [Auto-generated]
+Customer: [Select Customer]
+Product: [Select Product/SKU]
+Quantity: [Enter Quantity]
+Priority: [High/Medium/Low]
+
+Production Details:
+• Start Date: [Select Date]
+• Target Completion: [Select Date]
+• Production Line: [Auto-assign]
+• Quality Standards: [Select Standards]
+
+Materials Required:
+• Bill of Materials (BOM): [Auto-load]
+• Material Availability: [Check Stock]
+• Special Requirements: [Notes]
+
+Sustainability Tracking:
+• Estimated CO₂: [Auto-calculate]
+• Energy Requirement: [Estimate]
+• Waste Target: [Set Goal]
+
+Documentation:
+✓ Technical Drawings
+✓ Quality Specifications
+✓ Customer Requirements
+✓ Safety Protocols
+
+[Create Work Order] [Save as Draft]`;
+alert(data);
+}
+
+```
+    function showQualityControl() {
+        const data = `✓ QUALITY CONTROL DASHBOARD
+```
+
+Real-Time Quality Metrics:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔬 Today’s Inspection Summary
+Total Units Inspected: 1,725
+Pass Rate: 97.8%
+Rejections: 38 units
+Rework Required: 12 units
+
+📊 Quality by Production Line
+CNC Line 3: 98.3% pass rate
+Assembly Line A: 99.1% pass rate
+Welding Station 5: 96.5% pass rate
+Paint Booth 1: 97.2% pass rate
+
+⚠️ Top Defect Categories
+
+1. Dimensional Tolerance: 45%
+1. Surface Finish: 28%
+1. Assembly Errors: 18%
+1. Cosmetic Defects: 9%
+
+🎯 Quality Targets
+Monthly Target: 98.0%
+Current Month: 97.8%
+Gap to Target: -0.2%
+
+📋 Active Quality Audits
+• ISO 9001 Surveillance: Nov 15
+• Customer Audit (Bosch): Nov 22
+• Internal Review: Weekly
+
+🔧 Corrective Actions
+• Machine calibration scheduled
+• Operator retraining in progress
+• Process documentation updated
+
+✅ Certifications Status
+ISO 9001:2015 ✓ Valid
+ISO 14001:2015 ✓ Valid
+IATF 16949 ✓ Valid`;
+alert(data);
+}
+
+```
+    function showMaintenance() {
+        const data = `🔧 MAINTENANCE SCHEDULE
+```
+
+Planned Maintenance This Week:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ Monday, Nov 11
+• CNC Line 2: Tool change (2h)
+• Conveyor System A: Lubrication (1h)
+
+⚙️ Tuesday, Nov 12
+• Hydraulic Press 3: Inspection (3h)
+• Robotic Arm 5: Calibration (2h)
+
+⚙️ Wednesday, Nov 13
+• Assembly Line B: Belt replacement (4h)
+• Air Compressor 2: Filter change (1h)
+
+⚙️ Thursday, Nov 14
+• Paint Booth 1: Filter replacement (4h)
+• Quality Scanner: Calibration (1h)
+
+⚙️ Friday, Nov 15
+• Packaging Line 2: Sensor check (2h)
+• Emergency generators: Monthly test (1h)
+
+📊 Maintenance KPIs
+Planned Maintenance: 92%
+Unplanned Downtime: 8%
+MTBF (Mean Time Between Failures): 720h
+MTTR (Mean Time To Repair): 2.4h
+
+🛠️ Critical Spares Inventory
+Hydraulic seals: ✓ In stock
+CNC cutting tools: ✓ In stock
+Conveyor belts: ⚠️ Low stock
+Electrical components: ✓ In stock
+
+⚠️ Overdue Maintenance
+None - All schedules current`;
+alert(data);
+}
+
+```
+    function showReports() {
+        const data = `📊 PRODUCTION REPORTS CENTER
+```
+
+Available Reports:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 Production Performance
+• Daily Production Summary
+• OEE Analysis by Machine
+• Order Completion Rate
+• Capacity Utilization Report
+
+💰 Cost & Efficiency
+• Production Cost per Unit
+• Labor Efficiency Analysis
+• Material Waste Report
+• Energy Consumption Breakdown
+
+✓ Quality Reports
+• Quality Pass Rate Trends
+• Defect Analysis by Type
+• Customer Returns Analysis
+• First Pass Yield (FPY)
+
+🔧 Equipment Reports
+• Machine Downtime Analysis
+• Maintenance Schedule Compliance
+• MTBF/MTTR Tracking
+• Equipment Utilization
+
+🌍 Sustainability Reports
+• CO₂ Emissions by Product
+• Energy Efficiency Trends
+• Waste Reduction Progress
+• Water Usage Analysis
+
+📦 Order Management
+• Work Order Status
+• On-Time Delivery Rate
+• Order Backlog Analysis
+• Customer Satisfaction
+
+📊 Executive Dashboard
+Overall OEE: 87.4%
+Active Orders: 28
+Machine Utilization: 82.5%
+Quality Pass Rate: 97.8%
+On-Time Delivery: 94.5%
+
+Generate detailed report…`;
+alert(data);
+}
+
+```
+    // Simulate real-time updates
+    setInterval(() => {
+        const statValue = document.querySelector('.stat-value.orange');
+        if (statValue && Math.random() > 0.7) {
+            const currentValue = parseInt(statValue.textContent);
+            statValue.textContent = currentValue + (Math.random() > 0.5 ? 1 : -1);
+        }
+    }, 5000);
+</script>
+```
+
+</body>
+</html>

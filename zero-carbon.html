@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Carbon - Carbon Management Platform</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+            --zero-space-xs: 0.5rem;
+            --zero-space-sm: 1rem;
+            --zero-space-md: 2rem;
+            --zero-space-lg: 4rem;
+            
+            --zero-radius-sm: 4px;
+            --zero-radius-md: 6px;
+            --zero-radius-lg: 8px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+            background: var(--zero-gray-bg);
+            color: var(--zero-black);
+            line-height: 1.6;
+            padding-top: 4px;
+        }
+        
+        .zero-color-bar {
+            height: 4px;
+            width: 100%;
+            background: linear-gradient(90deg, 
+                var(--zero-green) 0%, var(--zero-green) 25%, 
+                var(--zero-red) 25%, var(--zero-red) 50%, 
+                var(--zero-navy) 50%, var(--zero-navy) 75%, 
+                var(--zero-orange) 75%, var(--zero-orange) 100%);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+        }
+        
+        .app-header {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            max-width: 1600px;
+            margin: 0 auto;
+            gap: var(--zero-space-md);
+        }
+        
+        .header-logo {
+            width: 80px;
+            height: 80px;
+            opacity: 0.95;
+            transition: opacity 0.3s ease;
+        }
+        
+        .header-logo:hover {
+            opacity: 1;
+        }
+        
+        .title-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+        
+        .title {
+            font-size: 1.75rem;
+            font-weight: 300;
+            line-height: 1.2;
+        }
+        
+        .title-at {
+            color: var(--zero-orange);
+        }
+        
+        .subtitle {
+            font-size: 0.875rem;
+            font-weight: 300;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .subtitle-at {
+            color: var(--zero-orange);
+        }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: var(--zero-space-md);
+        }
+        
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .stat-card {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--zero-gray-dark);
+            margin-bottom: var(--zero-space-xs);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--zero-navy);
+        }
+        
+        .stat-value.green {
+            color: var(--zero-green);
+        }
+        
+        .stat-value.orange {
+            color: var(--zero-orange);
+        }
+        
+        .stat-value.red {
+            color: var(--zero-red);
+        }
+        
+        .stat-subtitle {
+            font-size: 0.75rem;
+            color: var(--zero-gray-medium);
+            margin-top: var(--zero-space-xs);
+        }
+        
+        .tabs {
+            display: flex;
+            gap: var(--zero-space-xs);
+            margin-bottom: var(--zero-space-md);
+            background: var(--zero-white);
+            padding: var(--zero-space-xs);
+            border-radius: var(--zero-radius-lg);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            overflow-x: auto;
+        }
+        
+        .tab-btn {
+            padding: 0.75rem 1.5rem;
+            background: transparent;
+            border: none;
+            border-radius: var(--zero-radius-sm);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--zero-gray-dark);
+            transition: all 0.3s ease;
+            flex: 1;
+            white-space: nowrap;
+        }
+        
+        .tab-btn.active {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: var(--zero-gray-light);
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .scope-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .scope-card {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .scope-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
+        
+        .scope-card.scope1 {
+            border-left: 4px solid var(--zero-red);
+        }
+        
+        .scope-card.scope2 {
+            border-left: 4px solid var(--zero-orange);
+        }
+        
+        .scope-card.scope3 {
+            border-left: 4px solid var(--zero-navy);
+        }
+        
+        .scope-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: var(--zero-space-sm);
+        }
+        
+        .scope-icon {
+            font-size: 2rem;
+            margin-bottom: var(--zero-space-xs);
+        }
+        
+        .scope-name {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--zero-navy);
+        }
+        
+        .scope-description {
+            font-size: 0.75rem;
+            color: var(--zero-gray-medium);
+            margin-top: 0.25rem;
+        }
+        
+        .emission-value {
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--zero-navy);
+        }
+        
+        .breakdown-list {
+            margin-top: var(--zero-space-sm);
+        }
+        
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--zero-space-xs) 0;
+            border-bottom: 1px solid var(--zero-gray-light);
+            font-size: 0.875rem;
+        }
+        
+        .breakdown-item:last-child {
+            border-bottom: none;
+        }
+        
+        .breakdown-label {
+            color: var(--zero-gray-dark);
+        }
+        
+        .breakdown-value {
+            font-weight: 500;
+            color: var(--zero-black);
+        }
+        
+        .action-buttons {
+            display: flex;
+            gap: var(--zero-space-sm);
+            margin-bottom: var(--zero-space-md);
+            flex-wrap: wrap;
+        }
+        
+        .action-btn {
+            padding: 0.75rem 1.5rem;
+            background: var(--zero-navy);
+            color: var(--zero-white);
+            border: none;
+            border-radius: var(--zero-radius-sm);
+            cursor: pointer;
+            font-family: inherit;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: var(--zero-orange);
+            color: var(--zero-navy);
+        }
+        
+        .action-btn.secondary {
+            background: var(--zero-white);
+            color: var(--zero-navy);
+            border: 1px solid var(--zero-navy);
+        }
+        
+        .action-btn.secondary:hover {
+            background: var(--zero-navy);
+            color: var(--zero-white);
+        }
+        
+        .roadmap-panel {
+            background: var(--zero-white);
+            border-radius: var(--zero-radius-lg);
+            padding: var(--zero-space-md);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .panel-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--zero-navy);
+            margin-bottom: var(--zero-space-md);
+        }
+        
+        .timeline-item {
+            display: flex;
+            gap: var(--zero-space-md);
+            padding: var(--zero-space-sm) 0;
+            border-left: 2px solid var(--zero-gray-light);
+            margin-left: 8px;
+            padding-left: var(--zero-space-md);
+            position: relative;
+        }
+        
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -9px;
+            top: 24px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--zero-white);
+            border: 3px solid var(--zero-gray-light);
+        }
+        
+        .timeline-item.completed::before {
+            background: var(--zero-green);
+            border-color: var(--zero-green);
+        }
+        
+        .timeline-item.in-progress::before {
+            background: var(--zero-orange);
+            border-color: var(--zero-orange);
+            box-shadow: 0 0 8px var(--zero-orange);
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        .timeline-year {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--zero-navy);
+        }
+        
+        .timeline-target {
+            font-size: 0.875rem;
+            color: var(--zero-gray-dark);
+            margin-top: 0.25rem;
+        }
+        
+        .timeline-status {
+            font-size: 0.75rem;
+            color: var(--zero-gray-medium);
+            white-space: nowrap;
+        }
+        
+        .offset-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: var(--zero-space-sm);
+        }
+        
+        .offset-card {
+            background: var(--zero-gray-bg);
+            border-radius: var(--zero-radius-md);
+            padding: var(--zero-space-md);
+            transition: all 0.3s ease;
+        }
+        
+        .offset-card:hover {
+            background: var(--zero-white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+        
+        .offset-type {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: var(--zero-navy);
+            margin-bottom: var(--zero-space-xs);
+        }
+        
+        .offset-amount {
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--zero-green);
+            margin-bottom: var(--zero-space-xs);
+        }
+        
+        .offset-description {
+            font-size: 0.75rem;
+            color: var(--zero-gray-dark);
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                gap: var(--zero-space-sm);
+            }
+            
+            .header-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .title {
+                font-size: 1.5rem;
+            }
+            
+            .subtitle {
+                font-size: 0.75rem;
+            }
+            
+            .tabs {
+                flex-direction: column;
+            }
+            
+            .scope-grid, .offset-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+    
+    <header class="app-header">
+        <div class="header-content">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjcwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPkNhcmJvbjwvdGV4dD4KICA8cmVjdCB4PSI1MCIgeT0iMjk1IiB3aWR0aD0iMzAwIiBoZWlnaHQ9IjUiIGZpbGw9IiNmOWJhMDAiLz4KICA8dGV4dCB4PSI1MCIgeT0iMzQwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5OZXQtWmVybzwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5NYW5hZ2VtZW50PC90ZXh0Pgo8L3N2Zz4=" alt="Zero@Carbon Logo" class="header-logo">
+            <div class="title-group">
+                <div class="title">Zero<span class="title-at">@</span>Carbon</div>
+                <div class="subtitle">Net-Zero Management · by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+            </div>
+        </div>
+    </header>
+    
+    <main class="container">
+        <!-- Dashboard Stats -->
+        <div class="dashboard-stats">
+            <div class="stat-card">
+                <div class="stat-label">Total Carbon Footprint (2025)</div>
+                <div class="stat-value">24,580 tCO₂e</div>
+                <div class="stat-subtitle">-18% vs 2024 (29,850 tCO₂e)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Carbon Intensity</div>
+                <div class="stat-value orange">0.42 kg CO₂/€</div>
+                <div class="stat-subtitle">Per revenue generated</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Net-Zero Progress</div>
+                <div class="stat-value green">58%</div>
+                <div class="stat-subtitle">Target: 2035 (12 years remaining)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Carbon Offset Credits</div>
+                <div class="stat-value green">4,250 tCO₂</div>
+                <div class="stat-subtitle">17.3% of total emissions</div>
+            </div>
+        </div>
+        
+        <!-- Action Buttons -->
+        <div class="action-buttons">
+            <button class="action-btn" onclick="calculateEmissions()">🧮 Calculate Emissions</button>
+            <button class="action-btn" onclick="showOffsetOptions()">🌳 Carbon Offsetting</button>
+            <button class="action-btn secondary" onclick="generateCDPReport()">📋 Generate CDP Report</button>
+            <button class="action-btn secondary" onclick="showReports()">📊 Sustainability Reports</button>
+        </div>
+        
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn active" onclick="showTab('overview')">Overview</button>
+            <button class="tab-btn" onclick="showTab('scopes')">Scope 1/2/3</button>
+            <button class="tab-btn" onclick="showTab('roadmap')">Net-Zero Roadmap</button>
+            <button class="tab-btn" onclick="showTab('offsetting')">Carbon Offsetting</button>
+            <button class="tab-btn" onclick="showTab('reporting')">Reporting</button>
+        </div>
+        
+        <!-- Tab Content: Overview -->
+        <div id="overview" class="tab-content active">
+            <div class="roadmap-panel">
+                <h3 class="panel-title">📊 2025 Carbon Footprint Breakdown</h3>
+                <div class="scope-grid">
+                    <div class="stat-card" style="border-left: 4px solid var(--zero-red);">
+                        <div class="stat-label">Scope 1: Direct Emissions</div>
+                        <div class="stat-value red">8,450 tCO₂e</div>
+                        <div class="stat-subtitle">34.4% of total | Company vehicles, heating</div>
+                    </div>
+                    <div class="stat-card" style="border-left: 4px solid var(--zero-orange);">
+                        <div class="stat-label">Scope 2: Indirect Energy</div>
+                        <div class="stat-value orange">6,280 tCO₂e</div>
+                        <div class="stat-subtitle">25.5% of total | Purchased electricity</div>
+                    </div>
+                    <div class="stat-card" style="border-left: 4px solid var(--zero-navy);">
+                        <div class="stat-label">Scope 3: Value Chain</div>
+                        <div class="stat-value">9,850 tCO₂e</div>
+                        <div class="stat-subtitle">40.1% of total | Supply chain, transport</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="roadmap-panel">
+                <h3 class="panel-title">🎯 Top Emission Sources</h3>
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">1. Manufacturing Operations</div>
+                        <div class="breakdown-value">7,840 tCO₂e (31.9%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">2. Purchased Goods & Services</div>
+                        <div class="breakdown-value">5,620 tCO₂e (22.9%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">3. Electricity Consumption</div>
+                        <div class="breakdown-value">6,280 tCO₂e (25.5%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">4. Transportation & Logistics</div>
+                        <div class="breakdown-value">2,450 tCO₂e (10.0%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">5. Business Travel</div>
+                        <div class="breakdown-value">1,180 tCO₂e (4.8%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">6. Employee Commuting</div>
+                        <div class="breakdown-value">760 tCO₂e (3.1%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">7. Waste Disposal</div>
+                        <div class="breakdown-value">450 tCO₂e (1.8%)</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scope-grid">
+                <div class="stat-card">
+                    <div class="stat-label">🏭 Zero@Industry Integration</div>
+                    <div class="stat-value green">7,840</div>
+                    <div class="stat-subtitle">tCO₂e from production tracking</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">🎨 Zero@Design Impact</div>
+                    <div class="stat-value green">-28%</div>
+                    <div class="stat-subtitle">Product design optimization</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">📦 Zero@Stock Emissions</div>
+                    <div class="stat-value orange">1,240</div>
+                    <div class="stat-subtitle">tCO₂e from warehouse operations</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Scopes -->
+        <div id="scopes" class="tab-content">
+            <div class="scope-grid">
+                <div class="scope-card scope1">
+                    <div class="scope-icon">🏭</div>
+                    <div class="scope-header">
+                        <div>
+                            <div class="scope-name">Scope 1: Direct Emissions</div>
+                            <div class="scope-description">Emissions from sources owned or controlled by the company</div>
+                        </div>
+                    </div>
+                    <div class="emission-value">8,450 tCO₂e</div>
+                    <div class="breakdown-list">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Natural Gas (Heating)</div>
+                            <div class="breakdown-value">4,200 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Company Vehicles (Fleet)</div>
+                            <div class="breakdown-value">2,850 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">On-site Fuel Combustion</div>
+                            <div class="breakdown-value">1,100 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Process Emissions</div>
+                            <div class="breakdown-value">300 tCO₂e</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scope-card scope2">
+                    <div class="scope-icon">⚡</div>
+                    <div class="scope-header">
+                        <div>
+                            <div class="scope-name">Scope 2: Energy Indirect</div>
+                            <div class="scope-description">Emissions from purchased electricity, steam, heating & cooling</div>
+                        </div>
+                    </div>
+                    <div class="emission-value">6,280 tCO₂e</div>
+                    <div class="breakdown-list">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Grid Electricity</div>
+                            <div class="breakdown-value">5,840 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">District Heating</div>
+                            <div class="breakdown-value">340 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">District Cooling</div>
+                            <div class="breakdown-value">100 tCO₂e</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--zero-space-sm); padding: var(--zero-space-xs); background: rgba(0,85,48,0.1); border-radius: var(--zero-radius-sm);">
+                        <div style="font-size: 0.75rem; color: var(--zero-green); font-weight: 500;">
+                            ✓ Renewable Energy: 45% (2,826 tCO₂e avoided)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="scope-card scope3">
+                    <div class="scope-icon">🔗</div>
+                    <div class="scope-header">
+                        <div>
+                            <div class="scope-name">Scope 3: Value Chain</div>
+                            <div class="scope-description">All indirect emissions in the value chain (upstream & downstream)</div>
+                        </div>
+                    </div>
+                    <div class="emission-value">9,850 tCO₂e</div>
+                    <div class="breakdown-list">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Purchased Goods & Services</div>
+                            <div class="breakdown-value">5,620 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Transportation & Distribution</div>
+                            <div class="breakdown-value">2,450 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Business Travel</div>
+                            <div class="breakdown-value">1,180 tCO₂e</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Employee Commuting</div>
+                            <div class="breakdown-value">600 tCO₂e</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="roadmap-panel">
+                <h3 class="panel-title">📈 Historical Emissions Trend</h3>
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">2022 Baseline</div>
+                        <div class="breakdown-value">32,400 tCO₂e</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">2023</div>
+                        <div class="breakdown-value">31,250 tCO₂e (-3.5%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">2024</div>
+                        <div class="breakdown-value">29,850 tCO₂e (-4.5%)</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">2025 YTD</div>
+                        <div class="breakdown-value" style="color: var(--zero-green)">24,580 tCO₂e (-17.7%)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Net-Zero Roadmap -->
+        <div id="roadmap" class="tab-content">
+            <div class="roadmap-panel">
+                <h3 class="panel-title">🎯 Net-Zero Journey: Path to 2035</h3>
+                <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                    Our science-based targets aligned with the Paris Agreement and validated by SBTi (Science Based Targets initiative).
+                </p>
+                
+                <div class="timeline-item completed">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2022 - Baseline Year</div>
+                        <div class="timeline-target">Total emissions: 32,400 tCO₂e | Carbon intensity: 0.68 kg CO₂/€</div>
+                    </div>
+                    <div class="timeline-status">✓ Completed</div>
+                </div>
+                
+                <div class="timeline-item completed">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2025 - Quick Wins Phase</div>
+                        <div class="timeline-target">Target: -25% reduction | Achieved: 24,580 tCO₂e (-24.1%)</div>
+                        <div style="font-size: 0.75rem; color: var(--zero-green); margin-top: 0.25rem;">
+                            ✓ LED lighting rollout | ✓ Fleet electrification started | ✓ Renewable energy 45%
+                        </div>
+                    </div>
+                    <div class="timeline-status">✓ On Track</div>
+                </div>
+                
+                <div class="timeline-item in-progress">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2028 - Deep Decarbonization</div>
+                        <div class="timeline-target">Target: -50% reduction | 16,200 tCO₂e</div>
+                        <div style="font-size: 0.75rem; color: var(--zero-orange); margin-top: 0.25rem;">
+                            ⏳ Solar PV installation | ⏳ Heat pump conversion | ⏳ Supplier engagement program
+                        </div>
+                    </div>
+                    <div class="timeline-status">In Progress</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2030 - Accelerated Phase</div>
+                        <div class="timeline-target">Target: -70% reduction | 9,720 tCO₂e</div>
+                        <div style="font-size: 0.75rem; color: var(--zero-gray-medium); margin-top: 0.25rem;">
+                            ◻ 100% renewable energy | ◻ Green hydrogen pilot | ◻ Circular economy integration
+                        </div>
+                    </div>
+                    <div class="timeline-status">Planned</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2033 - Final Push</div>
+                        <div class="timeline-target">Target: -85% reduction | 4,860 tCO₂e</div>
+                        <div style="font-size: 0.75rem; color: var(--zero-gray-medium); margin-top: 0.25rem;">
+                            ◻ Scope 3 optimization | ◻ Carbon capture pilot | ◻ Zero-emission logistics
+                        </div>
+                    </div>
+                    <div class="timeline-status">Planned</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-year">2035 - Net-Zero Achievement</div>
+                        <div class="timeline-target">Target: Net-Zero | Residual emissions offset 100%</div>
+                        <div style="font-size: 0.75rem; color: var(--zero-gray-medium); margin-top: 0.25rem;">
+                            ◻ Verified carbon removal | ◻ SBTi Net-Zero certification | ◻ Climate positive operations
+                        </div>
+                    </div>
+                    <div class="timeline-status">Goal</div>
+                </div>
+            </div>
+            
+            <div class="scope-grid">
+                <div class="stat-card">
+                    <div class="stat-label">Investment Required</div>
+                    <div class="stat-value">€8.4M</div>
+                    <div class="stat-subtitle">Total CapEx for net-zero (2025-2035)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Annual Savings (2030)</div>
+                    <div class="stat-value green">€1.2M</div>
+                    <div class="stat-subtitle">Energy cost reduction + carbon pricing avoided</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">ROI Timeline</div>
+                    <div class="stat-value orange">7.2 years</div>
+                    <div class="stat-subtitle">Payback period for investments</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Carbon Offsetting -->
+        <div id="offsetting" class="tab-content">
+            <div class="roadmap-panel">
+                <h3 class="panel-title">🌳 Carbon Offset Portfolio (2025)</h3>
+                <p style="color: var(--zero-gray-dark); margin-bottom: var(--zero-space-md); font-size: 0.875rem;">
+                    High-quality, verified carbon credits supporting UN Sustainable Development Goals (SDGs).
+                </p>
+                
+                <div class="offset-grid">
+                    <div class="offset-card">
+                        <div class="offset-type">🌲 Reforestation (Brazil)</div>
+                        <div class="offset-amount">1,200 tCO₂</div>
+                        <div class="offset-description">Atlantic Forest restoration | Verified: Verra VCS | SDG 13, 15</div>
+                    </div>
+                    
+                    <div class="offset-card">
+                        <div class="offset-type">☀️ Solar Energy (India)</div>
+                        <div class="offset-amount">850 tCO₂</div>
+                        <div class="offset-description">Rural solar electrification | Verified: Gold Standard | SDG 7, 13</div>
+                    </div>
+                    
+                    <div class="offset-card">
+                        <div class="offset-type">💨 Wind Power (Turkey)</div>
+                        <div class="offset-amount">1,400 tCO₂</div>
+                        <div class="offset-description">Wind farm development | Verified: I-REC | SDG 7, 13</div>
+                    </div>
+                    
+                    <div class="offset-card">
+                        <div class="offset-type">🌊 Ocean Conservation</div>
+                        <div class="offset-amount">450 tCO₂</div>
+                        <div class="offset-description">Blue carbon - Mangrove restoration | Verified: Plan Vivo | SDG 14</div>
+                    </div>
+                    
+                    <div class="offset-card">
+                        <div class="offset-type">🔥 Clean Cookstoves (Kenya)</div>
+                        <div class="offset-amount">350 tCO₂</div>
+                        <div class="offset-description">Efficient cookstove distribution | Verified: Gold Standard | SDG 3, 13</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scope-grid">
+                <div class="stat-card" style="border-left: 4px solid var(--zero-green);">
+                    <div class="stat-label">Total Offset Credits</div>
+                    <div class="stat-value green">4,250 tCO₂</div>
+                    <div class="stat-subtitle">17.3% of total emissions offset</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Offset Investment</div>
+                    <div class="stat-value">€63,750</div>
+                    <div class="stat-subtitle">Average price: €15/tCO₂</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">Carbon Neutral Products</div>
+                    <div class="stat-value orange">28</div>
+                    <div class="stat-subtitle">Product lines with full offset</div>
+                </div>
+            </div>
+            
+            <div class="roadmap-panel">
+                <h3 class="panel-title">📋 Offset Quality Criteria</h3>
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">✓ Verified Standards</div>
+                        <div class="breakdown-value">Verra, Gold Standard, CDM</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">✓ Additionality</div>
+                        <div class="breakdown-value">Projects would not exist without carbon finance</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">✓ Permanence</div>
+                        <div class="breakdown-value">Long-term carbon storage guaranteed</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">✓ No Double Counting</div>
+                        <div class="breakdown-value">Unique serial numbers tracked on registries</div>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">✓ Co-Benefits</div>
+                        <div class="breakdown-value">Support UN SDGs (biodiversity, communities)</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Tab Content: Reporting -->
+        <div id="reporting" class="tab-content">
+            <div class="scope-grid">
+                <div class="scope-card scope1">
+                    <div class="scope-icon">📋</div>
+                    <div class="scope-header">
+                        <div>
+                            <div class="scope-name">CDP Climate Change</div>
+                            <div class="scope-description">Carbon Disclosure Project - Annual disclosure</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--zero-space-sm);">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">2024 Score</div>
+                            <div class="breakdown-value" style="color: var(--zero-green);">B (Management)</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">2025 Target</div>
+                            <div class="breakdown-value">A- (Leadership)</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Submission Deadline</div>
+                            <div class="breakdown-value">July 31, 2025</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" style="width: 100%; margin-top: var(--zero-space-sm);" onclick="generateCDPReport()">Generate CDP Report</button>
+                </div>
+                
+                <div class="scope-card scope2">
+                    <div class="scope-icon">🌐</div>
+                    <div class="scope-header">
+                        <div>
+                            <div class="scope-name">GRI Standards</div>
+                            <div class="scope-description">Global Reporting Initiative - Sustainability reporting</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--zero-space-sm);">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Current Standard</div>
+                            <div class="breakdown-value">GRI 305: Emissions 2016</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Assurance Level</div>
+                            <div class="breakdown-value">Limited (Target: Reasonable)</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Last Report</div>
+                            <div class="breakdown-value">December 2024</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" style="width: 100%; margin-top: var(--zero-space-sm);" onclick="alert('GRI report generation...')">Generate GRI Report</button>
+                </div>
+                
+                <div class="scope-card scope3">
+                    <div class="scope-icon">💼</div>
+                    <div class="scope-header">
+                        <div>
+                            <div class="scope-name">TCFD Alignment</div>
+                            <div class="scope-description">Task Force on Climate-related Financial Disclosures</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: var(--zero-space-sm);">
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Governance</div>
+                            <div class="breakdown-value" style="color: var(--zero-green);">✓ Implemented</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Strategy & Risk</div>
+                            <div class="breakdown-value" style="color: var(--zero-green);">✓ Implemented</div>
+                        </div>
+                        <div class="breakdown-item">
+                            <div class="breakdown-label">Metrics & Targets</div>
+                            <div class="breakdown-value" style="color: var(--zero-orange);">In Progress</div>
+                        </div>
+                    </div>
+                    <button class="action-btn" style="width: 100%; margin-top: var(--zero-space-sm);" onclick="alert('TCFD report generation...')">Generate TCFD Report</button>
+                </div>
+            </div>
+            
+            <div class="roadmap-panel">
+                <h3 class="panel-title">📊 Available Sustainability Reports</h3>
+                <div class="breakdown-list">
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Annual Sustainability Report 2024</div>
+                        <button class="action-btn secondary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Download PDF...')">Download PDF</button>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Carbon Footprint Statement 2025 (Q3)</div>
+                        <button class="action-btn secondary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Download PDF...')">Download PDF</button>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Science-Based Targets Progress Report</div>
+                        <button class="action-btn secondary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Download PDF...')">Download PDF</button>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Scope 3 Value Chain Assessment</div>
+                        <button class="action-btn secondary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Download PDF...')">Download PDF</button>
+                    </div>
+                    <div class="breakdown-item">
+                        <div class="breakdown-label">Energy Efficiency Annual Report</div>
+                        <button class="action-btn secondary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Download PDF...')">Download PDF</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <script>
+        function showTab(tabName) {
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            tabButtons.forEach(btn => {
+                btn.classList.remove('active');
+            });
+            
+            document.getElementById(tabName).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        function calculateEmissions() {
+            const data = `🧮 CARBON FOOTPRINT CALCULATION
+
+Select Calculation Scope:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+☐ Scope 1: Direct Emissions
+   • Stationary combustion (heating, generators)
+   • Mobile combustion (company vehicles)
+   • Process emissions
+   • Fugitive emissions (refrigerants, leaks)
+
+☐ Scope 2: Indirect Energy
+   • Purchased electricity
+   • Purchased heating/cooling
+   • Steam consumption
+
+☐ Scope 3: Value Chain (15 categories)
+   Upstream:
+   • Purchased goods & services
+   • Capital goods
+   • Fuel & energy activities
+   • Transportation & distribution
+   • Waste generated
+   • Business travel
+   • Employee commuting
+   • Leased assets
+   
+   Downstream:
+   • Transportation & distribution
+   • Processing of sold products
+   • Use of sold products
+   • End-of-life treatment
+   • Leased assets
+   • Franchises
+   • Investments
+
+Calculation Method:
+• Activity-based (spend-based, average-data)
+• Supplier-specific data
+• Hybrid approach
+
+[Calculate] [Import Data] [Integrate with Zero@Industry]`;
+            alert(data);
+        }
+        
+        function showOffsetOptions() {
+            const data = `🌳 CARBON OFFSETTING OPTIONS
+
+Current Portfolio: 4,250 tCO₂ offset
+Budget Remaining: €45,000
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌲 Nature-Based Solutions
+• Reforestation (€12-18/tCO₂)
+• Afforestation (€15-20/tCO₂)
+• Mangrove restoration (€18-25/tCO₂)
+• Peatland conservation (€10-15/tCO₂)
+
+☀️ Renewable Energy
+• Solar projects (€8-12/tCO₂)
+• Wind farms (€10-14/tCO₂)
+• Hydroelectric (€8-11/tCO₂)
+• Biogas (€12-16/tCO₂)
+
+🏭 Technology-Based
+• Carbon capture & storage (€50-80/tCO₂)
+• Direct air capture (€200-400/tCO₂)
+• Biochar (€30-50/tCO₂)
+
+🌍 Community Projects
+• Clean cookstoves (€5-8/tCO₂)
+• Clean water access (€8-12/tCO₂)
+• Energy efficiency (€6-10/tCO₂)
+
+Quality Standards:
+✓ Verra (VCS, CCB)
+✓ Gold Standard
+✓ CDM (Clean Development Mechanism)
+✓ Plan Vivo
+
+[Purchase Credits] [View Portfolio]`;
+            alert(data);
+        }
+        
+        function generateCDPReport() {
+            const data = `📋 CDP CLIMATE CHANGE QUESTIONNAIRE
+
+Report Summary:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+C0: Introduction
+✓ Company profile
+✓ Reporting boundary
+
+C1: Governance
+✓ Board oversight on climate
+✓ Management responsibility
+✓ Employee incentives
+
+C2: Risks & Opportunities
+✓ Climate risk assessment
+✓ Business opportunities
+✓ Financial impact analysis
+
+C3: Business Strategy
+✓ Climate transition plan
+✓ Scenario analysis (2°C, 4°C)
+✓ Strategic planning integration
+
+C4: Targets & Performance
+✓ Emissions targets (SBTi)
+✓ Renewable energy targets
+✓ Progress against targets
+
+C5: Emissions Methodology
+✓ Base year (2022: 32,400 tCO₂e)
+✓ Organizational boundary
+✓ Calculation methodology
+
+C6: Emissions Data
+✓ Scope 1: 8,450 tCO₂e
+✓ Scope 2: 6,280 tCO₂e
+✓ Scope 3: 9,850 tCO₂e
+✓ Biogenic emissions
+✓ Emissions intensities
+
+C7: Emissions Breakdown
+✓ By business activity
+✓ By country/region
+✓ By facility
+
+C8: Energy
+✓ Energy consumption
+✓ Renewable energy %: 45%
+
+C9: Additional Metrics
+✓ Carbon pricing
+✓ Engagement activities
+
+C10: Verification
+✓ Third-party verification
+✓ Assurance level: Limited
+
+C11: Carbon Pricing
+✓ Internal carbon price: €50/tCO₂
+✓ EU ETS exposure
+
+C12: Engagement
+✓ Supplier engagement
+✓ Policy engagement
+
+Current Score: B (Management)
+Target 2025: A- (Leadership)
+
+[Generate Full Report] [Submit to CDP] [Export PDF]`;
+            alert(data);
+        }
+        
+        function showReports() {
+            const data = `📊 SUSTAINABILITY REPORTING CENTER
+
+Available Reports:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌍 Carbon Accounting
+• GHG Inventory Report (ISO 14064)
+• Carbon Footprint Statement
+• Scope 1/2/3 Breakdown
+• Carbon Intensity Metrics
+
+📋 Disclosure Frameworks
+• CDP Climate Change (Score: B)
+• GRI 305: Emissions
+• TCFD Alignment Report
+• SASB Standards
+
+🎯 Target Tracking
+• Science-Based Targets Progress
+• Net-Zero Roadmap Status
+• Renewable Energy Transition
+• Energy Efficiency Improvements
+
+💰 Financial Impact
+• Carbon Pricing Exposure
+• Climate Risk Assessment
+• Green Investment Analysis
+• ROI on Decarbonization
+
+🔗 Supply Chain
+• Scope 3 Value Chain Report
+• Supplier Engagement Results
+• Product Carbon Footprint
+• Circular Economy Metrics
+
+📈 Trend Analysis
+• Year-over-Year Comparison
+• Benchmark vs Industry
+• Regional Performance
+• Facility-Level Breakdown
+
+🏆 Certifications
+• ISO 14001 Environmental
+• ISO 50001 Energy Management
+• SBTi Net-Zero Commitment
+• Carbon Neutral Certifications
+
+Generate custom report...`;
+            alert(data);
+        }
+    </script>
+</body>
+</html>

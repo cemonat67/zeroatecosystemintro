@@ -1,0 +1,440 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2575.7">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+  </style>
+</head>
+<body>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;html lang="tr"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Zero@Production — Chemicals &amp; Dyes&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;style&gt;</p>
+<p class="p1">:root {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-navy: #02154e;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-orange: #f9ba00;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-green: #005530;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-red: #D51635;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-white: #ffffff;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-black: #1a1a1a;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-gray-dark: #666666;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-gray-light: #e0e0e0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>--zero-gray-bg: #fafafa;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">- { margin: 0; padding: 0; box-sizing: border-box; }</p>
+<p class="p2"><br></p>
+<p class="p1">body {</p>
+<p class="p1">font-family: -apple-system, BlinkMacSystemFont, ‘Segoe UI’, Arial, sans-serif;</p>
+<p class="p1">background: var(–zero-white);</p>
+<p class="p1">color: var(–zero-black);</p>
+<p class="p1">line-height: 1.6;</p>
+<p class="p1">padding-top: 4px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.zero-color-bar {</p>
+<p class="p1">height: 4px;</p>
+<p class="p1">width: 100%;</p>
+<p class="p1">background: linear-gradient(90deg,</p>
+<p class="p1">var(–zero-green) 0%, var(–zero-green) 25%,</p>
+<p class="p1">var(–zero-red) 25%, var(–zero-red) 50%,</p>
+<p class="p1">var(–zero-navy) 50%, var(–zero-navy) 75%,</p>
+<p class="p1">var(–zero-orange) 75%, var(–zero-orange) 100%);</p>
+<p class="p1">position: fixed;</p>
+<p class="p1">top: 0;</p>
+<p class="p1">left: 0;</p>
+<p class="p1">right: 0;</p>
+<p class="p1">z-index: 1000;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.app-header {</p>
+<p class="p1">background: var(–zero-white);</p>
+<p class="p1">padding: 2rem;</p>
+<p class="p1">box-shadow: 0 2px 10px rgba(0,0,0,0.1);</p>
+<p class="p1">border-bottom: 1px solid var(–zero-gray-light);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.header-content {</p>
+<p class="p1">display: flex;</p>
+<p class="p1">justify-content: space-between;</p>
+<p class="p1">align-items: center;</p>
+<p class="p1">max-width: 1600px;</p>
+<p class="p1">margin: 0 auto;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.brand {</p>
+<p class="p1">display: flex;</p>
+<p class="p1">align-items: center;</p>
+<p class="p1">gap: 1rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.brand-logo {</p>
+<p class="p1">width: 40px;</p>
+<p class="p1">height: 40px;</p>
+<p class="p1">background: rgba(249,186,0,0.2);</p>
+<p class="p1">border-radius: 50%;</p>
+<p class="p1">display: flex;</p>
+<p class="p1">align-items: center;</p>
+<p class="p1">justify-content: center;</p>
+<p class="p1">font-size: 1rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.title {</p>
+<p class="p1">font-size: 1.5rem;</p>
+<p class="p1">font-weight: 300;</p>
+<p class="p1">color: var(–zero-navy);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.title-at { color: var(–zero-orange); }</p>
+<p class="p2"><br></p>
+<p class="p1">.container {</p>
+<p class="p1">max-width: 1600px;</p>
+<p class="p1">margin: 0 auto;</p>
+<p class="p1">padding: 4rem 2rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.card {</p>
+<p class="p1">background: var(–zero-white);</p>
+<p class="p1">border: 1px solid var(–zero-gray-light);</p>
+<p class="p1">border-radius: 8px;</p>
+<p class="p1">padding: 2rem;</p>
+<p class="p1">margin-bottom: 2rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.card-title {</p>
+<p class="p1">font-size: 1.3rem;</p>
+<p class="p1">font-weight: 400;</p>
+<p class="p1">color: var(–zero-navy);</p>
+<p class="p1">margin-bottom: 0.5rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.card-subtitle {</p>
+<p class="p1">font-size: 0.9rem;</p>
+<p class="p1">color: var(–zero-gray-dark);</p>
+<p class="p1">font-weight: 300;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.stats-grid {</p>
+<p class="p1">display: grid;</p>
+<p class="p1">grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));</p>
+<p class="p1">gap: 2rem;</p>
+<p class="p1">margin-top: 2rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.stat-card {</p>
+<p class="p1">background: var(–zero-gray-bg);</p>
+<p class="p1">border: 1px solid var(–zero-gray-light);</p>
+<p class="p1">border-radius: 6px;</p>
+<p class="p1">padding: 2rem;</p>
+<p class="p1">text-align: center;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.stat-value {</p>
+<p class="p1">font-size: 2.5rem;</p>
+<p class="p1">font-weight: 300;</p>
+<p class="p1">color: var(–zero-navy);</p>
+<p class="p1">margin-bottom: 0.5rem;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.stat-label {</p>
+<p class="p1">font-size: 0.8rem;</p>
+<p class="p1">color: var(–zero-gray-dark);</p>
+<p class="p1">text-transform: uppercase;</p>
+<p class="p1">letter-spacing: 1px;</p>
+<p class="p1">font-weight: 500;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">table {</p>
+<p class="p1">width: 100%;</p>
+<p class="p1">border-collapse: collapse;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">thead {</p>
+<p class="p1">background: var(–zero-navy);</p>
+<p class="p1">color: var(–zero-white);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">th {</p>
+<p class="p1">padding: 1rem;</p>
+<p class="p1">text-align: left;</p>
+<p class="p1">font-weight: 500;</p>
+<p class="p1">font-size: 0.875rem;</p>
+<p class="p1">text-transform: uppercase;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">td {</p>
+<p class="p1">padding: 1rem;</p>
+<p class="p1">border-bottom: 1px solid var(–zero-gray-light);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">tbody tr:hover {</p>
+<p class="p1">background: var(–zero-gray-bg);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress-bar {</p>
+<p class="p1">width: 100%;</p>
+<p class="p1">height: 6px;</p>
+<p class="p1">background: var(–zero-gray-light);</p>
+<p class="p1">border-radius: 3px;</p>
+<p class="p1">overflow: hidden;</p>
+<p class="p1">margin-top: 4px;</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.progress-fill {</p>
+<p class="p1">height: 100%;</p>
+<p class="p1">border-radius: 3px;</p>
+<p class="p1">background: var(–zero-green);</p>
+<p class="p1">}</p>
+<p class="p2"><br></p>
+<p class="p1">.status-badge {</p>
+<p class="p1">padding: 0.25rem 0.75rem;</p>
+<p class="p1">border-radius: 4px;</p>
+<p class="p1">font-size: 0.75rem;</p>
+<p class="p1">font-weight: 600;</p>
+<p class="p1">text-transform: uppercase;</p>
+<p class="p1">background: rgba(0, 85, 48, 0.1);</p>
+<p class="p1">color: var(–zero-green);</p>
+<p class="p1">border: 1px solid var(–zero-green);</p>
+<p class="p1">}</p>
+<p class="p1">&lt;/style&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="zero-color-bar"&gt;&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">```</p>
+<p class="p1">&lt;header class="app-header"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="header-content"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="brand"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="brand-logo"&gt;🧪&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="title"&gt;Zero&lt;span class="title-at"&gt;@&lt;/span&gt;Production — Chemicals &amp; Dyes&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;main class="container"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="card-title"&gt;CHEMICALS &amp; DYES&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="card-subtitle"&gt;Chemical processing and dyeing — Yarn stage orders tracking&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="stats-grid"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-value"&gt;10&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-label"&gt;Active Orders&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-value"&gt;135,226&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-label"&gt;Total Pieces&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-value"&gt;75.5t&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-label"&gt;Total CO₂&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;div class="stat-card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-value"&gt;&lt;span class="status-badge"&gt;Active&lt;/span&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;div class="stat-label"&gt;Status&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;h3 class="card-title"&gt;Orders in Yarn Stage&lt;/h3&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;p class="card-subtitle"&gt;10 orders • 135,226 pieces&lt;/p&gt;</p>
+<p class="p2"><span class="Apple-converted-space">        </span></p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div style="max-height: 500px; overflow-y: auto; margin-top: 2rem;"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Order ID&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;PO Number&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Product&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Fabric&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Quantity&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;GSM&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Country&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Facility&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;th&gt;Progress&lt;/th&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/thead&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-050&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-22488&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Denim bucket hat&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD5476&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;10,795&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;450&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Türkiye&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Rabateks Main Factory&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 70%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;70%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-049&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-39729&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Crew neck sweater&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD7246&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;22,294&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;160&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Spain&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Iberian Garments&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 71%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;71%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-040&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-68077&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Denim work overalls&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD4196&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;15,878&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;400&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Netherlands&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Amsterdam Manufacturing&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 80%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;80%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-039&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-52025&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Bucket hat&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD6281&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;19,559&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;140&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Italy&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Italian Textile Group&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 81%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;81%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-030&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-17564&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Uniform shirt&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD8715&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;10,829&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;160&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Spain&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Barcelona Textiles&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 90%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;90%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-029&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-95471&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Jersey sports top&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD2093&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;10,660&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;220&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Italy&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Italian Textile Group&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 91%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;91%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-020&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-19533&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Midi denim skirt&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD9054&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;18,886&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;300&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Spain&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Barcelona Textiles&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 70%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;70%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-019&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-99078&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Disposable tablecloth&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD9817&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;19,177&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;80&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Italy&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Italian Textile Group&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 71%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;71%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-010&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-17605&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Jogger pants&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD7515&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;3,484&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;200&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Spain&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Iberian Garments&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 80%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;80%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;&lt;strong&gt;ORD-009&lt;/strong&gt;&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;PO-89428&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Pea coat&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;RD2883&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;3,664&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;200&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Spain&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;Iberian Garments&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div class="progress-bar"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                                </span>&lt;div class="progress-fill" style="width: 81%"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                            </span>&lt;div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;"&gt;81%&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                        </span>&lt;/td&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                    </span>&lt;/tr&gt;</p>
+<p class="p1"><span class="Apple-converted-space">                </span>&lt;/tbody&gt;</p>
+<p class="p1"><span class="Apple-converted-space">            </span>&lt;/table&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
+<p class="p1">&lt;/main&gt;</p>
+<p class="p1">```</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
+</body>
+</html>

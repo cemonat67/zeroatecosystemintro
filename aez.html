@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Ecosystem — Digital Product Passport System</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+```
+<style>
+    :root {
+        --zero-navy: #02154e;
+        --zero-orange: #f9ba00;
+        --zero-green: #005530;
+        --zero-red: #D51635;
+        --zero-white: #ffffff;
+        --zero-black: #1a1a1a;
+        --zero-gray-dark: #666666;
+        --zero-gray-medium: #9E9E9E;
+        --zero-gray-light: #e0e0e0;
+        --zero-gray-bg: #fafafa;
+        
+        --zero-space-xs: 0.5rem;
+        --zero-space-sm: 1rem;
+        --zero-space-md: 2rem;
+        --zero-space-lg: 4rem;
+        
+        --zero-radius-sm: 4px;
+        --zero-radius-md: 6px;
+        --zero-radius-lg: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--zero-white);
+        color: var(--zero-black);
+        line-height: 1.6;
+        padding-top: 4px;
+    }
+    
+    .page {
+        display: none;
+    }
+    
+    .page.active {
+        display: block;
+    }
+    
+    .zero-color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            var(--zero-green) 0%, var(--zero-green) 25%, 
+            var(--zero-red) 25%, var(--zero-red) 50%, 
+            var(--zero-navy) 50%, var(--zero-navy) 75%, 
+            var(--zero-orange) 75%, var(--zero-orange) 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .app-header {
+        background: var(--zero-white);
+        color: var(--zero-navy);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-bottom: 1px solid var(--zero-gray-light);
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+    
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: var(--zero-space-sm);
+    }
+    
+    .brand-logo {
+        width: 40px;
+        height: 40px;
+        background: rgba(249,186,0,0.2);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--zero-orange);
+    }
+    
+    .title {
+        font-size: 1.5rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+    }
+    
+    .title-at {
+        color: var(--zero-orange);
+    }
+    
+    .back-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    
+    .back-btn:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(249, 186, 0, 0.3);
+    }
+    
+    .hero {
+        background: linear-gradient(135deg, rgba(2,21,78,0.05) 0%, rgba(255,255,255,1) 100%);
+        padding: var(--zero-space-lg) var(--zero-space-md);
+        text-align: center;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        color: var(--zero-navy);
+        font-weight: 300;
+    }
+    
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--zero-space-lg) var(--zero-space-md);
+    }
+    
+    .product-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        gap: var(--zero-space-md);
+        margin-bottom: var(--zero-space-lg);
+    }
+    
+    .product-card {
+        background: var(--zero-white);
+        border: 1px solid var(--zero-gray-light);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .product-card::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background: var(--zero-orange);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+    }
+    
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    }
+    
+    .product-card:hover::after {
+        transform: scaleX(1);
+    }
+    
+    .product-logo {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        background: rgba(2,21,78,0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+        font-size: 1.2rem;
+        color: var(--zero-navy);
+        opacity: 0.8;
+        transition: opacity 0.3s ease;
+    }
+    
+    .product-card:hover .product-logo {
+        opacity: 1;
+    }
+    
+    .product-title {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .product-at {
+        color: var(--zero-orange);
+    }
+    
+    .product-description {
+        color: var(--zero-gray-dark);
+        margin-bottom: var(--zero-space-md);
+        min-height: 3em;
+        font-size: 0.95rem;
+    }
+    
+    .action-btn {
+        padding: 0.5rem 1.25rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        margin-top: var(--zero-space-xs);
+    }
+    
+    .action-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .card {
+        background: var(--zero-white);
+        border: 1px solid var(--zero-gray-light);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .card-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .card-title {
+        font-size: 1.3rem;
+        font-weight: 400;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .card-subtitle {
+        font-size: 0.9rem;
+        color: var(--zero-gray-dark);
+        font-weight: 300;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--zero-space-md);
+        margin-top: var(--zero-space-md);
+    }
+    
+    .stat-card {
+        background: var(--zero-gray-bg);
+        border: 1px solid var(--zero-gray-light);
+        border-radius: var(--zero-radius-md);
+        padding: var(--zero-space-md);
+        text-align: center;
+    }
+    
+    .stat-value {
+        font-size: 2.5rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stat-label {
+        font-size: 0.8rem;
+        color: var(--zero-gray-dark);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-weight: 500;
+    }
+    
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    thead {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    th {
+        padding: var(--zero-space-sm);
+        text-align: left;
+        font-weight: 500;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    td {
+        padding: var(--zero-space-sm);
+        border-bottom: 1px solid var(--zero-gray-light);
+    }
+    
+    tbody tr:hover {
+        background: var(--zero-gray-bg);
+        cursor: pointer;
+    }
+    
+    .status-badge {
+        padding: 0.25rem 0.75rem;
+        border-radius: var(--zero-radius-sm);
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .status-active {
+        background: rgba(0, 85, 48, 0.1);
+        color: var(--zero-green);
+        border: 1px solid var(--zero-green);
+    }
+    
+    .status-optimizing {
+        background: rgba(249, 186, 0, 0.1);
+        color: var(--zero-orange);
+        border: 1px solid var(--zero-orange);
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 6px;
+        background: var(--zero-gray-light);
+        border-radius: 3px;
+        overflow: hidden;
+        margin-top: 4px;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        background: var(--zero-green);
+        border-radius: 3px;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-yarn { background: var(--zero-orange); }
+    .progress-fabric { background: var(--zero-green); }
+    .progress-finishing { background: #2196f3; }
+    .progress-assembly { background: var(--zero-navy); }
+    .progress-packing { background: #fdd835; }
+    .progress-delivered { background: var(--zero-green); }
+    
+    .features-section {
+        margin: var(--zero-space-lg) 0;
+    }
+    
+    .features-title {
+        font-size: 1.3rem;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: var(--zero-space-md);
+    }
+    
+    .feature-card {
+        background: var(--zero-gray-bg);
+        border: 1px solid var(--zero-gray-light);
+        border-radius: var(--zero-radius-md);
+        padding: var(--zero-space-md);
+        text-align: center;
+    }
+    
+    .feature-value {
+        font-size: 1.8rem;
+        font-weight: 600;
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .feature-value.green {
+        color: var(--zero-green);
+    }
+    
+    .feature-value.orange {
+        color: var(--zero-orange);
+    }
+    
+    .feature-label {
+        font-size: 0.85rem;
+        color: var(--zero-gray-dark);
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            flex-direction: column;
+            gap: var(--zero-space-sm);
+        }
+        
+        .product-grid,
+        .features-grid,
+        .stats-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<!-- Dashboard Page -->
+<div id="dashboard" class="page active">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="title">Zero<span class="title-at">@</span>Ecosystem — Digital Product Passport</div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <p class="hero-subtitle">Digital Product Passport System — Complete Production Visibility</p>
+    </section>
+
+    <main class="container">
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-logo">🧵</div>
+                <div class="product-title">Fibre<span class="product-at"> </span>DPP</div>
+                <div class="product-description">
+                    Raw materials and fiber production — Yarn manufacturing
+                </div>
+                <button class="action-btn" onclick="showPage('fibre')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">📐</div>
+                <div class="product-title">Fabric<span class="product-at"> </span>DPP</div>
+                <div class="product-description">
+                    Fabric production and quality control — Weaving and knitting
+                </div>
+                <button class="action-btn" onclick="showPage('fabric')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">🧪</div>
+                <div class="product-title">Chemicals<span class="product-at"> & </span>Dyes</div>
+                <div class="product-description">
+                    Chemical processing and dyeing — Yarn stage orders tracking
+                </div>
+                <button class="action-btn" onclick="showPage('chemicals')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">✨</div>
+                <div class="product-title">Finishing<span class="product-at"> </span>DPP</div>
+                <div class="product-description">
+                    Treatment and finishing processes — Quality enhancement
+                </div>
+                <button class="action-btn" onclick="showPage('finishing')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">👕</div>
+                <div class="product-title">Garment<span class="product-at"> </span>DPP</div>
+                <div class="product-description">
+                    Garment assembly and production — Cut, make, trim operations
+                </div>
+                <button class="action-btn" onclick="showPage('garment')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">📦</div>
+                <div class="product-title">Packaging<span class="product-at"></span></div>
+                <div class="product-description">
+                    Packaging management — Ready to pack orders
+                </div>
+                <button class="action-btn" onclick="showPage('packaging')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">🚚</div>
+                <div class="product-title">Order<span class="product-at"> </span>Delivery</div>
+                <div class="product-description">
+                    Delivery management — Completed and delivered orders
+                </div>
+                <button class="action-btn" onclick="showPage('delivery')">View Module</button>
+            </div>
+
+            <div class="product-card">
+                <div class="product-logo">🚌</div>
+                <div class="product-title">Employee<span class="product-at"> </span>Transport</div>
+                <div class="product-description">
+                    Logistics and transport — Orders in transit
+                </div>
+                <button class="action-btn" onclick="showPage('transport')">View Module</button>
+            </div>
+        </div>
+
+        <div class="features-section">
+            <h3 class="features-title">📊 System Overview</h3>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-value green">50</div>
+                    <div class="feature-label">Total Orders</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-value orange">610,335</div>
+                    <div class="feature-label">Total Pieces</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-value green">7</div>
+                    <div class="feature-label">Countries</div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-value orange">8</div>
+                    <div class="feature-label">Active Modules</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">📦 Active Orders Overview</h3>
+            <p class="card-subtitle">Production pipeline distribution across all stages</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-label">YARN STAGE</div>
+                    <div class="stat-value" style="font-size: 2rem; color: var(--zero-orange);" id="dash-yarn-count">—</div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);" id="dash-yarn-qty">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">FABRIC STAGE</div>
+                    <div class="stat-value" style="font-size: 2rem; color: var(--zero-green);" id="dash-fabric-count">—</div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);" id="dash-fabric-qty">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">FINISHING STAGE</div>
+                    <div class="stat-value" style="font-size: 2rem; color: #2196f3;" id="dash-finishing-count">—</div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);" id="dash-finishing-qty">—</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-label">ASSEMBLY STAGE</div>
+                    <div class="stat-value" style="font-size: 2rem; color: var(--zero-navy);" id="dash-assembly-count">—</div>
+                    <div style="font-size: 0.75rem; color: var(--zero-gray-dark);" id="dash-assembly-qty">—</div>
+                </div>
+            </div>
+
+            <div style="margin-top: var(--zero-space-md);">
+                <canvas id="ordersChart" height="80"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Country Distribution</h3>
+            <canvas id="countryChart" height="100"></canvas>
+        </div>
+    </main>
+</div>
+
+<!-- Chemicals Page -->
+<div id="chemicals" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">⚗️</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Chemicals & Dyes</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <div class="card-header">
+                <div>
+                    <h3 class="card-title">Chemicals & Dyes — Yarn Stage Processing</h3>
+                    <p class="card-subtitle">Chemical treatment and dyeing operations</p>
+                </div>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="chemicals-count">—</div>
+                    <div class="stat-label">Active Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="chemicals-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="chemicals-co2">—</div>
+                    <div class="stat-label">Total CO₂ (t)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-active">Active</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Orders in Chemical Processing (Yarn Stage)</h3>
+            <p class="card-subtitle" id="chemicals-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Fabric</th>
+                            <th>Quantity</th>
+                            <th>GSM</th>
+                            <th>Country</th>
+                            <th>Progress</th>
+                            <th>CO₂ (t)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="chemicals-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Chemical Processing CO₂ Impact</h3>
+            <canvas id="chemicalsChart" height="120"></canvas>
+        </div>
+    </main>
+</div>
+
+<!-- Fibre Page -->
+<div id="fibre" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">🧶</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Fibre DPP</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">RAW MATERIALS — Yarn Production</h3>
+            <p class="card-subtitle">Track raw fiber sourcing and yarn manufacturing</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="fibre-count">—</div>
+                    <div class="stat-label">Active Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="fibre-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="fibre-co2">—</div>
+                    <div class="stat-label">Total CO₂ (t)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-active">Active</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Yarn Production Orders</h3>
+            <p class="card-subtitle" id="fibre-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Fabric Type</th>
+                            <th>Quantity</th>
+                            <th>GSM</th>
+                            <th>Country</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fibre-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Fibre Production Timeline</h3>
+            <canvas id="fibreChart" height="120"></canvas>
+        </div>
+    </main>
+</div>
+
+<!-- Fabric Page -->
+<div id="fabric" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">🏭</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Fabric DPP</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">FABRIC PRODUCTION — Weaving & Knitting</h3>
+            <p class="card-subtitle">Fabric manufacturing and quality control</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="fabric-count">—</div>
+                    <div class="stat-label">Active Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="fabric-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="fabric-co2">—</div>
+                    <div class="stat-label">Total CO₂ (t)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-active">Active</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Fabric Production Orders</h3>
+            <p class="card-subtitle" id="fabric-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Fabric Type</th>
+                            <th>Construction</th>
+                            <th>Quantity</th>
+                            <th>GSM</th>
+                            <th>Country</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody id="fabric-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Fabric CO₂ Distribution</h3>
+            <canvas id="fabricChart" height="120"></canvas>
+        </div>
+    </main>
+</div>
+
+<!-- Finishing Page -->
+<div id="finishing" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">✨</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Finishing DPP</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">TREATMENT & FINISHING</h3>
+            <p class="card-subtitle">Dyeing, printing, and finishing process efficiency</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="finishing-count">—</div>
+                    <div class="stat-label">Active Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="finishing-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="finishing-co2">—</div>
+                    <div class="stat-label">Total CO₂ (t)</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-optimizing">Optimizing</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Orders in Finishing Process</h3>
+            <p class="card-subtitle" id="finishing-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Fabric</th>
+                            <th>Quantity</th>
+                            <th>GSM</th>
+                            <th>Country</th>
+                            <th>Progress</th>
+                            <th>CO₂ (t)</th>
+                        </tr>
+                    </thead>
+                    <tbody id="finishing-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Finishing Process CO₂</h3>
+            <canvas id="finishingChart" height="120"></canvas>
+        </div>
+    </main>
+</div>
+
+<!-- Garment Page -->
+<div id="garment" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">👔</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Garment DPP</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">GARMENT ASSEMBLY</h3>
+            <p class="card-subtitle">Cut, make, trim operations and quality control</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="garment-count">—</div>
+                    <div class="stat-label">Active Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="garment-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="garment-styles">—</div>
+                    <div class="stat-label">Unique Styles</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-active">Active</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Active Orders in Garment Assembly Stage</h3>
+            <p class="card-subtitle" id="garment-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Style</th>
+                            <th>Quantity</th>
+                            <th>GSM</th>
+                            <th>Country</th>
+                            <th>Facility</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody id="garment-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Garment Production Timeline</h3>
+            <canvas id="garmentChart" height="120"></canvas>
+        </div>
+    </main>
+</div>
+
+<!-- Packaging Page -->
+<div id="packaging" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">📦</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Packaging</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">PACKAGING OPERATIONS</h3>
+            <p class="card-subtitle">Ready to pack orders and packaging materials</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="packaging-count">—</div>
+                    <div class="stat-label">Ready to Pack</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="packaging-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-active">Active</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Orders Ready for Packaging</h3>
+            <p class="card-subtitle" id="packaging-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Country</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="packaging-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Delivery Page -->
+<div id="delivery" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">🚚</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Order Delivery</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">DELIVERY MANAGEMENT</h3>
+            <p class="card-subtitle">Completed and delivered orders</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="delivery-count">—</div>
+                    <div class="stat-label">Delivered Orders</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="delivery-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-active">✓ Complete</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Delivered Orders</h3>
+            <p class="card-subtitle" id="delivery-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Country</th>
+                            <th>Delivery Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="delivery-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<!-- Transport Page -->
+<div id="transport" class="page">
+    <header class="app-header">
+        <div class="header-content">
+            <div class="brand">
+                <div class="brand-logo">🚛</div>
+                <div class="title">Zero<span class="title-at">@</span>Production — Employee Transport</div>
+            </div>
+            <button class="back-btn" onclick="showPage('dashboard')">📊 Dashboard</button>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="card">
+            <h3 class="card-title">LOGISTICS & TRANSPORT</h3>
+            <p class="card-subtitle">Orders in transit and transportation logistics</p>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-value" id="transport-count">—</div>
+                    <div class="stat-label">In Transit</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value" id="transport-qty">—</div>
+                    <div class="stat-label">Total Pieces</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value"><span class="status-badge status-optimizing">In Transit</span></div>
+                    <div class="stat-label">Status</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3 class="card-title">Orders in Transportation</h3>
+            <p class="card-subtitle" id="transport-stats">—</p>
+            <div style="max-height: 400px; overflow-y: auto;">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>PO Number</th>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Country</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transport-orders-tbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+</div>
+
+<script>
+    // CSV Data - 50 Real Orders from Rabateks
+    const ordersData = [
+        {id: 50, country: "Turkey", facility: "Rabateks Main Factory", po: "PO-22488", style: "ROYAL-BLZ", product: "Denim bucket hat", fabricType: "Denim", fabricName: "RD5476", construction: "Denim", gsm: 450, quantity: 10795, date: "2023-11-29"},
+        {id: 49, country: "Spain", facility: "Iberian Garments", po: "PO-39729", style: "SIGMA-JNS", product: "Crew neck sweater", fabricType: "Knit", fabricName: "RD7246", construction: "Pique Knit", gsm: 160, quantity: 22294, date: "2024-12-30"},
+        {id: 48, country: "Italy", facility: "Italian Textile Group", po: "PO-22310", style: "ROYAL-TSH", product: "Knitted scarf", fabricType: "Knit", fabricName: "RD8790", construction: "Fleece Knit", gsm: 200, quantity: 19331, date: "2023-12-26"},
+        {id: 47, country: "Spain", facility: "Barcelona Textiles", po: "PO-31089", style: "BOLD-JNS", product: "V-neck sweater", fabricType: "Knit", fabricName: "RD8790", construction: "Fleece Knit", gsm: 240, quantity: 12104, date: "2023-05-26"},
+        {id: 46, country: "Turkey", facility: "Rabateks Facility 2", po: "PO-48920", style: "PURE-ECO", product: "Mini denim skirt", fabricType: "Denim", fabricName: "RD4816", construction: "Denim", gsm: 400, quantity: 6419, date: "2023-11-26"},
+        {id: 45, country: "Netherlands", facility: "Dutch Textile Works", po: "PO-74028", style: "NOVA-DLX", product: "Safari jacket", fabricType: "Woven", fabricName: "RD4707", construction: "Dobby", gsm: 160, quantity: 22695, date: "2023-07-12"},
+        {id: 44, country: "Germany", facility: "Partner Factory A", po: "PO-81307", style: "ROYAL-TSH", product: "Knitted gloves", fabricType: "Knit", fabricName: "RD8187", construction: "Pique Knit", gsm: 220, quantity: 10384, date: "2024-08-06"},
+        {id: 43, country: "Italy", facility: "Milano Fashion House", po: "PO-36887", style: "ROYAL-PLO", product: "Blouse", fabricType: "Woven", fabricName: "RD5430", construction: "Denim", gsm: 140, quantity: 8524, date: "2024-05-22"},
+        {id: 42, country: "Italy", facility: "Milano Fashion House", po: "PO-95989", style: "ELITE-JNS", product: "Crewneck sweatshirt", fabricType: "Knit", fabricName: "RD6989", construction: "Ottoman", gsm: 220, quantity: 17102, date: "2023-09-30"},
+        {id: 41, country: "United Kingdom", facility: "British Manufacturing Ltd", po: "PO-76671", style: "BOLD-JNS", product: "Button-up cardigan", fabricType: "Knit", fabricName: "RD3798", construction: "Single Jersey", gsm: 240, quantity: 4062, date: "2024-10-03"},
+        {id: 40, country: "Netherlands", facility: "Amsterdam Manufacturing", po: "PO-68077", style: "BOLD-BLZ", product: "Denim work overalls", fabricType: "Denim", fabricName: "RD4196", construction: "Denim", gsm: 400, quantity: 15878, date: "2024-04-03"},
+        {id: 39, country: "Italy", facility: "Italian Textile Group", po: "PO-52025", style: "URBAN-SOFT", product: "Bucket hat", fabricType: "Woven", fabricName: "RD6281", construction: "Jacquard Woven", gsm: 140, quantity: 19559, date: "2023-10-01"},
+        {id: 38, country: "Italy", facility: "Milano Fashion House", po: "PO-55300", style: "ELITE-WIDE", product: "Suit jacket", fabricType: "Woven", fabricName: "RD4649", construction: "Ripstop", gsm: 120, quantity: 2270, date: "2024-10-11"},
+        {id: 37, country: "Spain", facility: "Barcelona Textiles", po: "PO-94512", style: "APEX-TSH", product: "Knit dress", fabricType: "Knit", fabricName: "RD6888", construction: "Jacquard Knit", gsm: 240, quantity: 21557, date: "2024-05-01"},
+        {id: 36, country: "United Kingdom", facility: "British Manufacturing Ltd", po: "PO-40794", style: "CLASSIC-DLX", product: "Long johns", fabricType: "Knit", fabricName: "RD5523", construction: "French Terry", gsm: 160, quantity: 19887, date: "2023-02-18"},
+        {id: 35, country: "Italy", facility: "Milano Fashion House", po: "PO-35904", style: "PRIME-DLX", product: "Medical gown", fabricType: "Nonwoven", fabricName: "RD4691", construction: "Nonwoven Spunbond", gsm: 160, quantity: 18797, date: "2023-09-05"},
+        {id: 34, country: "Turkey", facility: "Rabateks Facility 2", po: "PO-55585", style: "BOLD-SOFT", product: "Skinny jeans", fabricType: "Denim", fabricName: "RD6068", construction: "Denim", gsm: 450, quantity: 12637, date: "2024-08-31"},
+        {id: 33, country: "Italy", facility: "Italian Textile Group", po: "PO-89370", style: "BOLD-FLEX", product: "Denim bucket hat", fabricType: "Denim", fabricName: "RD2237", construction: "Denim", gsm: 300, quantity: 16670, date: "2024-11-14"},
+        {id: 32, country: "Italy", facility: "Italian Textile Group", po: "PO-20311", style: "ROYAL-TSH", product: "Denim pinafore dress", fabricType: "Denim", fabricName: "RD5349", construction: "Denim", gsm: 300, quantity: 9603, date: "2023-12-23"},
+        {id: 31, country: "Spain", facility: "Iberian Garments", po: "PO-69765", style: "METRO-DLX", product: "Suit jacket", fabricType: "Woven", fabricName: "RD6638", construction: "Canvas", gsm: 220, quantity: 19252, date: "2023-12-17"},
+        {id: 30, country: "Spain", facility: "Barcelona Textiles", po: "PO-17564", style: "ALTA-MAX", product: "Uniform shirt", fabricType: "Woven", fabricName: "RD8715", construction: "Seersucker", gsm: 160, quantity: 10829, date: "2024-01-16"},
+        {id: 29, country: "Italy", facility: "Italian Textile Group", po: "PO-95471", style: "ELITE-JNS", product: "Jersey sports top", fabricType: "Knit", fabricName: "RD2093", construction: "Ponte Roma", gsm: 220, quantity: 10660, date: "2024-05-04"},
+        {id: 28, country: "Italy", facility: "Milano Fashion House", po: "PO-31620", style: "ALTA-PRO", product: "Surgical mask", fabricType: "Nonwoven", fabricName: "RD6788", construction: "Nonwoven Spunbond", gsm: 80, quantity: 4417, date: "2024-12-21"},
+        {id: 27, country: "Germany", facility: "Mango Apparel GmbH", po: "PO-78344", style: "SIGMA-SOFT", product: "Disposable coverall", fabricType: "Nonwoven", fabricName: "RD2045", construction: "Nonwoven Meltblown", gsm: 140, quantity: 6136, date: "2023-11-24"},
+        {id: 26, country: "Netherlands", facility: "Dutch Textile Works", po: "PO-23833", style: "PURE-DLX", product: "Gift wrap", fabricType: "Nonwoven", fabricName: "RD8380", construction: "Nonwoven Meltblown", gsm: 120, quantity: 2283, date: "2024-05-11"},
+        {id: 25, country: "Portugal", facility: "Porto Manufacturing", po: "PO-49984", style: "SWIFT-SOFT", product: "Fedora hat", fabricType: "Woven", fabricName: "RD5856", construction: "Chambray", gsm: 220, quantity: 14288, date: "2024-11-24"},
+        {id: 24, country: "Germany", facility: "Partner Factory A", po: "PO-15703", style: "NOVA-SOFT", product: "Sweatpants", fabricType: "Knit", fabricName: "RD5010", construction: "Rib 1x1", gsm: 180, quantity: 13588, date: "2023-10-11"},
+        {id: 23, country: "Germany", facility: "Mango Apparel GmbH", po: "PO-88278", style: "ALTA-MAX", product: "Poncho", fabricType: "Knit", fabricName: "RD4353", construction: "Rib 2x2", gsm: 160, quantity: 21110, date: "2023-07-16"},
+        {id: 22, country: "Turkey", facility: "Rabateks Main Factory", po: "PO-52514", style: "TITAN-FIT", product: "Denim bucket hat", fabricType: "Denim", fabricName: "RD1294", construction: "Denim", gsm: 400, quantity: 18922, date: "2023-09-15"},
+        {id: 21, country: "Germany", facility: "Mango Apparel GmbH", po: "PO-50642", style: "APEX-HDD", product: "Skinny jeans", fabricType: "Denim", fabricName: "RD8340", construction: "Denim", gsm: 350, quantity: 6474, date: "2023-01-31"},
+        {id: 20, country: "Spain", facility: "Barcelona Textiles", po: "PO-19533", style: "SWIFT-FIT", product: "Midi denim skirt", fabricType: "Denim", fabricName: "RD9054", construction: "Denim", gsm: 300, quantity: 18886, date: "2024-10-18"},
+        {id: 19, country: "Italy", facility: "Italian Textile Group", po: "PO-99078", style: "URBAN-ECO", product: "Disposable tablecloth", fabricType: "Nonwoven", fabricName: "RD9817", construction: "Nonwoven Meltblown", gsm: 80, quantity: 19177, date: "2023-11-01"},
+        {id: 18, country: "Netherlands", facility: "Dutch Textile Works", po: "PO-52388", style: "NOVA-PLO", product: "Pea coat", fabricType: "Woven", fabricName: "RD8458", construction: "Canvas", gsm: 220, quantity: 3010, date: "2024-02-20"},
+        {id: 17, country: "Spain", facility: "Barcelona Textiles", po: "PO-27338", style: "ALTA-PRO", product: "Denim work overalls", fabricType: "Denim", fabricName: "RD2246", construction: "Denim", gsm: 500, quantity: 5255, date: "2023-03-29"},
+        {id: 16, country: "Portugal", facility: "Lisbon Garments", po: "PO-24382", style: "SWIFT-SOFT", product: "Wrap dress", fabricType: "Woven", fabricName: "RD1112", construction: "Canvas", gsm: 160, quantity: 3568, date: "2024-10-29"},
+        {id: 15, country: "Portugal", facility: "Porto Manufacturing", po: "PO-84764", style: "SWIFT-LUX", product: "Suit jacket", fabricType: "Woven", fabricName: "RD9343", construction: "Dobby", gsm: 200, quantity: 10598, date: "2023-05-29"},
+        {id: 14, country: "United Kingdom", facility: "London Apparel Co", po: "PO-84186", style: "PURE-MAX", product: "Jersey sports top", fabricType: "Knit", fabricName: "RD7627", construction: "Rib 2x2", gsm: 200, quantity: 21453, date: "2024-08-15"},
+        {id: 13, country: "Turkey", facility: "Rabateks Facility 2", po: "PO-79242", style: "SWIFT-ECO", product: "Bodycon dress", fabricType: "Knit", fabricName: "RD7713", construction: "Fleece Knit", gsm: 160, quantity: 12547, date: "2024-12-15"},
+        {id: 12, country: "Germany", facility: "Partner Factory A", po: "PO-99098", style: "PRIME-PRO", product: "Vest", fabricType: "Knit", fabricName: "RD6308", construction: "Waffle Knit", gsm: 220, quantity: 10715, date: "2024-05-06"},
+        {id: 11, country: "Germany", facility: "Mango Apparel GmbH", po: "PO-97472", style: "PURE-HDD", product: "Turtleneck sweater", fabricType: "Knit", fabricName: "RD7870", construction: "Single Jersey", gsm: 160, quantity: 22065, date: "2023-08-30"},
+        {id: 10, country: "Spain", facility: "Iberian Garments", po: "PO-17605", style: "NOVA-HDD", product: "Jogger pants", fabricType: "Knit", fabricName: "RD7515", construction: "Single Jersey", gsm: 200, quantity: 3484, date: "2024-12-04"},
+        {id: 9, country: "Spain", facility: "Iberian Garments", po: "PO-89428", style: "PRIME-PRO", product: "Pea coat", fabricType: "Woven", fabricName: "RD2883", construction: "Jacquard Woven", gsm: 200, quantity: 3664, date: "2024-04-27"},
+        {id: 8, country: "Spain", facility: "Iberian Garments", po: "PO-88131", style: "ROYAL-MAX", product: "Polo shirt", fabricType: "Knit", fabricName: "RD6007", construction: "Double Jersey", gsm: 220, quantity: 22562, date: "2023-04-07"},
+        {id: 7, country: "Germany", facility: "Mango Apparel GmbH", po: "PO-64547", style: "NOVA-FLEX", product: "Quarter-zip sweatshirt", fabricType: "Knit", fabricName: "RD5323", construction: "Jacquard Knit", gsm: 220, quantity: 3563, date: "2023-07-22"},
+        {id: 6, country: "Netherlands", facility: "Amsterdam Manufacturing", po: "PO-44054", style: "SIGMA-FLEX", product: "Oversized denim jacket", fabricType: "Denim", fabricName: "RD5738", construction: "Denim", gsm: 450, quantity: 6729, date: "2023-07-09"},
+        {id: 5, country: "Portugal", facility: "Porto Manufacturing", po: "PO-79307", style: "BOLD-SLIM", product: "Knitted waistcoat", fabricType: "Knit", fabricName: "RD5034", construction: "French Terry", gsm: 200, quantity: 10246, date: "2023-07-20"},
+        {id: 4, country: "Turkey", facility: "Rabateks Facility 2", po: "PO-14907", style: "PRIME-SLIM", product: "Slim jeans", fabricType: "Denim", fabricName: "RD2671", construction: "Denim", gsm: 400, quantity: 5263, date: "2024-10-11"},
+        {id: 3, country: "Portugal", facility: "Porto Manufacturing", po: "PO-32568", style: "APEX-TSH", product: "Knit dress", fabricType: "Knit", fabricName: "RD6164", construction: "Mesh Knit", gsm: 200, quantity: 21054, date: "2023-08-05"},
+        {id: 2, country: "Italy", facility: "Milano Fashion House", po: "PO-95617", style: "ELITE-BLZ", product: "Jersey sports top", fabricType: "Knit", fabricName: "RD8094", construction: "French Terry", gsm: 180, quantity: 2961, date: "2024-10-03"},
+        {id: 1, country: "Portugal", facility: "Porto Manufacturing", po: "PO-51004", style: "URBAN-DLX", product: "Cut-off denim shorts", fabricType: "Denim", fabricName: "RD7844", construction: "Denim", gsm: 400, quantity: 5008, date: "2024-11-01"}
+    ];
+
+    // Assign production stages
+    function assignStages(orders) {
+        const stages = ['Yarn', 'Yarn', 'Fabric', 'Fabric', 'Finishing', 'Assembly', 'Assembly', 'Ready to Pack', 'Delivered', 'In Transit'];
+        return orders.map((order, index) => ({
+            ...order,
+            stage: stages[index % stages.length],
+            progress: Math.floor(Math.random() * 30) + 70,
+            co2: (order.quantity * order.gsm / 1000000 * 2.5).toFixed(2)
+        }));
+    }
+
+    const orders = assignStages(ordersData);
+
+    // Page navigation
+    function showPage(pageName) {
+        document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+        document.getElementById(pageName).classList.add('active');
+        
+        switch(pageName) {
+            case 'chemicals': loadChemicalsOrders(); break;
+            case 'fibre': loadFibreOrders(); break;
+            case 'fabric': loadFabricOrders(); break;
+            case 'finishing': loadFinishingOrders(); break;
+            case 'garment': loadGarmentOrders(); break;
+            case 'packaging': loadPackagingOrders(); break;
+            case 'delivery': loadDeliveryOrders(); break;
+            case 'transport': loadTransportOrders(); break;
+        }
+    }
+
+    function getOrdersByStage(stage, limit = null) {
+        const filtered = orders.filter(o => o.stage === stage);
+        return limit ? filtered.slice(0, limit) : filtered;
+    }
+
+    function getStageStats(stage) {
+        const stageOrders = getOrdersByStage(stage);
+        return {
+            count: stageOrders.length,
+            totalQty: stageOrders.reduce((sum, o) => sum + o.quantity, 0),
+            totalCO2: stageOrders.reduce((sum, o) => sum + parseFloat(o.co2), 0).toFixed(1)
+        };
+    }
+
+    function formatNumber(num) {
+        return num.toLocaleString('en-US');
+    }
+
+    function getProgressBar(stage, progress) {
+        const colors = {
+            'Yarn': 'progress-yarn',
+            'Fabric': 'progress-fabric',
+            'Finishing': 'progress-finishing',
+            'Assembly': 'progress-assembly',
+            'Ready to Pack': 'progress-packing',
+            'Delivered': 'progress-delivered'
+        };
+        return `
+            <div class="progress-bar">
+                <div class="progress-fill ${colors[stage]}" style="width: ${progress}%"></div>
+            </div>
+            <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;">${progress}%</div>
+        `;
+    }
+
+    function loadChemicalsOrders() {
+        const stageOrders = getOrdersByStage('Yarn', 13);
+        const stats = getStageStats('Yarn');
+        
+        document.getElementById('chemicals-count').textContent = stats.count;
+        document.getElementById('chemicals-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('chemicals-co2').textContent = stats.totalCO2 + 't';
+        document.getElementById('chemicals-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${stats.totalCO2} tCO₂`;
+        
+        document.getElementById('chemicals-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${o.fabricName}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.gsm}</td>
+                <td>${o.country}</td>
+                <td>${getProgressBar(o.stage, o.progress)}</td>
+                <td>${o.co2}</td>
+            </tr>
+        `).join('');
+    }
+
+    function loadFibreOrders() {
+        const stageOrders = getOrdersByStage('Yarn', 12);
+        const stats = getStageStats('Yarn');
+        
+        document.getElementById('fibre-count').textContent = stats.count;
+        document.getElementById('fibre-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('fibre-co2').textContent = stats.totalCO2 + 't';
+        document.getElementById('fibre-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces`;
+        
+        document.getElementById('fibre-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${o.fabricType}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.gsm}</td>
+                <td>${o.country}</td>
+                <td>${getProgressBar(o.stage, o.progress)}</td>
+            </tr>
+        `).join('');
+    }
+
+    function loadFabricOrders() {
+        const stageOrders = getOrdersByStage('Fabric', 13);
+        const stats = getStageStats('Fabric');
+        
+        document.getElementById('fabric-count').textContent = stats.count;
+        document.getElementById('fabric-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('fabric-co2').textContent = stats.totalCO2 + 't';
+        document.getElementById('fabric-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${stats.totalCO2} tCO₂`;
+        
+        document.getElementById('fabric-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${o.fabricType}</td>
+                <td>${o.construction}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.gsm}</td>
+                <td>${o.country}</td>
+                <td>${getProgressBar(o.stage, o.progress)}</td>
+            </tr>
+        `).join('');
+    }
+
+    function loadFinishingOrders() {
+        const stageOrders = getOrdersByStage('Finishing', 7);
+        const stats = getStageStats('Finishing');
+        
+        document.getElementById('finishing-count').textContent = stats.count;
+        document.getElementById('finishing-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('finishing-co2').textContent = stats.totalCO2 + 't';
+        document.getElementById('finishing-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${stats.totalCO2} tCO₂`;
+        
+        document.getElementById('finishing-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${o.fabricName}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.gsm}</td>
+                <td>${o.country}</td>
+                <td>${getProgressBar(o.stage, o.progress)}</td>
+                <td>${o.co2}</td>
+            </tr>
+        `).join('');
+    }
+
+    function loadGarmentOrders() {
+        const stageOrders = getOrdersByStage('Assembly', 12);
+        const stats = getStageStats('Assembly');
+        const uniqueStyles = [...new Set(stageOrders.map(o => o.style))].length;
+        
+        document.getElementById('garment-count').textContent = stats.count;
+        document.getElementById('garment-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('garment-styles').textContent = uniqueStyles;
+        document.getElementById('garment-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces • ${uniqueStyles} styles`;
+        
+        document.getElementById('garment-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${o.style}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.gsm}</td>
+                <td>${o.country}</td>
+                <td>${o.facility}</td>
+                <td>${getProgressBar(o.stage, o.progress)}</td>
+            </tr>
+        `).join('');
+    }
+
+    function loadPackagingOrders() {
+        const stageOrders = getOrdersByStage('Ready to Pack', 5);
+        const stats = getStageStats('Ready to Pack');
+        
+        document.getElementById('packaging-count').textContent = stats.count;
+        document.getElementById('packaging-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('packaging-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces ready for packaging`;
+        
+        document.getElementById('packaging-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.country}</td>
+                <td><span class="status-badge status-active">Ready</span></td>
+            </tr>
+        `).join('');
+    }
+
+    function loadDeliveryOrders() {
+        const stageOrders = getOrdersByStage('Delivered', 13);
+        const stats = getStageStats('Delivered');
+        
+        document.getElementById('delivery-count').textContent = stats.count;
+        document.getElementById('delivery-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('delivery-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces delivered successfully`;
+        
+        document.getElementById('delivery-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.country}</td>
+                <td>${o.date}</td>
+                <td><span class="status-badge status-active">✓ Delivered</span></td>
+            </tr>
+        `).join('');
+    }
+
+    function loadTransportOrders() {
+        const stageOrders = getOrdersByStage('In Transit', 13);
+        const stats = getStageStats('In Transit');
+        
+        document.getElementById('transport-count').textContent = stats.count;
+        document.getElementById('transport-qty').textContent = formatNumber(stats.totalQty);
+        document.getElementById('transport-stats').textContent = 
+            `${stats.count} orders • ${formatNumber(stats.totalQty)} pieces in transportation`;
+        
+        document.getElementById('transport-orders-tbody').innerHTML = stageOrders.map(o => `
+            <tr>
+                <td><strong>ORD-${String(o.id).padStart(3, '0')}</strong></td>
+                <td>${o.po}</td>
+                <td>${o.product}</td>
+                <td>${formatNumber(o.quantity)}</td>
+                <td>${o.country}</td>
+                <td><span class="status-badge status-optimizing">In Transit</span></td>
+            </tr>
+        `).join('');
+    }
+
+    // Initialize Charts
+    function initCharts() {
+        if (!window.Chart) return;
+
+        const ordersCtx = document.getElementById('ordersChart');
+        if (ordersCtx && !ordersCtx.chart) {
+            const yarnStats = getStageStats('Yarn');
+            const fabricStats = getStageStats('Fabric');
+            const finishingStats = getStageStats('Finishing');
+            const assemblyStats = getStageStats('Assembly');
+            
+            ordersCtx.chart = new Chart(ordersCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Yarn', 'Fabric', 'Finishing', 'Assembly'],
+                    datasets: [{
+                        label: 'Orders',
+                        data: [yarnStats.count, fabricStats.count, finishingStats.count, assemblyStats.count],
+                        backgroundColor: ['#f9ba00', '#005530', '#2196f3', '#02154e']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+            
+            document.getElementById('dash-yarn-count').textContent = yarnStats.count;
+            document.getElementById('dash-yarn-qty').textContent = formatNumber(yarnStats.totalQty) + ' pcs';
+            document.getElementById('dash-fabric-count').textContent = fabricStats.count;
+            document.getElementById('dash-fabric-qty').textContent = formatNumber(fabricStats.totalQty) + ' pcs';
+            document.getElementById('dash-finishing-count').textContent = finishingStats.count;
+            document.getElementById('dash-finishing-qty').textContent = formatNumber(finishingStats.totalQty) + ' pcs';
+            document.getElementById('dash-assembly-count').textContent = assemblyStats.count;
+            document.getElementById('dash-assembly-qty').textContent = formatNumber(assemblyStats.totalQty) + ' pcs';
+        }
+
+        const countryCtx = document.getElementById('countryChart');
+        if (countryCtx && !countryCtx.chart) {
+            const countryData = {};
+            orders.forEach(o => {
+                countryData[o.country] = (countryData[o.country] || 0) + 1;
+            });
+
+            countryCtx.chart = new Chart(countryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: Object.keys(countryData),
+                    datasets: [{
+                        data: Object.values(countryData),
+                        backgroundColor: ['#005530', '#f9ba00', '#02154e', '#D51635', '#2196f3', '#9c27b0', '#ff9800']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: {
+                        legend: { position: 'bottom' }
+                    }
+                }
+            });
+        }
+
+        // Module charts
+        const chemCtx = document.getElementById('chemicalsChart');
+        if (chemCtx && !chemCtx.chart) {
+            chemCtx.chart = new Chart(chemCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Dyeing', 'Finishing', 'Printing'],
+                    datasets: [{
+                        label: 'CO₂ (tCO₂)',
+                        data: [18.4, 15.2, 8.2],
+                        backgroundColor: ['#005530', '#f9ba00', '#02154e']
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        const fibCtx = document.getElementById('fibreChart');
+        if (fibCtx && !fibCtx.chart) {
+            fibCtx.chart = new Chart(fibCtx, {
+                type: 'line',
+                data: {
+                    labels: ['W1','W2','W3','W4','W5','W6','W7','W8'],
+                    datasets: [{
+                        label: 'Production',
+                        data: [12.1,12.3,12.6,12.4,12.7,12.5,12.3,12.4],
+                        borderColor: '#005530',
+                        backgroundColor: 'rgba(0,85,48,0.15)',
+                        tension: 0.25
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: false } } }
+            });
+        }
+
+        const fabCtx = document.getElementById('fabricChart');
+        if (fabCtx && !fabCtx.chart) {
+            fabCtx.chart = new Chart(fabCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Knit', 'Woven', 'Denim', 'Nonwoven'],
+                    datasets: [{
+                        data: [
+                            orders.filter(o => o.fabricType === 'Knit').length,
+                            orders.filter(o => o.fabricType === 'Woven').length,
+                            orders.filter(o => o.fabricType === 'Denim').length,
+                            orders.filter(o => o.fabricType === 'Nonwoven').length
+                        ],
+                        backgroundColor: ['#005530', '#f9ba00', '#02154e', '#2196f3']
+                    }]
+                },
+                options: { responsive: true }
+            });
+        }
+
+        const finCtx = document.getElementById('finishingChart');
+        if (finCtx && !finCtx.chart) {
+            finCtx.chart = new Chart(finCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1','Week 2','Week 3','Week 4'],
+                    datasets: [{
+                        label: 'CO₂ (t)',
+                        data: [5.2, 4.8, 6.1, 6.2],
+                        borderColor: '#2196f3',
+                        backgroundColor: 'rgba(33,150,243,0.2)',
+                        tension: 0.3
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            });
+        }
+
+        const garCtx = document.getElementById('garmentChart');
+        if (garCtx && !garCtx.chart) {
+            garCtx.chart = new Chart(garCtx, {
+                type: 'line',
+                data: {
+                    labels: ['W1','W2','W3','W4'],
+                    datasets: [{
+                        label: 'Qty (pcs)',
+                        data: [900, 1100, 1200, 1250],
+                        borderColor: '#02154e',
+                        backgroundColor: 'rgba(2,21,78,0.2)',
+                        tension: 0.3
+                    }]
+                },
+                options: { responsive: true, scales: { y: { beginAtZero: true } } }
+            });
+        }
+    }
+
+    // Initialize
+    document.addEventListener('DOMContentLoaded', function() {
+        try {
+            const yarnStats = getStageStats('Yarn');
+            const fabricStats = getStageStats('Fabric');
+            const finishingStats = getStageStats('Finishing');
+            const assemblyStats = getStageStats('Assembly');
+            
+            document.getElementById('dash-yarn-count').textContent = yarnStats.count;
+            document.getElementById('dash-yarn-qty').textContent = formatNumber(yarnStats.totalQty) + ' pcs';
+            document.getElementById('dash-fabric-count').textContent = fabricStats.count;
+            document.getElementById('dash-fabric-qty').textContent = formatNumber(fabricStats.totalQty) + ' pcs';
+            document.getElementById('dash-finishing-count').textContent = finishingStats.count;
+            document.getElementById('dash-finishing-qty').textContent = formatNumber(finishingStats.totalQty) + ' pcs';
+            document.getElementById('dash-assembly-count').textContent = assemblyStats.count;
+            document.getElementById('dash-assembly-qty').textContent = formatNumber(assemblyStats.totalQty) + ' pcs';
+            
+            setTimeout(() => {
+                initCharts();
+            }, 100);
+            
+        } catch(e) {
+            console.error('Initialization error:', e);
+        }
+    });
+</script>
+```
+
+</body>
+</html>

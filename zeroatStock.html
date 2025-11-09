@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Stock - Stok ve Depo Yönetimi</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+```
+        --zero-space-xs: 0.5rem;
+        --zero-space-sm: 1rem;
+        --zero-space-md: 2rem;
+        --zero-space-lg: 4rem;
+        
+        --zero-radius-sm: 4px;
+        --zero-radius-md: 6px;
+        --zero-radius-lg: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--zero-gray-bg);
+        color: var(--zero-black);
+        line-height: 1.6;
+        padding-top: 4px;
+    }
+    
+    .zero-color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            var(--zero-green) 0%, var(--zero-green) 25%, 
+            var(--zero-red) 25%, var(--zero-red) 50%, 
+            var(--zero-navy) 50%, var(--zero-navy) 75%, 
+            var(--zero-orange) 75%, var(--zero-orange) 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .app-header {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+        gap: var(--zero-space-md);
+    }
+    
+    .header-logo {
+        width: 80px;
+        height: 80px;
+        opacity: 0.95;
+        transition: opacity 0.3s ease;
+    }
+    
+    .header-logo:hover {
+        opacity: 1;
+    }
+    
+    .title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .title {
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    .title-at {
+        color: var(--zero-orange);
+    }
+    
+    .subtitle {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.7);
+    }
+    
+    .subtitle-at {
+        color: var(--zero-orange);
+    }
+    
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--zero-space-md);
+    }
+    
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .stat-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+    }
+    
+    .stat-value.green {
+        color: var(--zero-green);
+    }
+    
+    .stat-value.orange {
+        color: var(--zero-orange);
+    }
+    
+    .stat-value.red {
+        color: var(--zero-red);
+    }
+    
+    .stat-subtitle {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: var(--zero-space-xs);
+    }
+    
+    .tabs {
+        display: flex;
+        gap: var(--zero-space-xs);
+        margin-bottom: var(--zero-space-md);
+        background: var(--zero-white);
+        padding: var(--zero-space-xs);
+        border-radius: var(--zero-radius-lg);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-gray-dark);
+        transition: all 0.3s ease;
+        flex: 1;
+    }
+    
+    .tab-btn.active {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .tab-btn:hover:not(.active) {
+        background: var(--zero-gray-light);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .stock-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .stock-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .stock-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .stock-card.critical {
+        border-left: 4px solid var(--zero-red);
+    }
+    
+    .stock-card.warning {
+        border-left: 4px solid var(--zero-orange);
+    }
+    
+    .stock-card.healthy {
+        border-left: 4px solid var(--zero-green);
+    }
+    
+    .stock-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .stock-name {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .stock-code {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: 0.25rem;
+    }
+    
+    .qr-icon {
+        width: 40px;
+        height: 40px;
+        background: var(--zero-gray-light);
+        border-radius: var(--zero-radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .qr-icon:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .stock-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .detail-item {
+        padding: var(--zero-space-xs);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .detail-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .detail-value {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-black);
+        margin-top: 0.25rem;
+    }
+    
+    .stock-progress {
+        margin: var(--zero-space-sm) 0;
+    }
+    
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: 0.25rem;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--zero-gray-light);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-fill.critical {
+        background: var(--zero-red);
+    }
+    
+    .progress-fill.warning {
+        background: var(--zero-orange);
+    }
+    
+    .progress-fill.healthy {
+        background: var(--zero-green);
+    }
+    
+    .stock-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--zero-space-sm);
+        border-top: 1px solid var(--zero-gray-light);
+    }
+    
+    .last-movement {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .co2-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .warehouse-map {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .map-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .map-grid {
+        display: grid;
+        grid-template-columns: repeat(8, 1fr);
+        gap: 8px;
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .map-cell {
+        aspect-ratio: 1;
+        border-radius: var(--zero-radius-sm);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .map-cell:hover {
+        transform: scale(1.1);
+        z-index: 10;
+    }
+    
+    .map-cell.empty {
+        background: var(--zero-gray-light);
+        color: var(--zero-gray-medium);
+    }
+    
+    .map-cell.low {
+        background: rgba(0,85,48,0.2);
+        color: var(--zero-green);
+    }
+    
+    .map-cell.medium {
+        background: rgba(249,186,0,0.3);
+        color: #cc9500;
+    }
+    
+    .map-cell.high {
+        background: rgba(213,22,53,0.2);
+        color: var(--zero-red);
+    }
+    
+    .map-legend {
+        display: flex;
+        gap: var(--zero-space-md);
+        justify-content: center;
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .legend-color {
+        width: 20px;
+        height: 20px;
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .activity-log {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .log-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .log-item {
+        padding: var(--zero-space-sm);
+        border-left: 3px solid var(--zero-gray-light);
+        margin-bottom: var(--zero-space-sm);
+        transition: all 0.3s ease;
+    }
+    
+    .log-item:hover {
+        background: var(--zero-gray-bg);
+        border-left-color: var(--zero-orange);
+    }
+    
+    .log-item.in {
+        border-left-color: var(--zero-green);
+    }
+    
+    .log-item.out {
+        border-left-color: var(--zero-red);
+    }
+    
+    .log-time {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .log-description {
+        font-size: 0.875rem;
+        color: var(--zero-black);
+        margin-top: 0.25rem;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .action-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .action-btn.secondary {
+        background: var(--zero-white);
+        color: var(--zero-navy);
+        border: 1px solid var(--zero-navy);
+    }
+    
+    .action-btn.secondary:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            gap: var(--zero-space-sm);
+        }
+        
+        .header-logo {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+        }
+        
+        .tabs {
+            flex-direction: column;
+        }
+        
+        .stock-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .map-grid {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<header class="app-header">
+    <div class="header-content">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjgwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPlN0b2NrPC90ZXh0PgogIDxyZWN0IHg9IjUwIiB5PSIyOTUiIHdpZHRoPSIzMDAiIGhlaWdodD0iNSIgZmlsbD0iI2Y5YmEwMCIvPgogIDx0ZXh0IHg9IjUwIiB5PSIzNDAiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlRyYWNraW5nIHdhcmVob3VzZTwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5jYXJib24gZm9vdHByaW50PC90ZXh0Pgo8L3N2Zz4=" alt="Zero@Stock Logo" class="header-logo">
+        <div class="title-group">
+            <div class="title">Zero<span class="title-at">@</span>Stock</div>
+            <div class="subtitle">by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <div class="stat-label">Total Stock Value</div>
+            <div class="stat-value green">€2.4M</div>
+            <div class="stat-subtitle">+12% this month</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Critical Level Products</div>
+            <div class="stat-value red">8</div>
+            <div class="stat-subtitle">Urgent order required</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Today's In/Out</div>
+            <div class="stat-value orange">142/98</div>
+            <div class="stat-subtitle">Total 240 movements</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Warehouse Capacity</div>
+            <div class="stat-value">78%</div>
+            <div class="stat-subtitle">11,240 / 14,400 m³</div>
+        </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="showMaterialReceipt()">📥 Material Receipt</button>
+        <button class="action-btn" onclick="showShipmentPrep()">📤 Prepare Shipment</button>
+        <button class="action-btn secondary" onclick="showWarehouseTransfer()">🔄 Warehouse Transfer</button>
+        <button class="action-btn secondary" onclick="showReports()">📊 Reports</button>
+    </div>
+    
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('hammadde')">Raw Materials</button>
+        <button class="tab-btn" onclick="showTab('yarimamul')">Work in Progress</button>
+        <button class="tab-btn" onclick="showTab('mamul')">Finished Goods</button>
+        <button class="tab-btn" onclick="showTab('kritik')">Critical Stock</button>
+    </div>
+    
+    <!-- Tab Content: Hammaddeler -->
+    <div id="hammadde" class="tab-content active">
+        <div class="stock-grid">
+            <div class="stock-card healthy">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Cotton Yarn 30/1</div>
+                        <div class="stock-code">YRN-PM-3001</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">8,450 kg</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Min. Level</div>
+                        <div class="detail-value">2,000 kg</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">A-12, B-08</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Unit Price</div>
+                        <div class="detail-value">€3.85/kg</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Capacity Rate</span>
+                        <span>84%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill healthy" style="width: 84%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Last Movement: 2 hours ago</div>
+                    <div class="co2-badge">0.85 kg CO₂/kg</div>
+                </div>
+            </div>
+            
+            <div class="stock-card warning">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Polyester Fabric</div>
+                        <div class="stock-code">FBR-PES-001</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">3,200 m</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Min. Level</div>
+                        <div class="detail-value">2,500 m</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">C-15</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Unit Price</div>
+                        <div class="detail-value">€8.50/m</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Capacity Rate</span>
+                        <span>28%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill warning" style="width: 28%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Last Movement: 1 day ago</div>
+                    <div class="co2-badge">1.42 kg CO₂/m</div>
+                </div>
+            </div>
+            
+            <div class="stock-card healthy">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Button Set (Metal)</div>
+                        <div class="stock-code">ACC-BTN-M12</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">45,000 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Min. Level</div>
+                        <div class="detail-value">10,000 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">D-03</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Unit Price</div>
+                        <div class="detail-value">€0.12/pc</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Capacity Rate</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill healthy" style="width: 90%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Last Movement: 3 hours ago</div>
+                    <div class="co2-badge">0.05 kg CO₂/pc</div>
+                </div>
+            </div>
+            
+            <div class="stock-card critical">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Zippers 50cm</div>
+                        <div class="stock-code">ACC-ZIP-50C</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">850 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Min. Level</div>
+                        <div class="detail-value">1,000 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">D-05</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Unit Price</div>
+                        <div class="detail-value">€0.85/pc</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Capacity Rate</span>
+                        <span>17%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill critical" style="width: 17%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Last Movement: 5 hours ago</div>
+                    <div class="co2-badge">0.18 kg CO₂/pc</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Work in Progress -->
+    <div id="yarimamul" class="tab-content">
+        <div class="stock-grid">
+            <div class="stock-card healthy">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Cut Panels - Shirt</div>
+                        <div class="stock-code">WIP-SHR-P01</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">2,340 sets</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Production Stage</div>
+                        <div class="detail-value">Cutting Complete</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">E-22, E-23</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Target Order</div>
+                        <div class="detail-value">ORD-2024-1156</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Completion</span>
+                        <span>35%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill healthy" style="width: 35%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Cutting: 6 hours ago</div>
+                    <div class="co2-badge">2.15 kg CO₂/set</div>
+                </div>
+            </div>
+            
+            <div class="stock-card healthy">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Sewn Parts - Trousers</div>
+                        <div class="stock-code">WIP-TRS-D01</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">1,890 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Production Stage</div>
+                        <div class="detail-value">Sewing Complete</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">F-18</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Target Order</div>
+                        <div class="detail-value">ORD-2024-1142</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Completion</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill healthy" style="width: 75%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Sewing: 4 hours ago</div>
+                    <div class="co2-badge">3.82 kg CO₂/pc</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Finished Goods -->
+    <div id="mamul" class="tab-content">
+        <div class="stock-grid">
+            <div class="stock-card healthy">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Men's Shirt - Blue</div>
+                        <div class="stock-code">FNS-SHR-BLU-M</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">3,240 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Ready to Ship</div>
+                        <div class="detail-value">2,890 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">G-12, G-13</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Unit Price</div>
+                        <div class="detail-value">€28.50/pc</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Stock Status</span>
+                        <span>81%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill healthy" style="width: 81%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Packaging: 1 hour ago</div>
+                    <div class="co2-badge">4.25 kg CO₂/pc</div>
+                </div>
+            </div>
+            
+            <div class="stock-card healthy">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Women's Trousers - Black</div>
+                        <div class="stock-code">FNS-TRS-BLK-W</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">2,180 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Ready to Ship</div>
+                        <div class="detail-value">2,180 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Location</div>
+                        <div class="detail-value">G-15</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Unit Price</div>
+                        <div class="detail-value">€32.00/pc</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Stock Status</span>
+                        <span>87%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill healthy" style="width: 87%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">Quality Control: 30 min ago</div>
+                    <div class="co2-badge">5.12 kg CO₂/pc</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Critical Stock -->
+    <div id="kritik" class="tab-content">
+        <div class="stock-grid">
+            <div class="stock-card critical">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Zippers 50cm</div>
+                        <div class="stock-code">ACC-ZIP-50C</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">850 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Min. Level</div>
+                        <div class="detail-value">1,000 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Shortage</div>
+                        <div class="detail-value" style="color: var(--zero-red)">-150 pcs</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Order Status</div>
+                        <div class="detail-value">Pending</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Critical Level</span>
+                        <span>17%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill critical" style="width: 17%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">⚠️ URGENT ORDER REQUIRED</div>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Order form opening...')">Place Order</button>
+                </div>
+            </div>
+            
+            <div class="stock-card critical">
+                <div class="stock-header">
+                    <div>
+                        <div class="stock-name">Elastic Band 2cm</div>
+                        <div class="stock-code">ACC-ELS-2CM</div>
+                    </div>
+                    <div class="qr-icon" title="View QR Code">⊞</div>
+                </div>
+                <div class="stock-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Quantity</div>
+                        <div class="detail-value">420 m</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Min. Level</div>
+                        <div class="detail-value">500 m</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Shortage</div>
+                        <div class="detail-value" style="color: var(--zero-red)">-80 m</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Order Status</div>
+                        <div class="detail-value">Pending Approval</div>
+                    </div>
+                </div>
+                <div class="stock-progress">
+                    <div class="progress-label">
+                        <span>Critical Level</span>
+                        <span>16%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill critical" style="width: 16%"></div>
+                    </div>
+                </div>
+                <div class="stock-footer">
+                    <div class="last-movement">⚠️ URGENT ORDER REQUIRED</div>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="alert('Order form opening...')">Place Order</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Warehouse Map -->
+    <div class="warehouse-map">
+        <h3 class="map-title">🏭 Warehouse Heat Map</h3>
+        <div class="map-grid">
+            <div class="map-cell high">A-01<br>95%</div>
+            <div class="map-cell high">A-02<br>92%</div>
+            <div class="map-cell medium">A-03<br>68%</div>
+            <div class="map-cell low">A-04<br>45%</div>
+            <div class="map-cell empty">A-05<br>0%</div>
+            <div class="map-cell low">A-06<br>38%</div>
+            <div class="map-cell medium">A-07<br>72%</div>
+            <div class="map-cell high">A-08<br>88%</div>
+            
+            <div class="map-cell medium">B-01<br>65%</div>
+            <div class="map-cell high">B-02<br>91%</div>
+            <div class="map-cell high">B-03<br>87%</div>
+            <div class="map-cell low">B-04<br>42%</div>
+            <div class="map-cell medium">B-05<br>58%</div>
+            <div class="map-cell low">B-06<br>35%</div>
+            <div class="map-cell empty">B-07<br>0%</div>
+            <div class="map-cell medium">B-08<br>71%</div>
+            
+            <div class="map-cell low">C-01<br>48%</div>
+            <div class="map-cell medium">C-02<br>62%</div>
+            <div class="map-cell high">C-03<br>94%</div>
+            <div class="map-cell medium">C-04<br>75%</div>
+            <div class="map-cell low">C-05<br>31%</div>
+            <div class="map-cell high">C-06<br>89%</div>
+            <div class="map-cell medium">C-07<br>66%</div>
+            <div class="map-cell low">C-08<br>44%</div>
+            
+            <div class="map-cell empty">D-01<br>0%</div>
+            <div class="map-cell low">D-02<br>28%</div>
+            <div class="map-cell high">D-03<br>90%</div>
+            <div class="map-cell medium">D-04<br>73%</div>
+            <div class="map-cell high">D-05<br>85%</div>
+            <div class="map-cell low">D-06<br>39%</div>
+            <div class="map-cell medium">D-07<br>61%</div>
+            <div class="map-cell empty">D-08<br>0%</div>
+        </div>
+        <div class="map-legend">
+            <div class="legend-item">
+                <div class="legend-color" style="background: var(--zero-gray-light)"></div>
+                <span>Empty (0%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(0,85,48,0.2)"></div>
+                <span>Low (1-50%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(249,186,0,0.3)"></div>
+                <span>Medium (51-80%)</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-color" style="background: rgba(213,22,53,0.2)"></div>
+                <span>High (81-100%)</span>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Activity Log -->
+    <div class="activity-log">
+        <h3 class="log-title">📋 Recent Activities</h3>
+        <div class="log-item in">
+            <div class="log-time">Nov 08, 2025, 14:35</div>
+            <div class="log-description"><strong>Material Receipt:</strong> 2,400 kg Cotton Yarn 30/1 (YRN-PM-3001) - Supplier: Textile Inc.</div>
+        </div>
+        <div class="log-item out">
+            <div class="log-time">Nov 08, 2025, 13:20</div>
+            <div class="log-description"><strong>Shipment:</strong> 1,250 pcs Men's Shirt - Blue (FNS-SHR-BLU-M) - Order: ORD-2024-1156</div>
+        </div>
+        <div class="log-item in">
+            <div class="log-time">Nov 08, 2025, 11:45</div>
+            <div class="log-description"><strong>Production Receipt:</strong> 580 pcs Sewn Parts - Trousers (WIP-TRS-D01) - Sewing Line #3</div>
+        </div>
+        <div class="log-item out">
+            <div class="log-time">Nov 08, 2025, 10:15</div>
+            <div class="log-description"><strong>Transfer:</strong> 850 m Polyester Fabric (FBR-PES-001) - C-15 → Cutting Department</div>
+        </div>
+        <div class="log-item in">
+            <div class="log-time">Nov 08, 2025, 09:30</div>
+            <div class="log-description"><strong>Material Receipt:</strong> 15,000 pcs Button Set Metal (ACC-BTN-M12) - Supplier: Accessories Ltd.</div>
+        </div>
+        <div class="log-item out">
+            <div class="log-time">Nov 08, 2025, 08:50</div>
+            <div class="log-description"><strong>Production Issue:</strong> 3,200 kg Cotton Yarn 30/1 (YRN-PM-3001) - Yarn Department</div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function showTab(tabName) {
+        // Hide all tab contents
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        // Remove active class from all buttons
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        // Show selected tab content
+        document.getElementById(tabName).classList.add('active');
+        
+        // Add active class to clicked button
+        event.target.classList.add('active');
+    }
+    
+    // Action button functions with example data
+    function showMaterialReceipt() {
+        const exampleData = `📥 MATERIAL RECEIPT FORM
+```
+
+Material: Cotton Yarn 30/1
+Code: YRN-PM-3001
+Quantity: 2,400 kg
+Supplier: Textile Inc.
+PO Number: PO-2024-892
+Location: A-12, B-08
+Expected Date: Nov 08, 2025
+Quality Control: Pending
+
+✅ Receipt Confirmed`;
+alert(exampleData);
+}
+
+```
+    function showShipmentPrep() {
+        const exampleData = `📤 SHIPMENT PREPARATION
+```
+
+Order ID: ORD-2024-1156
+Customer: Fashion Retail Europe
+Products:
+• 1,250 pcs Men’s Shirt - Blue (FNS-SHR-BLU-M)
+• 890 pcs Women’s Trousers - Black (FNS-TRS-BLK-W)
+
+Packing Status: 85% Complete
+Location: G-12, G-13, G-15
+Carrier: DHL Express
+Tracking: DHL-EU-20241108-00892
+Ship Date: Nov 09, 2025
+
+📦 Ready for dispatch`;
+alert(exampleData);
+}
+
+```
+    function showWarehouseTransfer() {
+        const exampleData = `🔄 WAREHOUSE TRANSFER
+```
+
+Transfer ID: TRF-2024-445
+Material: Polyester Fabric (FBR-PES-001)
+Quantity: 850 m
+From Location: C-15
+To Location: Cutting Department - Floor 2
+Requested by: Production Manager
+Transfer Date: Nov 08, 2025 - 10:15
+Status: In Progress
+
+Vehicle: Forklift #3
+Operator: John Smith
+
+✅ Transfer initiated`;
+alert(exampleData);
+}
+
+```
+    function showReports() {
+        const exampleData = `📊 STOCK REPORTS DASHBOARD
+```
+
+Available Reports:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 Daily Stock Movement
+Last 24 hours: 240 movements
+In: 142 | Out: 98
+
+📉 Low Stock Alert Report
+8 items below minimum level
+
+💰 Stock Valuation Report
+Total Value: €2.4M
+Monthly Change: +12%
+
+📦 ABC Analysis
+A-Items: 23 | B-Items: 45 | C-Items: 132
+
+🔄 Stock Turnover Rate
+Average: 4.2x per month
+
+📍 Warehouse Utilization
+Overall: 78% | Peak: 95%
+
+🌱 CO₂ Footprint Report
+Storage: 1,245 kg CO₂/month
+
+Select report type to generate…`;
+alert(exampleData);
+}
+
+```
+    // Add hover effect to warehouse map cells
+    document.querySelectorAll('.map-cell').forEach(cell => {
+        cell.addEventListener('click', function() {
+            const cellInfo = this.textContent.trim();
+            alert(`📦 Warehouse Location: ${cellInfo}\n\nDetails:\n• Capacity: ${cellInfo.split('\n')[1]}\n• Location: ${cellInfo.split('\n')[0]}\n• Status: Active`);
+        });
+    });
+</script>
+```
+
+</body>
+</html>

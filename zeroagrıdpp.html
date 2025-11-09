@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Agri - Tarım ve Gıda Üretimi</title>
+    <style>
+        :root {
+            --zero-navy: #02154e;
+            --zero-orange: #f9ba00;
+            --zero-green: #005530;
+            --zero-red: #D51635;
+            --zero-white: #ffffff;
+            --zero-black: #1a1a1a;
+            --zero-gray-dark: #666666;
+            --zero-gray-medium: #9E9E9E;
+            --zero-gray-light: #e0e0e0;
+            --zero-gray-bg: #fafafa;
+
+```
+        --zero-space-xs: 0.5rem;
+        --zero-space-sm: 1rem;
+        --zero-space-md: 2rem;
+        --zero-space-lg: 4rem;
+        
+        --zero-radius-sm: 4px;
+        --zero-radius-md: 6px;
+        --zero-radius-lg: 8px;
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+        background: var(--zero-gray-bg);
+        color: var(--zero-black);
+        line-height: 1.6;
+        padding-top: 4px;
+    }
+    
+    .zero-color-bar {
+        height: 4px;
+        width: 100%;
+        background: linear-gradient(90deg, 
+            var(--zero-green) 0%, var(--zero-green) 25%, 
+            var(--zero-red) 25%, var(--zero-red) 50%, 
+            var(--zero-navy) 50%, var(--zero-navy) 75%, 
+            var(--zero-orange) 75%, var(--zero-orange) 100%);
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    .app-header {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: relative;
+    }
+    
+    .header-content {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        max-width: 1600px;
+        margin: 0 auto;
+        gap: var(--zero-space-md);
+    }
+    
+    .header-logo {
+        width: 80px;
+        height: 80px;
+        opacity: 0.95;
+        transition: opacity 0.3s ease;
+    }
+    
+    .header-logo:hover {
+        opacity: 1;
+    }
+    
+    .title-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .title {
+        font-size: 1.75rem;
+        font-weight: 300;
+        line-height: 1.2;
+    }
+    
+    .title-at {
+        color: var(--zero-orange);
+    }
+    
+    .subtitle {
+        font-size: 0.875rem;
+        font-weight: 300;
+        color: rgba(255,255,255,0.7);
+    }
+    
+    .subtitle-at {
+        color: var(--zero-orange);
+    }
+    
+    .container {
+        max-width: 1600px;
+        margin: 0 auto;
+        padding: var(--zero-space-md);
+    }
+    
+    .dashboard-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .stat-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        transition: transform 0.3s ease;
+    }
+    
+    .stat-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .stat-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stat-value {
+        font-size: 2rem;
+        font-weight: 300;
+        color: var(--zero-navy);
+    }
+    
+    .stat-value.green {
+        color: var(--zero-green);
+    }
+    
+    .stat-value.orange {
+        color: var(--zero-orange);
+    }
+    
+    .stat-value.red {
+        color: var(--zero-red);
+    }
+    
+    .stat-subtitle {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: var(--zero-space-xs);
+    }
+    
+    .tabs {
+        display: flex;
+        gap: var(--zero-space-xs);
+        margin-bottom: var(--zero-space-md);
+        background: var(--zero-white);
+        padding: var(--zero-space-xs);
+        border-radius: var(--zero-radius-lg);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        overflow-x: auto;
+    }
+    
+    .tab-btn {
+        padding: 0.75rem 1.5rem;
+        background: transparent;
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-gray-dark);
+        transition: all 0.3s ease;
+        flex: 1;
+        white-space: nowrap;
+    }
+    
+    .tab-btn.active {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    .tab-btn:hover:not(.active) {
+        background: var(--zero-gray-light);
+    }
+    
+    .tab-content {
+        display: none;
+    }
+    
+    .tab-content.active {
+        display: block;
+    }
+    
+    .crop-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .crop-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+        transition: all 0.3s ease;
+    }
+    
+    .crop-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    }
+    
+    .crop-card.excellent {
+        border-left: 4px solid var(--zero-green);
+    }
+    
+    .crop-card.good {
+        border-left: 4px solid var(--zero-orange);
+    }
+    
+    .crop-card.attention {
+        border-left: 4px solid var(--zero-red);
+    }
+    
+    .crop-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: start;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .crop-icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .crop-name {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .crop-variety {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-top: 0.25rem;
+    }
+    
+    .cert-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+        border-radius: 12px;
+        font-size: 0.65rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    
+    .crop-details {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .detail-item {
+        padding: var(--zero-space-xs);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-sm);
+    }
+    
+    .detail-label {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .detail-value {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-black);
+        margin-top: 0.25rem;
+    }
+    
+    .crop-progress {
+        margin: var(--zero-space-sm) 0;
+    }
+    
+    .progress-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--zero-gray-dark);
+        margin-bottom: 0.25rem;
+    }
+    
+    .progress-bar {
+        width: 100%;
+        height: 8px;
+        background: var(--zero-gray-light);
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    .progress-fill {
+        height: 100%;
+        transition: width 0.3s ease;
+    }
+    
+    .progress-fill.excellent {
+        background: var(--zero-green);
+    }
+    
+    .progress-fill.good {
+        background: var(--zero-orange);
+    }
+    
+    .progress-fill.attention {
+        background: var(--zero-red);
+    }
+    
+    .crop-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--zero-space-sm);
+        border-top: 1px solid var(--zero-gray-light);
+    }
+    
+    .harvest-date {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+    }
+    
+    .co2-badge {
+        padding: 0.25rem 0.75rem;
+        background: rgba(0,85,48,0.1);
+        color: var(--zero-green);
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+    
+    .supply-chain-map {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .map-title {
+        font-size: 1.25rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .chain-flow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: var(--zero-space-sm);
+        flex-wrap: wrap;
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .chain-stage {
+        flex: 1;
+        min-width: 140px;
+        text-align: center;
+        padding: var(--zero-space-md);
+        background: var(--zero-gray-bg);
+        border-radius: var(--zero-radius-lg);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .chain-stage:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        transform: translateY(-3px);
+    }
+    
+    .chain-stage.active {
+        background: var(--zero-green);
+        color: var(--zero-white);
+    }
+    
+    .stage-icon {
+        font-size: 2rem;
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .stage-name {
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    
+    .stage-count {
+        font-size: 0.75rem;
+        opacity: 0.8;
+        margin-top: 0.25rem;
+    }
+    
+    .chain-arrow {
+        font-size: 1.5rem;
+        color: var(--zero-orange);
+    }
+    
+    .sustainability-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .sustainability-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    
+    .sustainability-header {
+        display: flex;
+        align-items: center;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+    }
+    
+    .sustainability-icon {
+        font-size: 2rem;
+    }
+    
+    .sustainability-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+    }
+    
+    .metric-item {
+        display: flex;
+        justify-content: space-between;
+        padding: var(--zero-space-xs) 0;
+        border-bottom: 1px solid var(--zero-gray-light);
+    }
+    
+    .metric-item:last-child {
+        border-bottom: none;
+    }
+    
+    .metric-label {
+        font-size: 0.875rem;
+        color: var(--zero-gray-dark);
+    }
+    
+    .metric-value {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--zero-black);
+    }
+    
+    .metric-value.good {
+        color: var(--zero-green);
+    }
+    
+    .metric-value.warning {
+        color: var(--zero-orange);
+    }
+    
+    .compliance-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: var(--zero-space-sm);
+    }
+    
+    .compliance-card {
+        background: var(--zero-white);
+        border-radius: var(--zero-radius-lg);
+        padding: var(--zero-space-md);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        position: relative;
+    }
+    
+    .compliance-status {
+        position: absolute;
+        top: var(--zero-space-sm);
+        right: var(--zero-space-sm);
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+    }
+    
+    .compliance-status.active {
+        background: var(--zero-green);
+    }
+    
+    .compliance-status.pending {
+        background: var(--zero-orange);
+    }
+    
+    .compliance-status.expired {
+        background: var(--zero-red);
+    }
+    
+    .cert-icon {
+        font-size: 2.5rem;
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .cert-name {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--zero-navy);
+        margin-bottom: var(--zero-space-xs);
+    }
+    
+    .cert-details {
+        font-size: 0.75rem;
+        color: var(--zero-gray-medium);
+        margin-bottom: var(--zero-space-sm);
+    }
+    
+    .cert-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-top: var(--zero-space-sm);
+        border-top: 1px solid var(--zero-gray-light);
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: var(--zero-space-sm);
+        margin-bottom: var(--zero-space-md);
+        flex-wrap: wrap;
+    }
+    
+    .action-btn {
+        padding: 0.75rem 1.5rem;
+        background: var(--zero-navy);
+        color: var(--zero-white);
+        border: none;
+        border-radius: var(--zero-radius-sm);
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+    }
+    
+    .action-btn:hover {
+        background: var(--zero-orange);
+        color: var(--zero-navy);
+    }
+    
+    .action-btn.secondary {
+        background: var(--zero-white);
+        color: var(--zero-navy);
+        border: 1px solid var(--zero-navy);
+    }
+    
+    .action-btn.secondary:hover {
+        background: var(--zero-navy);
+        color: var(--zero-white);
+    }
+    
+    @media (max-width: 768px) {
+        .header-content {
+            gap: var(--zero-space-sm);
+        }
+        
+        .header-logo {
+            width: 60px;
+            height: 60px;
+        }
+        
+        .title {
+            font-size: 1.5rem;
+        }
+        
+        .subtitle {
+            font-size: 0.75rem;
+        }
+        
+        .tabs {
+            flex-direction: column;
+        }
+        
+        .crop-grid, .sustainability-grid, .compliance-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .chain-flow {
+            flex-direction: column;
+        }
+        
+        .chain-arrow {
+            transform: rotate(90deg);
+        }
+    }
+</style>
+```
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<header class="app-header">
+    <div class="header-content">
+        <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiB2aWV3Qm94PSIwIDAgNDAwIDQwMCI+CiAgPHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIGZpbGw9IiMwMjE1NGUiLz4KICA8dGV4dCB4PSI1MCIgeT0iMTgwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODAiIGZvbnQtd2VpZ2h0PSJib2xkIiBmaWxsPSJ3aGl0ZSI+WmVyb0A8L3RleHQ+CiAgPHRleHQgeD0iNTAiIHk9IjI4MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjgwIiBmb250LXdlaWdodD0iYm9sZCIgZmlsbD0id2hpdGUiPkFncmk8L3RleHQ+CiAgPHJlY3QgeD0iNTAiIHk9IjI5NSIgd2lkdGg9IjMwMCIgaGVpZ2h0PSI1IiBmaWxsPSIjZjliYTAwIi8+CiAgPHRleHQgeD0iNTAiIHk9IjM0MCIgZm9udC1mYW1pbHk9IkFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSI+U3VzdGFpbmFibGUgRm9vZDwvdGV4dD4KICA8dGV4dCB4PSI1MCIgeT0iMzcwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5Qcm9kdWN0aW9uPC90ZXh0Pgo8L3N2Zz4=" alt="Zero@Agri Logo" class="header-logo">
+        <div class="title-group">
+            <div class="title">Zero<span class="title-at">@</span>Agri</div>
+            <div class="subtitle">by Zero<span class="subtitle-at">@</span>Ecosystem</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <!-- Dashboard Stats -->
+    <div class="dashboard-stats">
+        <div class="stat-card">
+            <div class="stat-label">Total Production</div>
+            <div class="stat-value green">2,845 tons</div>
+            <div class="stat-subtitle">+18% vs last year</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Export Value</div>
+            <div class="stat-value orange">€8.4M</div>
+            <div class="stat-subtitle">124 shipments this year</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Active Certifications</div>
+            <div class="stat-value">12</div>
+            <div class="stat-subtitle">100% compliance rate</div>
+        </div>
+        <div class="stat-card">
+            <div class="stat-label">Carbon Footprint</div>
+            <div class="stat-value green">0.42 kg CO₂/kg</div>
+            <div class="stat-subtitle">-24% reduction achieved</div>
+        </div>
+    </div>
+    
+    <!-- Action Buttons -->
+    <div class="action-buttons">
+        <button class="action-btn" onclick="showHarvestPlanning()">🌾 Harvest Planning</button>
+        <button class="action-btn" onclick="showQualityControl()">✓ Quality Control</button>
+        <button class="action-btn secondary" onclick="showExportDocuments()">📋 Export Documents</button>
+        <button class="action-btn secondary" onclick="showReports()">📊 Reports</button>
+    </div>
+    
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="showTab('dashboard')">Dashboard</button>
+        <button class="tab-btn" onclick="showTab('crops')">Crop Management</button>
+        <button class="tab-btn" onclick="showTab('supplychain')">Supply Chain</button>
+        <button class="tab-btn" onclick="showTab('sustainability')">Sustainability</button>
+        <button class="tab-btn" onclick="showTab('compliance')">Compliance</button>
+    </div>
+    
+    <!-- Tab Content: Dashboard -->
+    <div id="dashboard" class="tab-content active">
+        <div class="supply-chain-map">
+            <h3 class="map-title">🚜 Farm to Export - Supply Chain Flow</h3>
+            <div class="chain-flow">
+                <div class="chain-stage active">
+                    <div class="stage-icon">🌱</div>
+                    <div class="stage-name">Farming</div>
+                    <div class="stage-count">145 hectares</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">✂️</div>
+                    <div class="stage-name">Harvesting</div>
+                    <div class="stage-count">2,845 tons</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">🏭</div>
+                    <div class="stage-name">Processing</div>
+                    <div class="stage-count">12 lines active</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">📦</div>
+                    <div class="stage-name">Packaging</div>
+                    <div class="stage-count">8,420 boxes</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">🚢</div>
+                    <div class="stage-name">Export</div>
+                    <div class="stage-count">28 countries</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="crop-grid">
+            <div class="crop-card excellent">
+                <div class="crop-icon">🍑</div>
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Dried Apricots</div>
+                        <div class="crop-variety">Malatya Premium Grade</div>
+                    </div>
+                    <div class="cert-badge">EU Organic</div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">This Season</div>
+                        <div class="detail-value">1,240 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Export Ready</div>
+                        <div class="detail-value">890 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality Score</div>
+                        <div class="detail-value">A+ Grade</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Price/kg</div>
+                        <div class="detail-value">€8.50</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Inventory Level</span>
+                        <span>72%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 72%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Harvest: Jun-Aug 2025</div>
+                    <div class="co2-badge">0.38 kg CO₂/kg</div>
+                </div>
+            </div>
+            
+            <div class="crop-card excellent">
+                <div class="crop-icon">🫐</div>
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Dried Figs</div>
+                        <div class="crop-variety">Aydin Sarılop</div>
+                    </div>
+                    <div class="cert-badge">GlobalGAP</div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">This Season</div>
+                        <div class="detail-value">845 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Export Ready</div>
+                        <div class="detail-value">620 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality Score</div>
+                        <div class="detail-value">Premium</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Price/kg</div>
+                        <div class="detail-value">€6.80</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Inventory Level</span>
+                        <span>73%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 73%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Harvest: Aug-Oct 2025</div>
+                    <div class="co2-badge">0.42 kg CO₂/kg</div>
+                </div>
+            </div>
+            
+            <div class="crop-card excellent">
+                <div class="crop-icon">🍇</div>
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Sultana Raisins</div>
+                        <div class="crop-variety">Seedless Thompson</div>
+                    </div>
+                    <div class="cert-badge">ISO 22000</div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">This Season</div>
+                        <div class="detail-value">760 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Export Ready</div>
+                        <div class="detail-value">680 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality Score</div>
+                        <div class="detail-value">Grade A</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Price/kg</div>
+                        <div class="detail-value">€4.20</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Inventory Level</span>
+                        <span>89%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 89%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Harvest: Aug-Sep 2025</div>
+                    <div class="co2-badge">0.35 kg CO₂/kg</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Crop Management -->
+    <div id="crops" class="tab-content">
+        <div class="crop-grid">
+            <div class="crop-card excellent">
+                <div class="crop-icon">🍑</div>
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Apricot Orchards</div>
+                        <div class="crop-variety">Field A12-A18 (55 hectares)</div>
+                    </div>
+                    <div class="cert-badge">EU Organic</div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Growth Stage</div>
+                        <div class="detail-value">Fruiting</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Health Score</div>
+                        <div class="detail-value">96/100</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Soil Quality</div>
+                        <div class="detail-value">Excellent</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Water Usage</div>
+                        <div class="detail-value">Optimal</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Expected Yield</span>
+                        <span>92%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Est. Harvest: June 15, 2025</div>
+                    <div class="co2-badge">0.28 kg CO₂/kg</div>
+                </div>
+            </div>
+            
+            <div class="crop-card excellent">
+                <div class="crop-icon">🫐</div>
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Fig Trees</div>
+                        <div class="crop-variety">Field B08-B14 (42 hectares)</div>
+                    </div>
+                    <div class="cert-badge">GlobalGAP</div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Growth Stage</div>
+                        <div class="detail-value">Leaf Development</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Health Score</div>
+                        <div class="detail-value">94/100</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Soil Quality</div>
+                        <div class="detail-value">Very Good</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Pest Control</div>
+                        <div class="detail-value">Organic</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Expected Yield</span>
+                        <span>88%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Est. Harvest: August 20, 2025</div>
+                    <div class="co2-badge">0.32 kg CO₂/kg</div>
+                </div>
+            </div>
+            
+            <div class="crop-card good">
+                <div class="crop-icon">🍇</div>
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Grape Vineyards</div>
+                        <div class="crop-variety">Field C01-C06 (48 hectares)</div>
+                    </div>
+                    <div class="cert-badge">ISO 22000</div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Growth Stage</div>
+                        <div class="detail-value">Flowering</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Health Score</div>
+                        <div class="detail-value">82/100</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Soil Quality</div>
+                        <div class="detail-value">Good</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Irrigation</div>
+                        <div class="detail-value">Drip System</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Expected Yield</span>
+                        <span>78%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill good" style="width: 78%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Est. Harvest: August 10, 2025</div>
+                    <div class="co2-badge">0.25 kg CO₂/kg</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Supply Chain -->
+    <div id="supplychain" class="tab-content">
+        <div class="supply-chain-map">
+            <h3 class="map-title">📦 Processing & Export Pipeline</h3>
+            <div class="chain-flow">
+                <div class="chain-stage active">
+                    <div class="stage-icon">🏭</div>
+                    <div class="stage-name">Washing</div>
+                    <div class="stage-count">12,400 kg/day</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage active">
+                    <div class="stage-icon">☀️</div>
+                    <div class="stage-name">Drying</div>
+                    <div class="stage-count">8,900 kg/day</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">⚖️</div>
+                    <div class="stage-name">Sorting</div>
+                    <div class="stage-count">6,200 kg/day</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">📦</div>
+                    <div class="stage-name">Packaging</div>
+                    <div class="stage-count">4,800 boxes/day</div>
+                </div>
+                <div class="chain-arrow">→</div>
+                <div class="chain-stage">
+                    <div class="stage-icon">🚚</div>
+                    <div class="stage-name">Storage</div>
+                    <div class="stage-count">2,845 tons</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="crop-grid">
+            <div class="crop-card excellent">
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Processing Line 1</div>
+                        <div class="crop-variety">Apricot - Premium Grade</div>
+                    </div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Current Status</div>
+                        <div class="detail-value">Active</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Capacity</div>
+                        <div class="detail-value">5,200 kg/day</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Efficiency</div>
+                        <div class="detail-value">94%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quality Pass Rate</div>
+                        <div class="detail-value">98.5%</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Today's Progress</span>
+                        <span>76%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 76%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Batch: APR-2025-1142</div>
+                    <div class="co2-badge">0.15 kg CO₂/kg</div>
+                </div>
+            </div>
+            
+            <div class="crop-card excellent">
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Export Shipment #2845</div>
+                        <div class="crop-variety">Germany - Hamburg Port</div>
+                    </div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Product</div>
+                        <div class="detail-value">Dried Apricots</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Quantity</div>
+                        <div class="detail-value">24.5 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Value</div>
+                        <div class="detail-value">€208,250</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Departure</div>
+                        <div class="detail-value">Nov 12, 2025</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Preparation</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Container: CSLU3846592</div>
+                    <div class="co2-badge">125 kg CO₂ transport</div>
+                </div>
+            </div>
+            
+            <div class="crop-card excellent">
+                <div class="crop-header">
+                    <div>
+                        <div class="crop-name">Cold Storage Unit A</div>
+                        <div class="crop-variety">Temperature Controlled</div>
+                    </div>
+                </div>
+                <div class="crop-details">
+                    <div class="detail-item">
+                        <div class="detail-label">Temperature</div>
+                        <div class="detail-value">4°C</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Humidity</div>
+                        <div class="detail-value">65%</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Capacity Used</div>
+                        <div class="detail-value">840 tons</div>
+                    </div>
+                    <div class="detail-item">
+                        <div class="detail-label">Max Capacity</div>
+                        <div class="detail-value">1,200 tons</div>
+                    </div>
+                </div>
+                <div class="crop-progress">
+                    <div class="progress-label">
+                        <span>Storage Utilization</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill excellent" style="width: 70%"></div>
+                    </div>
+                </div>
+                <div class="crop-footer">
+                    <div class="harvest-date">Last Check: 2 hours ago</div>
+                    <div class="co2-badge">0.08 kg CO₂/day</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Sustainability -->
+    <div id="sustainability" class="tab-content">
+        <div class="sustainability-grid">
+            <div class="sustainability-card">
+                <div class="sustainability-header">
+                    <div class="sustainability-icon">💧</div>
+                    <div class="sustainability-title">Water Management</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Total Water Usage</div>
+                    <div class="metric-value">2,450 m³/week</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Drip Irrigation Coverage</div>
+                    <div class="metric-value good">92%</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Water Efficiency</div>
+                    <div class="metric-value good">-28% reduction</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Rainwater Harvesting</div>
+                    <div class="metric-value">450 m³/month</div>
+                </div>
+            </div>
+            
+            <div class="sustainability-card">
+                <div class="sustainability-header">
+                    <div class="sustainability-icon">🌱</div>
+                    <div class="sustainability-title">Soil Health</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Organic Matter</div>
+                    <div class="metric-value good">4.8%</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">pH Level</div>
+                    <div class="metric-value good">6.5-7.2</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Nutrient Balance</div>
+                    <div class="metric-value good">Optimal</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Soil Testing</div>
+                    <div class="metric-value">Quarterly</div>
+                </div>
+            </div>
+            
+            <div class="sustainability-card">
+                <div class="sustainability-header">
+                    <div class="sustainability-icon">🐛</div>
+                    <div class="sustainability-title">Pest Management</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Organic Methods</div>
+                    <div class="metric-value good">100%</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Chemical Pesticides</div>
+                    <div class="metric-value good">0 kg/year</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Beneficial Insects</div>
+                    <div class="metric-value good">Active</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">IPM Compliance</div>
+                    <div class="metric-value good">100%</div>
+                </div>
+            </div>
+            
+            <div class="sustainability-card">
+                <div class="sustainability-header">
+                    <div class="sustainability-icon">🌍</div>
+                    <div class="sustainability-title">Carbon Footprint</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Per Kilogram Product</div>
+                    <div class="metric-value good">0.42 kg CO₂</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Annual Emissions</div>
+                    <div class="metric-value">1,195 tons CO₂</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Reduction Target 2025</div>
+                    <div class="metric-value good">-30%</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Carbon Offset</div>
+                    <div class="metric-value">285 tons/year</div>
+                </div>
+            </div>
+            
+            <div class="sustainability-card">
+                <div class="sustainability-header">
+                    <div class="sustainability-icon">⚡</div>
+                    <div class="sustainability-title">Energy Usage</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Solar Power</div>
+                    <div class="metric-value good">45% coverage</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Energy Efficiency</div>
+                    <div class="metric-value good">+18% improved</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Monthly Consumption</div>
+                    <div class="metric-value">142,500 kWh</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Renewable Energy</div>
+                    <div class="metric-value good">64,125 kWh</div>
+                </div>
+            </div>
+            
+            <div class="sustainability-card">
+                <div class="sustainability-header">
+                    <div class="sustainability-icon">♻️</div>
+                    <div class="sustainability-title">Waste Management</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Organic Waste Recycling</div>
+                    <div class="metric-value good">96%</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Packaging Recyclable</div>
+                    <div class="metric-value good">88%</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Composting</div>
+                    <div class="metric-value">420 tons/year</div>
+                </div>
+                <div class="metric-item">
+                    <div class="metric-label">Zero Waste Goal</div>
+                    <div class="metric-value warning">Progress: 78%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Tab Content: Compliance -->
+    <div id="compliance" class="tab-content">
+        <div class="compliance-grid">
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">🇪🇺</div>
+                <div class="cert-name">EU Organic Certification</div>
+                <div class="cert-details">
+                    Certificate No: EU-ORG-2024-5842<br>
+                    Issued: January 15, 2024<br>
+                    Expires: January 14, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('EU Organic')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">🌍</div>
+                <div class="cert-name">GlobalGAP</div>
+                <div class="cert-details">
+                    Certificate No: GGP-2024-TR-8945<br>
+                    Issued: March 10, 2024<br>
+                    Expires: March 9, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('GlobalGAP')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">🔬</div>
+                <div class="cert-name">ISO 22000</div>
+                <div class="cert-details">
+                    Certificate No: ISO-22000-2024-4523<br>
+                    Issued: February 20, 2024<br>
+                    Expires: February 19, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('ISO 22000')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">✓</div>
+                <div class="cert-name">HACCP Certified</div>
+                <div class="cert-details">
+                    Certificate No: HACCP-2024-TR-1156<br>
+                    Issued: April 5, 2024<br>
+                    Expires: April 4, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('HACCP')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">🍃</div>
+                <div class="cert-name">Rainforest Alliance</div>
+                <div class="cert-details">
+                    Certificate No: RA-2024-8842<br>
+                    Issued: May 12, 2024<br>
+                    Expires: May 11, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('Rainforest')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">🌾</div>
+                <div class="cert-name">BRC Food Safety</div>
+                <div class="cert-details">
+                    Certificate No: BRC-2024-5623<br>
+                    Issued: June 8, 2024<br>
+                    Expires: June 7, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('BRC')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status pending"></div>
+                <div class="cert-icon">🔄</div>
+                <div class="cert-name">Fair Trade Certification</div>
+                <div class="cert-details">
+                    Application: FT-2025-TR-8956<br>
+                    Applied: October 15, 2024<br>
+                    Expected: January 2025
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-orange);">⏳ Pending</span>
+                    <button class="action-btn secondary" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('FairTrade')">Track</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">🏅</div>
+                <div class="cert-name">Turkish Food Codex</div>
+                <div class="cert-details">
+                    Certificate No: TFC-2024-1142<br>
+                    Issued: January 10, 2024<br>
+                    Expires: January 9, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('TFC')">View</button>
+                </div>
+            </div>
+            
+            <div class="compliance-card">
+                <div class="compliance-status active"></div>
+                <div class="cert-icon">📋</div>
+                <div class="cert-name">IFS Food Standard</div>
+                <div class="cert-details">
+                    Certificate No: IFS-2024-4456<br>
+                    Issued: July 22, 2024<br>
+                    Expires: July 21, 2027
+                </div>
+                <div class="cert-footer">
+                    <span style="font-size: 0.75rem; color: var(--zero-green);">✓ Active</span>
+                    <button class="action-btn" style="padding: 0.25rem 0.75rem; font-size: 0.75rem;" onclick="viewCertificate('IFS')">View</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+    function showTab(tabName) {
+        const tabContents = document.querySelectorAll('.tab-content');
+        tabContents.forEach(content => {
+            content.classList.remove('active');
+        });
+        
+        const tabButtons = document.querySelectorAll('.tab-btn');
+        tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+        });
+        
+        document.getElementById(tabName).classList.add('active');
+        event.target.classList.add('active');
+    }
+    
+    function showHarvestPlanning() {
+        const data = `🌾 HARVEST PLANNING DASHBOARD
+```
+
+Current Season Planning:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📅 Apricots (Malatya Premium)
+Harvest Window: June 15 - August 30, 2025
+Expected Yield: 1,240 tons
+Quality Grade: A+ (Premium)
+Workforce: 185 seasonal workers
+Storage Allocation: Unit A (450 tons capacity)
+
+📅 Figs (Aydin Sarılop)
+Harvest Window: August 20 - October 15, 2025
+Expected Yield: 845 tons
+Quality Grade: Premium
+Workforce: 142 seasonal workers
+Storage Allocation: Unit B (380 tons capacity)
+
+📅 Sultana Raisins (Thompson Seedless)
+Harvest Window: August 10 - September 20, 2025
+Expected Yield: 760 tons
+Quality Grade: Grade A
+Workforce: 128 seasonal workers
+Storage Allocation: Unit C (350 tons capacity)
+
+Weather Forecast Integration: ✓ Active
+Workforce Management: ✓ Scheduled
+Equipment Maintenance: ✓ Complete
+Quality Control Teams: ✓ Ready`;
+alert(data);
+}
+
+```
+    function showQualityControl() {
+        const data = `✓ QUALITY CONTROL DASHBOARD
+```
+
+Real-Time Quality Metrics:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔬 Laboratory Tests (This Week)
+Moisture Content: 142 samples ✓
+Pesticide Residue: 89 samples ✓
+Microbial Analysis: 67 samples ✓
+Heavy Metals: 45 samples ✓
+Aflatoxin Testing: 124 samples ✓
+
+📊 Pass Rates (November 2025)
+Overall Quality: 98.5%
+EU Standards: 99.2%
+Organic Compliance: 100%
+Food Safety: 99.8%
+
+🏭 Processing Quality
+Line 1 (Apricots): A+ Grade - 96% yield
+Line 2 (Figs): Premium - 94% yield
+Line 3 (Raisins): Grade A - 92% yield
+
+⚠️ Recent Rejections
+Batch APR-2845: 2.4% moisture excess (corrected)
+Batch FIG-1142: 1.8% size variation (re-sorted)
+
+✅ Next Audit: December 5, 2025
+Auditor: TÜV SÜD
+Scope: ISO 22000 + HACCP`;
+alert(data);
+}
+
+```
+    function showExportDocuments() {
+        const data = `📋 EXPORT DOCUMENTATION CENTER
+```
+
+Active Shipments:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📦 Shipment #2845 - Germany
+Product: Dried Apricots (24.5 tons)
+Documents Ready:
+✓ Commercial Invoice
+✓ Packing List
+✓ Bill of Lading
+✓ Certificate of Origin
+✓ Phytosanitary Certificate
+✓ Health Certificate
+✓ EU Organic Certificate
+✓ Quality Test Reports
+Status: Ready to Ship (Nov 12, 2025)
+
+📦 Shipment #2846 - Netherlands
+Product: Sultana Raisins (18.2 tons)
+Documents Ready:
+✓ Commercial Invoice
+✓ Packing List
+⏳ Bill of Lading (In Progress)
+✓ Certificate of Origin
+✓ Phytosanitary Certificate
+✓ Health Certificate
+Status: Documents 85% Complete
+
+📦 Shipment #2847 - UK
+Product: Dried Figs (15.8 tons)
+Documents Ready:
+✓ Commercial Invoice
+✓ Packing List
+✓ Bill of Lading
+✓ Certificate of Origin
+✓ Phytosanitary Certificate
+Status: Customs Clearance
+
+Compliance Check: ✓ All certifications valid
+Traceability: ✓ Full chain documented`;
+alert(data);
+}
+
+```
+    function showReports() {
+        const data = `📊 AGRICULTURAL REPORTS CENTER
+```
+
+Available Reports:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📈 Production Reports
+• Harvest Summary (Season 2025)
+• Yield Analysis by Crop Type
+• Processing Efficiency Report
+• Quality Control Statistics
+
+🌍 Sustainability Reports
+• Carbon Footprint Analysis
+• Water Usage & Conservation
+• Soil Health Assessment
+• Biodiversity Monitoring
+
+💰 Financial Reports
+• Export Revenue Dashboard
+• Cost per Hectare Analysis
+• Market Price Trends
+• Profitability by Product
+
+📦 Supply Chain Reports
+• Traceability Records
+• Inventory Management
+• Export Shipment Tracking
+• Storage Utilization
+
+🏆 Compliance Reports
+• Certification Status Overview
+• Audit Results & Action Plans
+• Food Safety Metrics
+• Organic Compliance Tracking
+
+📊 Custom Analytics
+Total Production: 2,845 tons
+Export Value: €8.4M
+Avg. CO₂: 0.42 kg/kg
+Certifications: 12 active
+
+Generate detailed report…`;
+alert(data);
+}
+
+```
+    function viewCertificate(certName) {
+        const data = `📄 ${certName} CERTIFICATE
+```
+
+Certificate Details:
+━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Company: Pagmat Food Industry
+Location: Malatya, Turkey
+Product Scope: Dried Fruits
+Status: ✓ Active & Valid
+
+Certification Body: [Authorized Body]
+Auditor: [Lead Auditor Name]
+Last Audit Date: [Date]
+Next Audit: [Scheduled Date]
+
+Compliance Score: Excellent
+Non-Conformities: None
+Corrective Actions: N/A
+
+📥 Download Options:
+• PDF Certificate
+• Audit Report
+• Compliance Documents
+• Traceability Records
+
+View full documentation…`;
+alert(data);
+}
+
+```
+    document.querySelectorAll('.chain-stage').forEach(stage => {
+        stage.addEventListener('click', function() {
+            const stageName = this.querySelector('.stage-name').textContent;
+            const stageCount = this.querySelector('.stage-count').textContent;
+            alert(`📍 ${stageName}\n\nCurrent Status: ${stageCount}\n\nClick for detailed process view...`);
+        });
+    });
+</script>
+```
+
+</body>
+</html>

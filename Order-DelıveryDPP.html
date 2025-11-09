@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zero@Production — Order Delivery</title>
+    <style>
+:root {
+    --zero-navy: #02154e;
+    --zero-orange: #f9ba00;
+    --zero-green: #005530;
+    --zero-red: #D51635;
+    --zero-white: #ffffff;
+    --zero-black: #1a1a1a;
+    --zero-gray-dark: #666666;
+    --zero-gray-light: #e0e0e0;
+    --zero-gray-bg: #fafafa;
+}
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+font-family: -apple-system, BlinkMacSystemFont, ‘Segoe UI’, Arial, sans-serif;
+background: var(–zero-white);
+color: var(–zero-black);
+line-height: 1.6;
+padding-top: 4px;
+}
+
+.zero-color-bar {
+height: 4px;
+width: 100%;
+background: linear-gradient(90deg,
+var(–zero-green) 0%, var(–zero-green) 25%,
+var(–zero-red) 25%, var(–zero-red) 50%,
+var(–zero-navy) 50%, var(–zero-navy) 75%,
+var(–zero-orange) 75%, var(–zero-orange) 100%);
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+z-index: 1000;
+}
+
+.app-header {
+background: var(–zero-white);
+padding: 2rem;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+border-bottom: 1px solid var(–zero-gray-light);
+}
+
+.header-content {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1600px;
+margin: 0 auto;
+}
+
+.brand {
+display: flex;
+align-items: center;
+gap: 1rem;
+}
+
+.brand-logo {
+width: 40px;
+height: 40px;
+background: rgba(249,186,0,0.2);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1rem;
+}
+
+.title {
+font-size: 1.5rem;
+font-weight: 300;
+color: var(–zero-navy);
+}
+
+.title-at { color: var(–zero-orange); }
+
+.container {
+max-width: 1600px;
+margin: 0 auto;
+padding: 4rem 2rem;
+}
+
+.card {
+background: var(–zero-white);
+border: 1px solid var(–zero-gray-light);
+border-radius: 8px;
+padding: 2rem;
+margin-bottom: 2rem;
+}
+
+.card-title {
+font-size: 1.3rem;
+font-weight: 400;
+color: var(–zero-navy);
+margin-bottom: 0.5rem;
+}
+
+.card-subtitle {
+font-size: 0.9rem;
+color: var(–zero-gray-dark);
+font-weight: 300;
+}
+
+.stats-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+gap: 2rem;
+margin-top: 2rem;
+}
+
+.stat-card {
+background: var(–zero-gray-bg);
+border: 1px solid var(–zero-gray-light);
+border-radius: 6px;
+padding: 2rem;
+text-align: center;
+}
+
+.stat-value {
+font-size: 2.5rem;
+font-weight: 300;
+color: var(–zero-navy);
+margin-bottom: 0.5rem;
+}
+
+.stat-label {
+font-size: 0.8rem;
+color: var(–zero-gray-dark);
+text-transform: uppercase;
+letter-spacing: 1px;
+font-weight: 500;
+}
+
+table {
+width: 100%;
+border-collapse: collapse;
+}
+
+thead {
+background: var(–zero-navy);
+color: var(–zero-white);
+}
+
+th {
+padding: 1rem;
+text-align: left;
+font-weight: 500;
+font-size: 0.875rem;
+text-transform: uppercase;
+}
+
+td {
+padding: 1rem;
+border-bottom: 1px solid var(–zero-gray-light);
+}
+
+tbody tr:hover {
+background: var(–zero-gray-bg);
+}
+
+.progress-bar {
+width: 100%;
+height: 6px;
+background: var(–zero-gray-light);
+border-radius: 3px;
+overflow: hidden;
+margin-top: 4px;
+}
+
+.progress-fill {
+height: 100%;
+border-radius: 3px;
+background: var(–zero-green);
+}
+
+.status-badge {
+padding: 0.25rem 0.75rem;
+border-radius: 4px;
+font-size: 0.75rem;
+font-weight: 600;
+text-transform: uppercase;
+background: rgba(0, 85, 48, 0.1);
+color: var(–zero-green);
+border: 1px solid var(–zero-green);
+}
+</style>
+
+</head>
+<body>
+    <div class="zero-color-bar"></div>
+
+```
+<header class="app-header">
+    <div class="header-content">
+        <div class="brand">
+            <div class="brand-logo">🚚</div>
+            <div class="title">Zero<span class="title-at">@</span>Production — Order Delivery</div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="card">
+        <h3 class="card-title">ORDER DELIVERY</h3>
+        <p class="card-subtitle">Delivery management — Completed and delivered orders</p>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">5</div>
+                <div class="stat-label">Active Orders</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">59,303</div>
+                <div class="stat-label">Total Pieces</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">42.8t</div>
+                <div class="stat-label">Total CO₂</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value"><span class="status-badge">Active</span></div>
+                <div class="stat-label">Status</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card">
+        <h3 class="card-title">Orders in Delivered Stage</h3>
+        <p class="card-subtitle">5 orders • 59,303 pieces</p>
+        
+        <div style="max-height: 500px; overflow-y: auto; margin-top: 2rem;">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>PO Number</th>
+                        <th>Product</th>
+                        <th>Fabric</th>
+                        <th>Quantity</th>
+                        <th>GSM</th>
+                        <th>Country</th>
+                        <th>Facility</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>ORD-042</strong></td>
+                        <td>PO-95989</td>
+                        <td>Crewneck sweatshirt</td>
+                        <td>RD6989</td>
+                        <td>17,102</td>
+                        <td>220</td>
+                        <td>Italy</td>
+                        <td>Milano Fashion House</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;">78%</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>ORD-032</strong></td>
+                        <td>PO-20311</td>
+                        <td>Denim pinafore dress</td>
+                        <td>RD5349</td>
+                        <td>9,603</td>
+                        <td>300</td>
+                        <td>Italy</td>
+                        <td>Italian Textile Group</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%"></div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;">88%</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>ORD-022</strong></td>
+                        <td>PO-52514</td>
+                        <td>Denim bucket hat</td>
+                        <td>RD1294</td>
+                        <td>18,922</td>
+                        <td>400</td>
+                        <td>Türkiye</td>
+                        <td>Rabateks Main Factory</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 98%"></div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;">98%</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>ORD-012</strong></td>
+                        <td>PO-99098</td>
+                        <td>Vest</td>
+                        <td>RD6308</td>
+                        <td>10,715</td>
+                        <td>220</td>
+                        <td>Germany</td>
+                        <td>Partner Factory A</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 78%"></div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;">78%</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><strong>ORD-002</strong></td>
+                        <td>PO-95617</td>
+                        <td>Jersey sports top</td>
+                        <td>RD8094</td>
+                        <td>2,961</td>
+                        <td>180</td>
+                        <td>Italy</td>
+                        <td>Milano Fashion House</td>
+                        <td>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 88%"></div>
+                            </div>
+                            <div style="font-size: 0.75rem; color: var(--zero-gray-dark); margin-top: 2px;">88%</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+```
+
+</body>
+</html>
