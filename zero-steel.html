@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zero@Steel - Sustainable Steel Production</title>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         :root {
             --zero-navy: #02154e;
@@ -1141,6 +1143,85 @@
     </main>
     
     <script>
+        // Supabase Configuration
+        const SUPABASE_URL = localStorage.getItem('SUPABASE_URL') || 'DEMO_MODE';
+        const SUPABASE_KEY = localStorage.getItem('SUPABASE_KEY') || 'DEMO_MODE';
+        
+        let supabase = null;
+        let useDemoData = true;
+        
+        // Initialize Supabase if configured
+        if (SUPABASE_URL !== 'DEMO_MODE' && SUPABASE_KEY !== 'DEMO_MODE') {
+            try {
+                supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+                useDemoData = false;
+                console.log('✅ Supabase connected');
+            } catch(e) {
+                console.warn('Supabase initialization failed, using demo data');
+            }
+        }
+        
+        // Load dynamic furnace data
+        async function loadFurnaceData() {
+            if (useDemoData) {
+                console.log('📊 Using demo data mode');
+                return; // Keep existing static data
+            }
+            
+            try {
+                const { data, error } = await supabase
+                    .from('steel_furnace_metrics')
+                    .select('*')
+                    .order('timestamp', { ascending: false })
+                    .limit(10);
+                
+                if (error) throw error;
+                
+                if (data && data.length > 0) {
+                    updateFurnaceCards(data);
+                }
+            } catch(e) {
+                console.warn('Failed to load furnace data:', e);
+            }
+        }
+        
+        function updateFurnaceCards(metrics) {
+            // Group by furnace
+            const furnaceMap = {};
+            metrics.forEach(m => {
+                if (!furnaceMap[m.furnace_id]) {
+                    furnaceMap[m.furnace_id] = m;
+                }
+            });
+            
+            // Update cards if they exist
+            Object.values(furnaceMap).forEach(furnace => {
+                const card = document.querySelector(`[data-furnace="${furnace.furnace_id}"]`);
+                if (card) {
+                    // Update temperature
+                    const tempEl = card.querySelector('[data-metric="temperature"]');
+                    if (tempEl) tempEl.textContent = `${furnace.temperature}°C`;
+                    
+                    // Update load
+                    const loadEl = card.querySelector('[data-metric="load"]');
+                    if (loadEl) loadEl.textContent = `${furnace.current_load_tons} tons`;
+                    
+                    // Update CO2
+                    const co2El = card.querySelector('[data-metric="co2"]');
+                    if (co2El) co2El.textContent = `${furnace.co2_emissions_kg} kg/h`;
+                    
+                    // Update status
+                    const statusEl = card.querySelector('.status-badge');
+                    if (statusEl && furnace.status) {
+                        statusEl.textContent = furnace.status;
+                        statusEl.className = `status-badge ${furnace.status}`;
+                    }
+                }
+            });
+            
+            console.log('✅ Furnace data updated');
+        }
+        
         function showTab(tabName) {
             const tabContents = document.querySelectorAll('.tab-content');
             tabContents.forEach(content => {
@@ -1178,6 +1259,15 @@
                 const emission = this.querySelector('.stage-emission').textContent;
                 alert(`📍 ${stageName}\n\nEmissions: ${emission}\n\nClick for detailed process analysis...`);
             });
+        });
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            loadFurnaceData();
+            // Refresh every 30 seconds if using real data
+            if (!useDemoData) {
+                setInterval(loadFurnaceData, 30000);
+            }
         });
     </script>
 </body>
